@@ -13,7 +13,7 @@ const fs   = require('fs');
 const path = require('path');
 
 const EVENTS_PATH = path.join(__dirname, '..', 'events.json');
-const MODEL       = 'gemini-2.0-flash';
+const MODEL       = 'gemini-1.5-flash';
 const TODAY       = new Date().toISOString().slice(0, 10);
 
 function geminiUrl() {
@@ -308,7 +308,7 @@ async function main() {
       console.warn(`  ⚠️  Error en Gemini para ${source.name}: ${err.message}\n`);
     }
 
-    await new Promise(r => setTimeout(r, 1000));
+    await new Promise(r => setTimeout(r, 5000));
   }
 
   console.log(`🔄 Mergeando ${allNew.length} eventos encontrados…`);
