@@ -2,8 +2,8 @@
   "events": [],
   "coords": {},
   "meta": {
-    "lastUpdated": null,
+    "lastUpdated": "2026-05-02",
     "totalEvents": 0,
-    "note": "Generado automáticamente por GitHub Actions + Claude API"
+    "generatedBy": "github-actions + scraping + gemini"
   }
 }
