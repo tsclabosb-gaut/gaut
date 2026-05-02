@@ -13,7 +13,7 @@ const fs   = require('fs');
 const path = require('path');
 
 const EVENTS_PATH = path.join(__dirname, '..', 'events.json');
-const MODEL       = 'gemini-1.5-flash';
+const MODEL       = 'gemini-2.0-flash';
 const TODAY       = new Date().toISOString().slice(0, 10);
 
 function geminiUrl() {
