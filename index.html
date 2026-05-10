@@ -204,10 +204,10 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
     </div>
   </div>
   <h1>Descubre qué hacer hoy</h1>
-  <p>Actualizado diariamente · PuntoTicket · MNBA · Lo Matta Cultural · Municipalidades · Instagram</p>
+  <p>Actualizado diariamente · Municipalidades de Santiago</p>
   <div class="src-tags">
-    <span class="src-tag">🎟 PuntoTicket</span><span class="src-tag">🏛 MNBA</span><span class="src-tag">🏡 Lo Matta</span>
-    <span class="src-tag">📸 @niamchile</span><span class="src-tag">🎪 @panoramasgratis</span><span class="src-tag">🏘 Municipalidades</span>
+    <span class="src-tag">🏘 Las Condes</span><span class="src-tag">🏘 Vitacura</span><span class="src-tag">🏘 La Reina</span>
+    <span class="src-tag">🏘 Lo Barnechea</span><span class="src-tag">🏘 Huechuraba</span><span class="src-tag">🏘 Santiago</span>
   </div>
   <div class="vtabs">
     <button class="vt active" onclick="setView('grid',this)">⊞<span class="tl"> Explorar</span></button>
@@ -238,8 +238,8 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
   <div class="fs"><div class="ft">Fecha</div><div class="fcs">
     <span class="fc" id="fchoy" onclick="setF('hoy',this)">Hoy</span>
     <span class="fc" id="fcfds" onclick="setF('fds',this)">Fin de semana</span>
-    <span class="fc" id="fcabr" onclick="setF('abr',this)">Abril 2026</span>
-    <span class="fc" id="fcmay" onclick="setF('may',this)">Mayo+</span>
+    <span class="fc" id="fcmay" onclick="setF('may',this)">Este mes</span>
+    <span class="fc" id="fcprox" onclick="setF('prox',this)">Próximo mes</span>
   </div></div>
   <div class="fs"><div class="ft">Comuna</div><div class="fcs">
     <span class="fc" onclick="toggleFc(this,'prov')">Providencia</span>
@@ -263,10 +263,10 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
 </div>
 <div class="cnt">
   <div class="ch">
-    <div><h2 id="vtit">Para ti en abril 2026</h2><div class="rc" id="rcount"></div></div>
+    <div><h2 id="vtit">Cargando eventos...</h2><div class="rc" id="rcount"></div></div>
     <select class="ss" onchange="renderContent()"><option value="rel">Más relevantes</option><option value="prca">Precio ↑</option><option value="prcd">Precio ↓</option><option value="date">Por fecha</option></select>
   </div>
-  <div class="upd"><div class="dot"></div> Actualizado hoy · Próxima sync en 6h · 12 eventos activos</div>
+  <div class="upd" id="updBar"><div class="dot"></div> <span id="updTxt">Cargando eventos...</span></div>
   <div id="viewContent"></div>
 </div>
 </div>
@@ -291,7 +291,7 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
       <div class="mbtns">
         <button onclick="doSave()" style="flex:1;padding:9px;background:var(--b50);color:var(--b600);border:1.5px solid var(--b200);border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" id="saveBtn">♡ Guardar</button>
         <button onclick="doAddCal()" style="flex:1;padding:9px;background:var(--b50);color:var(--b600);border:1.5px solid var(--b200);border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">📅 Calendario</button>
-        <button id="mTktBtn" style="flex:2;padding:9px;background:var(--b600);color:#fff;border:none;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Comprar →</button>
+        <button id="mTktBtn" style="flex:2;padding:9px;background:var(--b600);color:#fff;border:none;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Ver más info →</button>
       </div>
       <div class="strip">
         <button class="sh-btn" onclick="shareWA()">💬 WhatsApp</button>
@@ -331,7 +331,7 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
       <div class="pa">MA</div>
       <div>
         <div style="font-family:'Sora',sans-serif;font-size:17px;font-weight:700">María Antonia</div>
-        <div style="font-size:11px;opacity:.7;margin-top:2px">📍 Santiago · Miembro desde abril 2026</div>
+        <div style="font-size:11px;opacity:.7;margin-top:2px">📍 Santiago · Miembro desde mayo 2026</div>
         <div style="display:flex;gap:5px;margin-top:7px;flex-wrap:wrap">
           <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:50px;font-size:10px">🎵 Música</span>
           <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:50px;font-size:10px">🎭 Cultura</span>
@@ -340,12 +340,8 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
       </div>
     </div>
     <div class="ptabs">
-      <button class="pt active" onclick="setPTab('attend',this)">✅ Asistidos</button>
-      <button class="pt" onclick="setPTab('saved',this)">❤️ Guardados</button>
+      <button class="pt active" onclick="setPTab('saved',this)">❤️ Guardados</button>
       <button class="pt" onclick="setPTab('prefs',this)">⚙️ Preferencias</button>
-      <button class="pt" onclick="setPTab('foll',this)">👥 Seguidores</button>
-      <button class="pt" onclick="setPTab('fing',this)">➕ Siguiendo</button>
-      <button class="pt" onclick="setPTab('pub',this)">📢 Publicar</button>
     </div>
     <div class="pc" id="profContent"></div>
   </div>
@@ -357,45 +353,63 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
 const PROXY='https://images.weserv.nl/?w=600&h=300&fit=cover&url=';
 const MONTHS=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const WDAYS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-const EVENTS=[
-  {id:1,cat:'food',title:'Festival Ñam 2026 — 13ª edición',img:'static.ptocdn.net/images/eventos/sm0189_re_banner.jpg',emoji:'🍽',desc:'El festival gastronómico más importante del país. Tres días con Resto Ñam, Ñam Bar, más de 100 stands de productores nacionales, Caleta Ñam, clases magistrales y chefs internacionales. Menores de 12 gratis hasta las 14h.',date:'10–12 Abr 2026',dateMs:new Date(2026,3,10).getTime(),days:[10,11,12],month:3,venue:'Parque Padre Hurtado',address:'Av. Príncipe de Gales 6100, La Reina',mapsQ:'Parque+Padre+Hurtado+La+Reina',price:9000,src:'@niamchile · PuntoTicket',srcUrl:'https://www.puntoticket.com/evento/festival-niam-stgo-2026',tags:['Gastronomía','Festival','Kid friendly','Pet friendly','Al aire libre'],acc:false,pet:true,kid:true,out:true,zone:'lare',tipo:'fest'},
-  {id:2,cat:'music',title:'Rockout Festival 2026',img:'static.ptocdn.net/especiales/cco090_rockout-festival-2026/img/portada-movil-v2.jpg',emoji:'🎸',desc:'4ª edición del festival de rock-punk-metal. Bad Religion, Evaristo (La Polla Records), La Vela Puerca, Soziedad Alkoholika, A.N.I.M.A.L., Doyle, Eterna Inocencia y más. Desde $79.000.',date:'25 Abr 2026',dateMs:new Date(2026,3,25).getTime(),days:[25],month:3,venue:'Estadio Santa Laura USEK',address:'Av. Independencia 2001, Independencia',mapsQ:'Estadio+Santa+Laura+USEK+Santiago',price:79000,src:'@rockoutfest · PuntoTicket',srcUrl:'https://www.puntoticket.com/rockout-festival-2026',tags:['Rock','Punk','Metal','Festival','18+'],acc:false,pet:false,kid:false,out:true,zone:'ind',tipo:'fest'},
-  {id:3,cat:'music',title:'Mac DeMarco — Guitar Tour',img:'static.ptocdn.net/images/eventos/fna362_re_banner.jpg',emoji:'🎵',desc:'El ícono del indie lo-fi regresa a Chile tras 7 años presentando "Guitar". La primera fecha (sáb 18) está agotada. Aún hay entradas para el domingo 19. Teatro Caupolicán, 21:00h.',date:'18–19 Abr 2026',dateMs:new Date(2026,3,18).getTime(),days:[18,19],month:3,venue:'Teatro Caupolicán',address:'San Diego 850, Santiago Centro',mapsQ:'Teatro+Caupolican+San+Diego+850+Santiago',price:86250,src:'PuntoTicket · teatrocaupolican.cl',srcUrl:'https://teatrocaupolican.cl/',tags:['Indie','Lo-fi','SOLD OUT Sáb'],acc:true,pet:false,kid:false,out:false,zone:'cen',tipo:'conc'},
-  {id:4,cat:'culture',title:'Lo Matta: Ciclo Geopolítica 2026',img:'static.ptocdn.net/images/eventos/sm0189_calugalistado.jpg',emoji:'🏛',desc:'Tres conferencias: "Nueva geopolítica mundial", "Medio Oriente e Irán" y "Donald Trump y la reconfiguración del mundo". Cada viernes de abril en la casona colonial del s. XVIII.',date:'10, 17, 24 Abr 2026',dateMs:new Date(2026,3,10).getTime(),days:[10,17,24],month:3,venue:'Lo Matta Cultural',address:'Av. Presidente Kennedy 9350, Vitacura',mapsQ:'Lo+Matta+Cultural+Kennedy+9350+Vitacura',price:0,src:'lomatta.cl · Corp. Cultural Vitacura',srcUrl:'https://www.lomatta.cl/carteleras/',tags:['Charla','Geopolítica','Accesible','Gratis'],acc:true,pet:false,kid:false,out:false,zone:'vit',tipo:'charla'},
-  {id:5,cat:'culture',title:'Feria del Libro Vitacura 2026',img:'static.ptocdn.net/images/eventos/sm0189_re_banner.jpg',emoji:'📚',desc:'Más de 45 expositores, lanzamientos, espectáculos, actividades familiares y experiencia de realidad virtual. Entrada liberada.',date:'9–12 Abr 2026',dateMs:new Date(2026,3,9).getTime(),days:[9,10,11,12],month:3,venue:'Lo Matta Cultural',address:'Av. Presidente Kennedy 9350, Vitacura',mapsQ:'Lo+Matta+Cultural+Vitacura',price:0,src:'lomatta.cl · Municipalidad Vitacura',srcUrl:'https://www.lomatta.cl/carteleras/',tags:['Gratis','Literatura','Kid friendly','Familia'],acc:true,pet:false,kid:true,out:false,zone:'vit',tipo:'expo'},
-  {id:6,cat:'culture',title:'Desbocadas: Yeguas del Apocalipsis',img:'www.mnba.gob.cl/sites/www.mnba.gob.cl/files/styles/16x9_grande/public/2025-12/Marinello_pajaritos.jpg',emoji:'🖼',desc:'Primera retrospectiva de Francisco Casas y Pedro Lemebel. Arte performático latinoamericano. Gratuita y accesible en el MNBA, Parque Forestal.',date:'20 Ene – 19 Abr 2026',dateMs:new Date(2026,0,20).getTime(),days:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],month:3,venue:'Museo Nacional de Bellas Artes',address:'José Miguel de la Barra 650, Parque Forestal',mapsQ:'Museo+Nacional+Bellas+Artes+Santiago',price:0,src:'mnba.gob.cl',srcUrl:'https://www.mnba.gob.cl/',tags:['Gratis','Arte','Accesible','Kid friendly'],acc:true,pet:false,kid:true,out:false,zone:'cen',tipo:'expo'},
-  {id:7,cat:'culture',title:'Fungi Cosmology — Arte y ciencia',img:'www.mnba.gob.cl/sites/www.mnba.gob.cl/files/styles/16x9_grande/public/2025-12/Marinello_pajaritos.jpg',emoji:'🍄',desc:'Exposición interdisciplinaria sobre hongos desde el arte, la ciencia y la cooperación internacional. Gratuita en el Centro GAM hasta junio 2026.',date:'21 Mar – 14 Jun 2026',dateMs:new Date(2026,2,21).getTime(),days:Array.from({length:30},(_,i)=>i+1),month:3,venue:'Centro Cultural GAM',address:"Av. Libertador B. O'Higgins 227",mapsQ:'Centro+Cultural+GAM+Alameda+Santiago',price:0,src:'santiagocultura.cl · Mun. Santiago',srcUrl:'https://www.santiagocultura.cl/',tags:['Gratis','Arte+Ciencia','Accesible','Kid friendly'],acc:true,pet:false,kid:true,out:false,zone:'cen',tipo:'expo'},
-  {id:8,cat:'culture',title:'María, Mater Dei — Teatro Municipal',img:'static.ptocdn.net/images/eventos/fna362_calugalistado.jpg',emoji:'🎭',desc:'Obra teatral de Juan Antonio Muñoz en el Teatro Municipal. Funciones hasta mayo 2026.',date:'1 Abr – 2 May 2026',dateMs:new Date(2026,3,1).getTime(),days:[1,4,8,11,15,18,22,25,29],month:3,venue:'Teatro Municipal de Santiago',address:'Agustinas 794, Santiago Centro',mapsQ:'Teatro+Municipal+Santiago+Agustinas',price:15000,src:'municipal.cl · santiagocultura.cl',srcUrl:'https://municipal.cl/espectaculos/',tags:['Teatro','Accesible'],acc:true,pet:false,kid:false,out:false,zone:'cen',tipo:'tetr'},
-  {id:9,cat:'music',title:'Illapu + Inti-Illimani + Quilapayún',img:'static.ptocdn.net/especiales/cco090_rockout-festival-2026/img/portada-movil-v2.jpg',emoji:'🪗',desc:'Noche histórica de leyendas de la nueva canción chilena en el Parque Estadio Nacional.',date:'25 Abr 2026',dateMs:new Date(2026,3,25).getTime(),days:[25],month:3,venue:'Parque Estadio Nacional',address:'Av. Grecia 2001, Ñuñoa',mapsQ:'Estadio+Nacional+Santiago+Av+Grecia',price:25000,src:'cooperativa.cl · WalkingStgo',srcUrl:'https://www.cooperativa.cl/noticias/magazine/musica/shows-en-vivo/cartelera-de-conciertos-2026-en-chile/',tags:['Folclore','Música chilena','Al aire libre','Kid friendly'],acc:false,pet:false,kid:true,out:true,zone:'nun',tipo:'conc'},
-  {id:10,cat:'sport',title:'Parkrun Parque de las Esculturas',img:'static.ptocdn.net/images/eventos/sm0189_re_banner.jpg',emoji:'🏃',desc:'Carrera gratuita de 5km cada sábado a las 9:00h. Todos los niveles. Perros bienvenidos.',date:'Cada sábado 9:00h',dateMs:new Date(2026,3,5).getTime(),days:[5,12,19,26],month:3,venue:'Parque de las Esculturas',address:'Av. Santa María 2201, Providencia',mapsQ:'Parque+Esculturas+Providencia',price:0,src:'parkrun.cl · @panoramasgratis',srcUrl:'https://www.parkrun.cl/',tags:['Gratis','5km','Pet friendly','Kid friendly','Al aire libre'],acc:false,pet:true,kid:true,out:true,zone:'prov',tipo:'dep'},
-  {id:11,cat:'sport',title:'Ciclismo Nocturno Bellavista',img:'static.ptocdn.net/images/eventos/sm0189_calugalistado.jpg',emoji:'🚴',desc:'Paseo nocturno en bicicleta por Bellavista y Providencia. Plaza Italia cada miércoles 20:30h.',date:'Miércoles 20:30h',dateMs:new Date(2026,3,8).getTime(),days:[8,15,22,29],month:3,venue:'Plaza Italia',address:'Av. Vicuña Mackenna con Alameda',mapsQ:'Plaza+Italia+Baquedano+Santiago',price:0,src:'@panoramasgratis · Mun. Providencia',srcUrl:'https://www.instagram.com/panoramasgratis/',tags:['Gratis','Nocturno','Pet friendly','Al aire libre'],acc:false,pet:true,kid:false,out:true,zone:'prov',tipo:'dep'},
-  {id:12,cat:'food',title:'Feria Gastronómica Plaza Ñuñoa',img:'static.ptocdn.net/images/eventos/fna362_re_banner.jpg',emoji:'🍕',desc:'Feria local todos los domingos con +40 puestos artesanales, café de especialidad y vinos naturales.',date:'Domingos 10:00–16:00h',dateMs:new Date(2026,3,6).getTime(),days:[6,13,20,27],month:3,venue:'Plaza Ñuñoa',address:'Av. Irarrázaval 4900, Ñuñoa',mapsQ:'Plaza+Nuñoa+Irarrazaval+Santiago',price:0,src:'@quehacerenstgo · Mun. Ñuñoa',srcUrl:'https://www.instagram.com/quehacerenstgo/',tags:['Gratis','Feria','Pet friendly','Kid friendly','Al aire libre'],acc:false,pet:true,kid:true,out:true,zone:'nun',tipo:'fest'},
-];
-const COORDS={1:[-33.450,-70.586],2:[-33.421,-70.654],3:[-33.458,-70.648],4:[-33.392,-70.577],5:[-33.392,-70.577],6:[-33.437,-70.649],7:[-33.457,-70.647],8:[-33.457,-70.648],9:[-33.465,-70.603],10:[-33.428,-70.633],11:[-33.437,-70.639],12:[-33.456,-70.600]};
 const BG={food:'#FFF3E0',music:'#EDE7F6',culture:'#E8F5E9',sport:'#E3F2FD'};
-let CV='grid',CC='all',LI=false,MP=150000,FF='all',SQ='',saved=new Set(),attended=new Set([1,3]),CE=null,calY=2026,calM=3,LM=null;
+
+// ── Estado global ─────────────────────────────────────────────────────────────
+let EVENTS=[];
+let COORDS={};
+let CV='grid',CC='all',LI=false,MP=150000,FF='all',SQ='',saved=new Set(),CE=null,LM=null;
+const now=new Date();
+let calY=now.getFullYear(),calM=now.getMonth();
 let FIL={acc:0,pet:0,kid:0,out:0,free:0,prov:0,bella:0,cen:0,lc:0,nun:0,vit:0,lare:0,ind:0,fest:0,conc:0,expo:0,tetr:0,dep:0,charla:0};
+
+// ── Cargar events.json ────────────────────────────────────────────────────────
+fetch('./events.json')
+  .then(r=>r.json())
+  .then(data=>{
+    EVENTS=data.events||[];
+    COORDS=data.coords||{};
+    const meta=data.meta||{};
+    const total=EVENTS.length;
+    const updEl=document.getElementById('updTxt');
+    if(updEl) updEl.textContent='Actualizado '+( meta.lastUpdated||'hoy')+' · '+total+' evento'+(total!==1?'s':'')+' activos';
+    document.getElementById('vtit').textContent='Para ti en '+MONTHS[calM]+' '+calY;
+    renderContent();
+  })
+  .catch(()=>{
+    document.getElementById('updTxt').textContent='Sin conexión — reintenta más tarde';
+    renderContent();
+  });
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 function cl(c){return{food:'Restaurante & Café',music:'Música',culture:'Cultura & Charlas',sport:'Deporte & Aire libre'}[c]||c}
 function ce(c){return{food:'🍽',music:'🎵',culture:'🎭',sport:'🏃'}[c]||'✨'}
+function iurl(p){if(!p)return'';return PROXY+encodeURIComponent(p)}
+
+// ── Filtros ───────────────────────────────────────────────────────────────────
 function getF(){
   let d=[...EVENTS];
   if(CC!=='all')d=d.filter(e=>e.cat===CC);
   ['acc','pet','kid','out','free'].forEach(k=>{if(FIL[k])d=d.filter(e=>k==='free'?e.price===0:e[k])});
   const az=['prov','bella','cen','lc','nun','vit','lare','ind'].filter(z=>FIL[z]);if(az.length)d=d.filter(e=>az.includes(e.zone));
   const at=['fest','conc','expo','tetr','dep','charla'].filter(t=>FIL[t]);if(at.length)d=d.filter(e=>at.includes(e.tipo));
-  d=d.filter(e=>e.price<=MP);
-  if(FF==='abr')d=d.filter(e=>e.month===3);else if(FF==='may')d=d.filter(e=>e.month>=4);
-  if(SQ.length>1)d=d.filter(e=>(e.title+e.desc+e.venue+e.src).toLowerCase().includes(SQ));
+  d=d.filter(e=>e.price==null||e.price<=MP);
+  if(FF==='may')d=d.filter(e=>e.month===calM);
+  else if(FF==='prox')d=d.filter(e=>e.month===calM+1||(calM===11&&e.month===0));
+  else if(FF==='hoy'){const t=new Date();d=d.filter(e=>e.days&&e.days.includes(t.getDate())&&e.month===t.getMonth())}
+  else if(FF==='fds'){const t=new Date(),day=t.getDay();const sat=new Date(t);sat.setDate(t.getDate()+(6-day));const sun=new Date(sat);sun.setDate(sat.getDate()+1);d=d.filter(e=>e.days&&e.month===sat.getMonth()&&(e.days.includes(sat.getDate())||e.days.includes(sun.getDate())))}
+  if(SQ.length>1)d=d.filter(e=>(e.title+e.desc+e.venue+(e.src||'')).toLowerCase().includes(SQ));
   const s=document.querySelector('.ss')?.value||'rel';
-  if(s==='prca')d.sort((a,b)=>a.price-b.price);else if(s==='prcd')d.sort((a,b)=>b.price-a.price);else if(s==='date')d.sort((a,b)=>a.dateMs-b.dateMs);
+  if(s==='prca')d.sort((a,b)=>(a.price||0)-(b.price||0));else if(s==='prcd')d.sort((a,b)=>(b.price||0)-(a.price||0));else if(s==='date')d.sort((a,b)=>a.dateMs-b.dateMs);
   return d;
 }
 function toggleFc(el,k){el.classList.toggle('active');FIL[k]=el.classList.contains('active')?1:0;renderContent()}
 function setF(f,el){if(FF===f){FF='all';el.classList.remove('active')}else{document.querySelectorAll('.fc[id^=fc]').forEach(x=>x.classList.remove('active'));FF=f;el.classList.add('active')}renderContent()}
 function resetAll(){Object.keys(FIL).forEach(k=>FIL[k]=0);MP=150000;FF='all';SQ='';document.getElementById('prR').value=150000;document.getElementById('prL').textContent='$150.000';document.querySelectorAll('.fc').forEach(x=>x.classList.remove('active'));renderContent()}
-function setView(v,btn){CV=v;document.querySelectorAll('.vt').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.getElementById('vtit').textContent={grid:'Para ti en abril 2026',map:'Por ubicación',cal:'Calendario '+MONTHS[calM]+' '+calY}[v];renderContent()}
+function setView(v,btn){CV=v;document.querySelectorAll('.vt').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.getElementById('vtit').textContent={grid:'Para ti en '+MONTHS[calM]+' '+calY,map:'Por ubicación',cal:'Calendario '+MONTHS[calM]+' '+calY}[v];renderContent()}
 function setCat(c,btn){CC=c;document.querySelectorAll('.cb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderContent()}
-function iurl(p){return PROXY+encodeURIComponent(p)}
+
+// ── Render ────────────────────────────────────────────────────────────────────
 function renderContent(){
   const vc=document.getElementById('viewContent');vc.innerHTML='';
   const d=getF();
@@ -408,15 +422,18 @@ function rGrid(vc,data){
   data.forEach(e=>{
     const card=document.createElement('div');card.className='ec';
     const bdg=(e.acc?'<span class="bsm">♿</span>':'')+(e.pet?'<span class="bsm">🐾</span>':'')+(e.kid?'<span class="bsm">👶</span>':'');
-    const sold=e.tags.some(t=>t.includes('SOLD'))?'<div class="sold-tag">SOLD OUT — Sáb agotado</div>':'';
-    const fb=`this.closest('.ev-img').innerHTML='<div class=\\"ev-fb\\" style=\\"background:${BG[e.cat]}\\">${e.emoji}<span class=\\"cbdg\\">${cl(e.cat)}</span><div class=\\"cbdgs\\">${bdg}</div>${sold}</div>'`;
-    card.innerHTML=`<div class="ev-img" style="position:relative"><img src="${iurl(e.img)}" alt="${e.title}" loading="lazy" onerror="${fb}"><span class="cbdg">${cl(e.cat)}</span><div class="cbdgs">${bdg}</div>${sold}</div>
+    const sold=(e.tags||[]).some(t=>t.includes('SOLD'))?'<div class="sold-tag">SOLD OUT</div>':'';
+    const hasImg=e.img&&e.img.length>0;
+    const imgHtml=hasImg
+      ?`<img src="${iurl(e.img)}" alt="${e.title}" loading="lazy" onerror="this.closest('.ev-img').innerHTML='<div class=\\"ev-fb\\" style=\\"background:${BG[e.cat]||'#eee'}\\">${e.emoji||'✨'}</div>'">`
+      :`<div class="ev-fb" style="background:${BG[e.cat]||'#eee'}">${e.emoji||'✨'}</div>`;
+    card.innerHTML=`<div class="ev-img" style="position:relative">${imgHtml}<span class="cbdg">${cl(e.cat)}</span><div class="cbdgs">${bdg}</div>${sold}</div>
     <div class="cb2"><div class="ccat">${cl(e.cat)}</div><div class="ctit">${e.title}</div>
     <div class="cmeta"><span>📅 ${e.date}</span><span>📍 ${e.venue}</span></div>
-    <div class="csrc">${e.src.split('·')[0].trim()}</div>
-    <div class="cf"><span class="cpr ${e.price===0?'fr':''}">${e.price===0?'Gratis':'desde $'+e.price.toLocaleString('es-CL')}</span>
+    <div class="csrc">${(e.src||'').split('·')[0].trim()}</div>
+    <div class="cf"><span class="cpr ${e.price===0?'fr':''}">${e.price===0?'Gratis':e.price?'desde $'+e.price.toLocaleString('es-CL'):'Gratis'}</span>
     <div class="cas"><button class="ib ${saved.has(e.id)?'sv':''}" onclick="tSave(event,${e.id},this)">${saved.has(e.id)?'❤️':'🤍'}</button>
-    <button class="ib" onclick="openEvent(EVENTS[${e.id-1}])">👁</button></div></div></div>`;
+    <button class="ib" onclick="openEvent(EVENTS.find(x=>x.id===${e.id}))">👁</button></div></div></div>`;
     card.querySelector('.ctit').onclick=()=>openEvent(e);
     card.querySelector('.ev-img').onclick=()=>openEvent(e);
     g.appendChild(card);
@@ -428,7 +445,7 @@ function rMap(vc,data){
   wrap.innerHTML=`<div class="msi"><input type="text" id="mapQ" placeholder="🔍 Busca por barrio, comuna..." onkeydown="if(event.key==='Enter')doMapSearch()"><button onclick="doMapSearch()">Buscar</button></div><div style="border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)"><div id="leafletMap"></div></div><div class="mlist" id="mapList"></div>`;
   vc.appendChild(wrap);
   const ml=wrap.querySelector('#mapList');
-  data.forEach(e=>{const li=document.createElement('div');li.className='mli';li.innerHTML=`<h4>${ce(e.cat)} ${e.title}</h4><p>📍 ${e.venue} · ${e.price===0?'Gratis':'$'+e.price.toLocaleString('es-CL')}</p>`;li.onclick=()=>openEvent(e);ml.appendChild(li);});
+  data.forEach(e=>{const li=document.createElement('div');li.className='mli';li.innerHTML=`<h4>${ce(e.cat)} ${e.title}</h4><p>📍 ${e.venue} · ${e.price===0?'Gratis':e.price?'$'+e.price.toLocaleString('es-CL'):'Gratis'}</p>`;li.onclick=()=>openEvent(e);ml.appendChild(li);});
   setTimeout(()=>{
     if(LM){LM.remove();LM=null}
     LM=L.map('leafletMap').setView([-33.445,-70.643],12);
@@ -447,7 +464,7 @@ function doMapSearch(){
 function rCal(vc){
   const d=getF();
   const fd=new Date(calY,calM,1).getDay(),dim=new Date(calY,calM+1,0).getDate(),today=new Date();
-  const ebd={};d.forEach(e=>{if(e.month===calM)e.days.forEach(day=>{if(!ebd[day])ebd[day]=[];if(!ebd[day].find(x=>x.id===e.id))ebd[day].push(e);});});
+  const ebd={};d.forEach(e=>{if(e.month===calM)(e.days||[]).forEach(day=>{if(!ebd[day])ebd[day]=[];if(!ebd[day].find(x=>x.id===e.id))ebd[day].push(e);});});
   let html=`<div class="calw"><div class="calh"><button class="cln" onclick="calNav(-1)">‹</button><span style="font-family:'Sora',sans-serif;font-size:15px;font-weight:600">${MONTHS[calM]} ${calY}</span><button class="cln" onclick="calNav(1)">›</button></div><div class="cdns">${WDAYS.map(d=>`<div class="cdn">${d}</div>`).join('')}</div><div class="ccs">`;
   for(let i=0;i<fd;i++)html+=`<div class="cc" style="background:var(--g100);opacity:.3"><div class="cn"></div></div>`;
   for(let day=1;day<=dim;day++){
@@ -460,27 +477,29 @@ function rCal(vc){
 function calNav(d){calM+=d;if(calM<0){calM=11;calY--}if(calM>11){calM=0;calY++}document.getElementById('vtit').textContent='Calendario '+MONTHS[calM]+' '+calY;renderContent()}
 function openEById(id){const e=EVENTS.find(x=>x.id===id);if(e)openEvent(e)}
 function openEvent(e){
+  if(!e)return;
   CE=e;
   const wrap=document.getElementById('modImgWrap');
-  const fb=`this.outerHTML='<div class=\\"mod-fb\\" style=\\"background:${BG[e.cat]}\\">${e.emoji}</div>'`;
-  wrap.innerHTML=`<img src="${iurl(e.img)}" class="mod-img" alt="${e.title}" onerror="${fb}">`;
+  const hasImg=e.img&&e.img.length>0;
+  if(hasImg){wrap.innerHTML=`<img src="${iurl(e.img)}" class="mod-img" alt="${e.title}" onerror="this.outerHTML='<div class=\\"mod-fb\\" style=\\"background:${BG[e.cat]||'#eee'}\\">${e.emoji||'✨'}</div>'">`}
+  else{wrap.innerHTML=`<div class="mod-fb" style="background:${BG[e.cat]||'#eee'}">${e.emoji||'✨'}</div>`}
   document.getElementById('mCat').textContent=cl(e.cat);
-  document.getElementById('mPrice').textContent=e.price===0?'Gratis':'desde $'+e.price.toLocaleString('es-CL');
+  document.getElementById('mPrice').textContent=e.price===0?'Gratis':e.price?'desde $'+e.price.toLocaleString('es-CL'):'Gratis';
   document.getElementById('mTitle').textContent=e.title;
   document.getElementById('mDesc').textContent=e.desc;
   document.getElementById('mDate').textContent=e.date;
   document.getElementById('mVenue').textContent=e.venue;
-  document.getElementById('mAddrTxt').textContent=e.address;
-  document.getElementById('mAddr').href='https://www.google.com/maps/search/'+e.mapsQ;
-  document.getElementById('mTags').innerHTML=e.tags.map(t=>`<span class="mtg">${t}</span>`).join('');
+  document.getElementById('mAddrTxt').textContent=e.address||e.venue;
+  document.getElementById('mAddr').href='https://www.google.com/maps/search/'+(e.mapsQ||encodeURIComponent(e.venue+' Santiago'));
+  document.getElementById('mTags').innerHTML=(e.tags||[]).map(t=>`<span class="mtg">${t}</span>`).join('');
   document.getElementById('mSrc').innerHTML=`🔗 Fuente: <a href="${e.srcUrl}" target="_blank">${e.src}</a>`;
   document.getElementById('saveBtn').innerHTML=saved.has(e.id)?'❤️ Guardado':'♡ Guardar';
-  document.getElementById('mTktBtn').textContent=e.price===0?'Ver más info →':'Comprar entrada →';
+  document.getElementById('mTktBtn').textContent=e.price===0?'Ver más info →':'Ver más info →';
   document.getElementById('mTktBtn').onclick=()=>window.open(e.srcUrl,'_blank');
   openMod('evMod');
 }
 function doSave(){if(!LI){closeMod('evMod');openMod('authMod');return}if(CE){if(saved.has(CE.id)){saved.delete(CE.id);document.getElementById('saveBtn').innerHTML='♡ Guardar'}else{saved.add(CE.id);document.getElementById('saveBtn').innerHTML='❤️ Guardado';showToast('¡Guardado! ❤️')}renderContent()}}
-function doAddCal(){if(!CE)return;const t=encodeURIComponent(CE.title),loc=encodeURIComponent(CE.address),d=new Date(CE.dateMs),fmt=d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${t}&location=${loc}&dates=${fmt}/${fmt}`,'_blank');showToast('📅 Abriendo Google Calendar…')}
+function doAddCal(){if(!CE)return;const t=encodeURIComponent(CE.title),loc=encodeURIComponent(CE.address||CE.venue),d=new Date(CE.dateMs),fmt=d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${t}&location=${loc}&dates=${fmt}/${fmt}`,'_blank');showToast('📅 Abriendo Google Calendar…')}
 function tSave(ev,id,btn){ev.stopPropagation();if(!LI){openMod('authMod');return}if(saved.has(id)){saved.delete(id);btn.textContent='🤍';btn.classList.remove('sv')}else{saved.add(id);btn.textContent='❤️';btn.classList.add('sv');showToast('¡Guardado! ❤️')}renderContent()}
 function shareWA(){if(!CE)return;window.open('https://wa.me/?text='+encodeURIComponent('¡Mira este evento!\n'+CE.title+'\n📅 '+CE.date+'\n📍 '+CE.venue+'\n'+CE.srcUrl),'_blank')}
 function shareCopy(){if(!CE)return;navigator.clipboard?.writeText(CE.title+' — '+CE.date+' @ '+CE.venue+' | '+CE.srcUrl).then(()=>showToast('Link copiado 🔗')).catch(()=>prompt('Copia este link:',CE.srcUrl))}
@@ -492,18 +511,13 @@ function toggleAuth(){isSU=!isSU;document.getElementById('authT').textContent=is
 document.getElementById('locBtn').addEventListener('click',e=>{e.stopPropagation();document.getElementById('locDrop').classList.toggle('open')});
 function setLoc(el,label,ev){ev.stopPropagation();document.getElementById('locLbl').textContent=label;document.querySelectorAll('.loc-opt').forEach(o=>o.classList.remove('active'));el.classList.add('active');document.getElementById('locDrop').classList.remove('open');showToast('📍 '+label)}
 document.addEventListener('click',()=>document.getElementById('locDrop').classList.remove('open'));
-let cPT='attend';
+let cPT='saved';
 function setPTab(tab,btn){cPT=tab;document.querySelectorAll('.pt').forEach(b=>b.classList.remove('active'));btn.classList.add('active');rPT()}
 function rPT(){
   const pc=document.getElementById('profContent');
-  if(cPT==='attend'){const att=EVENTS.filter(e=>attended.has(e.id));pc.innerHTML=`<div class="stat-row"><div class="stat"><div class="n">${att.length}</div><div class="l">Asistidos</div></div><div class="stat"><div class="n">${saved.size}</div><div class="l">Guardados</div></div><div class="stat"><div class="n">8</div><div class="l">Reseñas</div></div></div>`+att.map(e=>`<div class="ev-mini" onclick="openEvent(EVENTS[${e.id-1}])"><span style="font-size:20px">${ce(e.cat)}</span><div><div style="font-size:12px;font-weight:600">${e.title}</div><div style="font-size:10px;color:var(--g400)">📅 ${e.date}</div></div></div>`).join('')}
-  else if(cPT==='saved'){const svd=EVENTS.filter(e=>saved.has(e.id));pc.innerHTML=svd.length?svd.map(e=>`<div class="ev-mini"><span style="font-size:20px">${ce(e.cat)}</span><div><div style="font-size:12px;font-weight:600">${e.title}</div><div style="font-size:10px;color:var(--g400)">📅 ${e.date}</div></div><button onclick="saved.delete(${e.id});rPT();renderContent()" style="margin-left:auto;background:none;border:none;font-size:15px;cursor:pointer;color:var(--g400)">✕</button></div>`).join(''):'<div style="text-align:center;padding:2rem;color:var(--g400);font-size:12px">Aún no guardas eventos ❤️</div>'}
-  else if(cPT==='prefs'){pc.innerHTML=`<div style="font-size:12px;font-weight:600;margin-bottom:9px">Mis intereses</div><div class="fcs" style="margin-bottom:1rem">${['🎵 Música','🎭 Cultura','🍽 Gastronomía','🏃 Deporte','🌿 Aire libre','🐾 Pet friendly','👶 Kid friendly'].map(t=>`<span class="fc active">${t}</span>`).join('')}</div><div style="font-size:12px;font-weight:600;margin-bottom:9px">Notificaciones</div>${[['Nuevos eventos en mi zona','on'],['Mis categorías','on'],['Recordatorio 24h antes','on'],['Newsletter semanal','']].map(([l,s])=>`<div class="afr"><span style="font-size:12px;color:var(--g600)">${l}</span><div class="at ${s}" onclick="this.classList.toggle('on')"></div></div>`).join('')}`}
-  else if(cPT==='foll'){pc.innerHTML=`<div class="stat-row"><div class="stat"><div class="n">48</div><div class="l">Seguidores</div></div><div class="stat"><div class="n">31</div><div class="l">Siguiendo</div></div></div>${[['JC','Juan Carlos R.','12 eventos en común'],['AP','Ana P.','Jazz lover'],['SV','Sofía V.','Providencia']].map(([i,n,d])=>`<div class="fl-item"><div class="fl-av">${i}</div><div><div style="font-size:12px;font-weight:600">${n}</div><div style="font-size:10px;color:var(--g400)">${d}</div></div></div>`).join('')}`}
-  else if(cPT==='fing'){pc.innerHTML=[['PT','PuntoTicket','Ticketera oficial'],['MN','MNBA','Museo Bellas Artes'],['LM','Lo Matta','Centro Cultural Vitacura'],['PG','@panoramasgratis','145K seguidores'],['NM','@niamchile','79K seguidores']].map(([i,n,d])=>`<div class="fl-item"><div class="fl-av" style="background:var(--b100);color:var(--b800)">${i}</div><div><div style="font-size:12px;font-weight:600">${n}</div><div style="font-size:10px;color:var(--g400)">${d}</div></div><button onclick="showToast('Dejaste de seguir a ${n}')" style="margin-left:auto;padding:4px 9px;border:1.5px solid var(--b200);border-radius:50px;background:none;font-size:10px;color:var(--b600);cursor:pointer;font-family:inherit">Siguiendo ✓</button></div>`).join('')}
-  else if(cPT==='pub'){pc.innerHTML=`<h3 style="font-family:'Sora',sans-serif;font-size:15px;font-weight:600;margin-bottom:.85rem">Publicar nuevo evento</h3><div class="fg"><label>Nombre del evento *</label><input type="text" id="newEvN" oninput="chkDup(this.value)" placeholder="Nombre del evento"><div class="dw" id="dupW">⚠️ Ya existe un evento similar — ¿Es el mismo?</div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="fg"><label>Categoría *</label><select><option>Música</option><option>Restaurante & Café</option><option>Deporte & Aire libre</option><option>Cultura & Charlas</option></select></div><div class="fg"><label>Precio CLP</label><input type="number" placeholder="0 = Gratis"></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="fg"><label>Fecha *</label><input type="date"></div><div class="fg"><label>Hora</label><input type="time"></div></div><div class="fg"><label>Recinto *</label><input type="text" placeholder="Teatro Caupolicán..."></div><div class="fg"><label>Dirección *</label><input type="text" placeholder="Calle, número, comuna"></div><div class="fg"><label>Link oficial / Fuente *</label><input type="url" placeholder="https://puntoticket.com/..."></div><div class="fg"><label>Descripción</label><textarea style="resize:vertical;min-height:65px" placeholder="Describe el evento..."></textarea></div><div style="border:2px dashed var(--b200);border-radius:10px;padding:1rem;text-align:center;background:var(--b50);cursor:pointer;margin-bottom:.85rem" onclick="showToast('Sube fotos del evento 📸')"><div style="font-size:24px;margin-bottom:4px">📷</div><div style="font-size:12px;font-weight:500;color:var(--b600)">Agregar fotos</div><div style="font-size:10px;color:var(--g400)">PNG, JPG hasta 10MB</div></div><div style="display:flex;gap:8px"><button onclick="showToast('Borrador guardado ✏️')" style="flex:1;padding:9px;background:var(--b50);color:var(--b600);border:1.5px solid var(--b200);border-radius:9px;font-size:12px;cursor:pointer;font-family:inherit">Borrador</button><button onclick="showToast('¡Evento enviado a revisión! 🎉')" style="flex:2;padding:9px;background:var(--b600);color:#fff;border:none;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Publicar</button></div>`}
+  if(cPT==='saved'){const svd=EVENTS.filter(e=>saved.has(e.id));pc.innerHTML=svd.length?svd.map(e=>`<div class="ev-mini"><span style="font-size:20px">${ce(e.cat)}</span><div><div style="font-size:12px;font-weight:600">${e.title}</div><div style="font-size:10px;color:var(--g400)">📅 ${e.date}</div></div><button onclick="saved.delete(${e.id});rPT();renderContent()" style="margin-left:auto;background:none;border:none;font-size:15px;cursor:pointer;color:var(--g400)">✕</button></div>`).join(''):'<div style="text-align:center;padding:2rem;color:var(--g400);font-size:12px">Aún no guardas eventos ❤️</div>'}
+  else if(cPT==='prefs'){pc.innerHTML=`<div style="font-size:12px;font-weight:600;margin-bottom:9px">Mis intereses</div><div class="fcs" style="margin-bottom:1rem">${['🎵 Música','🎭 Cultura','🍽 Gastronomía','🏃 Deporte','🌿 Aire libre','🐾 Pet friendly','👶 Kid friendly'].map(t=>`<span class="fc active">${t}</span>`).join('')}</div>`}
 }
-function chkDup(v){const dw=document.getElementById('dupW');if(!dw)return;if(v.length>3&&['rockout','mac demarco','yeguas','fungi','ñam','lo matta'].some(e=>e.includes(v.toLowerCase().slice(0,5))))dw.classList.add('sh');else dw.classList.remove('sh')}
 function openMod(id){document.getElementById(id).classList.add('op');if(id==='profMod')rPT()}
 function closeMod(id){document.getElementById(id).classList.remove('op')}
 document.querySelectorAll('.ov').forEach(o=>o.addEventListener('click',function(e){if(e.target===this)this.classList.remove('op')}));
