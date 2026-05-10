@@ -1,33 +1,26 @@
 name: Actualizar eventos Santiago
-
 on:
   schedule:
     # 03:00 UTC = medianoche hora Santiago (UTC-3 invierno)
     - cron: '0 3 * * *'
   workflow_dispatch: # permite correrlo manualmente desde GitHub Actions
-
 permissions:
   contents: write
-
 jobs:
   update-events:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 60
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Setup Node.js 20
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
+          node-version: '22'
       - name: Raspar municipalidades y actualizar events.json
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/fetch-events.js
-
       - name: Commit y push si hay cambios
         run: |
           git config user.name  "Gaut Bot"
