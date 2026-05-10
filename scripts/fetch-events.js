@@ -12,9 +12,12 @@
 const fs   = require('fs');
 const path = require('path');
 
-const EVENTS_PATH = path.join(__dirname, '..', 'events.json');
-const MODEL       = 'gemini-2.0-flash';
-const TODAY       = new Date().toISOString().slice(0, 10);
+const EVENTS_PATH  = path.join(__dirname, '..', 'events.json');
+const MODEL        = 'gemini-2.0-flash';
+const TODAY        = new Date().toISOString().slice(0, 10);
+
+// Retry config: 3 intentos, esperas de 60s / 120s / 180s
+const RETRY_DELAYS = [60_000, 120_000, 180_000];
 
 function geminiUrl() {
   return `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`;
@@ -184,7 +187,42 @@ async function scrape(source) {
   }
 }
 
-// ── Llamar a Gemini para estructurar el texto ─────────────────────────────────
+// ── Llamar a Gemini con retry automático ante 429 ─────────────────────────────
+async function callGeminiWithRetry(prompt) {
+  for (let attempt = 0; attempt <= RETRY_DELAYS.length; attempt++) {
+    const res = await fetch(geminiUrl(), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature:     0.1,
+          maxOutputTokens: 4096
+        }
+      }),
+      signal: AbortSignal.timeout(30000)
+    });
+
+    // Éxito
+    if (res.ok) return res;
+
+    const errText = await res.text();
+
+    // Si es 429 y quedan intentos, esperar y reintentar
+    if (res.status === 429 && attempt < RETRY_DELAYS.length) {
+      const waitMs = RETRY_DELAYS[attempt];
+      const waitSeg = waitMs / 1000;
+      console.warn(`  ⏳ Gemini 429 — esperando ${waitSeg}s antes del intento ${attempt + 2}/${RETRY_DELAYS.length + 1}…`);
+      await new Promise(r => setTimeout(r, waitMs));
+      continue;
+    }
+
+    // Otro error o agotados los reintentos
+    throw new Error(`Gemini API ${res.status}: ${errText.slice(0, 200)}`);
+  }
+}
+
+// ── Extraer eventos con Gemini ────────────────────────────────────────────────
 async function extractWithGemini(source, rawText) {
   const prompt = `
 ${SYSTEM_PROMPT}
@@ -202,24 +240,7 @@ ${rawText}
 Extrae los eventos válidos y devuelve SOLO el array JSON, sin texto adicional.
 `.trim();
 
-  const res = await fetch(geminiUrl(), {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature:     0.1,
-        maxOutputTokens: 4096
-      }
-    }),
-    signal: AbortSignal.timeout(30000)
-  });
-
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Gemini API ${res.status}: ${err.slice(0, 200)}`);
-  }
-
+  const res  = await callGeminiWithRetry(prompt);
   const data = await res.json();
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
@@ -308,6 +329,7 @@ async function main() {
       console.warn(`  ⚠️  Error en Gemini para ${source.name}: ${err.message}\n`);
     }
 
+    // Pausa base entre fuentes (se suma a cualquier espera por 429)
     await new Promise(r => setTimeout(r, 5000));
   }
 
