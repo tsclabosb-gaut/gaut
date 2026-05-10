@@ -183,16 +183,25 @@ function mergeEvents(existing, incoming) {
   });
 
   const cutoff = Date.now();
+  const thisYear = new Date().getFullYear();
+
   const valid  = merged.filter(e => {
     if (!e.dateMs) return true;
-    if (e.days && e.days.length > 0) {
+    // Construir la fecha real usando month + days (ignorar el año del dateMs que puede ser incorrecto)
+    if (e.month !== undefined && e.days && e.days.length > 0) {
       const lastDay  = Math.max(...e.days);
-      const lastDate = new Date(e.dateMs);
-      lastDate.setDate(lastDay);
-      lastDate.setHours(23, 59, 59);
+      // Intentar este año primero, si ya pasó probar el siguiente
+      let lastDate = new Date(thisYear, e.month, lastDay, 23, 59, 59);
+      if (lastDate.getTime() < cutoff) {
+        lastDate = new Date(thisYear + 1, e.month, lastDay, 23, 59, 59);
+      }
       return lastDate.getTime() > cutoff;
     }
-    return e.dateMs > cutoff;
+    // Fallback: usar dateMs pero corregir el año si está en el pasado
+    const d = new Date(e.dateMs);
+    if (d.getFullYear() < thisYear) d.setFullYear(thisYear);
+    if (d.getTime() < cutoff) d.setFullYear(thisYear + 1);
+    return d.getTime() > cutoff;
   });
   const expired = merged.length - valid.length;
 
