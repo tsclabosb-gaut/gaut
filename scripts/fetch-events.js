@@ -1,26 +1,21 @@
 /**
  * fetch-events.js
  * Raspa agendas culturales de municipalidades de Santiago,
- * pasa TODO el texto a Gemini en UNA sola llamada (batch),
+ * pasa TODO el texto a Claude en UNA sola llamada (batch),
  * y mergea con events.json sin duplicados.
  *
  * Uso: node scripts/fetch-events.js
- * Requiere: GEMINI_API_KEY en variables de entorno
+ * Requiere: ANTHROPIC_API_KEY en variables de entorno
  * Node >= 18 (fetch nativo)
  */
 
 const fs   = require('fs');
 const path = require('path');
 
-const EVENTS_PATH    = path.join(__dirname, '..', 'events.json');
-const MODEL          = 'gemini-2.0-flash';
-const TODAY          = new Date().toISOString().slice(0, 10);
-const RETRY_DELAYS   = [15_000, 30_000, 60_000]; // ante 429
-const CHARS_PER_SOURCE = 4000; // limite por fuente en el batch
-
-function geminiUrl() {
-  return `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`;
-}
+const EVENTS_PATH      = path.join(__dirname, '..', 'events.json');
+const MODEL            = 'claude-haiku-4-5';
+const TODAY            = new Date().toISOString().slice(0, 10);
+const CHARS_PER_SOURCE = 4000;
 
 // ── Fuentes a raspar ──────────────────────────────────────────────────────────
 const SOURCES = [
@@ -75,7 +70,7 @@ TIPO ("tipo"):  conc | fest | expo | tetr | dep | charla
 
 RESPONDE SOLO con un array JSON valido, sin texto adicional ni backticks.
 
-Ejemplo de un evento:
+Ejemplo:
 [{"title":"Nombre del evento","cat":"culture","emoji":"🎨","desc":"Descripcion breve.","date":"Sab 15 de mayo 19:00","dateMs":1747357200000,"month":4,"days":[15,16,17],"venue":"Centro Cultural Las Condes","address":"Apoquindo 6570, Las Condes","zone":"lc","mapsQ":"Centro+Cultural+Las+Condes+Santiago","price":null,"src":"Las Condes Cultural","srcUrl":"https://agendacultural.culturallascondes.cl/","img":"","tags":["Exposicion"],"acc":false,"pet":false,"kid":false,"tipo":"expo"}]
 
 NOTAS:
@@ -109,55 +104,50 @@ async function scrape(source) {
   }
 }
 
-// ── Llamar a Gemini con retry ante 429 ───────────────────────────────────────
-async function callGeminiWithRetry(prompt) {
-  for (let attempt = 0; attempt <= RETRY_DELAYS.length; attempt++) {
-    const res = await fetch(geminiUrl(), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.1, maxOutputTokens: 8192 }
-      }),
-      signal: AbortSignal.timeout(60000)
-    });
+// ── Llamar a Claude API ───────────────────────────────────────────────────────
+async function callClaude(userPrompt) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type':      'application/json',
+      'x-api-key':         process.env.ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01'
+    },
+    body: JSON.stringify({
+      model:      MODEL,
+      max_tokens: 8192,
+      system:     SYSTEM_PROMPT,
+      messages:   [{ role: 'user', content: userPrompt }]
+    }),
+    signal: AbortSignal.timeout(60000)
+  });
 
-    if (res.ok) return res;
-
-    const errText = await res.text();
-
-    if (res.status === 429 && attempt < RETRY_DELAYS.length) {
-      const waitSeg = RETRY_DELAYS[attempt] / 1000;
-      console.warn(`  Gemini 429 — esperando ${waitSeg}s (intento ${attempt + 2}/${RETRY_DELAYS.length + 1})...`);
-      await new Promise(r => setTimeout(r, RETRY_DELAYS[attempt]));
-      continue;
-    }
-
-    throw new Error(`Gemini API ${res.status}: ${errText.slice(0, 300)}`);
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Claude API ${res.status}: ${err.slice(0, 300)}`);
   }
+
+  const data = await res.json();
+  return data.content?.[0]?.text || '';
 }
 
 // ── Batch: una sola llamada con todas las fuentes ─────────────────────────────
-async function extractAllWithGemini(scraped) {
+async function extractAllWithClaude(scraped) {
   const bloques = scraped
     .map(({ source, text }) =>
       `=== FUENTE: ${source.name} | zona="${source.zone}" | url=${source.url} ===\n${text}\n=== FIN ${source.name} ===`
     )
     .join('\n\n');
 
-  const prompt = `${SYSTEM_PROMPT}
-
-Fecha de hoy: ${TODAY}
+  const userPrompt = `Fecha de hoy: ${TODAY}
 Tienes texto de ${scraped.length} fuentes distintas de municipalidades de Santiago.
 Extrae todos los eventos validos de TODAS las fuentes y devuelve UN SOLO array JSON.
 
 ${bloques}`;
 
-  const res  = await callGeminiWithRetry(prompt);
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const text = await callClaude(userPrompt);
 
-  if (!text) throw new Error('Gemini no devolvio contenido');
+  if (!text) throw new Error('Claude no devolvio contenido');
 
   const clean = text
     .replace(/^```json\s*/i, '')
@@ -201,13 +191,13 @@ function mergeEvents(existing, incoming) {
   return {
     events: valid,
     coords: existing.coords || {},
-    meta: { lastUpdated: TODAY, totalEvents: valid.length, generatedBy: 'github-actions + scraping + gemini' }
+    meta: { lastUpdated: TODAY, totalEvents: valid.length, generatedBy: 'github-actions + scraping + claude' }
   };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
-  if (!process.env.GEMINI_API_KEY) throw new Error('Falta GEMINI_API_KEY');
+  if (!process.env.ANTHROPIC_API_KEY) throw new Error('Falta ANTHROPIC_API_KEY');
 
   let existing = { events: [], coords: {}, meta: {} };
   if (fs.existsSync(EVENTS_PATH)) {
@@ -232,14 +222,14 @@ async function main() {
     return;
   }
 
-  // 2. Una sola llamada a Gemini (batch)
-  console.log(`Llamando a Gemini con ${scraped.length} fuentes en una sola llamada...`);
+  // 2. Una sola llamada a Claude (batch)
+  console.log(`Llamando a Claude con ${scraped.length} fuentes en batch...`);
   let allNew = [];
   try {
-    allNew = await extractAllWithGemini(scraped);
-    console.log(`Gemini extrajo: ${allNew.length} eventos en total\n`);
+    allNew = await extractAllWithClaude(scraped);
+    console.log(`Claude extrajo: ${allNew.length} eventos en total\n`);
   } catch (err) {
-    console.error(`Error en Gemini: ${err.message}`);
+    console.error(`Error en Claude: ${err.message}`);
     process.exit(1);
   }
 
