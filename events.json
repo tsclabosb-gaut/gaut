@@ -1,1 +1,9 @@
-{"events":[],"coords":{},"meta":{}}
+{
+  "events": [],
+  "coords": {},
+  "meta": {
+    "lastUpdated": "2026-05-10",
+    "totalEvents": 0,
+    "generatedBy": "github-actions + scraping + claude"
+  }
+}
