@@ -638,12 +638,91 @@
       "kid": true,
       "tipo": "expo",
       "id": 17
+    },
+    {
+      "title": "Exposición Fotográfica Pin Campaña - Imágenes paganas",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Más de 130 fotografías a color y blanco y negro de animales, paisajes, naturaleza y figura humana de la fotógrafa chilena Pin Campaña.",
+      "date": "Hasta 31 de mayo. Lunes 14:00-19:00, martes a domingo 10:00-19:00",
+      "dateMs": 1747468200000,
+      "month": 4,
+      "days": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Kennedy+9350+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Fotografía",
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 18
+    },
+    {
+      "title": "Cuerpo Celeste Storyboard",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Evento de arte escénico en la Sala Nemesio de La Reina.",
+      "date": "Martes 12 de mayo 19:00-21:00",
+      "dateMs": 1747026000000,
+      "month": 4,
+      "days": [
+        12
+      ],
+      "venue": "Sala Nemesio",
+      "address": "Av. Alcalde Fernando Castillo Velasco 8580, La Reina",
+      "zone": "lare",
+      "mapsQ": "Sala+Nemesio+La+Reina+Santiago",
+      "price": null,
+      "src": "Corporación Cultural La Reina",
+      "srcUrl": "https://culturalareina.cl/",
+      "img": "",
+      "tags": [
+        "Teatro",
+        "Artes Escénicas"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 19
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-05-10",
-    "totalEvents": 17,
+    "totalEvents": 19,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
