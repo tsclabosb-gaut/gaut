@@ -182,8 +182,18 @@ function mergeEvents(existing, incoming) {
     added++;
   });
 
-  const cutoff  = Date.now() - 86_400_000;
-  const valid   = merged.filter(e => !e.dateMs || e.dateMs > cutoff);
+  const cutoff = Date.now();
+  const valid  = merged.filter(e => {
+    if (!e.dateMs) return true;
+    if (e.days && e.days.length > 0) {
+      const lastDay  = Math.max(...e.days);
+      const lastDate = new Date(e.dateMs);
+      lastDate.setDate(lastDay);
+      lastDate.setHours(23, 59, 59);
+      return lastDate.getTime() > cutoff;
+    }
+    return e.dateMs > cutoff;
+  });
   const expired = merged.length - valid.length;
 
   console.log(`  Nuevos: ${added} | Duplicados ignorados: ${dupes} | Expirados eliminados: ${expired}`);
@@ -234,7 +244,6 @@ async function main() {
   }
 
   // 3. Merge y guardar
-  console.log(JSON.stringify(allNew.slice(0, 2), null, 2));
   console.log(`Mergeando ${allNew.length} eventos...`);
   const result = mergeEvents(existing, allNew);
   fs.writeFileSync(EVENTS_PATH, JSON.stringify(result, null, 2), 'utf8');
