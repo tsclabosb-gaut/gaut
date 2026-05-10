@@ -234,6 +234,7 @@ async function main() {
   }
 
   // 3. Merge y guardar
+  console.log(JSON.stringify(allNew.slice(0, 2), null, 2));
   console.log(`Mergeando ${allNew.length} eventos...`);
   const result = mergeEvents(existing, allNew);
   fs.writeFileSync(EVENTS_PATH, JSON.stringify(result, null, 2), 'utf8');
