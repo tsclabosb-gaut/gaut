@@ -16,8 +16,8 @@ const EVENTS_PATH  = path.join(__dirname, '..', 'events.json');
 const MODEL        = 'gemini-2.0-flash';
 const TODAY        = new Date().toISOString().slice(0, 10);
 
-// Retry config: 3 intentos, esperas de 60s / 120s / 180s
-const RETRY_DELAYS = [60_000, 120_000, 180_000];
+// Retry config: 3 intentos, esperas de 15s / 30s / 45s
+const RETRY_DELAYS = [15_000, 30_000, 45_000];
 
 function geminiUrl() {
   return `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`;
