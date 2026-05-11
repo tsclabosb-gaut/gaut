@@ -180,6 +180,16 @@ nav{background:#fff;border-bottom:1px solid var(--b50);padding:0 1.5rem;display:
   .mg{grid-template-columns:1fr}.mbtns{flex-direction:column}
 }
 @media(max-width:480px){.eg{grid-template-columns:1fr}.hero h1{font-size:19px}}
+
+.footer{background:var(--g800);color:rgba(255,255,255,.6);padding:2rem 1.5rem;font-size:11px;line-height:1.7;margin-top:2rem}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none}
+.footer a:hover{color:#fff}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+.footer-disclaimer{border-top:1px solid rgba(255,255,255,.1);padding-top:1rem;margin-top:1rem;font-size:10px;color:rgba(255,255,255,.4)}
+.contact-form input,.contact-form textarea{width:100%;padding:9px 12px;border:1.5px solid var(--b100);border-radius:9px;font-size:13px;outline:none;font-family:inherit;margin-bottom:.6rem;transition:border .2s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--b400)}
+.contact-form textarea{resize:vertical;min-height:90px}
 </style>
 </head>
 <body>
@@ -523,8 +533,61 @@ function closeMod(id){document.getElementById(id).classList.remove('op')}
 document.querySelectorAll('.ov').forEach(o=>o.addEventListener('click',function(e){if(e.target===this)this.classList.remove('op')}));
 document.getElementById('lbtn').addEventListener('click',()=>{isSU=false;document.getElementById('authT').textContent='Bienvenido';document.getElementById('authSub').textContent='Iniciar sesión';document.getElementById('aNameF').style.display='none';openMod('authMod')});
 document.getElementById('rbtn').addEventListener('click',()=>{isSU=true;document.getElementById('authT').textContent='Crea tu cuenta';document.getElementById('authSub').textContent='Crear cuenta';document.getElementById('aNameF').style.display='block';openMod('authMod')});
+
+function sendContact(){
+  const nombre=document.getElementById('cNombre').value.trim();
+  const email=document.getElementById('cEmail').value.trim();
+  const asunto=document.getElementById('cAsunto').value.trim();
+  const mensaje=document.getElementById('cMensaje').value.trim();
+  if(!nombre||!email||!mensaje){showToast('Completa todos los campos requeridos');return;}
+  const mailto='mailto:tsclabosb@gmail.com'
+    +'?subject='+encodeURIComponent('[Gaut] '+(asunto||'Contacto'))
+    +'&body='+encodeURIComponent('Nombre: '+nombre+'\nCorreo: '+email+'\n\n'+mensaje);
+  window.open(mailto,'_blank');
+  showToast('¡Gracias! Se abrirá tu cliente de correo 📧');
+  closeMod('contactMod');
+}
+
 function showToast(msg){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('sh');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('sh'),3000)}
 renderContent();
 </script>
+
+<!-- Footer con disclaimer legal -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:.5rem">Gaut</div>
+      <p>Plataforma de descubrimiento de eventos culturales en Santiago de Chile.</p>
+      <p style="margin-top:.5rem"><a onclick="openMod('contactMod')" style="cursor:pointer;color:rgba(255,255,255,.7)">✉️ Contacto</a></p>
+    </div>
+    <div>
+      <div style="font-weight:600;color:rgba(255,255,255,.8);margin-bottom:.4rem">Fuentes</div>
+      <p>Los eventos mostrados son extraídos automáticamente de sitios públicos de municipalidades, centros culturales y plataformas de eventos. Gaut no organiza ni produce los eventos listados.</p>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <strong style="color:rgba(255,255,255,.6)">Aviso legal:</strong> Gaut es una plataforma de agregación de información de eventos de carácter informativo. Los contenidos, fechas, precios y disponibilidad de los eventos son responsabilidad exclusiva de sus organizadores. Gaut no tiene relación comercial ni de representación con los organizadores de los eventos listados, no vende entradas ni recibe comisión por ningún servicio. La información se obtiene de fuentes públicas y puede estar desactualizada. Para adquirir entradas o confirmar datos, dirígete directamente a la fuente oficial de cada evento. Gaut no se responsabiliza por errores, omisiones, cambios de fecha, cancelaciones ni por cualquier perjuicio derivado del uso de esta plataforma. Al usar Gaut, aceptas estas condiciones.
+  </div>
+  <div style="text-align:center;margin-top:1rem;font-size:10px;color:rgba(255,255,255,.3)">© 2026 Gaut · Santiago, Chile</div>
+</footer>
+
+<!-- Modal de contacto -->
+<div class="ov" id="contactMod">
+  <div class="mod" style="max-width:460px">
+    <button class="mc" onclick="closeMod('contactMod')">✕</button>
+    <div style="padding:1.5rem">
+      <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:.4rem">Contacto</div>
+      <p style="font-size:13px;color:var(--g400);margin-bottom:1rem">¿Quieres agregar un evento, reportar un error o simplemente saludar? Escríbenos.</p>
+      <div class="contact-form" id="contactForm">
+        <input type="text" id="cNombre" placeholder="Tu nombre">
+        <input type="email" id="cEmail" placeholder="Tu correo">
+        <input type="text" id="cAsunto" placeholder="Asunto (ej: agregar evento, error en fecha...)">
+        <textarea id="cMensaje" placeholder="Tu mensaje..."></textarea>
+        <button onclick="sendContact()" style="width:100%;padding:11px;background:var(--b600);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Enviar mensaje</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
