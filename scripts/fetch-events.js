@@ -19,16 +19,32 @@ const CHARS_PER_SOURCE = 4000;
 
 // ── Fuentes a raspar ──────────────────────────────────────────────────────────
 const SOURCES = [
+  // Las Condes
   { name: 'Las Condes Cultural',               zone: 'lc',   url: 'https://agendacultural.culturallascondes.cl/' },
-  { name: 'Santiago Cultura - Novedades',      zone: 'cen',  url: 'https://www.santiagocultura.cl/category/novedades-culturales/' },
-  { name: 'Municipalidad de Nunoa - Cultura',  zone: 'nun',  url: 'https://www.nunoa.cl/cultura/' },
   { name: 'Las Condes - Panorama mensual',     zone: 'lc',   url: 'https://www2.lascondes.cl/vive-las-condes/panorama-mensual/' },
+  // Santiago Centro
+  { name: 'Santiago Cultura - Agenda',         zone: 'cen',  url: 'https://www.santiagocultura.cl/agenda-cultural/' },
+  { name: 'GAM - Centro Gabriela Mistral',     zone: 'cen',  url: 'https://gam.cl/es/agenda/' },
+  { name: 'MNBA - Cartelera',                  zone: 'cen',  url: 'https://www.mnba.gob.cl/cartelera' },
+  { name: 'Estacion Mapocho',                  zone: 'cen',  url: 'https://www.estacionmapocho.cl/' },
+  // Providencia
+  { name: 'Municipalidad Providencia - Agenda',zone: 'prov', url: 'https://providencia.cl/provi/site/tax/port/fid_actividades/taxport_3_4__1.html' },
+  // Nunoa
+  { name: 'Corporacion Cultural Nunoa',        zone: 'nun',  url: 'https://www.ccn.cl/agenda/' },
+  { name: 'Municipalidad Nunoa - Cultura',     zone: 'nun',  url: 'https://www.nunoa.cl/category/cultura/' },
+  // Lo Barnechea
   { name: 'Corporacion Cultural Lo Barnechea', zone: 'lob',  url: 'https://corporacionculturaldelobarnechea.cl/agenda/' },
+  // Vitacura
   { name: 'Vitacura Cultura',                  zone: 'vit',  url: 'https://vitacuracultura.cl/' },
   { name: 'Vitacura - Actividades municipales',zone: 'vit',  url: 'https://vitacura.cl/actividades/' },
+  // La Reina
   { name: 'Corporacion Cultural La Reina',     zone: 'lare', url: 'https://culturalareina.cl/' },
   { name: 'Municipalidad La Reina - Eventos',  zone: 'lare', url: 'https://www.lareina.cl/eventos-y-actividades/' },
+  // Huechuraba
   { name: 'Municipalidad Huechuraba - Cultura',zone: 'ind',  url: 'https://huechuraba.cl/sala-de-prensa/destacado/cultura' },
+  // Agregadores (sin zona fija, Claude asigna segun evento)
+  { name: 'Fever - Santiago',                  zone: 'cen',  url: 'https://feverup.com/es/santiago' },
+  { name: 'Eventbrite - Santiago',             zone: 'cen',  url: 'https://www.eventbrite.cl/d/chile--santiago/eventos/' },
 ];
 
 // ── Limpia HTML a texto plano ─────────────────────────────────────────────────
