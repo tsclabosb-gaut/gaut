@@ -24,13 +24,13 @@ const SOURCES = [
   { name: 'Las Condes - Panorama mensual',     zone: 'lc',   url: 'https://www2.lascondes.cl/vive-las-condes/panorama-mensual/' },
   // Santiago Centro
   { name: 'Santiago Cultura - Agenda',         zone: 'cen',  url: 'https://www.santiagocultura.cl/agenda-cultural/' },
-  { name: 'GAM - Centro Gabriela Mistral',     zone: 'cen',  url: 'https://gam.cl/es/agenda/' },
+  { name: 'GAM - Centro Gabriela Mistral',     zone: 'cen',  url: 'https://gam.cl/es/calendario/' },
   { name: 'MNBA - Cartelera',                  zone: 'cen',  url: 'https://www.mnba.gob.cl/cartelera' },
   { name: 'Estacion Mapocho',                  zone: 'cen',  url: 'https://www.estacionmapocho.cl/' },
   // Providencia
   { name: 'Municipalidad Providencia - Agenda',zone: 'prov', url: 'https://providencia.cl/provi/site/tax/port/fid_actividades/taxport_3_4__1.html' },
   // Nunoa
-  { name: 'Corporacion Cultural Nunoa',        zone: 'nun',  url: 'https://www.ccn.cl/agenda/' },
+  { name: 'Corporacion Cultural Nunoa',        zone: 'nun',  url: 'https://www.ccn.cl/' },
   { name: 'Municipalidad Nunoa - Cultura',     zone: 'nun',  url: 'https://www.nunoa.cl/category/cultura/' },
   // Lo Barnechea
   { name: 'Corporacion Cultural Lo Barnechea', zone: 'lob',  url: 'https://corporacionculturaldelobarnechea.cl/agenda/' },
