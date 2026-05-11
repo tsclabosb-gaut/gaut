@@ -131,7 +131,7 @@ async function callClaude(userPrompt) {
     },
     body: JSON.stringify({
       model:      MODEL,
-      max_tokens: 8192,
+      max_tokens: 16000,
       system:     SYSTEM_PROMPT,
       messages:   [{ role: 'user', content: userPrompt }]
     }),
@@ -165,13 +165,26 @@ ${bloques}`;
 
   if (!text) throw new Error('Claude no devolvio contenido');
 
-  const clean = text
+  let clean = text
     .replace(/^```json\s*/i, '')
     .replace(/^```\s*/i,     '')
     .replace(/```\s*$/i,     '')
     .trim();
 
-  const parsed = JSON.parse(clean);
+  // Si el JSON está cortado, intentar repararlo cerrando el array
+  if (!clean.endsWith(']')) {
+    const lastBrace = clean.lastIndexOf('}');
+    if (lastBrace !== -1) clean = clean.slice(0, lastBrace + 1) + ']';
+    else clean = '[]';
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(clean);
+  } catch(e) {
+    console.warn('  JSON malformado, devolviendo array vacio');
+    return [];
+  }
   return Array.isArray(parsed) ? parsed : (parsed.events || []);
 }
 
