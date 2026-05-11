@@ -1463,12 +1463,216 @@
       "kid": false,
       "tipo": "charla",
       "id": 41
+    },
+    {
+      "title": "Hecho en China",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición de artes visuales y mediales con horarios diferenciados por días.",
+      "date": "Hasta dom 31 de mayo 11:00",
+      "dateMs": 1748687400000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "GAM - Centro Gabriela Mistral",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": 0,
+      "src": "GAM - Centro Gabriela Mistral",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Artes Visuales"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 42
+    },
+    {
+      "title": "LMBL ícono",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición de artes visuales y mediales con ícono interactivo. Abierta martes, miércoles y domingo de 10 a 19h, jueves a sábado de 10 a 20h.",
+      "date": "Hasta jun 28 10:00",
+      "dateMs": 1750867200000,
+      "month": 5,
+      "days": [
+        28
+      ],
+      "venue": "GAM - Centro Gabriela Mistral",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM - Centro Gabriela Mistral",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Artes Visuales"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 43
+    },
+    {
+      "title": "Presentación libro 'Palabra escondida' de Ricardo Loeblebl",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento y presentación de libro en el Salón José Miguel Blanco del MNBA.",
+      "date": "Lun 16 de mayo 15:00",
+      "dateMs": 1747534800000,
+      "month": 4,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Lanzamiento"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 44
+    },
+    {
+      "title": "Una colección en expansión (1900-1980)",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición de nuevas adquisiciones del MNBA en el ala norte, primer piso. Hasta el 16 de agosto.",
+      "date": "Hasta lun 16 de agosto 10:00",
+      "dateMs": 1753776000000,
+      "month": 7,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Colección"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 45
+    },
+    {
+      "title": "Sueños - Fotografía Subacuática",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Exposición de fotografía subacuática que desdibuja las fronteras entre realidad y fantasía, del artista belga Harry Fayt.",
+      "date": "Hasta dom 24 de mayo",
+      "dateMs": 1748502000000,
+      "month": 4,
+      "days": [
+        24
+      ],
+      "venue": "Centro Cultural Estación Mapocho",
+      "address": "Estación Mapocho, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 46
+    },
+    {
+      "title": "Conversaciones Concertantes - Orquesta de Cámara",
+      "cat": "music",
+      "emoji": "🎻",
+      "desc": "Orquesta de Cámara de Santiago continúa su Temporada 2026 con concierto en Estación Mapocho.",
+      "date": "Vie 22 de mayo 20:00",
+      "dateMs": 1747984800000,
+      "month": 4,
+      "days": [
+        22
+      ],
+      "venue": "Centro Cultural Estación Mapocho",
+      "address": "Estación Mapocho, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Música clásica",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 47
+    },
+    {
+      "title": "Ciclo de charlas Filmoarte - Cine sobre grandes artistas plásticos",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Ciclo de charlas dedicado al cine que retrata grandes artistas plásticos. Película: 'El arca rusa'.",
+      "date": "Mié 13 de mayo 15:00",
+      "dateMs": 1747469000000,
+      "month": 4,
+      "days": [
+        13
+      ],
+      "venue": "Vitaclub",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Charla",
+        "Gratuito"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 48
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-05-11",
-    "totalEvents": 41,
+    "totalEvents": 48,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
