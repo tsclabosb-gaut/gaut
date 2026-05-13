@@ -1754,12 +1754,187 @@
       "kid": true,
       "tipo": "expo",
       "id": 51
+    },
+    {
+      "title": "Actividades Semana de la Educación Artística 2026",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Actividades educativas especiales en el Museo Nacional de Bellas Artes del 12 al 15 de mayo.",
+      "date": "12 al 15 de mayo",
+      "dateMs": 1747616400000,
+      "month": 4,
+      "days": [
+        12,
+        15
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Educación",
+        "Artes visuales"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 52
+    },
+    {
+      "title": "Ciclo Emergentes de la música chilena: Los Lolos de Chile",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Dúo Garage Rock formado en Santiago que encarna la herencia de la mítica escena punk local. Miércoles 13 de mayo a las 19:30 horas en Sala Vitacura.",
+      "date": "Mié 13 de mayo 19:30",
+      "dateMs": 1747184400000,
+      "month": 4,
+      "days": [
+        13
+      ],
+      "venue": "Sala Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Sala+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Música",
+        "Garage Rock"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 53
+    },
+    {
+      "title": "Ciclo de charlas: India, pasado y presente",
+      "cat": "culture",
+      "emoji": "🌏",
+      "desc": "El Raj Británico de la India. Charla con Francisca Wilson sobre el dominio del Reino Unido en la India y el movimiento independentista. Viernes 15 de mayo.",
+      "date": "Vie 15 de mayo",
+      "dateMs": 1747353600000,
+      "month": 4,
+      "days": [
+        15
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Historia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 54
+    },
+    {
+      "title": "Exposición Fotográfica 'Imágenes Paganas' de Pin Campaña",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Más de 130 fotografías a color y blanco y negro con retratos de animales, paisajes, naturaleza y figura humana. Hasta el 31 de mayo en Lo Matta Cultural.",
+      "date": "Hasta 31 de mayo",
+      "dateMs": 1748704800000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Fotografía",
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 55
+    },
+    {
+      "title": "Concierto del conjunto TRIO KAMOV - Día Nacional de Croacia",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto del conjunto Trio Kamov en celebración del Día Nacional de Croacia. Martes 26 de mayo a las 19:00 horas.",
+      "date": "Mar 26 de mayo 19:00",
+      "dateMs": 1748121600000,
+      "month": 4,
+      "days": [
+        26
+      ],
+      "venue": "Centro Cultural Carabineros de Chile",
+      "address": "Providencia, Santiago",
+      "zone": "prov",
+      "mapsQ": "Centro+Cultural+Carabineros+Providencia+Santiago",
+      "price": null,
+      "src": "Eventbrite - Santiago",
+      "srcUrl": "https://www.eventbrite.cl/d/chile--santiago/eventos/",
+      "img": "",
+      "tags": [
+        "Música",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 56
+    },
+    {
+      "title": "Dopamine Land: una experiencia multisensorial",
+      "cat": "culture",
+      "emoji": "✨",
+      "desc": "Experiencia multisensorial interactiva en Cenco Costanera del 13 de mayo al 14 de junio.",
+      "date": "13 de mayo al 14 de junio",
+      "dateMs": 1748704800000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Cenco Costanera",
+      "address": "Costanera Center, Santiago",
+      "zone": "cen",
+      "mapsQ": "Cenco+Costanera+Santiago",
+      "price": 9000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Experiencia",
+        "Interactivo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 57
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-12",
-    "totalEvents": 51,
+    "lastUpdated": "2026-05-13",
+    "totalEvents": 57,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
