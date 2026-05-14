@@ -1929,12 +1929,224 @@
       "kid": true,
       "tipo": "expo",
       "id": 57
+    },
+    {
+      "title": "Sueños",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Exposición de fotografía subacuática que desdibuja las fronteras entre realidad y fantasía del fotógrafo belga Harry Fayt.",
+      "date": "12 de marzo al 24 de mayo",
+      "dateMs": 1747977600000,
+      "month": 4,
+      "days": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Estación Mapocho, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Exposicion",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 58
+    },
+    {
+      "title": "Ciclo Seis al Blues - Jano Letelier y su banda",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Homenaje al músico B.B. King con Jano Letelier y su banda en un ciclo dedicado al género blues.",
+      "date": "Martes 19 de mayo 19:30",
+      "dateMs": 1747862400000,
+      "month": 4,
+      "days": [
+        19
+      ],
+      "venue": "Sala Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Sala+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Blues"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 59
+    },
+    {
+      "title": "Corrida Familiar Vitacura 2026",
+      "cat": "sport",
+      "emoji": "🏃",
+      "desc": "Actividad de deporte y vida sana en el Parque Bicentenario con dos modalidades: 2.5K recreativo y competencia.",
+      "date": "Sábado 17 de mayo",
+      "dateMs": 1747718400000,
+      "month": 4,
+      "days": [
+        17
+      ],
+      "venue": "Parque Bicentenario",
+      "address": "Parque Bicentenario, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Parque+Bicentenario+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Deporte",
+        "Familiar"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": 60
+    },
+    {
+      "title": "Conferencia Vitamayor - La segunda mitad de la vida",
+      "cat": "culture",
+      "emoji": "💬",
+      "desc": "Charla sobre el cambio de orientación en la vida cuando surgen nuevas necesidades de sentido. Con Sebastián Montero.",
+      "date": "Jueves 14 de mayo 18:00",
+      "dateMs": 1747555200000,
+      "month": 4,
+      "days": [
+        14
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Conferencia",
+        "Charla"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 61
+    },
+    {
+      "title": "Ciclo de charlas India pasado y presente - El Raj Británico",
+      "cat": "culture",
+      "emoji": "🌏",
+      "desc": "Charla sobre el dominio del Reino Unido en la India a mediados del siglo XIX. Con Francisca Wilson.",
+      "date": "Jueves 15 de mayo",
+      "dateMs": 1747641600000,
+      "month": 4,
+      "days": [
+        15
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Historia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 62
+    },
+    {
+      "title": "Somos Naturaleza - Tres formas de habitar la naturaleza en la ciudad",
+      "cat": "culture",
+      "emoji": "🌿",
+      "desc": "Encuentro sobre paisajismo y biodiversidad urbana con especialistas compartiendo cómo integrar la naturaleza en jardines, balcones y terrazas.",
+      "date": "Domingo 18 de mayo",
+      "dateMs": 1747804800000,
+      "month": 4,
+      "days": [
+        18
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Naturaleza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 63
+    },
+    {
+      "title": "Presentación libro Palabra escondida",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento del libro de Ricardo Loebleell en el Salón José Miguel Blanco del Museo Nacional de Bellas Artes.",
+      "date": "Viernes 16 de mayo 15:00",
+      "dateMs": 1747728000000,
+      "month": 4,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Lanzamiento",
+        "Literatura"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 64
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-13",
-    "totalEvents": 57,
+    "lastUpdated": "2026-05-14",
+    "totalEvents": 64,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
