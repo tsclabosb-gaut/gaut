@@ -2141,12 +2141,203 @@
       "kid": false,
       "tipo": "charla",
       "id": 64
+    },
+    {
+      "title": "Plaza Entretenida",
+      "cat": "culture",
+      "emoji": "🎉",
+      "desc": "Actividad gratuita al aire libre con entretenimiento familiar.",
+      "date": "Sab 16 de mayo 16:00",
+      "dateMs": 1747353600000,
+      "month": 4,
+      "days": [
+        16
+      ],
+      "venue": "Plaza Arequipa",
+      "address": "Plaza Arequipa, Las Condes",
+      "zone": "lc",
+      "mapsQ": "Plaza+Arequipa+Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes - Panorama mensual",
+      "srcUrl": "https://www2.lascondes.cl/vive-las-condes/panorama-mensual/",
+      "img": "",
+      "tags": [
+        "Aire libre",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 65
+    },
+    {
+      "title": "Somos Naturaleza: Tres formas de habitar la naturaleza en la ciudad",
+      "cat": "culture",
+      "emoji": "🌿",
+      "desc": "Encuentro sobre paisajismo y biodiversidad urbana con especialistas. Aprende a integrar naturaleza en jardines, balcones y terrazas.",
+      "date": "Dom 18 de mayo",
+      "dateMs": 1747526400000,
+      "month": 4,
+      "days": [
+        18
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Naturaleza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 66
+    },
+    {
+      "title": "Ciclo Seis al Blues: Homenaje a B.B. King con Jano Letelier",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Concierto de blues con Jano Letelier y su banda. Homenaje al 'Rey del Blues' B.B. King. Entrada liberada.",
+      "date": "Lun 19 de mayo 19:30",
+      "dateMs": 1747594200000,
+      "month": 4,
+      "days": [
+        19
+      ],
+      "venue": "Sala Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Sala+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Música",
+        "Blues",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 67
+    },
+    {
+      "title": "Cine + tertulia: 'El paciente inglés'",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección de 'El paciente inglés' seguida de análisis y comentarios con Miguel Villarroel. Drama épico con romance y guerra.",
+      "date": "Mar 20 de mayo",
+      "dateMs": 1747699200000,
+      "month": 4,
+      "days": [
+        20
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Tertulia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 68
+    },
+    {
+      "title": "Cuentacuentos: 'La niña de las abejas'",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Cuentacuentos infantil de Patricia Schüller con Nico Toro. Historia de una niña con un don especial para percibir a las abejas.",
+      "date": "Mar 20 de mayo",
+      "dateMs": 1747699200000,
+      "month": 4,
+      "days": [
+        20
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Infantil"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "tetr",
+      "id": 69
+    },
+    {
+      "title": "Exposición 'Imágenes Paganas' de Pin Campaña",
+      "cat": "culture",
+      "emoji": "📷",
+      "desc": "Exposición fotográfica con más de 130 fotografías de Pin Campaña. Retratos de animales, paisajes, naturaleza y figura humana. Entrada liberada.",
+      "date": "Hasta 31 de mayo",
+      "dateMs": 1747478400000,
+      "month": 4,
+      "days": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Kennedy+9350+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Fotografía",
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 70
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-14",
-    "totalEvents": 64,
+    "lastUpdated": "2026-05-15",
+    "totalEvents": 70,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
