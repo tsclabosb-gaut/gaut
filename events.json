@@ -2332,12 +2332,186 @@
       "kid": false,
       "tipo": "expo",
       "id": 70
+    },
+    {
+      "title": "Antiguos oficios de Chile",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Imágenes históricas de antiguos oficios y tradiciones de Chile del Estudio Brügmann. Rescate de escenas cotidianas y formas de vida que son parte de nuestra identidad cultural.",
+      "date": "Vie 30 de mayo - Sab 26 de julio",
+      "dateMs": 1748505600000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Estación Mapocho, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 71
+    },
+    {
+      "title": "Ciclo Seis al Blues: Jano Letelier y su banda - Homenaje a B.B. King",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Continuación del ciclo que difunde el blues, género nacido a fines del siglo XIX en las comunidades afroamericanas del sur de Estados Unidos. Jano Letelier y su banda rinden homenaje al 'Rey del Blues'.",
+      "date": "Lun 19 de mayo 19:30",
+      "dateMs": 1747425000000,
+      "month": 4,
+      "days": [
+        19
+      ],
+      "venue": "Sala Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Sala+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Blues"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 72
+    },
+    {
+      "title": "Charla: Somos Naturaleza - Paisajismo y Biodiversidad Urbana",
+      "cat": "culture",
+      "emoji": "🌿",
+      "desc": "Encuentro sobre paisajismo y biodiversidad urbana. Especialistas comparten cómo integrar la naturaleza en jardines, balcones y terrazas para mejorar el bienestar y enfrentar el cambio climático.",
+      "date": "Dom 18 de mayo 10:00",
+      "dateMs": 1747336800000,
+      "month": 4,
+      "days": [
+        18
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Medio Ambiente"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 73
+    },
+    {
+      "title": "Cine + Tertulia: El paciente inglés",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección y análisis de 'El paciente inglés'. Una apasionante aventura amorosa entre un explorador húngaro y una mujer casada, marcada por el desierto del Sahara y el conflicto bélico. Análisis con Miguel Villarroel.",
+      "date": "Mar 20 de mayo 19:00",
+      "dateMs": 1747510800000,
+      "month": 4,
+      "days": [
+        20
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Tertulia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 74
+    },
+    {
+      "title": "Cuentacuentos: La niña de las abejas",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Cuentacuentos de Patricia Schüller sobre Ana Luisa, una niña de Curacautín que percibe a las abejas y puede interpretar sus sonidos. Con Nico Toro.",
+      "date": "Mar 20 de mayo 17:00",
+      "dateMs": 1747501200000,
+      "month": 4,
+      "days": [
+        20
+      ],
+      "venue": "Biblioteca Vitacura",
+      "address": "Av. San Josemaría Escrivá de Balaguer 6420, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Biblioteca+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Literatura Infantil"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 75
+    },
+    {
+      "title": "Presentación del libro 'Palabra escondida' de Ricardo Loebell",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento y presentación del libro 'Palabra escondida' del autor Ricardo Loebell.",
+      "date": "Sab 16 de mayo 15:00",
+      "dateMs": 1747346400000,
+      "month": 4,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Lanzamiento"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 76
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-15",
-    "totalEvents": 70,
+    "lastUpdated": "2026-05-16",
+    "totalEvents": 76,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
