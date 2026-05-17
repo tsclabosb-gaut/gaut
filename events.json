@@ -2506,12 +2506,40 @@
       "kid": false,
       "tipo": "charla",
       "id": 76
+    },
+    {
+      "title": "Ciclo Filmoarte - Charla cinéfila",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección y análisis de 'Valor sentimental' con especialistas.",
+      "date": "Miércoles 27 de mayo 19:00",
+      "dateMs": 1748459400000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Vitaclub",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 77
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-16",
-    "totalEvents": 76,
+    "lastUpdated": "2026-05-17",
+    "totalEvents": 77,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
