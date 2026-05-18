@@ -2534,12 +2534,245 @@
       "kid": false,
       "tipo": "charla",
       "id": 77
+    },
+    {
+      "title": "Exposición Imágenes Paganas - Pin Campaña",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Exposición fotográfica con más de 130 fotografías a color y blanco y negro: retratos de animales, paisajes, naturaleza y figura humana.",
+      "date": "Hasta dom 31 de mayo",
+      "dateMs": 1748692800000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 78
+    },
+    {
+      "title": "Ciclo Seis al Blues: Homenaje a B.B. King - Jano Letelier y su banda",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto de blues que difunde este reconocido género musical nacido en el sur de Estados Unidos, con homenaje al Rey del Blues B.B. King.",
+      "date": "Lun 19 de mayo 19:30",
+      "dateMs": 1747776600000,
+      "month": 4,
+      "days": [
+        19
+      ],
+      "venue": "Sala Vitacura",
+      "address": "Sala Vitacura, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Sala+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Blues"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 79
+    },
+    {
+      "title": "Ciclo de charlas: Filmoarte",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Ciclo de charlas sobre cine y análisis fílmico todos los miércoles.",
+      "date": "Miércoles de mayo 15:00",
+      "dateMs": 1747350000000,
+      "month": 4,
+      "days": [
+        21,
+        28
+      ],
+      "venue": "Vitaclub Cleveland",
+      "address": "Vitaclub Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 80
+    },
+    {
+      "title": "Cuentacuentos - La niña de las abejas",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Cuentacuentos de Patricia Schüller sobre una niña de Curacautín con el don de percibir y comunicarse con abejas. Con Nico Toro.",
+      "date": "Mar 20 de mayo",
+      "dateMs": 1747809600000,
+      "month": 4,
+      "days": [
+        20
+      ],
+      "venue": "Centro Cívico Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Centro+Civico+Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cuentacuentos",
+        "Infantil"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 81
+    },
+    {
+      "title": "Taller de Flamenco - Dolores Contador",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Taller introductorio de flamenco donde aprenderá zapateo, postura, coordinación de brazos y marcaje. Con Dolores Contador.",
+      "date": "Lun 19 y 26 de mayo",
+      "dateMs": 1747776600000,
+      "month": 4,
+      "days": [
+        19,
+        26
+      ],
+      "venue": "Centro Cívico Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Centro+Civico+Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Taller",
+        "Danza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 82
+    },
+    {
+      "title": "Danzas del mundo: Baile ruso - Agrupación Kalinka",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Presentación de la agrupación folclórica Kalinka con extraordinario repertorio inspirado en el movimiento ruso.",
+      "date": "Lun 26 de mayo",
+      "dateMs": 1748209200000,
+      "month": 4,
+      "days": [
+        26
+      ],
+      "venue": "Centro Cívico Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Centro+Civico+Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Danza",
+        "Folclore"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 83
+    },
+    {
+      "title": "Cita cinéfila: Valor sentimental",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección y análisis de la película Valor sentimental en Vitacura.",
+      "date": "Mié 27 de mayo 19:00",
+      "dateMs": 1748380800000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Centro Cívico Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Centro+Civico+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 84
+    },
+    {
+      "title": "Presentación libro Palabra escondida - Ricardo Loebell",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento y presentación del libro Palabra escondida de Ricardo Loebell en el Museo Nacional de Bellas Artes.",
+      "date": "Sáb 16 de mayo 15:00",
+      "dateMs": 1747425600000,
+      "month": 4,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Lanzamiento"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 85
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-17",
-    "totalEvents": 77,
+    "lastUpdated": "2026-05-18",
+    "totalEvents": 85,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
