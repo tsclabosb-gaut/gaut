@@ -2767,12 +2767,302 @@
       "kid": false,
       "tipo": "charla",
       "id": 85
+    },
+    {
+      "title": "Concierto Depto. Música Universidad de Chile",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Ciclo de música de cámara del Departamento de Música y Sonología de la Facultad de Artes de la Universidad de Chile.",
+      "date": "Mayo 2026",
+      "dateMs": 1748697600000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "GAM - Centro Gabriela Mistral",
+      "address": "Lastarria 227, Santiago",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Música Clásica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 86
+    },
+    {
+      "title": "Presentación catálogo Episodio Monvoisin",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Lanzamiento y presentación del catálogo de la muestra sobre el pintor francés Monvoisin en el siglo XIX.",
+      "date": "Miér 27 al Vie 29 de mayo 12:00",
+      "dateMs": 1748356800000,
+      "month": 4,
+      "days": [
+        27,
+        28,
+        29
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "MNBA+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Arte"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 87
+    },
+    {
+      "title": "En viaje a la infancia: juguetes patrimoniales chilenos",
+      "cat": "culture",
+      "emoji": "🧸",
+      "desc": "150 piezas de la Colección del Museo del Juguete Chileno de la PUC que recorren la niñez y evolución del juego en Chile.",
+      "date": "Vie 30 de mayo al Sab 26 de julio",
+      "dateMs": 1748611200000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Lastarria 100, Santiago",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 88
+    },
+    {
+      "title": "Concierto gratuito de Natalino",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto gratuito para celebrar a las mamás.",
+      "date": "Sab 23 de mayo",
+      "dateMs": 1748016000000,
+      "month": 4,
+      "days": [
+        23
+      ],
+      "venue": "Ñuñoa",
+      "address": "Ñuñoa, Santiago",
+      "zone": "nun",
+      "mapsQ": "Nunoa+Santiago",
+      "price": 0,
+      "src": "Municipalidad Nunoa - Cultura",
+      "srcUrl": "https://www.nunoa.cl/category/cultura/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Familiar"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "conc",
+      "id": 89
+    },
+    {
+      "title": "Ciclo Danzas del Mundo: Baile ruso",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "La agrupación folclórica Kalinka presenta un repertorio inspirado en el movimiento ruso.",
+      "date": "Mar 26 de mayo 19:30",
+      "dateMs": 1748227200000,
+      "month": 4,
+      "days": [
+        26
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Danza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "fest",
+      "id": 90
+    },
+    {
+      "title": "IX Festival Música de Cámara: Trío clarinete, viola y piano",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto de música de cámara con obras de Mozart, Poulenc y Bruch.",
+      "date": "Mar 26 de mayo 19:30",
+      "dateMs": 1748227200000,
+      "month": 4,
+      "days": [
+        26
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Música Clásica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 91
+    },
+    {
+      "title": "Ciclo de charlas Filmoarte: La ronda de noche",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Charla sobre el cuadro La ronda de noche de Rembrandt en el contexto de su vida y obra.",
+      "date": "Miér 27 de mayo 15:00",
+      "dateMs": 1748329200000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Vitaclub Cleveland",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 92
+    },
+    {
+      "title": "Cuentacuentos: Monstruo, sé bueno",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Cuentacuentos infantil con Nico Toro basado en el libro Monstruo, sé bueno de Natalie Marshall.",
+      "date": "Mar 27 de mayo 17:00",
+      "dateMs": 1748349600000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Biblioteca Vitacura",
+      "address": "Av. San Josemaría Escrivá de Balaguer 6420, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Biblioteca+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Infantil"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "tetr",
+      "id": 93
+    },
+    {
+      "title": "Exploro Mi Parque: Una caminata con sentido",
+      "cat": "sport",
+      "emoji": "🌿",
+      "desc": "Recorrido guiado por flora nativa del parque con énfasis en plantas chilenas.",
+      "date": "Miér 28 de mayo",
+      "dateMs": 1748438400000,
+      "month": 4,
+      "days": [
+        28
+      ],
+      "venue": "Parque Bicentenario",
+      "address": "Parque Bicentenario, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Parque+Bicentenario+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Actividad al aire libre"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": 94
+    },
+    {
+      "title": "Día del Patrimonio en Lo Matta Cultural",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Celebración del Día del Patrimonio con programación especial.",
+      "date": "Sab 30 y Dom 31 de mayo 11:00-18:00",
+      "dateMs": 1748524800000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Patrimonio",
+        "Familiar"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 95
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-18",
-    "totalEvents": 85,
+    "lastUpdated": "2026-05-21",
+    "totalEvents": 95,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
