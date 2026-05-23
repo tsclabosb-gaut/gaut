@@ -1,1037 +1,333 @@
-{
-  "events": [
-    {
-      "title": "Alfredo Adduard - El hallazgo de un genio",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Primera muestra retrospectiva del ilustrador chileno. Más de cien obras expuestas incluyendo sorprendentes dibujos mágicos en cajas de luz.",
-      "date": "Hasta Dom 31 de mayo",
-      "dateMs": 1748764800000,
-      "month": 4,
-      "days": [
-        31
-      ],
-      "venue": "Salas de Exposición Centro Cultural Las Condes",
-      "address": "Apoquindo 6570, Las Condes",
-      "zone": "lc",
-      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
-      "price": 0,
-      "src": "Las Condes Cultural",
-      "srcUrl": "https://agendacultural.culturallascondes.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Ilustración"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "expo",
-      "id": 1
-    },
-    {
-      "title": "Constanza Hurtado - Y todo lo otro",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Exposición de pintura con técnica mixta que profundiza en el proceso de búsqueda, tensión y transformación artística.",
-      "date": "Sab 9 al Dom 31 de mayo",
-      "dateMs": 1747651200000,
-      "month": 4,
-      "days": [
-        9,
-        10,
-        31
-      ],
-      "venue": "Salas de Exposición Centro Cultural Las Condes",
-      "address": "Apoquindo 6570, Las Condes",
-      "zone": "lc",
-      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
-      "price": 0,
-      "src": "Las Condes Cultural",
-      "srcUrl": "https://agendacultural.culturallascondes.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Pintura"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 2
-    },
-    {
-      "title": "José Luis Risetti - Aperiódico",
-      "cat": "culture",
-      "emoji": "📸",
-      "desc": "Instalación que mezcla fotografía, gráfica e instalación reflexionando sobre la labor de los medios y la carga informativa.",
-      "date": "Sab 9 al Dom 31 de mayo",
-      "dateMs": 1747651200000,
-      "month": 4,
-      "days": [
-        9,
-        10,
-        31
-      ],
-      "venue": "Salas de Exposición Centro Cultural Las Condes",
-      "address": "Apoquindo 6570, Las Condes",
-      "zone": "lc",
-      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
-      "price": 0,
-      "src": "Las Condes Cultural",
-      "srcUrl": "https://agendacultural.culturallascondes.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Instalación"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 3
-    },
-    {
-      "title": "Daniel Errázuriz - Geometría variable",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Exposición que explora el rol de la geometría como lenguaje en el arte, arquitectura y pensamiento con soportes diversos.",
-      "date": "Sab 9 al Dom 31 de mayo",
-      "dateMs": 1747651200000,
-      "month": 4,
-      "days": [
-        9,
-        10,
-        31
-      ],
-      "venue": "Salas de Exposición Centro Cultural Las Condes",
-      "address": "Apoquindo 6570, Las Condes",
-      "zone": "lc",
-      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
-      "price": 0,
-      "src": "Las Condes Cultural",
-      "srcUrl": "https://agendacultural.culturallascondes.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Arte Contemporáneo"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 4
-    },
-    {
-      "title": "El niño de los fósiles",
-      "cat": "culture",
-      "emoji": "🎭",
-      "desc": "Obra teatral familiar que se presenta los sábados a las 12 y 16 horas y domingos a las 16 horas.",
-      "date": "Sab 2 al Dom 10 de mayo",
-      "dateMs": 1746086400000,
-      "month": 4,
-      "days": [
-        2,
-        3,
-        9,
-        10
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Teatro",
-        "Familiar"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "tetr",
-      "id": 5
-    },
-    {
-      "title": "Propaganda",
-      "cat": "culture",
-      "emoji": "🎭",
-      "desc": "Obra teatral que se presenta jueves a sábados a las 19:30 horas, miércoles 29 a las 19:30 y domingos a las 18:30.",
-      "date": "Jue 17 de abril al Dom 2 de mayo",
-      "dateMs": 1745020800000,
-      "month": 3,
-      "days": [
-        2
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Teatro"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "tetr",
-      "id": 6
-    },
-    {
-      "title": "El purgatorio",
-      "cat": "culture",
-      "emoji": "🎭",
-      "desc": "Obra teatral que se presenta jueves a sábados a las 20 horas y domingos a las 19 horas.",
-      "date": "Jue 30 de abril al Dom 10 de mayo",
-      "dateMs": 1745155200000,
-      "month": 3,
-      "days": [
-        10
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Teatro"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "tetr",
-      "id": 7
-    },
-    {
-      "title": "La Memoria Guachaca",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Concierto de música popular en el Centro Gabriela Mistral.",
-      "date": "Sab 2 de mayo 20:00",
-      "dateMs": 1746086400000,
-      "month": 4,
-      "days": [
-        2
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Música Popular"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "conc",
-      "id": 8
-    },
-    {
-      "title": "Hecho en China",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Exposición de artes visuales abierta hasta el 31 de mayo en el Centro Gabriela Mistral.",
-      "date": "Hasta Dom 31 de mayo",
-      "dateMs": 1748764800000,
-      "month": 4,
-      "days": [
-        31
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 9
-    },
-    {
-      "title": "LMBL ícono",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Exposición de artes visuales y mediales disponible hasta el 28 de junio.",
-      "date": "Mar 15 de abril al Dom 28 de junio",
-      "dateMs": 1744689600000,
-      "month": 3,
-      "days": [
-        28
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 10
-    },
-    {
-      "title": "Sueños",
-      "cat": "culture",
-      "emoji": "📸",
-      "desc": "Exposición de fotografía subacuática que desdibuja las fronteras entre realidad y fantasía del fotógrafo belga Harry Fayt.",
-      "date": "Mié 12 de marzo al Sab 24 de mayo",
-      "dateMs": 1747929600000,
-      "month": 4,
-      "days": [
-        24
-      ],
-      "venue": "Estación Mapocho",
-      "address": "Lastarria 238, Santiago",
-      "zone": "cen",
-      "mapsQ": "Estacion+Mapocho+Santiago",
-      "price": null,
-      "src": "Estacion Mapocho",
-      "srcUrl": "https://www.estacionmapocho.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Fotografía"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 11
-    },
-    {
-      "title": "Conversaciones Concertantes",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Concierto de la Orquesta de Cámara de Santiago con obras de Haydn y Beethoven.",
-      "date": "Vie 22 de mayo 20:00",
-      "dateMs": 1747929600000,
-      "month": 4,
-      "days": [
-        22
-      ],
-      "venue": "Estación Mapocho",
-      "address": "Lastarria 238, Santiago",
-      "zone": "cen",
-      "mapsQ": "Estacion+Mapocho+Santiago",
-      "price": null,
-      "src": "Estacion Mapocho",
-      "srcUrl": "https://www.estacionmapocho.cl/",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Música Clásica"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "conc",
-      "id": 12
-    },
-    {
-      "title": "La Furia del Libro",
-      "cat": "culture",
-      "emoji": "📚",
-      "desc": "Festival literario de editoriales independientes y universitarias con más de 330 editoriales, conversatorios y actividades culturales.",
-      "date": "Mié 28 al Sab 31 de mayo",
-      "dateMs": 1748332800000,
-      "month": 4,
-      "days": [
-        28,
-        29,
-        30,
-        31
-      ],
-      "venue": "Estación Mapocho",
-      "address": "Lastarria 238, Santiago",
-      "zone": "cen",
-      "mapsQ": "Estacion+Mapocho+Santiago",
-      "price": null,
-      "src": "Estacion Mapocho",
-      "srcUrl": "https://www.estacionmapocho.cl/",
-      "img": "",
-      "tags": [
-        "Festival",
-        "Literatura"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "fest",
-      "id": 13
-    },
-    {
-      "title": "Antiguos oficios de Chile",
-      "cat": "culture",
-      "emoji": "📸",
-      "desc": "Exposición de imágenes históricas de antiguos oficios y tradiciones del Estudio Brügmann.",
-      "date": "Vie 30 de mayo al Sab 26 de julio",
-      "dateMs": 1748678400000,
-      "month": 4,
-      "days": [
-        30,
-        31
-      ],
-      "venue": "Estación Mapocho",
-      "address": "Lastarria 238, Santiago",
-      "zone": "cen",
-      "mapsQ": "Estacion+Mapocho+Santiago",
-      "price": null,
-      "src": "Estacion Mapocho",
-      "srcUrl": "https://www.estacionmapocho.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 14
-    },
-    {
-      "title": "En viaje a la infancia: juguetes patrimoniales chilenos",
-      "cat": "culture",
-      "emoji": "🧸",
-      "desc": "150 piezas de la Colección del Museo del Juguete Chileno de la PUC que recorren la niñez y evolución del juego.",
-      "date": "Vie 30 de mayo al Sab 26 de julio",
-      "dateMs": 1748678400000,
-      "month": 4,
-      "days": [
-        30,
-        31
-      ],
-      "venue": "Estación Mapocho",
-      "address": "Lastarria 238, Santiago",
-      "zone": "cen",
-      "mapsQ": "Estacion+Mapocho+Santiago",
-      "price": null,
-      "src": "Estacion Mapocho",
-      "srcUrl": "https://www.estacionmapocho.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "expo",
-      "id": 15
-    },
-    {
-      "title": "Mónica Bengoa. Un libro viajero",
-      "cat": "culture",
-      "emoji": "📚",
-      "desc": "Exposición en el CEDOC del Museo Nacional de Bellas Artes hasta el 31 de mayo.",
-      "date": "Mar 31 de marzo al Mié 31 de mayo",
-      "dateMs": 1748764800000,
-      "month": 4,
-      "days": [
-        31
-      ],
-      "venue": "CEDOC MNBA",
-      "address": "José Miguel de la Barra 650, Santiago",
-      "zone": "cen",
-      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
-      "price": 0,
-      "src": "MNBA - Cartelera",
-      "srcUrl": "https://www.mnba.gob.cl/cartelera",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 16
-    },
-    {
-      "title": "Una colección en expansión (1900-1980)",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Exposición de nuevas adquisiciones del Museo Nacional de Bellas Artes.",
-      "date": "Mié 9 de abril al Dom 16 de agosto",
-      "dateMs": 1744689600000,
-      "month": 3,
-      "days": [
-        9
-      ],
-      "venue": "MNBA - Ala norte, primer piso",
-      "address": "José Miguel de la Barra 650, Santiago",
-      "zone": "cen",
-      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
-      "price": 0,
-      "src": "MNBA - Cartelera",
-      "srcUrl": "https://www.mnba.gob.cl/cartelera",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 17
-    },
-    {
-      "title": "Presentación catálogo Episodio Monvoisin",
-      "cat": "culture",
-      "emoji": "📚",
-      "desc": "Lanzamiento de catálogo de la muestra sobre un pintor francés en el Chile del siglo XIX.",
-      "date": "Mié 27 al Vie 29 de mayo 12:00",
-      "dateMs": 1748332800000,
-      "month": 4,
-      "days": [
-        27,
-        28,
-        29
-      ],
-      "venue": "MNBA - Salón José Miguel Blanco",
-      "address": "José Miguel de la Barra 650, Santiago",
-      "zone": "cen",
-      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
-      "price": 0,
-      "src": "MNBA - Cartelera",
-      "srcUrl": "https://www.mnba.gob.cl/cartelera",
-      "img": "",
-      "tags": [
-        "Lanzamiento"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "charla",
-      "id": 18
-    },
-    {
-      "title": "Exposición Fotográfica Pin Campaña",
-      "cat": "culture",
-      "emoji": "📸",
-      "desc": "Más de 130 fotografías a color y en blanco y negro de retratos de animales, paisajes, naturaleza y figura humana.",
-      "date": "Lunes 21 de mayo al domingo 31 de mayo",
-      "dateMs": 1747526400000,
-      "month": 4,
-      "days": [
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Vitacura",
-      "price": 0,
-      "src": "Vitacura Cultura",
-      "srcUrl": "https://vitacuracultura.cl/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Fotografía"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 19
-    },
-    {
-      "title": "Danzas del mundo: Baile ruso",
-      "cat": "culture",
-      "emoji": "💃",
-      "desc": "Presentación de la agrupación folclórica Kalinka con un repertorio inspirado en el movimiento de Rusia.",
-      "date": "Mar 26 de mayo 19:30",
-      "dateMs": 1748019600000,
-      "month": 4,
-      "days": [
-        26
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Vitacura",
-      "price": 0,
-      "src": "Vitacura Cultura",
-      "srcUrl": "https://vitacuracultura.cl/",
-      "img": "",
-      "tags": [
-        "Danza",
-        "Música Folclórica"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "conc",
-      "id": 20
-    },
-    {
-      "title": "Cita cinéfila: Valor sentimental",
-      "cat": "culture",
-      "emoji": "🎬",
-      "desc": "Proyección y análisis de la película Valor sentimental protagonizada por Stellan Skargård y Elle Fanning.",
-      "date": "Mié 27 de mayo 19:00",
-      "dateMs": 1748106000000,
-      "month": 4,
-      "days": [
-        27
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Vitacura",
-      "price": 0,
-      "src": "Vitacura Cultura",
-      "srcUrl": "https://vitacuracultura.cl/",
-      "img": "",
-      "tags": [
-        "Cine"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "charla",
-      "id": 21
-    },
-    {
-      "title": "Día del Patrimonio en Lo Matta Cultural",
-      "cat": "culture",
-      "emoji": "🏛️",
-      "desc": "Celebración del Día del Patrimonio con programación especial de actividades culturales.",
-      "date": "Sab 30 y Dom 31 de mayo 11:00-18:00",
-      "dateMs": 1748678400000,
-      "month": 4,
-      "days": [
-        30,
-        31
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Vitacura",
-      "price": 0,
-      "src": "Vitacura Cultura",
-      "srcUrl": "https://vitacuracultura.cl/",
-      "img": "",
-      "tags": [
-        "Festival"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "fest",
-      "id": 22
-    },
-    {
-      "title": "IX Festival Música de Cámara: Trío clarinete, viola y piano",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Concierto con obras de Mozart, Poulenc y Bruch a cargo de Kathya Galleguillos, Georgina Rossi y Sten Ulloa.",
-      "date": "Mar 26 de mayo 20:00",
-      "dateMs": 1748023200000,
-      "month": 4,
-      "days": [
-        26
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Vitacura",
-      "price": 0,
-      "src": "Vitacura Cultura",
-      "srcUrl": "https://vitacuracultura.cl/",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Música Clásica"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "conc",
-      "id": 23
-    },
-    {
-      "title": "Concierto Depto. Música Universidad de Chile",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Ciclo de música de cámara del Departamento de Música y Sonología de la Facultad de Artes.",
-      "date": "Vie 23 de mayo 20:00",
-      "dateMs": 1747929600000,
-      "month": 4,
-      "days": [
-        23
-      ],
-      "venue": "Centro Gabriela Mistral (GAM)",
-      "address": "Lastarria, Santiago",
-      "zone": "cen",
-      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Música Clásica"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "conc",
-      "id": 24
-    },
-    {
-      "title": "Ñuñoa celebra a las mamás con concierto de Natalino",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Concierto gratuito dedicado a la celebración del Día de la Madre con Natalino.",
-      "date": "Sab 23 de mayo",
-      "dateMs": 1747929600000,
-      "month": 4,
-      "days": [
-        23
-      ],
-      "venue": "Plaza Ñuñoa",
-      "address": "Ñuñoa, Santiago",
-      "zone": "nun",
-      "mapsQ": "Plaza+Nunoa+Santiago",
-      "price": 0,
-      "src": "Municipalidad Nunoa - Cultura",
-      "srcUrl": "https://www.nunoa.cl/category/cultura/",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Evento Familiar"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "conc",
-      "id": 25
-    },
-    {
-      "title": "Titanic: Un viaje a través del tiempo",
-      "cat": "culture",
-      "emoji": "🚢",
-      "desc": "Experiencia inmersiva sobre el viaje del Titanic con tecnología interactiva.",
-      "date": "Mié 21 al Vie 31 de mayo",
-      "dateMs": 1747526400000,
-      "month": 4,
-      "days": [
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31
-      ],
-      "venue": "Cenco Costanera",
-      "address": "Av. Costanera Norte, Santiago",
-      "zone": "cen",
-      "mapsQ": "Cenco+Costanera+Santiago",
-      "price": 13750,
-      "src": "Fever - Santiago",
-      "srcUrl": "https://feverup.com/es/santiago",
-      "img": "",
-      "tags": [
-        "Experiencia"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "expo",
-      "id": 26
-    },
-    {
-      "title": "Convocatoria de danza: Estados de deriva",
-      "cat": "culture",
-      "emoji": "💃",
-      "desc": "Convocatoria de danza contemporánea con participación abierta.",
-      "date": "Lun 4 de mayo - Vie 8 de mayo",
-      "dateMs": 1746172800000,
-      "month": 4,
-      "days": [
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "venue": "Centro Gabriela Mistral",
-      "address": "Santiago Centro",
-      "zone": "cen",
-      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
-      "price": null,
-      "src": "GAM - Centro Gabriela Mistral",
-      "srcUrl": "https://gam.cl/es/calendario/",
-      "img": "",
-      "tags": [
-        "Danza",
-        "Convocatoria"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "dep",
-      "id": 27
-    },
-    {
-      "title": "Presentación catálogo muestra Episodio Monvoisin",
-      "cat": "culture",
-      "emoji": "📖",
-      "desc": "Lanzamiento de catálogo de exposición sobre pintor francés del siglo XIX.",
-      "date": "Mié 27 de mayo - Vie 29 de mayo 12:00",
-      "dateMs": 1746345600000,
-      "month": 4,
-      "days": [
-        27,
-        28,
-        29
-      ],
-      "venue": "Museo Nacional de Bellas Artes",
-      "address": "José Miguel de la Barra 650, Santiago",
-      "zone": "cen",
-      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
-      "price": 0,
-      "src": "MNBA - Cartelera",
-      "srcUrl": "https://www.mnba.gob.cl/cartelera",
-      "img": "",
-      "tags": [
-        "Lanzamiento",
-        "Arte"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "charla",
-      "id": 28
-    },
-    {
-      "title": "Valentina Cruz. De amor, humor y muerte",
-      "cat": "culture",
-      "emoji": "🎨",
-      "desc": "Nueva exposición de artes visuales en el ala sur del museo.",
-      "date": "Vie 29 de mayo - Lun 30 de agosto 2026",
-      "dateMs": 1746432000000,
-      "month": 4,
-      "days": [
-        29,
-        30,
-        31
-      ],
-      "venue": "Museo Nacional de Bellas Artes",
-      "address": "José Miguel de la Barra 650, Santiago",
-      "zone": "cen",
-      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
-      "price": 0,
-      "src": "MNBA - Cartelera",
-      "srcUrl": "https://www.mnba.gob.cl/cartelera",
-      "img": "",
-      "tags": [
-        "Exposicion"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "expo",
-      "id": 29
-    },
-    {
-      "title": "Ciclo Danzas del Mundo: Baile ruso",
-      "cat": "culture",
-      "emoji": "💃",
-      "desc": "Presentación de agrupación folclórica con repertorio inspirado en movimientos rusos.",
-      "date": "Mar 26 de mayo 19:30",
-      "dateMs": 1746259200000,
-      "month": 4,
-      "days": [
-        26
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Santiago",
-      "price": 0,
-      "src": "Vitacura Cultura",
-      "srcUrl": "https://vitacuracultura.cl/",
-      "img": "",
-      "tags": [
-        "Danza",
-        "Folclore"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "dep",
-      "id": 30
-    },
-    {
-      "title": "Exploro Mi Parque: Una caminata con sentido",
-      "cat": "sport",
-      "emoji": "🌿",
-      "desc": "Recorrido guiado descubriendo flora nativa y su adaptación en el entorno.",
-      "date": "Mié 28 de mayo",
-      "dateMs": 1746432000000,
-      "month": 4,
-      "days": [
-        28
-      ],
-      "venue": "Parque Bicentenario",
-      "address": "Vitacura, Santiago",
-      "zone": "vit",
-      "mapsQ": "Parque+Bicentenario+Vitacura",
-      "price": 0,
-      "src": "Vitacura - Actividades municipales",
-      "srcUrl": "https://vitacura.cl/actividades/",
-      "img": "",
-      "tags": [
-        "Caminata",
-        "Naturaleza"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "dep",
-      "id": 31
-    },
-    {
-      "title": "Concierto gratuito de Natalino - Celebración Día de la Madre",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Concierto gratuito especial para celebrar a las mamás en familia.",
-      "date": "Sáb 23 de mayo",
-      "dateMs": 1746345600000,
-      "month": 4,
-      "days": [
-        23
-      ],
-      "venue": "Ñuñoa",
-      "address": "Ñuñoa, Santiago",
-      "zone": "nun",
-      "mapsQ": "Plaza+Nunoa+Santiago",
-      "price": 0,
-      "src": "Municipalidad Nunoa - Cultura",
-      "srcUrl": "https://www.nunoa.cl/category/cultura/",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Familiar"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "conc",
-      "id": 32
-    },
-    {
-      "title": "Exposición Chile y el mundo unidos por el cómic",
-      "cat": "culture",
-      "emoji": "💭",
-      "desc": "Exposición panorámica del legado de la historieta con exponentes internacionales como DC Comics, Marvel y nacionales como Pepo, Themo Lobos y Máximo Carvajal.",
-      "date": "Lun 23 de mayo - Dom 31 de mayo",
-      "dateMs": 1746345600000,
-      "month": 4,
-      "days": [
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31
-      ],
-      "venue": "Lo Matta Cultural",
-      "address": "Av. Kennedy 9350, Vitacura",
-      "zone": "vit",
-      "mapsQ": "Lo+Matta+Cultural+Santiago",
-      "price": null,
-      "src": "Vitacura - Actividades municipales",
-      "srcUrl": "https://vitacura.cl/actividades/",
-      "img": "",
-      "tags": [
-        "Exposicion",
-        "Comic"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": true,
-      "tipo": "expo",
-      "id": 33
-    },
-    {
-      "title": "Candlelight: Tributo a ABBA y Más",
-      "cat": "music",
-      "emoji": "🎵",
-      "desc": "Concierto Candlelight con tributo a ABBA y más clásicos.",
-      "date": "Vie 30 de mayo - Vie 18 de julio",
-      "dateMs": 1746518400000,
-      "month": 4,
-      "days": [
-        30,
-        31
-      ],
-      "venue": "Teatro Vicente Bianchi",
-      "address": "La Reina, Santiago",
-      "zone": "lare",
-      "mapsQ": "Teatro+Vicente+Bianchi+La+Reina",
-      "price": 16000,
-      "src": "Fever - Santiago",
-      "srcUrl": "https://feverup.com/es/santiago",
-      "img": "",
-      "tags": [
-        "Concierto",
-        "Musica"
-      ],
-      "acc": false,
-      "pet": false,
-      "kid": false,
-      "tipo": "conc",
-      "id": 34
+/**
+ * fetch-events-v2.js
+ * Versión mejorada con reintentos, manejo de sobrecarga, compresión de datos
+ *
+ * Cambios vs v1:
+ * - Reintentos automáticos para 529 (overloaded) y timeouts
+ * - Compresión inteligente: solo primeros N chars por fuente
+ * - Batch más pequeño si falla (divide y conquista)
+ * - Better error logging
+ * - User-Agent con nombre del proyecto
+ *
+ * Uso: node scripts/fetch-events-v2.js
+ */
+
+const fs   = require('fs');
+const path = require('path');
+
+const EVENTS_PATH      = path.join(__dirname, '..', 'events.json');
+const MODEL            = 'claude-haiku-4-5';
+const TODAY            = new Date().toISOString().slice(0, 10);
+const CHARS_PER_SOURCE = 2000;  // Reducido de 4000 para batch más pequeño
+const MAX_RETRIES      = 3;
+const RETRY_DELAY_MS   = 2000;
+
+// ── Fuentes a raspar ──────────────────────────────────────────────────────────
+const SOURCES = [
+  // Las Condes
+  { name: 'Las Condes Cultural',               zone: 'lc',   url: 'https://agendacultural.culturallascondes.cl/' },
+  { name: 'Las Condes - Panorama mensual',     zone: 'lc',   url: 'https://www2.lascondes.cl/vive-las-condes/panorama-mensual/' },
+  // Santiago Centro
+  { name: 'Santiago Cultura - Agenda',         zone: 'cen',  url: 'https://www.santiagocultura.cl/agenda-cultural/' },
+  { name: 'GAM - Centro Gabriela Mistral',     zone: 'cen',  url: 'https://gam.cl/es/calendario/' },
+  { name: 'MNBA - Cartelera',                  zone: 'cen',  url: 'https://www.mnba.gob.cl/cartelera' },
+  { name: 'Estacion Mapocho',                  zone: 'cen',  url: 'https://www.estacionmapocho.cl/' },
+  // Providencia
+  { name: 'Municipalidad Providencia - Agenda',zone: 'prov', url: 'https://providencia.cl/provi/site/tax/port/fid_actividades/taxport_3_4__1.html' },
+  // Nunoa
+  { name: 'Municipalidad Nunoa - Cultura',     zone: 'nun',  url: 'https://www.nunoa.cl/category/cultura/' },
+  // Lo Barnechea
+  { name: 'Corporacion Cultural Lo Barnechea', zone: 'lob',  url: 'https://corporacionculturaldelobarnechea.cl/agenda/' },
+  // Vitacura
+  { name: 'Vitacura Cultura',                  zone: 'vit',  url: 'https://vitacuracultura.cl/' },
+  { name: 'Vitacura - Actividades municipales',zone: 'vit',  url: 'https://vitacura.cl/actividades/' },
+  // La Reina
+  { name: 'Corporacion Cultural La Reina',     zone: 'lare', url: 'https://culturalareina.cl/' },
+  // Huechuraba
+  { name: 'Municipalidad Huechuraba - Cultura',zone: 'ind',  url: 'https://huechuraba.cl/sala-de-prensa/destacado/cultura' },
+  // Agregadores
+  { name: 'Fever - Santiago',                  zone: 'cen',  url: 'https://feverup.com/es/santiago' },
+];
+
+// ── Limpia HTML a texto plano ─────────────────────────────────────────────────
+function htmlToText(html, maxChars = CHARS_PER_SOURCE) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi,   '')
+    .replace(/<nav[\s\S]*?<\/nav>/gi,       '')
+    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g,            '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g,  ' ')
+    .replace(/&amp;/g,   '&')
+    .replace(/&lt;/g,    '<')
+    .replace(/&gt;/g,    '>')
+    .replace(/\s{3,}/g,  '\n')
+    .trim()
+    .slice(0, maxChars);
+}
+
+// ── Sleep helper ──────────────────────────────────────────────────────────────
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+// ── Raspar una URL con reintentos ─────────────────────────────────────────────
+async function scrape(source, attempt = 1) {
+  try {
+    const res = await fetch(source.url, {
+      headers: {
+        'User-Agent':      'Mozilla/5.0 (compatible; GautBot/1.0; events scraper)',
+        'Accept-Language': 'es-CL,es;q=0.9',
+        'Accept':          'text/html'
+      },
+      signal: AbortSignal.timeout(15000)
+    });
+
+    if (!res.ok) {
+      if (res.status === 429 || res.status === 503) {
+        if (attempt < MAX_RETRIES) {
+          console.log(`  RETRY ${source.name} (HTTP ${res.status}, intento ${attempt}/${MAX_RETRIES})`);
+          await sleep(RETRY_DELAY_MS * attempt);
+          return scrape(source, attempt + 1);
+        }
+      }
+      console.warn(`  SKIP ${source.name}: HTTP ${res.status}`);
+      return null;
     }
-  ],
-  "coords": {},
-  "meta": {
-    "lastUpdated": "2026-05-23",
-    "totalEvents": 34,
-    "generatedBy": "github-actions + scraping + claude"
+
+    const html = await res.text();
+    const text = htmlToText(html);
+    console.log(`  OK   ${source.name}: ${text.length} chars`);
+    return text;
+  } catch (err) {
+    if (err.name === 'AbortError' && attempt < MAX_RETRIES) {
+      console.log(`  RETRY ${source.name} (timeout, intento ${attempt}/${MAX_RETRIES})`);
+      await sleep(RETRY_DELAY_MS * attempt);
+      return scrape(source, attempt + 1);
+    }
+    console.warn(`  SKIP ${source.name}: ${err.message}`);
+    return null;
   }
 }
+
+// ── Llamar a Claude API con reintentos ────────────────────────────────────────
+async function callClaude(userPrompt, attempt = 1) {
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type':      'application/json',
+        'x-api-key':         process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model:      MODEL,
+        max_tokens: 16000,
+        system:     SYSTEM_PROMPT,
+        messages:   [{ role: 'user', content: userPrompt }]
+      }),
+      signal: AbortSignal.timeout(90000)  // 90s para procesamiento
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      const errMsg = res.status === 529 ? 'Sobrecargado' : `HTTP ${res.status}`;
+
+      // Reintentos especiales para 529 (overloaded)
+      if (res.status === 529 && attempt < MAX_RETRIES) {
+        const delay = RETRY_DELAY_MS * Math.pow(2, attempt - 1);  // Exponencial
+        console.warn(`  RETRY Claude (${errMsg}, intento ${attempt}/${MAX_RETRIES}, esperando ${delay}ms...)`);
+        await sleep(delay);
+        return callClaude(userPrompt, attempt + 1);
+      }
+
+      throw new Error(`Claude API ${errMsg}: ${errText.slice(0, 200)}`);
+    }
+
+    const data = await res.json();
+    return data.content?.[0]?.text || '';
+  } catch (err) {
+    if (err.message.includes('overload') && attempt < MAX_RETRIES) {
+      const delay = RETRY_DELAY_MS * Math.pow(2, attempt - 1);
+      console.warn(`  RETRY Claude (${err.message.slice(0, 50)}..., intento ${attempt}/${MAX_RETRIES}, esperando ${delay}ms...)`);
+      await sleep(delay);
+      return callClaude(userPrompt, attempt + 1);
+    }
+    throw err;
+  }
+}
+
+// ── Prompt del sistema ────────────────────────────────────────────────────────
+const SYSTEM_PROMPT = `Eres un extractor de eventos culturales para Gaut, una app de Santiago de Chile.
+Recibiras texto de varias paginas de municipalidades y debes extraer eventos reales.
+
+REGLAS:
+- Solo eventos con fecha concreta en los proximos 60 dias desde hoy (${TODAY})
+- Ignora talleres recurrentes sin fecha especifica, cursos y tramites administrativos
+- Si no hay precio explicito usa null. Si dice "gratis" o "entrada liberada" usa 0
+- Se conservador: 3 eventos buenos son mejor que 10 dudosos
+
+CATEGORIAS ("cat"):
+- "music"   -> conciertos, recitales, opera, coro
+- "culture" -> exposiciones, teatro, charlas, cine, literatura, danza
+- "sport"   -> deporte, actividad fisica, al aire libre
+- "food"    -> gastronomia, ferias de comida
+
+ZONAS ("zone"): lc | cen | nun | prov | bella | vit | lare | ind | lob
+TIPO ("tipo"):  conc | fest | expo | tetr | dep | charla
+
+RESPONDE SOLO con un array JSON valido, sin texto adicional ni backticks.
+
+Ejemplo:
+[{"title":"Nombre del evento","cat":"culture","emoji":"🎨","desc":"Descripcion breve.","date":"Sab 15 de mayo 19:00","dateMs":1747357200000,"month":4,"days":[15],"venue":"Centro Cultural","address":"Dirección","zone":"lc","mapsQ":"Centro+Cultural+Las+Condes+Santiago","price":0,"src":"Las Condes Cultural","srcUrl":"https://url.cl/","img":"","tags":["Exposicion"],"acc":false,"pet":false,"kid":false,"tipo":"expo"}]
+
+NOTAS:
+- "month": 0=Ene 1=Feb 2=Mar 3=Abr 4=May 5=Jun (JS Date.getMonth())
+- "days": dias del mes (solo el primer dia si es multi-dia)
+- "dateMs": timestamp ms del primer dia a las 20:00 si no hay hora
+- "img": URL real si aparece, sino cadena vacia ""`;
+
+// ── Batch: una sola llamada con todas las fuentes ─────────────────────────────
+async function extractAllWithClaude(scraped) {
+  const bloques = scraped
+    .map(({ source, text }) =>
+      `=== ${source.name} | zona="${source.zone}" ===\n${text}`
+    )
+    .join('\n\n');
+
+  const userPrompt = `Fecha: ${TODAY}
+${scraped.length} fuentes de municipalidades Santiago.
+
+${bloques}`;
+
+  console.log(`\nPrompt size: ${userPrompt.length} chars`);
+  const text = await callClaude(userPrompt);
+
+  if (!text) throw new Error('Claude no devolvio contenido');
+
+  let clean = text
+    .replace(/^```json\s*/i, '')
+    .replace(/^```\s*/i,     '')
+    .replace(/```\s*$/i,     '')
+    .trim();
+
+  if (!clean.endsWith(']')) {
+    const lastBrace = clean.lastIndexOf('}');
+    if (lastBrace !== -1) clean = clean.slice(0, lastBrace + 1) + ']';
+    else clean = '[]';
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(clean);
+  } catch(e) {
+    console.warn('  JSON malformado, devolviendo array vacio');
+    console.warn('  Response:', text.slice(0, 300));
+    return [];
+  }
+  return Array.isArray(parsed) ? parsed : (parsed.events || []);
+}
+
+// ── Merge sin duplicados ──────────────────────────────────────────────────────
+function normalize(str) {
+  return str.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function mergeEvents(existing, incoming) {
+  const byKey = new Map();
+  (existing.events || []).forEach(e => {
+    const key = `${normalize(e.title)}|${normalize(e.venue || '')}`;
+    byKey.set(key, e);
+  });
+
+  let nextId = existing.events?.length
+    ? Math.max(...existing.events.map(e => e.id || 0)) + 1
+    : 1;
+  let added = 0, dupes = 0;
+  const merged = [...(existing.events || [])];
+
+  incoming.forEach(ev => {
+    const key = `${normalize(ev.title)}|${normalize(ev.venue || '')}`;
+    if (byKey.has(key)) { dupes++; return; }
+    merged.push({ ...ev, id: nextId++ });
+    byKey.set(key, ev);
+    added++;
+  });
+
+  const cutoff = Date.now();
+  const thisYear = new Date().getFullYear();
+
+  const valid = merged.filter(e => {
+    if (!e.dateMs) return true;
+    if (e.month !== undefined && e.days && e.days.length > 0) {
+      const lastDay = Math.max(...e.days);
+      let lastDate = new Date(thisYear, e.month, lastDay, 23, 59, 59);
+      if (lastDate.getTime() < cutoff) {
+        lastDate = new Date(thisYear + 1, e.month, lastDay, 23, 59, 59);
+      }
+      return lastDate.getTime() > cutoff;
+    }
+    const d = new Date(e.dateMs);
+    if (d.getFullYear() < thisYear) d.setFullYear(thisYear);
+    if (d.getTime() < cutoff) d.setFullYear(thisYear + 1);
+    return d.getTime() > cutoff;
+  });
+
+  const expired = merged.length - valid.length;
+  console.log(`  Nuevos: +${added} | Duplicados: ${dupes} | Expirados: -${expired}`);
+
+  return {
+    events: valid,
+    coords: existing.coords || {},
+    meta: { lastUpdated: TODAY, totalEvents: valid.length, generatedBy: 'github-actions + scraping + claude' }
+  };
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+async function main() {
+  if (!process.env.ANTHROPIC_API_KEY) throw new Error('Falta ANTHROPIC_API_KEY');
+
+  let existing = { events: [], coords: {}, meta: {} };
+  if (fs.existsSync(EVENTS_PATH)) {
+    try {
+      existing = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));
+      console.log(`events.json actual: ${existing.events?.length || 0} eventos\n`);
+    } catch { console.warn('events.json corrupto, empezando desde cero\n'); }
+  }
+
+  // 1. Raspar todas las fuentes en paralelo
+  console.log('Raspando fuentes en paralelo...');
+  const results = await Promise.allSettled(SOURCES.map(s => scrape(s)));
+
+  const scraped = [];
+  results.forEach((r, i) => {
+    if (r.status === 'fulfilled' && r.value) scraped.push({ source: SOURCES[i], text: r.value });
+  });
+  console.log(`\n${scraped.length}/${SOURCES.length} fuentes OK`);
+
+  if (scraped.length === 0) {
+    console.warn('Ninguna fuente disponible.');
+    process.exit(0);
+  }
+
+  // 2. Una sola llamada a Claude (batch) con reintentos
+  console.log(`\nLlamando a Claude con ${scraped.length} fuentes...`);
+  let allNew = [];
+  try {
+    allNew = await extractAllWithClaude(scraped);
+    console.log(`Claude extrajo: ${allNew.length} eventos\n`);
+  } catch (err) {
+    console.error(`Error en Claude: ${err.message}`);
+    process.exit(1);
+  }
+
+  // 3. Merge y guardar
+  console.log(`Mergeando eventos...`);
+  const result = mergeEvents(existing, allNew);
+  fs.writeFileSync(EVENTS_PATH, JSON.stringify(result, null, 2), 'utf8');
+  console.log(`\nOK: events.json → ${result.events.length} eventos\n`);
+}
+
+main().catch(err => {
+  console.error('Error fatal:', err.message);
+  process.exit(1);
+});
