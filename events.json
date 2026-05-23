@@ -944,12 +944,351 @@
       "kid": false,
       "tipo": "charla",
       "id": 29
+    },
+    {
+      "title": "Presentación catálogo Episodio Monvoisin",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento de catálogo de la muestra Episodio Monvoisin. Un pintor francés en el Chile del siglo XIX.",
+      "date": "Del 27 al 29 de mayo 12:00-13:00",
+      "dateMs": 1748534400000,
+      "month": 4,
+      "days": [
+        27,
+        28,
+        29
+      ],
+      "venue": "Salón José Miguel Blanco - Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "MNBA+Jose+Miguel+de+la+Barra+650",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Presentación",
+        "Catálogo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 30
+    },
+    {
+      "title": "Sueños - Fotografía Subacuática",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Exposición de fotografía subacuática que desdibuja las fronteras entre realidad y fantasía. De Harry Fayt, uno de los creadores más singulares de la escena belga contemporánea.",
+      "date": "Del 12 de marzo al 24 de mayo",
+      "dateMs": 1748707200000,
+      "month": 4,
+      "days": [
+        23,
+        24
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Lastarria s/n, Santiago",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 31
+    },
+    {
+      "title": "Conversaciones Concertantes - Orquesta de Cámara de Santiago",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto de la Orquesta de Cámara de Santiago que recorre obras de Joseph Haydn y Ludwig van Beethoven.",
+      "date": "Viernes 22 de mayo",
+      "dateMs": 1747449600000,
+      "month": 4,
+      "days": [
+        22
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Lastarria s/n, Santiago",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Música Clásica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 32
+    },
+    {
+      "title": "La Furia del Libro - Festival de Editoriales",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Festival literario de editoriales independientes y universitarias con más de 330 editoriales, conversatorios, lanzamientos y actividades culturales para todo público.",
+      "date": "Del 28 al 31 de mayo",
+      "dateMs": 1748534400000,
+      "month": 4,
+      "days": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Lastarria s/n, Santiago",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Festival",
+        "Literatura"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "fest",
+      "id": 33
+    },
+    {
+      "title": "Danzas del mundo: Baile ruso",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Presentación de la agrupación folclórica Kalinka con extraordinario repertorio inspirado en el movimiento ruso.",
+      "date": "Martes 26 de mayo 19:30",
+      "dateMs": 1748188800000,
+      "month": 4,
+      "days": [
+        26
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Avenida Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Kennedy+9350",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Danza",
+        "Folclórico"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 34
+    },
+    {
+      "title": "Exposición Fotográfica Pin Campaña - Imágenes Paganas",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Más de 130 fotografías a color y en blanco y negro de la fotógrafa chilena Pin Campaña. Retratos de animales, paisajes, naturaleza y figura humana.",
+      "date": "Hasta 31 de mayo, lunes 14-19h, martes a domingo 10-19h",
+      "dateMs": 1748707200000,
+      "month": 4,
+      "days": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Avenida Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Kennedy+9350",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 35
+    },
+    {
+      "title": "Cuentacuentos en la Biblioteca de Vitacura",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Sesión de cuentacuentos para niños: 'Monstruo, sé bueno' de Natalie Marshall, con Nico Toro.",
+      "date": "Miércoles 27 de mayo 17:00",
+      "dateMs": 1748275200000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Biblioteca de Vitacura",
+      "address": "Avenida San Josemaría Escrivá de Balaguer 6420, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Biblioteca+Vitacura+San+Josemaria",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cuentacuentos",
+        "Literatura Infantil"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 36
+    },
+    {
+      "title": "Titanic: Un viaje a través del tiempo",
+      "cat": "culture",
+      "emoji": "🚢",
+      "desc": "Experiencia inmersiva sobre el Titanic en Cenco Costanera.",
+      "date": "Desde 23 de mayo al 31 de julio",
+      "dateMs": 1747363200000,
+      "month": 4,
+      "days": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "venue": "Cenco Costanera",
+      "address": "Costanera Norte, Santiago",
+      "zone": "cen",
+      "mapsQ": "Cenco+Costanera+Santiago",
+      "price": 0,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Experiencia Inmersiva"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 37
+    },
+    {
+      "title": "Candlelight: Lo Mejor de Hans Zimmer",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto candlelight tributo a las obras de Hans Zimmer.",
+      "date": "Del 21 de agosto al 18 de diciembre 2026",
+      "dateMs": 1747363200000,
+      "month": 4,
+      "days": [],
+      "venue": "Centro Cultural CEINA",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Centro+Cultural+CEINA+Santiago",
+      "price": 17000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Música Clásica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 38
+    },
+    {
+      "title": "Candlelight: Tributo a ABBA y Más",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto candlelight tributo a ABBA y más.",
+      "date": "Del 30 de mayo al 18 de julio",
+      "dateMs": 1748707200000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Teatro Vicente Bianchi",
+      "address": "La Reina",
+      "zone": "lare",
+      "mapsQ": "Teatro+Vicente+Bianchi+La+Reina",
+      "price": 16000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Tributo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 39
+    },
+    {
+      "title": "Concierto Jóvenes Sinfónicos de la OSIM - FOJI",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto de jóvenes sinfónicos de la Orquesta Sinfónica Infantil y Juvenil del Ministerio de las Artes.",
+      "date": "Jueves 18 de junio 19:00",
+      "dateMs": 1750257600000,
+      "month": 5,
+      "days": [
+        18
+      ],
+      "venue": "Centro Cultural Carabineros de Chile",
+      "address": "Providencia",
+      "zone": "prov",
+      "mapsQ": "Centro+Cultural+Carabineros+Providencia",
+      "price": null,
+      "src": "Eventbrite - Santiago",
+      "srcUrl": "https://www.eventbrite.cl/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Música Sinfónica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 40
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-05-23",
-    "totalEvents": 29,
+    "totalEvents": 40,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
