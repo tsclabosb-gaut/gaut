@@ -1283,12 +1283,70 @@
       "kid": false,
       "tipo": "conc",
       "id": 40
+    },
+    {
+      "title": "Exposición Chile y el mundo unidos por el cómicl",
+      "cat": "culture",
+      "emoji": "💭",
+      "desc": "Panorámica del legado de la historieta con exponentes internacionales como DC Comics y Marvel, y nacionales como Condorito.",
+      "date": "Disponible en mayo",
+      "dateMs": 1746259200000,
+      "month": 4,
+      "days": [
+        25
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Avenida Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Cómics"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 41
+    },
+    {
+      "title": "Concierto de Natalino - Celebración del Día de las Madres",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto gratuito de Natalino en celebración especial para las mamás en jornada familiar.",
+      "date": "Sáb 23 de mayo 19:00",
+      "dateMs": 1745700000000,
+      "month": 4,
+      "days": [
+        23
+      ],
+      "venue": "Plaza Ñuñoa",
+      "address": "Plaza Ñuñoa, Ñuñoa",
+      "zone": "nun",
+      "mapsQ": "Plaza+Ñuñoa+Santiago",
+      "price": 0,
+      "src": "Municipalidad Ñuñoa",
+      "srcUrl": "https://www.nunoa.cl/category/cultura/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Música"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "conc",
+      "id": 42
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-05-23",
-    "totalEvents": 40,
+    "totalEvents": 42,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
