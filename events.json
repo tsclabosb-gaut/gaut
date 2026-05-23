@@ -778,12 +778,260 @@
       "kid": true,
       "tipo": "expo",
       "id": 26
+    },
+    {
+      "title": "Convocatoria de danza: Estados de deriva",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Convocatoria de danza contemporánea con participación abierta.",
+      "date": "Lun 4 de mayo - Vie 8 de mayo",
+      "dateMs": 1746172800000,
+      "month": 4,
+      "days": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "venue": "Centro Gabriela Mistral",
+      "address": "Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM - Centro Gabriela Mistral",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Danza",
+        "Convocatoria"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "dep",
+      "id": 27
+    },
+    {
+      "title": "Presentación catálogo muestra Episodio Monvoisin",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Lanzamiento de catálogo de exposición sobre pintor francés del siglo XIX.",
+      "date": "Mié 27 de mayo - Vie 29 de mayo 12:00",
+      "dateMs": 1746345600000,
+      "month": 4,
+      "days": [
+        27,
+        28,
+        29
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Lanzamiento",
+        "Arte"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 28
+    },
+    {
+      "title": "Valentina Cruz. De amor, humor y muerte",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Nueva exposición de artes visuales en el ala sur del museo.",
+      "date": "Vie 29 de mayo - Lun 30 de agosto 2026",
+      "dateMs": 1746432000000,
+      "month": 4,
+      "days": [
+        29,
+        30,
+        31
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposicion"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 29
+    },
+    {
+      "title": "Ciclo Danzas del Mundo: Baile ruso",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Presentación de agrupación folclórica con repertorio inspirado en movimientos rusos.",
+      "date": "Mar 26 de mayo 19:30",
+      "dateMs": 1746259200000,
+      "month": 4,
+      "days": [
+        26
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Danza",
+        "Folclore"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": 30
+    },
+    {
+      "title": "Exploro Mi Parque: Una caminata con sentido",
+      "cat": "sport",
+      "emoji": "🌿",
+      "desc": "Recorrido guiado descubriendo flora nativa y su adaptación en el entorno.",
+      "date": "Mié 28 de mayo",
+      "dateMs": 1746432000000,
+      "month": 4,
+      "days": [
+        28
+      ],
+      "venue": "Parque Bicentenario",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Parque+Bicentenario+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Caminata",
+        "Naturaleza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": 31
+    },
+    {
+      "title": "Concierto gratuito de Natalino - Celebración Día de la Madre",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto gratuito especial para celebrar a las mamás en familia.",
+      "date": "Sáb 23 de mayo",
+      "dateMs": 1746345600000,
+      "month": 4,
+      "days": [
+        23
+      ],
+      "venue": "Ñuñoa",
+      "address": "Ñuñoa, Santiago",
+      "zone": "nun",
+      "mapsQ": "Plaza+Nunoa+Santiago",
+      "price": 0,
+      "src": "Municipalidad Nunoa - Cultura",
+      "srcUrl": "https://www.nunoa.cl/category/cultura/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Familiar"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "conc",
+      "id": 32
+    },
+    {
+      "title": "Exposición Chile y el mundo unidos por el cómic",
+      "cat": "culture",
+      "emoji": "💭",
+      "desc": "Exposición panorámica del legado de la historieta con exponentes internacionales como DC Comics, Marvel y nacionales como Pepo, Themo Lobos y Máximo Carvajal.",
+      "date": "Lun 23 de mayo - Dom 31 de mayo",
+      "dateMs": 1746345600000,
+      "month": 4,
+      "days": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Exposicion",
+        "Comic"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 33
+    },
+    {
+      "title": "Candlelight: Tributo a ABBA y Más",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto Candlelight con tributo a ABBA y más clásicos.",
+      "date": "Vie 30 de mayo - Vie 18 de julio",
+      "dateMs": 1746518400000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Teatro Vicente Bianchi",
+      "address": "La Reina, Santiago",
+      "zone": "lare",
+      "mapsQ": "Teatro+Vicente+Bianchi+La+Reina",
+      "price": 16000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Musica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 34
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-21",
-    "totalEvents": 26,
+    "lastUpdated": "2026-05-23",
+    "totalEvents": 34,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
