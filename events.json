@@ -1341,12 +1341,100 @@
       "kid": true,
       "tipo": "conc",
       "id": 42
+    },
+    {
+      "title": "Mónica Bengoa - Un libro viajero",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Exposición de arte en CEDOC MNBA. Último día dentro del período válido: 31 de mayo.",
+      "date": "Hasta miércoles 31 de mayo",
+      "dateMs": 1748704000000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposición"
+      ],
+      "acc": true,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 43
+    },
+    {
+      "title": "Valentina Cruz - De amor, humor y muerte",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición de artes visuales en el Ala sur, primer piso del MNBA. Desde el 29 de mayo.",
+      "date": "Desde viernes 29 de mayo",
+      "dateMs": 1748614800000,
+      "month": 4,
+      "days": [
+        29,
+        30,
+        31
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposición"
+      ],
+      "acc": true,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 44
+    },
+    {
+      "title": "Ciclo de charlas Filmoarte: Cine sobre grandes artistas plásticos",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Charla sobre 'La ronda de noche' de Rembrandt, analizando la obra maestra del 1642 que se encuentra en el Rijsmuseum de Ámsterdam.",
+      "date": "Miércoles 27 de mayo 15:00",
+      "dateMs": 1748454000000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Vitaclub Cleveland",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Cine",
+        "Arte"
+      ],
+      "acc": true,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 45
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-23",
-    "totalEvents": 42,
+    "lastUpdated": "2026-05-24",
+    "totalEvents": 45,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
