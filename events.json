@@ -1429,12 +1429,41 @@
       "kid": true,
       "tipo": "charla",
       "id": 45
+    },
+    {
+      "title": "Concierto gratuito de Natalino - Celebración del Día de la Madre",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto gratuito del artista Natalino para celebrar el Día de la Madre en familia.",
+      "date": "Sábado 23 de mayo",
+      "dateMs": 1747988400000,
+      "month": 4,
+      "days": [
+        23
+      ],
+      "venue": "Ñuñoa",
+      "address": "Ñuñoa, Santiago",
+      "zone": "nun",
+      "mapsQ": "Nunoa+Santiago",
+      "price": 0,
+      "src": "Municipalidad de Ñuñoa",
+      "srcUrl": "https://www.nunoa.cl/category/cultura/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "conc",
+      "id": 46
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-24",
-    "totalEvents": 45,
+    "lastUpdated": "2026-05-25",
+    "totalEvents": 46,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
