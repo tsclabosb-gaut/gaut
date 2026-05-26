@@ -1458,12 +1458,104 @@
       "kid": true,
       "tipo": "conc",
       "id": 46
+    },
+    {
+      "title": "Propaganda",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra de teatro. Jueves a sábado a las 19:30 horas, más miércoles 29 a las 19:30, domingos a las 18:30 horas.",
+      "date": "17 de abril al 2 de mayo",
+      "dateMs": 1745851200000,
+      "month": 3,
+      "days": [
+        17,
+        29,
+        2
+      ],
+      "venue": "Centro Gabriela Mistral",
+      "address": "Teatinos 350, Santiago",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 47
+    },
+    {
+      "title": "Convocatoria de danza: Estados de deriva",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Actividad de danza en el GAM.",
+      "date": "4 al 8 de mayo 09:00",
+      "dateMs": 1746676800000,
+      "month": 4,
+      "days": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "venue": "Centro Gabriela Mistral",
+      "address": "Teatinos 350, Santiago",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Danza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "fest",
+      "id": 48
+    },
+    {
+      "title": "Candlelight: Lo Mejor de Outlander en Cuerdas",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto Candlelight tributo a Outlander. Edición limitada.",
+      "date": "30 de mayo al 18 de julio",
+      "dateMs": 1748054400000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Teatro Vicente Bianchi",
+      "address": "Santa Rita 1153, La Reina",
+      "zone": "lare",
+      "mapsQ": "Teatro+Vicente+Bianchi+La+Reina",
+      "price": 16000,
+      "src": "Fever",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Candlelight"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 49
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-25",
-    "totalEvents": 46,
+    "lastUpdated": "2026-05-26",
+    "totalEvents": 49,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
