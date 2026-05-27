@@ -1550,12 +1550,187 @@
       "kid": false,
       "tipo": "conc",
       "id": 49
+    },
+    {
+      "title": "Cita Cinéfila - Valor sentimental",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección y análisis de la premiada cinta Valor sentimental con Stellan Skargård y Elle Fanning. Análisis con la crítica Ana Josefa Silva.",
+      "date": "Mié 27 de mayo 19:00",
+      "dateMs": 1746230400000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Cita Cinéfila"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 50
+    },
+    {
+      "title": "Ciclo de charlas Filmoarte - La ronda de noche",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Ciclo de charlas sobre historia del arte y grandes artistas plásticos a través del cine. Análisis de la obra de Rembrandt y su cuadro más conocido.",
+      "date": "Mié 27 de mayo 15:00",
+      "dateMs": 1746216000000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Vitaclub Cleveland",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Cine",
+        "Arte"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 51
+    },
+    {
+      "title": "Cuentacuentos - Monstruo, sé bueno",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Cuentacuentos para niños con el cuento 'Monstruo, sé bueno' de Natalie Marshall. Con Nico Toro, descubre los trucos para paralizarlos y vuélvete superpoderoso.",
+      "date": "Mié 27 de mayo 17:00",
+      "dateMs": 1746223200000,
+      "month": 4,
+      "days": [
+        27
+      ],
+      "venue": "Biblioteca de Vitacura",
+      "address": "Av. San Josemaría Escrivá de Balaguer 6420, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Biblioteca+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Infantil"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 52
+    },
+    {
+      "title": "Exploro Mi Parque - Caminata con sentido",
+      "cat": "sport",
+      "emoji": "🌿",
+      "desc": "Recorrido guiado para descubrir la flora y plantas nativas, enfatizando su adaptación. Experiencia de conexión con el entorno natural.",
+      "date": "Jue 28 de mayo",
+      "dateMs": 1746316800000,
+      "month": 4,
+      "days": [
+        28
+      ],
+      "venue": "Parque Bicentenario",
+      "address": "Parque Bicentenario, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Parque+Bicentenario+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Naturaleza",
+        "Caminata"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": 53
+    },
+    {
+      "title": "Proyecto de título Danza UNIACC: Interius Motum",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Presentación del proyecto de título de danza de estudiantes de UNIACC. Espectáculo de danza contemporánea.",
+      "date": "Mar 23 de junio 19:00",
+      "dateMs": 1750713600000,
+      "month": 5,
+      "days": [
+        23
+      ],
+      "venue": "Centro Cultural Carabineros de Chile",
+      "address": "Providencia, Santiago",
+      "zone": "prov",
+      "mapsQ": "Centro+Cultural+Carabineros+Providencia",
+      "price": null,
+      "src": "Eventbrite - Santiago",
+      "srcUrl": "https://www.eventbrite.cl/d/chile--santiago/eventos/",
+      "img": "",
+      "tags": [
+        "Danza",
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "tetr",
+      "id": 54
+    },
+    {
+      "title": "Concierto Danzas sin Fronteras de la OSEM-FOJI",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto de la Orquesta Sinfónica Escolar Metropolitana con la Fundación de Orquestas Juveniles e Infantiles.",
+      "date": "Mar 30 de junio 19:00",
+      "dateMs": 1751318400000,
+      "month": 5,
+      "days": [
+        30
+      ],
+      "venue": "Centro Cultural Carabineros de Chile",
+      "address": "Providencia, Santiago",
+      "zone": "prov",
+      "mapsQ": "Centro+Cultural+Carabineros+Providencia",
+      "price": null,
+      "src": "Eventbrite - Santiago",
+      "srcUrl": "https://www.eventbrite.cl/d/chile--santiago/eventos/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Música Clásica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "conc",
+      "id": 55
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-26",
-    "totalEvents": 49,
+    "lastUpdated": "2026-05-27",
+    "totalEvents": 55,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
