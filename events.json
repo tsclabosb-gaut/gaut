@@ -1725,12 +1725,160 @@
       "kid": true,
       "tipo": "conc",
       "id": 55
+    },
+    {
+      "title": "Día del Patrimonio 2026",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Día nacional del patrimonio con acceso gratuito a espacios culturales, museos y patrimoniales en toda la región.",
+      "date": "Sab 30 y dom 31 de mayo",
+      "dateMs": 1748641200000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Diversos lugares",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Patrimonio+Santiago",
+      "price": 0,
+      "src": "Las Condes Cultural",
+      "srcUrl": "https://agendacultural.culturallascondes.cl/",
+      "img": "",
+      "tags": [
+        "Patrimonio",
+        "Múltiples espacios"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 56
+    },
+    {
+      "title": "Día del Patrimonio 2026 - MNBA",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Celebración del Día del Patrimonio en el Museo Nacional de Bellas Artes con entrada gratuita.",
+      "date": "30 y 31 de mayo 10:00",
+      "dateMs": 1748641200000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 57
+    },
+    {
+      "title": "Día del Patrimonio - Lo Matta Cultural",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Celebración con visitas guiadas, talleres para niños y adultos, juegos tradicionales, música infantil y folclórica, cuentacuentos y venta de libros.",
+      "date": "Sab 30 y dom 31 de mayo 11:00",
+      "dateMs": 1748641200000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Patrimonio",
+        "Familiar",
+        "Talleres"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 58
+    },
+    {
+      "title": "Gran fiesta bailable Vitamayor",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Entretenida noche de baile con ritmos para todos los gustos, cóctel y aperitivo de bienvenida.",
+      "date": "Vie 29 de mayo",
+      "dateMs": 1748524800000,
+      "month": 4,
+      "days": [
+        29
+      ],
+      "venue": "Vitamayor Bicentenario",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitamayor+Bicentenario+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Música",
+        "Baile"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 59
+    },
+    {
+      "title": "Ciclo de charlas: India, pasado y presente",
+      "cat": "culture",
+      "emoji": "🗣️",
+      "desc": "Charla sobre los desafíos de la India para superar la pobreza. Análisis de desigualdades sociales y desarrollo económico.",
+      "date": "Vie 29 de mayo",
+      "dateMs": 1748524800000,
+      "month": 4,
+      "days": [
+        29
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Educación"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 60
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-27",
-    "totalEvents": 55,
+    "lastUpdated": "2026-05-28",
+    "totalEvents": 60,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
