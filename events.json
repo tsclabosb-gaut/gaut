@@ -1873,12 +1873,43 @@
       "kid": false,
       "tipo": "charla",
       "id": 60
+    },
+    {
+      "title": "Dopamine Land: una experiencia multisensorial",
+      "cat": "culture",
+      "emoji": "🌈",
+      "desc": "Experiencia multisensorial inmersiva que combina luces, sonidos y arte interactivo.",
+      "date": "29 de mayo al 14 de junio",
+      "dateMs": 1747443600000,
+      "month": 4,
+      "days": [
+        29,
+        30,
+        31
+      ],
+      "venue": "Cenco Costanera",
+      "address": "Av. Costanera Norte, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Cenco+Costanera+Santiago",
+      "price": 9000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Experiencia",
+        "Arte interactivo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 61
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-28",
-    "totalEvents": 60,
+    "lastUpdated": "2026-05-29",
+    "totalEvents": 61,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
