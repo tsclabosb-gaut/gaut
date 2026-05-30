@@ -1904,12 +1904,306 @@
       "kid": true,
       "tipo": "expo",
       "id": 61
+    },
+    {
+      "title": "Alfredo Adduard: El hallazgo de un genio",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Primera muestra retrospectiva del ilustrador chileno Alfredo Adduard con más de cien obras. Incluye galería de dibujos mágicos en cajas de luz.",
+      "date": "Hasta Dom 31 de mayo",
+      "dateMs": 1748782800000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Centro Cultural Las Condes",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes Cultural",
+      "srcUrl": "https://agendacultural.culturallascondes.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Ilustración"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": 62
+    },
+    {
+      "title": "Constanza Hurtado: Y todo lo otro",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición de pintura en técnica mixta que explora el acto creativo, la transformación y el diálogo entre cuerpo y percepción.",
+      "date": "9 al 31 de mayo",
+      "dateMs": 1747701600000,
+      "month": 4,
+      "days": [
+        9,
+        31
+      ],
+      "venue": "Centro Cultural Las Condes",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes Cultural",
+      "srcUrl": "https://agendacultural.culturallascondes.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Pintura"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 63
+    },
+    {
+      "title": "José Luis Risetti: Aperiódico",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Instalación que mezcla fotografía, gráfica e instalación. Reflexión sobre la labor de medios y la relativización de acontececimientos.",
+      "date": "9 al 31 de mayo",
+      "dateMs": 1747701600000,
+      "month": 4,
+      "days": [
+        9,
+        31
+      ],
+      "venue": "Centro Cultural Las Condes",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes Cultural",
+      "srcUrl": "https://agendacultural.culturallascondes.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Instalación"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 64
+    },
+    {
+      "title": "Daniel Errázuriz: Geometría variable",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición sobre el rol de la geometría como lenguaje en arte, arquitectura y pensamiento. Tensión entre lo racional y lo sensible.",
+      "date": "9 al 31 de mayo",
+      "dateMs": 1747701600000,
+      "month": 4,
+      "days": [
+        9,
+        31
+      ],
+      "venue": "Centro Cultural Las Condes",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes Cultural",
+      "srcUrl": "https://agendacultural.culturallascondes.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Técnica mixta"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 65
+    },
+    {
+      "title": "Día del Patrimonio Las Condes",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Día del Patrimonio con acceso a lugares de la comuna en abierto.",
+      "date": "Sáb 30 y Dom 31 de mayo",
+      "dateMs": 1748696400000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Diversos lugares de Las Condes",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes - Panorama mensual",
+      "srcUrl": "https://www2.lascondes.cl/vive-las-condes/panorama-mensual/",
+      "img": "",
+      "tags": [
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "charla",
+      "id": 66
+    },
+    {
+      "title": "Día del Patrimonio Vitacura",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Lo Matta Cultural se suma al Día del Patrimonio con visitas guiadas, talleres para niños y adultos, juegos tradicionales, música folclórica y cuentacuentos.",
+      "date": "Sáb 30 y Dom 31 de mayo 11:00-18:00",
+      "dateMs": 1748782800000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Patrimonio",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 67
+    },
+    {
+      "title": "Exposición \"Imágenes Paganas\" - Pin Campaña",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Más de 130 fotografías a color y blanco y negro de la fotógrafa Pin Campaña con retratos de animales, paisajes, naturaleza y figura humana.",
+      "date": "Hasta 31 de mayo",
+      "dateMs": 1748782800000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 68
+    },
+    {
+      "title": "Candlelight: Mozart vs Beethoven",
+      "cat": "music",
+      "emoji": "🎼",
+      "desc": "Concierto de música clásica tributo a Mozart y Beethoven en formato Candlelight.",
+      "date": "Sáb 13 de junio",
+      "dateMs": 1749359200000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Santuario Nacional de Maipú",
+      "address": "Maipú, Santiago",
+      "zone": "cen",
+      "mapsQ": "Santuario+Nacional+Maipu+Santiago",
+      "price": 16000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Música clásica"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 69
+    },
+    {
+      "title": "Visita guiada en Galería NAC",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Visita guiada a la Galería NAC en Lo Matta Cultural.",
+      "date": "Sáb 6 de junio 12:00",
+      "dateMs": 1748986800000,
+      "month": 5,
+      "days": [
+        6
+      ],
+      "venue": "Galería NAC - Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Visita guiada",
+        "Artes visuales"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 70
+    },
+    {
+      "title": "Candlelight: Tributo a Coldplay",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto Candlelight tributo a Coldplay.",
+      "date": "Vie 13 de junio",
+      "dateMs": 1749272400000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Santuario Nacional de Maipú",
+      "address": "Maipú, Santiago",
+      "zone": "cen",
+      "mapsQ": "Santuario+Nacional+Maipu+Santiago",
+      "price": 16000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Tributo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 71
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-29",
-    "totalEvents": 61,
+    "lastUpdated": "2026-05-30",
+    "totalEvents": 71,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
