@@ -2257,12 +2257,70 @@
       "kid": false,
       "tipo": "expo",
       "id": 73
+    },
+    {
+      "title": "Día del Patrimonio 2026 - Lo Matta Cultural",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Jornada de patrimonio en Lo Matta Cultural con visitas guiadas, talleres, juegos tradicionales y ecológicos, música infantil y folclórica, organilleros, cuentacuentos.",
+      "date": "Sáb 30 y dom 31 de mayo 18:00",
+      "dateMs": 1745971200000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 74
+    },
+    {
+      "title": "Exposición \"Imágenes Paganas\", Pin Campaña",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Exposición fotográfica de Pin Campaña en Lo Matta Cultural.",
+      "date": "Hasta dom 31 de mayo 19:00",
+      "dateMs": 1746057600000,
+      "month": 4,
+      "days": [
+        31
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 75
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-30",
-    "totalEvents": 73,
+    "lastUpdated": "2026-05-31",
+    "totalEvents": 75,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
