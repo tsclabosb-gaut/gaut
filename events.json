@@ -5830,12 +5830,98 @@
       "kid": false,
       "tipo": "charla",
       "id": null
+    },
+    {
+      "title": "Día del Patrimonio",
+      "cat": "culture",
+      "emoji": "🏛️",
+      "desc": "Celebración del Día del Patrimonio en diversos lugares de Las Condes con entrada liberada.",
+      "date": "Sab 30 y Dom 31 de mayo",
+      "dateMs": 1748596800000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Diversos lugares Las Condes",
+      "address": "Las Condes, Santiago",
+      "zone": "lc",
+      "mapsQ": "Las+Condes+Santiago",
+      "price": 0,
+      "src": "Las Condes - Panorama mensual",
+      "srcUrl": "https://www2.lascondes.cl/vive-las-condes/panorama-mensual/",
+      "img": "",
+      "tags": [
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Chile y el mundo unidos por el cómic",
+      "cat": "culture",
+      "emoji": "💭",
+      "desc": "Exposición panorámica al legado de la historieta con exponentes internacionales como DC Comics y Marvel, y nacionales como Condorito.",
+      "date": "Desde 1 de junio, lunes 14:00-19:00, martes a domingo 10:00-19:00",
+      "dateMs": 1748793600000,
+      "month": 5,
+      "days": [
+        1
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Filmoarte",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Ciclo de charlas sobre historia del arte a través del cine, con debate posterior dirigido por Enrique Solanich.",
+      "date": "Miércoles 10 de junio 15:00",
+      "dateMs": 1749465600000,
+      "month": 5,
+      "days": [
+        10
+      ],
+      "venue": "Vitaclub Cleveland",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Charla"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-01",
-    "totalEvents": 142,
+    "totalEvents": 145,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
