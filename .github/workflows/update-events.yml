@@ -39,3 +39,7 @@ jobs:
           git add events.json || true
           git diff --staged --quiet || git commit -m "🤖 Eventos $(date +'%Y-%m-%d')" || true
           git push || true
+
+    - name: Scraping de imágenes reales
+       run: node scripts/scrape-images.js || true
+       continue-on-error: true
