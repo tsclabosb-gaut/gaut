@@ -2315,12 +2315,394 @@
       "kid": false,
       "tipo": "expo",
       "id": 75
+    },
+    {
+      "title": "Rescate",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra teatral presentada en GAM.",
+      "date": "Jue 28 de mayo - dom 7 de junio",
+      "dateMs": 1748448000000,
+      "month": 4,
+      "days": [
+        28,
+        29,
+        30,
+        31,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 76
+    },
+    {
+      "title": "Glengarry Glen Ross",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra teatral presentada en GAM.",
+      "date": "Jue 28 de mayo - dom 7 de junio",
+      "dateMs": 1748448000000,
+      "month": 4,
+      "days": [
+        28,
+        29,
+        30,
+        31,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 77
+    },
+    {
+      "title": "Lanzamiento de libro: Escritura y montaje",
+      "cat": "culture",
+      "emoji": "📖",
+      "desc": "Lanzamiento de libro en GAM.",
+      "date": "Mar 2 de junio 19:00",
+      "dateMs": 1748876400000,
+      "month": 5,
+      "days": [
+        2
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Literatura"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 78
+    },
+    {
+      "title": "Lanzamiento de la trilogía: Código Vicario",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento de la trilogía literaria en GAM.",
+      "date": "Mié 3 de junio 18:30",
+      "dateMs": 1748962200000,
+      "month": 5,
+      "days": [
+        3
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Literatura"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 79
+    },
+    {
+      "title": "Ciclo Armónica: música & perfo",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Ciclo de música popular que se presenta todos los jueves en GAM.",
+      "date": "Jue 4 de junio - 25 de junio",
+      "dateMs": 1749048000000,
+      "month": 5,
+      "days": [
+        4,
+        11,
+        18,
+        25
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Música"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 80
+    },
+    {
+      "title": "Expo Vivienda",
+      "cat": "culture",
+      "emoji": "🏠",
+      "desc": "Feria inmobiliaria con agenda enfocada en subsidios habitacionales, financiamiento, crédito hipotecario y nuevas tendencias de inversión.",
+      "date": "Mié 5 de junio - vie 7 de junio",
+      "dateMs": 1749134400000,
+      "month": 5,
+      "days": [
+        5,
+        6,
+        7
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Mapocho, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Feria"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "fest",
+      "id": 81
+    },
+    {
+      "title": "Nuevas exposiciones en Lo Matta Cultural",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Inauguración de dos nuevas exposiciones: 'El Umbral del Tránsito' de Eduardo Vilches y 'Paisaje material' de Magdalena Vial.",
+      "date": "Vie 6 de junio",
+      "dateMs": 1749220800000,
+      "month": 5,
+      "days": [
+        6
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": 82
+    },
+    {
+      "title": "Café con Autor: Marilú Ortiz de Rozas",
+      "cat": "culture",
+      "emoji": "☕",
+      "desc": "Encuentro con la periodista y escritora Marilú Ortiz de Rozas, autora de destacados libros como 'Viaje al corazón de Neruda' y 'ARBOLARIO'.",
+      "date": "Lun 17 de junio",
+      "dateMs": 1749654000000,
+      "month": 5,
+      "days": [
+        17
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Literatura",
+        "Encuentro Autor"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 83
+    },
+    {
+      "title": "Concierto de Piano: Edith Fischer",
+      "cat": "music",
+      "emoji": "🎹",
+      "desc": "Concierto de la destacada pianista nacional Edith Fischer con obras de Chopin, Schubert, Debussy y Mendelssohn.",
+      "date": "Lun 17 de junio",
+      "dateMs": 1749654000000,
+      "month": 5,
+      "days": [
+        17
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Piano"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 84
+    },
+    {
+      "title": "Ballet of Lights: La Bella Durmiente",
+      "cat": "culture",
+      "emoji": "✨",
+      "desc": "Espectáculo de ballet deslumbrante con las luces y sonidos.",
+      "date": "Sáb 14 de junio - jue 14 de noviembre",
+      "dateMs": 1749470400000,
+      "month": 5,
+      "days": [
+        14
+      ],
+      "venue": "Centro Cultural CEINA",
+      "address": "Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Centro+Cultural+CEINA+Santiago",
+      "price": 26000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Ballet",
+        "Espectáculo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "tetr",
+      "id": 85
+    },
+    {
+      "title": "Alicia Wonderland Experience",
+      "cat": "culture",
+      "emoji": "🎪",
+      "desc": "Experiencia inmersiva de circo, fantasía y diversión en vacaciones de invierno.",
+      "date": "Mié 18 de junio - sáb 5 de julio",
+      "dateMs": 1749652800000,
+      "month": 5,
+      "days": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Mapocho, Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estacion Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Experiencia Inmersiva",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": 86
+    },
+    {
+      "title": "Cita cinéfila con MUBI",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección y análisis de la película 'Fue solo un accidente' (2025) con introducción de la crítica de cine chilena Ana Josefa Silva.",
+      "date": "Mar 24 de junio",
+      "dateMs": 1749825600000,
+      "month": 5,
+      "days": [
+        24
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": 87
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-05-31",
-    "totalEvents": 75,
+    "lastUpdated": "2026-06-01",
+    "totalEvents": 87,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
