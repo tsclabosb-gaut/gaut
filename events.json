@@ -6061,12 +6061,49 @@
       "kid": false,
       "tipo": "conc",
       "id": null
+    },
+    {
+      "title": "The Jury Experience – Muerte en Babor",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Experiencia de teatro interactivo en Teatro Mori Parque Arauco.",
+      "date": "Sab 21 de junio",
+      "dateMs": 1749292800000,
+      "month": 5,
+      "days": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "venue": "Teatro Mori Parque Arauco",
+      "address": "Parque Arauco, Santiago",
+      "zone": "cen",
+      "mapsQ": "Teatro+Mori+Parque+Arauco+Santiago",
+      "price": 29000,
+      "src": "Fever",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-01",
-    "totalEvents": 150,
+    "totalEvents": 151,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
