@@ -5916,12 +5916,43 @@
       "kid": false,
       "tipo": "charla",
       "id": null
+    },
+    {
+      "title": "De una luz a otra",
+      "cat": "culture",
+      "emoji": "🩰",
+      "desc": "Ballet en Teatro Municipal de Las Condes.",
+      "date": "Viernes 10 al domingo 12 de junio",
+      "dateMs": 1749158400000,
+      "month": 5,
+      "days": [
+        10,
+        11,
+        12
+      ],
+      "venue": "Teatro Municipal de Las Condes",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Teatro+Municipal+Las+Condes+Santiago",
+      "price": null,
+      "src": "Las Condes - Panorama mensual",
+      "srcUrl": "https://www2.lascondes.cl/vive-las-condes/panorama-mensual/",
+      "img": "",
+      "tags": [
+        "Ballet",
+        "Descuento Tarjeta Vecino"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "tetr",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-01",
-    "totalEvents": 145,
+    "totalEvents": 146,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
