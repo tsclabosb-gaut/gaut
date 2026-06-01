@@ -23,14 +23,14 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/fetch-events.js || true
       
-      - name: Agregar imágenes
+      - name: Agregar imágenes placeholder
         run: node scripts/add-placeholder-images.js || true
       
+      - name: Scraping de imágenes reales
+        run: node scripts/scrape-images.js || true
+      
       - name: Agregar restaurantes
-        run: |
-          if [ -f scripts/add-restaurants.js ]; then
-            node scripts/add-restaurants.js || true
-          fi
+        run: node scripts/add-restaurants.js || true
       
       - name: Push cambios
         run: |
@@ -39,7 +39,3 @@ jobs:
           git add events.json || true
           git diff --staged --quiet || git commit -m "🤖 Eventos $(date +'%Y-%m-%d')" || true
           git push || true
-
-    - name: Scraping de imágenes reales
-       run: node scripts/scrape-images.js || true
-       continue-on-error: true
