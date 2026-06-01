@@ -20,17 +20,9 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/fetch-events.js
-      
-      # ← AGREGAR ESTOS 2 PASOS:
       - name: Agregar imágenes a eventos
         run: node scripts/add-placeholder-images.js
         continue-on-error: true
-      
-      - name: Agregar restaurantes niños
-        run: node scripts/add-restaurants.js
-        continue-on-error: true
-      # ← FIN DE LOS NUEVOS PASOS
-      
       - name: Commit y push si hay cambios
         run: |
           git config user.name  "Gaut Bot"
