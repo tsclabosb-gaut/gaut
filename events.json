@@ -5947,12 +5947,126 @@
       "kid": true,
       "tipo": "tetr",
       "id": null
+    },
+    {
+      "title": "De una luz a otra - Ballet",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Presentación de ballet en el Teatro Municipal de Las Condes. Descuento con Tarjeta Vecino.",
+      "date": "Vie 10 - Dom 12 de junio",
+      "dateMs": 1749222000000,
+      "month": 5,
+      "days": [
+        10,
+        11,
+        12
+      ],
+      "venue": "Teatro Municipal de Las Condes",
+      "address": "Apoquindo 6570, Las Condes",
+      "zone": "lc",
+      "mapsQ": "Teatro+Municipal+Las+Condes+Santiago",
+      "price": null,
+      "src": "Las Condes - Panorama mensual",
+      "srcUrl": "https://www2.lascondes.cl/vive-las-condes/panorama-mensual/",
+      "img": "",
+      "tags": [
+        "Ballet"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "tetr",
+      "id": null
+    },
+    {
+      "title": "The Jury Experience — Muerte en Babor",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Experiencia interactiva de teatro inmersivo. Del 21 de junio al 25 de octubre en Teatro Mori Parque Arauco.",
+      "date": "Sáb 21 de junio - Vie 25 de octubre",
+      "dateMs": 1749444000000,
+      "month": 5,
+      "days": [
+        21
+      ],
+      "venue": "Teatro Mori Parque Arauco",
+      "address": "Parque Arauco, Las Condes",
+      "zone": "lc",
+      "mapsQ": "Teatro+Mori+Parque+Arauco+Santiago",
+      "price": 29000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Teatro Inmersivo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
+    },
+    {
+      "title": "Candlelight: Tributo a Adele",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto Candlelight con los mayores éxitos de Adele en una experiencia musical a la luz de velas.",
+      "date": "Vie 27 de junio",
+      "dateMs": 1750012800000,
+      "month": 5,
+      "days": [
+        27
+      ],
+      "venue": "Centro Cultural CEINA",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Centro+Cultural+CEINA+Santiago",
+      "price": 17000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Música"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Candlelight: Lo Mejor de Bridgerton en Cuerdas",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Edición limitada de concierto Candlelight con la música de Bridgerton arreglada para cuerdas. Experiencia única a la luz de velas.",
+      "date": "Vie 27 de junio",
+      "dateMs": 1750012800000,
+      "month": 5,
+      "days": [
+        27
+      ],
+      "venue": "Centro Cultural CEINA",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Centro+Cultural+CEINA+Santiago",
+      "price": 17000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Música"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-01",
-    "totalEvents": 146,
+    "totalEvents": 150,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
