@@ -5,6 +5,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   update-events:
     runs-on: ubuntu-latest
@@ -14,30 +16,26 @@ jobs:
       
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       
-      - name: Raspar y actualizar eventos
+      - name: Raspar eventos
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/fetch-events.js
-        continue-on-error: true
+        run: node scripts/fetch-events.js || true
       
       - name: Agregar imágenes
-        run: node scripts/add-placeholder-images.js
-        continue-on-error: true
+        run: node scripts/add-placeholder-images.js || true
       
       - name: Agregar restaurantes
         run: |
           if [ -f scripts/add-restaurants.js ]; then
-            node scripts/add-restaurants.js
+            node scripts/add-restaurants.js || true
           fi
-        continue-on-error: true
       
-      - name: Commit y push
+      - name: Push cambios
         run: |
           git config user.name "Gaut Bot"
           git config user.email "bot@gaut.cl"
-          git add events.json
-          git diff --staged --quiet || git commit -m "🤖 Eventos actualizados $(date +'%Y-%m-%d')"
-          git push
-        continue-on-error: true
+          git add events.json || true
+          git diff --staged --quiet || git commit -m "🤖 Eventos $(date +'%Y-%m-%d')" || true
+          git push || true
