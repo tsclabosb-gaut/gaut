@@ -5799,12 +5799,43 @@
       "pet": 0,
       "kid": 1,
       "tipo": "conc"
+    },
+    {
+      "title": "Ciclo de charlas: Filmoarte",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Charlas sobre historia del arte y grandes artistas plásticos a través del cine con debate posterior.",
+      "date": "Mié 10 de junio 15:00",
+      "dateMs": 1747573200000,
+      "month": 5,
+      "days": [
+        10,
+        17,
+        24
+      ],
+      "venue": "Vitaclub",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Charla"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-01",
-    "totalEvents": 88,
+    "totalEvents": 142,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
