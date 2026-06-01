@@ -24,123 +24,74 @@ async function fetchImageFromUrl(url) {
   return new Promise((resolve) => {
     try {
       const protocol = url.startsWith('https') ? https : http;
-      const timeout = setTimeout(() => resolve(null), 3000);
       
       const req = protocol.get(url, { 
         headers: { 'User-Agent': 'Mozilla/5.0' },
-        timeout: 3000 
+        timeout: 2000 
       }, (res) => {
-        clearTimeout(timeout);
         let html = '';
-        let size = 0;
         
         res.on('data', chunk => {
           html += chunk;
-          size += chunk.length;
-          if (size > 500000) {
-            res.destroy();
-            resolve(null);
-          }
+          if (html.length > 500000) res.destroy();
         });
         
         res.on('end', () => {
           try {
-            const imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/gi;
-            const match = imgRegex.exec(html);
-            
-            if (match && match[1]) {
+            const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+            if (match?.[1]) {
               const imgUrl = match[1];
-              if (imgUrl.startsWith('http')) {
-                resolve(imgUrl);
-              } else if (imgUrl.startsWith('/')) {
-                resolve(new URL(imgUrl, url).href);
-              } else {
-                resolve(null);
-              }
-            } else {
-              resolve(null);
+              if (imgUrl.startsWith('http')) return resolve(imgUrl);
+              if (imgUrl.startsWith('/')) return resolve(new URL(imgUrl, url).href);
             }
-          } catch (e) {
+            resolve(null);
+          } catch {
             resolve(null);
           }
         });
       });
       
       req.on('error', () => resolve(null));
-      req.on('timeout', () => {
-        req.destroy();
-        resolve(null);
-      });
+      req.on('timeout', () => { req.destroy(); resolve(null); });
       
-    } catch (err) {
+    } catch {
       resolve(null);
     }
   });
 }
 
-async function getEventImage(event) {
-  if (event.img && event.img.startsWith('http')) {
-    return event.img;
-  }
-
-  if (event.srcUrl) {
-    try {
-      const scrapedImg = await fetchImageFromUrl(event.srcUrl);
-      if (scrapedImg) {
-        return scrapedImg;
-      }
-    } catch (e) {
-      // Ignorar error
-    }
-  }
-
-  const key = `${event.cat}|${event.tipo}`;
-  return FALLBACK_IMAGES[key] || FALLBACK_IMAGES['default'];
-}
-
 async function main() {
-  if (!fs.existsSync(EVENTS_PATH)) {
-    console.error('❌ events.json no encontrado');
-    process.exit(1);
-  }
+  try {
+    const data = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));
+    console.log(`📸 Procesando ${data.events?.length || 0} eventos...\n`);
 
-  let data = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));
-  console.log(`📸 Procesando ${data.events?.length || 0} eventos...\n`);
-
-  let updated = 0;
-  let withFallback = 0;
-
-  for (let i = 0; i < (data.events || []).length; i++) {
-    const event = data.events[i];
-    try {
-      const imgUrl = await getEventImage(event);
-      
-      if (imgUrl !== event.img) {
-        event.img = imgUrl;
-        if (!imgUrl.includes('unsplash')) {
-          updated++;
-          console.log(`  ✅ ${event.title.slice(0, 40)}`);
-        } else {
-          withFallback++;
-        }
-      }
-    } catch (e) {
-      event.img = FALLBACK_IMAGES['default'];
-      withFallback++;
-    }
+    let updated = 0;
     
-    // Delay de 500ms entre requests
-    await new Promise(r => setTimeout(r, 500));
-  }
+    for (const event of data.events || []) {
+      try {
+        if (!event.img || event.img === '') {
+          let imgUrl = null;
+          
+          if (event.srcUrl) {
+            imgUrl = await fetchImageFromUrl(event.srcUrl);
+          }
+          
+          event.img = imgUrl || FALLBACK_IMAGES[`${event.cat}|${event.tipo}`] || FALLBACK_IMAGES['default'];
+          updated++;
+        }
+      } catch (e) {
+        event.img = FALLBACK_IMAGES[`${event.cat}|${event.tipo}`] || FALLBACK_IMAGES['default'];
+      }
+      
+      await new Promise(r => setTimeout(r, 600));
+    }
 
-  fs.writeFileSync(EVENTS_PATH, JSON.stringify(data, null, 2), 'utf8');
-  
-  console.log(`\n✨ Listo:`);
-  console.log(`   Imágenes reales: ${updated}`);
-  console.log(`   Con fallback: ${withFallback}`);
+    fs.writeFileSync(EVENTS_PATH, JSON.stringify(data, null, 2), 'utf8');
+    console.log(`\n✨ ${updated} eventos con imágenes\n`);
+    
+  } catch (err) {
+    console.log(`⚠️  Error: ${err.message}`);
+  }
 }
 
-main().catch(err => {
-  console.error('Error:', err.message);
-  process.exit(0); // Exit 0 para que no falle el workflow
-});
+main();
