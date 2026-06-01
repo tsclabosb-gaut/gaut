@@ -1,722 +1,768 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaut — Descubre Santiago</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubre Tu Ciudad - Santiago Eventos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --primary: #185FA5;
-      --primary-light: #378ADD;
-      --bg: #FAFBFC;
-      --surface: #FFFFFF;
-      --text: #111827;
-      --text-secondary: #6B7280;
-      --border: #E5E7EB;
-      --success: #10B981;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
-    /* HEADER */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      flex-shrink: 0;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
 
-    .logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--primary);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-size: 14px;
-    }
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+        }
 
-    .search-box {
-      flex: 1;
-      position: relative;
-    }
+        .search-bar input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.95);
+            color: #333;
+        }
 
-    .search-box input {
-      width: 100%;
-      padding: 10px 12px 10px 32px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      outline: none;
-      transition: all 0.2s;
-      background: var(--bg);
-    }
+        .search-bar input::placeholder {
+            color: #999;
+        }
 
-    .search-box input:focus {
-      border-color: var(--primary);
-      background: var(--surface);
-    }
+        .filter-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
 
-    .search-icon {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-secondary);
-      font-size: 16px;
-    }
+        .filter-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
 
-    .filter-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: var(--bg);
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+        }
 
-    /* CATEGORÍAS */
-    .category-bar {
-      display: flex;
-      gap: 8px;
-      padding: 10px 16px;
-      overflow-x: auto;
-      border-bottom: 1px solid var(--border);
-      scrollbar-width: none;
-      background: var(--surface);
-    }
+        /* SIDEBAR FILTERS */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
 
-    .category-bar::-webkit-scrollbar {
-      display: none;
-    }
+        .filter-group h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #667eea;
+            margin: 1rem 0 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-    .category-pill {
-      padding: 8px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-secondary);
-      font-size: 13px;
-      font-weight: 500;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.2s;
-      flex-shrink: 0;
-    }
+        .filter-group:first-child h3 {
+            margin-top: 0;
+        }
 
-    .category-pill.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
+        .filter-item {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+            cursor: pointer;
+        }
 
-    /* CONTENEDOR */
-    .container {
-      padding: 16px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        .filter-item input {
+            margin-right: 0.75rem;
+            cursor: pointer;
+        }
 
-    /* GRID DE EVENTOS */
-    .events-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
+        .filter-item label {
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
 
-    /* TARJETA DE EVENTO */
-    .event-card {
-      background: var(--surface);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: all 0.3s;
-      border: 1px solid var(--border);
-    }
+        /* MAIN CONTENT */
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .event-card:active {
-      transform: scale(0.98);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
+        .category-pills {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
 
-    .event-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #E3F2FD, #F3E5F5);
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .pill {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
 
-    .event-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+        .pill:hover {
+            border-color: #667eea;
+        }
 
-    .event-image-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      background: linear-gradient(135deg, #E3F2FD, #F3E5F5);
-    }
+        .pill.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
 
-    .event-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
-      color: white;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
+        /* GRID EVENTOS */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            min-height: 200px;
+        }
 
-    .event-badge.free {
-      background: rgba(16, 185, 129, 0.9);
-    }
+        /* Responsive: 4 por fila en desktop, 2 en tablet, 1 en móvil */
+        @media (min-width: 1200px) {
+            .events-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
 
-    .event-badge.paid {
-      background: rgba(217, 119, 6, 0.9);
-    }
+        @media (max-width: 1199px) and (min-width: 768px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-    .event-content {
-      padding: 14px;
-    }
+        @media (max-width: 767px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
 
-    .event-category {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
+            .sidebar {
+                position: static;
+            }
 
-    .event-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 8px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
 
-    .event-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-bottom: 10px;
-    }
+            .header-content {
+                flex-direction: column;
+            }
 
-    .event-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
-    }
+            .search-bar {
+                max-width: 100%;
+            }
+        }
 
-    .event-price {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--primary);
-    }
+        /* EVENT CARD */
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
 
-    .event-price.free {
-      color: var(--success);
-    }
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
 
-    .event-actions {
-      display: flex;
-      gap: 8px;
-    }
+        .event-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .action-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      border: none;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .action-btn:active {
-      background: var(--primary-light);
-      color: white;
-    }
+        .event-body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* MODAL/POP-UP */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(4px);
-      z-index: 200;
-      display: none;
-      align-items: flex-end;
-      padding-bottom: env(safe-area-inset-bottom);
-    }
+        .event-category {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+        }
 
-    .modal.open {
-      display: flex;
-    }
+        .event-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
 
-    .modal-content {
-      background: var(--surface);
-      width: 100%;
-      max-width: 600px;
-      border-radius: 20px 20px 0 0;
-      padding: 20px;
-      max-height: 90vh;
-      overflow-y: auto;
-      animation: slideUp 0.3s ease-out;
-    }
+        .event-venue {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
 
-    @keyframes slideUp {
-      from {
-        transform: translateY(100%);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
+        .event-date {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
 
-    .modal-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      display: block;
-    }
+        .event-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid #eee;
+        }
 
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 16px;
-    }
+        .event-price {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
 
-    .modal-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-    }
+        .event-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
 
-    .close-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      border: none;
-      background: var(--bg);
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem;
+            transition: all 0.3s;
+        }
 
-    .modal-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
+        .btn-icon:hover {
+            transform: scale(1.2);
+        }
 
-    .modal-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 12px 12px 0 0;
+            max-height: 90vh;
+            overflow-y: auto;
+            z-index: 1000;
+            animation: slideUp 0.3s ease-out;
+        }
 
-    .info-box {
-      background: var(--bg);
-      border-radius: 8px;
-      padding: 12px;
-    }
+        .modal.active {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .info-label {
-      font-size: 11px;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-    }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
 
-    .info-value {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-    }
+        .modal-header {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .modal-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 16px;
-    }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-    .btn-primary {
-      width: 100%;
-      padding: 12px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+        .modal-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
 
-    .btn-secondary {
-      width: 100%;
-      padding: 12px;
-      background: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
 
-    /* EMPTY STATE */
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-secondary);
-    }
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .empty-state-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
 
-    .empty-state h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
+        .modal-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
 
-    @media (min-width: 768px) {
-      .events-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+        .modal-meta {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .meta-item {
+            margin: 0.5rem 0;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #764ba2;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* OVERLAY */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .modal-overlay.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<header class="header">
-  <a href="/" class="logo">
-    <div class="logo-icon">G</div>
-    Gaut
-  </a>
-  <div class="search-box">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Busca evento..." oninput="handleSearch()">
-  </div>
-  <button class="filter-btn" onclick="toggleFilters()">⚙️</button>
-</header>
-
-<!-- CATEGORÍAS -->
-<div class="category-bar" id="categoryBar">
-  <button class="category-pill active" onclick="selectCategory('all')">✨ Todos</button>
-  <button class="category-pill" onclick="selectCategory('culture')">🎭 Cultura</button>
-  <button class="category-pill" onclick="selectCategory('music')">🎵 Música</button>
-  <button class="category-pill" onclick="selectCategory('sport')">🏃 Deporte</button>
-  <button class="category-pill" onclick="selectCategory('food')">🍽️ Comida</button>
-</div>
-
-<!-- CONTENEDOR -->
-<div class="container">
-  <div class="events-grid" id="eventsGrid">
-    <div class="empty-state">
-      <div class="empty-state-icon">⏳</div>
-      <h3>Cargando eventos...</h3>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL/POP-UP -->
-<div class="modal" id="eventModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 class="modal-title" id="modalTitle">Evento</h2>
-      <button class="close-btn" onclick="closeModal()">✕</button>
-    </div>
-    <img id="modalImage" class="modal-image" alt="Evento">
-    <p class="modal-desc" id="modalDesc"></p>
-    
-    <div class="modal-info">
-      <div class="info-box">
-        <div class="info-label">📅 FECHA</div>
-        <div class="info-value" id="modalDate"></div>
-      </div>
-      <div class="info-box">
-        <div class="info-label">📍 LUGAR</div>
-        <div class="info-value" id="modalVenue"></div>
-      </div>
-    </div>
-
-    <div class="modal-buttons">
-      <button class="btn-primary" id="moreInfoBtn" onclick="openEventUrl()">Ver más información →</button>
-      <button class="btn-secondary" onclick="shareEvent()">
-        <span>⤴️</span>
-        Compartir
-      </button>
-      <button class="btn-secondary" onclick="saveEvent()">
-        <span id="saveIcon">🤍</span>
-        Guardar
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-  let allEvents = [];
-  let selectedCategory = 'all';
-  let searchQuery = '';
-  let currentEvent = null;
-  let savedEvents = new Set();
-
-  // Cargar eventos
-  async function loadEvents() {
-    try {
-      // Intentar múltiples rutas
-      let res = await fetch('/events.json').catch(() => fetch('./events.json'));
-      
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-      }
-      
-      const data = await res.json();
-      allEvents = data.events || [];
-      
-      if (allEvents.length === 0) {
-        console.warn('No hay eventos en events.json');
-      }
-      
-      renderEvents();
-    } catch (err) {
-      console.error('Error cargando eventos:', err);
-      document.getElementById('eventsGrid').innerHTML = `
-        <div class="empty-state">
-          <div class="empty-state-icon">⚠️</div>
-          <h3>Error cargando eventos</h3>
-          <p>Verifica que events.json esté en la raíz del repo</p>
-          <p style="font-size: 11px; margin-top: 8px; color: #999;">Error: ${err.message}</p>
-        </div>
-      `;
-    }
-  }
-
-  // Filtrar eventos
-  function getFilteredEvents() {
-    return allEvents.filter(event => {
-      if (selectedCategory !== 'all' && event.cat !== selectedCategory) return false;
-      if (searchQuery && !event.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-      return true;
-    });
-  }
-
-  // Renderizar eventos
-  function renderEvents() {
-    const filtered = getFilteredEvents();
-    const grid = document.getElementById('eventsGrid');
-
-    if (filtered.length === 0) {
-      grid.innerHTML = `
-        <div class="empty-state" style="grid-column: 1 / -1;">
-          <div class="empty-state-icon">🔍</div>
-          <h3>Sin resultados</h3>
-          <p>Prueba con otros filtros o búsqueda</p>
-        </div>
-      `;
-      return;
-    }
-
-    grid.innerHTML = filtered.map(event => `
-      <div class="event-card" onclick="openModal(${event.id})">
-        <div class="event-image">
-          ${event.img ? `<img src="${event.img}" alt="${event.title}" onerror="this.parentElement.innerHTML='<div class=\'event-image-placeholder\'>${event.emoji || '✨'}</div>'">` : `<div class="event-image-placeholder">${event.emoji || '✨'}</div>`}
-          <div class="event-badge ${event.price === 0 ? 'free' : 'paid'}">
-            ${event.price === 0 ? 'GRATIS' : event.price ? `$${event.price.toLocaleString('es-CL')}` : 'CONSULTAR'}
-          </div>
-        </div>
-        <div class="event-content">
-          <div class="event-category">${event.cat}</div>
-          <h3 class="event-title">${event.title}</h3>
-          <div class="event-meta">
-            <div>📅 ${event.date}</div>
-            <div>📍 ${event.venue}</div>
-          </div>
-          <div class="event-footer">
-            <div class="event-price ${event.price === 0 ? 'free' : ''}">
-              ${event.price === 0 ? 'Gratis' : event.price ? `$${event.price.toLocaleString('es-CL')}` : 'Consultar'}
+    <header>
+        <div class="header-content">
+            <div class="logo">🌆 DESCUBRE TU CIUDAD</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Busca eventos...">
             </div>
-            <div class="event-actions">
-              <button class="action-btn ${savedEvents.has(event.id) ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSave(${event.id})">
-                ${savedEvents.has(event.id) ? '❤️' : '🤍'}
-              </button>
-            </div>
-          </div>
+            <button class="filter-btn" onclick="document.querySelector('.sidebar').scrollIntoView()">
+                ⚙️ Filtros
+            </button>
         </div>
-      </div>
-    `).join('');
-  }
+    </header>
 
-  // Manejadores
-  function handleSearch() {
-    searchQuery = document.getElementById('searchInput').value;
-    renderEvents();
-  }
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>Categorías</h3>
+                <div class="filter-item">
+                    <input type="checkbox" id="cat-todos" checked onchange="filterEvents()">
+                    <label for="cat-todos">Todos</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="cat-culture" checked onchange="filterEvents()">
+                    <label for="cat-culture">🎨 Cultura</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="cat-music" checked onchange="filterEvents()">
+                    <label for="cat-music">🎵 Música</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="cat-sport" checked onchange="filterEvents()">
+                    <label for="cat-sport">⚽ Deporte</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="cat-food" checked onchange="filterEvents()">
+                    <label for="cat-food">🍽️ Comida</label>
+                </div>
+            </div>
 
-  function selectCategory(cat) {
-    selectedCategory = cat;
-    document.querySelectorAll('.category-pill').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-    renderEvents();
-  }
+            <div class="filter-group">
+                <h3>Zonas</h3>
+                <div class="filter-item">
+                    <input type="checkbox" id="zone-cen" checked onchange="filterEvents()">
+                    <label for="zone-cen">Centro</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="zone-vit" checked onchange="filterEvents()">
+                    <label for="zone-vit">Vitacura</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="zone-lc" checked onchange="filterEvents()">
+                    <label for="zone-lc">Las Condes</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="zone-nun" checked onchange="filterEvents()">
+                    <label for="zone-nun">Ñuñoa</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="zone-lare" checked onchange="filterEvents()">
+                    <label for="zone-lare">La Reina</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="zone-prov" checked onchange="filterEvents()">
+                    <label for="zone-prov">Providencia</label>
+                </div>
+            </div>
 
-  function toggleFilters() {
-    alert('Filtros avanzados (próximamente)');
-  }
+            <div class="filter-group">
+                <h3>Tipo</h3>
+                <div class="filter-item">
+                    <input type="checkbox" id="tipo-expo" checked onchange="filterEvents()">
+                    <label for="tipo-expo">Exposición</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="tipo-conc" checked onchange="filterEvents()">
+                    <label for="tipo-conc">Concierto</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="tipo-fest" checked onchange="filterEvents()">
+                    <label for="tipo-fest">Festival</label>
+                </div>
+            </div>
 
-  function openModal(eventId) {
-    const event = allEvents.find(e => e.id === eventId);
-    if (!event) return;
+            <div class="filter-group">
+                <h3>Otros</h3>
+                <div class="filter-item">
+                    <input type="checkbox" id="filter-kid" onchange="filterEvents()">
+                    <label for="filter-kid">👶 Para niños</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="filter-pet" onchange="filterEvents()">
+                    <label for="filter-pet">🐕 Mascotas</label>
+                </div>
+                <div class="filter-item">
+                    <input type="checkbox" id="filter-acc" onchange="filterEvents()">
+                    <label for="filter-acc">♿ Accesible</label>
+                </div>
+            </div>
+        </aside>
 
-    currentEvent = event;
-    document.getElementById('modalTitle').textContent = event.title;
-    document.getElementById('modalImage').src = event.img || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect fill="%23E3F2FD" width="100" height="100"/%3E%3Ctext x="50" y="50" font-size="60" text-anchor="middle" dominant-baseline="middle"%3E' + (event.emoji || '✨') + '%3C/text%3E%3C/svg%3E';
-    document.getElementById('modalDesc').textContent = event.desc;
-    document.getElementById('modalDate').textContent = event.date;
-    document.getElementById('modalVenue').textContent = event.venue;
-    document.getElementById('moreInfoBtn').onclick = () => window.open(event.srcUrl, '_blank');
-    document.getElementById('saveIcon').textContent = savedEvents.has(event.id) ? '❤️' : '🤍';
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <div class="category-pills">
+                <div class="pill active" onclick="filterByCategory('todos')">Todos</div>
+                <div class="pill" onclick="filterByCategory('culture')">🎨 Cultura</div>
+                <div class="pill" onclick="filterByCategory('music')">🎵 Música</div>
+                <div class="pill" onclick="filterByCategory('sport')">⚽ Deporte</div>
+                <div class="pill" onclick="filterByCategory('food')">🍽️ Comida</div>
+            </div>
 
-    document.getElementById('eventModal').classList.add('open');
-  }
+            <div class="events-grid" id="eventsGrid"></div>
+        </div>
+    </div>
 
-  function closeModal() {
-    document.getElementById('eventModal').classList.remove('open');
-    currentEvent = null;
-  }
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+    <div class="modal" id="eventModal">
+        <div class="modal-header">
+            <h2>Detalles del evento</h2>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-content">
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-desc" id="modalDesc"></p>
+            <div class="modal-meta">
+                <div class="meta-item"><span class="meta-label">📅 Fecha:</span> <span id="modalDate"></span></div>
+                <div class="meta-item"><span class="meta-label">📍 Lugar:</span> <span id="modalVenue"></span></div>
+                <div class="meta-item"><span class="meta-label">💰 Precio:</span> <span id="modalPrice"></span></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="shareEvent()">⤴️ Compartir</button>
+                <button class="btn-primary" id="btnSave" onclick="saveEvent()">❤️ Guardar</button>
+            </div>
+        </div>
+    </div>
 
-  function openEventUrl() {
-    if (currentEvent) window.open(currentEvent.srcUrl, '_blank');
-  }
+    <script>
+        let allEvents = [];
+        let currentEvent = null;
 
-  function shareEvent() {
-    if (!currentEvent) return;
+        async function loadEvents() {
+            try {
+                let response = await fetch('/events.json').catch(() => fetch('./events.json'));
+                let data = await response.json();
+                allEvents = data.events || [];
+                renderEvents(allEvents);
+            } catch (error) {
+                console.error('Error loading events:', error);
+                document.getElementById('eventsGrid').innerHTML = `
+                    <div class="empty-state" style="grid-column: 1/-1;">
+                        <div class="empty-state-icon">❌</div>
+                        <p>No se pudieron cargar los eventos</p>
+                    </div>
+                `;
+            }
+        }
 
-    if (navigator.share) {
-      navigator.share({
-        title: currentEvent.title,
-        text: `${currentEvent.date} • ${currentEvent.venue}`,
-        url: window.location.href
-      });
-    } else {
-      navigator.clipboard.writeText(currentEvent.srcUrl);
-      alert('Link copiado al portapapeles');
-    }
-  }
+        function renderEvents(events) {
+            const grid = document.getElementById('eventsGrid');
+            
+            if (events.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1/-1;">
+                        <div class="empty-state-icon">🔍</div>
+                        <p>No se encontraron eventos</p>
+                    </div>
+                `;
+                return;
+            }
 
-  function saveEvent() {
-    if (!currentEvent) return;
+            grid.innerHTML = events.map(event => `
+                <div class="event-card" onclick="openModal(${event.id})">
+                    <div class="event-image">
+                        ${event.img ? `<img src="${event.img}" alt="${event.title}">` : event.emoji}
+                    </div>
+                    <div class="event-body">
+                        <span class="event-category">${event.tipo.toUpperCase()}</span>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-venue">${event.venue}</p>
+                        <p class="event-date">${event.date}</p>
+                        <div class="event-footer">
+                            <span class="event-price">
+                                ${event.price === 0 ? 'GRATIS' : event.price ? '$' + event.price : 'Consultar'}
+                            </span>
+                            <div class="event-buttons">
+                                <button class="btn-icon" onclick="event.stopPropagation(); shareEvent(${event.id})">⤴️</button>
+                                <button class="btn-icon" onclick="event.stopPropagation(); saveEvent(${event.id})">❤️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    if (savedEvents.has(currentEvent.id)) {
-      savedEvents.delete(currentEvent.id);
-      document.getElementById('saveIcon').textContent = '🤍';
-    } else {
-      savedEvents.add(currentEvent.id);
-      document.getElementById('saveIcon').textContent = '❤️';
-    }
-    renderEvents();
-  }
+        function filterEvents() {
+            const selectedCats = [];
+            if (document.getElementById('cat-culture').checked) selectedCats.push('culture');
+            if (document.getElementById('cat-music').checked) selectedCats.push('music');
+            if (document.getElementById('cat-sport').checked) selectedCats.push('sport');
+            if (document.getElementById('cat-food').checked) selectedCats.push('food');
 
-  function toggleSave(eventId) {
-    if (savedEvents.has(eventId)) {
-      savedEvents.delete(eventId);
-    } else {
-      savedEvents.add(eventId);
-    }
-    renderEvents();
-  }
+            const selectedZones = [];
+            ['cen', 'vit', 'lc', 'nun', 'lare', 'prov'].forEach(zone => {
+                if (document.getElementById(`zone-${zone}`).checked) selectedZones.push(zone);
+            });
 
-  // Cerrar modal al hacer click afuera
-  document.getElementById('eventModal').addEventListener('click', (e) => {
-    if (e.target.id === 'eventModal') closeModal();
-  });
+            const selectedTipos = [];
+            ['expo', 'conc', 'fest'].forEach(tipo => {
+                if (document.getElementById(`tipo-${tipo}`).checked) selectedTipos.push(tipo);
+            });
 
-  // Inicializar
-  loadEvents();
-</script>
+            const filterKid = document.getElementById('filter-kid').checked;
+            const filterPet = document.getElementById('filter-pet').checked;
+            const filterAcc = document.getElementById('filter-acc').checked;
 
+            const filtered = allEvents.filter(event => {
+                const matchCat = selectedCats.length === 0 || selectedCats.includes(event.cat);
+                const matchZone = selectedZones.length === 0 || selectedZones.includes(event.zone);
+                const matchTipo = selectedTipos.length === 0 || selectedTipos.includes(event.tipo);
+                const matchKid = !filterKid || event.kid;
+                const matchPet = !filterPet || event.pet;
+                const matchAcc = !filterAcc || event.acc;
+                return matchCat && matchZone && matchTipo && matchKid && matchPet && matchAcc;
+            });
+
+            renderEvents(filtered);
+        }
+
+        function filterByCategory(cat) {
+            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const filtered = cat === 'todos' 
+                ? allEvents 
+                : allEvents.filter(e => e.cat === cat);
+            
+            renderEvents(filtered);
+        }
+
+        function openModal(eventId) {
+            currentEvent = allEvents.find(e => e.id === eventId);
+            if (!currentEvent) return;
+
+            document.getElementById('modalImage').src = currentEvent.img || '';
+            document.getElementById('modalTitle').textContent = currentEvent.title;
+            document.getElementById('modalDesc').textContent = currentEvent.desc;
+            document.getElementById('modalDate').textContent = currentEvent.date;
+            document.getElementById('modalVenue').textContent = currentEvent.venue + '\n' + currentEvent.address;
+            document.getElementById('modalPrice').textContent = currentEvent.price === 0 ? 'GRATIS' : currentEvent.price ? '$' + currentEvent.price : 'Consultar';
+
+            document.getElementById('eventModal').classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('eventModal').classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        function shareEvent() {
+            if (!currentEvent) return;
+            const text = `${currentEvent.title} - ${currentEvent.date} en ${currentEvent.venue}`;
+            if (navigator.share) {
+                navigator.share({ title: 'Descubre Tu Ciudad', text: text, url: window.location.href });
+            } else {
+                navigator.clipboard.writeText(text);
+                alert('Copiado al portapapeles');
+            }
+        }
+
+        function saveEvent() {
+            if (!currentEvent) return;
+            let saved = JSON.parse(localStorage.getItem('savedEvents') || '[]');
+            if (!saved.find(e => e.id === currentEvent.id)) {
+                saved.push(currentEvent);
+                localStorage.setItem('savedEvents', JSON.stringify(saved));
+                document.getElementById('btnSave').textContent = '✅ Guardado';
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = allEvents.filter(event =>
+                event.title.toLowerCase().includes(query) ||
+                event.desc.toLowerCase().includes(query) ||
+                event.venue.toLowerCase().includes(query)
+            );
+            renderEvents(filtered);
+        });
+
+        loadEvents();
+    </script>
 </body>
 </html>
-Arreglar carga de events.json
