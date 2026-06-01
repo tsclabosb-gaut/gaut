@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f8f9fa;
             color: #333;
         }
@@ -57,23 +57,49 @@
             color: #333;
         }
 
-        .search-bar input::placeholder {
-            color: #999;
+        /* FILTERS HORIZONTAL */
+        .filters-container {
+            background: white;
+            padding: 0.75rem 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            gap: 0.5rem;
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
         }
 
-        .filter-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+        .filters-container::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .filters-container::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 3px;
+        }
+
+        .filter-pill {
+            padding: 0.5rem 1rem;
+            border: 1.5px solid #ddd;
+            background: white;
+            border-radius: 20px;
             cursor: pointer;
-            font-weight: 600;
             transition: all 0.3s;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .filter-btn:hover {
-            background: rgba(255,255,255,0.3);
+        .filter-pill:hover {
+            border-color: #667eea;
+        }
+
+        .filter-pill.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
         }
 
         /* MAIN CONTAINER */
@@ -82,11 +108,11 @@
             margin: 0 auto;
             padding: 2rem 1rem;
             display: grid;
-            grid-template-columns: 200px 1fr;
+            grid-template-columns: 220px 1fr;
             gap: 2rem;
         }
 
-        /* SIDEBAR FILTERS */
+        /* SIDEBAR - DESKTOP ONLY */
         .sidebar {
             background: white;
             padding: 1.5rem;
@@ -94,11 +120,11 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             height: fit-content;
             position: sticky;
-            top: 80px;
+            top: 150px;
         }
 
         .filter-group h3 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             color: #667eea;
             margin: 1rem 0 0.75rem;
@@ -124,52 +150,16 @@
 
         .filter-item label {
             cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        /* MAIN CONTENT */
-        .content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .category-pills {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .pill {
-            padding: 0.5rem 1rem;
-            border: 2px solid #ddd;
-            background: white;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
             font-size: 0.9rem;
         }
 
-        .pill:hover {
-            border-color: #667eea;
-        }
-
-        .pill.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-
-        /* GRID EVENTOS */
+        /* EVENTS GRID */
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
-            min-height: 200px;
         }
 
-        /* Responsive: 4 por fila en desktop, 2 en tablet, 1 en móvil */
         @media (min-width: 1200px) {
             .events-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -188,7 +178,7 @@
             }
 
             .sidebar {
-                position: static;
+                display: none;
             }
 
             .events-grid {
@@ -197,10 +187,15 @@
 
             .header-content {
                 flex-direction: column;
+                gap: 0.75rem;
             }
 
             .search-bar {
                 max-width: 100%;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
         }
 
@@ -446,12 +441,6 @@
             color: #999;
         }
 
-        .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* OVERLAY */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -475,21 +464,28 @@
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Busca eventos...">
             </div>
-            <button class="filter-btn" onclick="document.querySelector('.sidebar').scrollIntoView()">
-                ⚙️ Filtros
-            </button>
         </div>
     </header>
 
+    <!-- FILTERS HORIZONTAL (Mobile-friendly) -->
+    <div class="filters-container">
+        <div class="filter-pill active" onclick="filterByCategory('todos')">Todos</div>
+        <div class="filter-pill" onclick="filterByCategory('culture')">🎨 Cultura</div>
+        <div class="filter-pill" onclick="filterByCategory('music')">🎵 Música</div>
+        <div class="filter-pill" onclick="filterByCategory('sport')">⚽ Deporte</div>
+        <div class="filter-pill" onclick="filterByCategory('food')">🍽️ Comida</div>
+        <div class="filter-pill" onclick="filterByZone('cen')">📍 Centro</div>
+        <div class="filter-pill" onclick="filterByZone('vit')">📍 Vitacura</div>
+        <div class="filter-pill" onclick="toggleSpecial('kid')">👶 Niños</div>
+        <div class="filter-pill" onclick="toggleSpecial('pet')">🐕 Mascotas</div>
+        <div class="filter-pill" onclick="toggleSpecial('acc')">♿ Accesible</div>
+    </div>
+
     <div class="container">
-        <!-- SIDEBAR -->
+        <!-- SIDEBAR - Desktop only -->
         <aside class="sidebar">
             <div class="filter-group">
                 <h3>Categorías</h3>
-                <div class="filter-item">
-                    <input type="checkbox" id="cat-todos" checked onchange="filterEvents()">
-                    <label for="cat-todos">Todos</label>
-                </div>
                 <div class="filter-item">
                     <input type="checkbox" id="cat-culture" checked onchange="filterEvents()">
                     <label for="cat-culture">🎨 Cultura</label>
@@ -537,22 +533,6 @@
             </div>
 
             <div class="filter-group">
-                <h3>Tipo</h3>
-                <div class="filter-item">
-                    <input type="checkbox" id="tipo-expo" checked onchange="filterEvents()">
-                    <label for="tipo-expo">Exposición</label>
-                </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="tipo-conc" checked onchange="filterEvents()">
-                    <label for="tipo-conc">Concierto</label>
-                </div>
-                <div class="filter-item">
-                    <input type="checkbox" id="tipo-fest" checked onchange="filterEvents()">
-                    <label for="tipo-fest">Festival</label>
-                </div>
-            </div>
-
-            <div class="filter-group">
                 <h3>Otros</h3>
                 <div class="filter-item">
                     <input type="checkbox" id="filter-kid" onchange="filterEvents()">
@@ -570,15 +550,7 @@
         </aside>
 
         <!-- MAIN CONTENT -->
-        <div class="content">
-            <div class="category-pills">
-                <div class="pill active" onclick="filterByCategory('todos')">Todos</div>
-                <div class="pill" onclick="filterByCategory('culture')">🎨 Cultura</div>
-                <div class="pill" onclick="filterByCategory('music')">🎵 Música</div>
-                <div class="pill" onclick="filterByCategory('sport')">⚽ Deporte</div>
-                <div class="pill" onclick="filterByCategory('food')">🍽️ Comida</div>
-            </div>
-
+        <div>
             <div class="events-grid" id="eventsGrid"></div>
         </div>
     </div>
@@ -611,6 +583,7 @@
     <script>
         let allEvents = [];
         let currentEvent = null;
+        let currentFilters = { category: 'todos', zone: null, special: null };
 
         async function loadEvents() {
             try {
@@ -620,12 +593,6 @@
                 renderEvents(allEvents);
             } catch (error) {
                 console.error('Error loading events:', error);
-                document.getElementById('eventsGrid').innerHTML = `
-                    <div class="empty-state" style="grid-column: 1/-1;">
-                        <div class="empty-state-icon">❌</div>
-                        <p>No se pudieron cargar los eventos</p>
-                    </div>
-                `;
             }
         }
 
@@ -633,12 +600,7 @@
             const grid = document.getElementById('eventsGrid');
             
             if (events.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1/-1;">
-                        <div class="empty-state-icon">🔍</div>
-                        <p>No se encontraron eventos</p>
-                    </div>
-                `;
+                grid.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;">No se encontraron eventos</div>`;
                 return;
             }
 
@@ -666,6 +628,33 @@
             `).join('');
         }
 
+        function filterByCategory(cat) {
+            document.querySelectorAll('.filter-pill').forEach(p => {
+                if (p.onclick.toString().includes(`'${cat}'`)) p.classList.add('active');
+                else if (p.onclick.toString().includes('filterByCategory')) p.classList.remove('active');
+            });
+            
+            const filtered = cat === 'todos' 
+                ? allEvents 
+                : allEvents.filter(e => e.cat === cat);
+            renderEvents(filtered);
+        }
+
+        function filterByZone(zone) {
+            const filtered = allEvents.filter(e => e.zone === zone);
+            renderEvents(filtered);
+        }
+
+        function toggleSpecial(type) {
+            const filtered = allEvents.filter(event => {
+                if (type === 'kid') return event.kid;
+                if (type === 'pet') return event.pet;
+                if (type === 'acc') return event.acc;
+                return true;
+            });
+            renderEvents(filtered);
+        }
+
         function filterEvents() {
             const selectedCats = [];
             if (document.getElementById('cat-culture').checked) selectedCats.push('culture');
@@ -678,11 +667,6 @@
                 if (document.getElementById(`zone-${zone}`).checked) selectedZones.push(zone);
             });
 
-            const selectedTipos = [];
-            ['expo', 'conc', 'fest'].forEach(tipo => {
-                if (document.getElementById(`tipo-${tipo}`).checked) selectedTipos.push(tipo);
-            });
-
             const filterKid = document.getElementById('filter-kid').checked;
             const filterPet = document.getElementById('filter-pet').checked;
             const filterAcc = document.getElementById('filter-acc').checked;
@@ -690,24 +674,12 @@
             const filtered = allEvents.filter(event => {
                 const matchCat = selectedCats.length === 0 || selectedCats.includes(event.cat);
                 const matchZone = selectedZones.length === 0 || selectedZones.includes(event.zone);
-                const matchTipo = selectedTipos.length === 0 || selectedTipos.includes(event.tipo);
                 const matchKid = !filterKid || event.kid;
                 const matchPet = !filterPet || event.pet;
                 const matchAcc = !filterAcc || event.acc;
-                return matchCat && matchZone && matchTipo && matchKid && matchPet && matchAcc;
+                return matchCat && matchZone && matchKid && matchPet && matchAcc;
             });
 
-            renderEvents(filtered);
-        }
-
-        function filterByCategory(cat) {
-            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-            event.target.classList.add('active');
-
-            const filtered = cat === 'todos' 
-                ? allEvents 
-                : allEvents.filter(e => e.cat === cat);
-            
             renderEvents(filtered);
         }
 
@@ -735,7 +707,7 @@
             if (!currentEvent) return;
             const text = `${currentEvent.title} - ${currentEvent.date} en ${currentEvent.venue}`;
             if (navigator.share) {
-                navigator.share({ title: 'Descubre Tu Ciudad', text: text, url: window.location.href });
+                navigator.share({ title: 'Descubre Tu Ciudad', text: text });
             } else {
                 navigator.clipboard.writeText(text);
                 alert('Copiado al portapapeles');
