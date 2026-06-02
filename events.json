@@ -6343,12 +6343,88 @@
       "kid": false,
       "tipo": "expo",
       "id": null
+    },
+    {
+      "title": "Rescate - Teatro",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra de teatro en GAM con función jueves a sábado a las 19:00 y domingo a las 18:00.",
+      "date": "Jue 28 de mayo 19:00",
+      "dateMs": 1717008000000,
+      "month": 4,
+      "days": [
+        28,
+        29,
+        30,
+        31,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria 227, Santiago",
+      "zone": "cen",
+      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
+    },
+    {
+      "title": "Glengarry Glen Ross - Teatro",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra de teatro en GAM con función jueves a sábado a las 19:30 y domingo a las 18:30.",
+      "date": "Jue 28 de mayo 19:30",
+      "dateMs": 1717010400000,
+      "month": 4,
+      "days": [
+        28,
+        29,
+        30,
+        31,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "venue": "Centro Gabriela Mistral (GAM)",
+      "address": "Lastarria 227, Santiago",
+      "zone": "cen",
+      "mapsQ": "Centro+Gabriela+Mistral+Santiago",
+      "price": null,
+      "src": "GAM",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-02",
-    "totalEvents": 158,
+    "totalEvents": 160,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
