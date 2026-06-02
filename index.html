@@ -5,29 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descubre Tu Ciudad - Santiago Eventos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8f9fa;
+            background: #f0f2f8;
             color: #333;
         }
 
-        /* HEADER */
+        /* ─── HEADER ─── */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 1rem;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 200;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -36,18 +31,8 @@
             justify-content: space-between;
             gap: 1rem;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .search-bar {
-            flex: 1;
-            max-width: 400px;
-        }
-
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+        .search-bar { flex: 1; max-width: 400px; }
         .search-bar input {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -55,686 +40,1184 @@
             border-radius: 6px;
             background: rgba(255,255,255,0.95);
             color: #333;
+            font-size: 0.95rem;
         }
+        .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+        .btn-header {
+            background: rgba(255,255,255,0.2);
+            border: 1.5px solid rgba(255,255,255,0.5);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .btn-header:hover { background: rgba(255,255,255,0.35); }
+        .btn-header.user-logged {
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            border-color: white;
+        }
+        .avatar-btn {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: 2px solid white;
+            color: #667eea;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .avatar-btn:hover { transform: scale(1.05); }
 
-        /* FILTERS HORIZONTAL */
-        .filters-container {
+        /* ─── FILTROS HORIZONTALES (mobile) ─── */
+        /* CATEGORÍAS */
+        .filters-row {
             background: white;
-            padding: 0.75rem 1rem;
+            padding: 0;
+            position: sticky;
+            top: 68px;
+            z-index: 99;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        }
+        .filters-section {
+            display: flex;
+            align-items: center;
+            gap: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            display: flex;
-            gap: 0.5rem;
-            position: sticky;
-            top: 70px;
-            z-index: 99;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-        }
-
-        .filters-container::-webkit-scrollbar {
-            height: 3px;
-        }
-
-        .filters-container::-webkit-scrollbar-thumb {
-            background: #ddd;
-            border-radius: 3px;
-        }
-
-        .filter-pill {
             padding: 0.5rem 1rem;
-            border: 1.5px solid #ddd;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .filters-section:last-child { border-bottom: none; }
+        .filters-section::-webkit-scrollbar { height: 2px; }
+        .filters-section::-webkit-scrollbar-thumb { background: #ddd; }
+
+        .filters-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            padding-right: 0.75rem;
+            margin-right: 0.5rem;
+            border-right: 1.5px solid #eee;
+        }
+        .filters-label.cat-label { color: #667eea; }
+        .filters-label.filter-label { color: #888; }
+
+        .filter-pills { display: flex; gap: 0.4rem; }
+        .filter-pill {
+            padding: 0.35rem 0.85rem;
+            border: 1.5px solid #e0e0e0;
             background: white;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
             white-space: nowrap;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             font-weight: 500;
+            color: #555;
         }
+        .filter-pill:hover { border-color: #667eea; color: #667eea; }
+        .filter-pill.active.cat { background: #667eea; color: white; border-color: #667eea; }
+        .filter-pill.active.zone { background: #43b89c; color: white; border-color: #43b89c; }
+        .filter-pill.active.special { background: #f7b731; color: #7a5700; border-color: #f7b731; }
 
-        .filter-pill:hover {
-            border-color: #667eea;
-        }
-
-        .filter-pill.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-
-        /* MAIN CONTAINER */
+        /* ─── LAYOUT PRINCIPAL ─── */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 2rem;
+            grid-template-columns: 240px 1fr;
+            gap: 1.5rem;
         }
 
-        /* SIDEBAR - DESKTOP ONLY */
+        /* ─── SIDEBAR DESKTOP ─── */
         .sidebar {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             height: fit-content;
             position: sticky;
-            top: 150px;
+            top: 170px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
-
-        .filter-group h3 {
-            font-size: 0.85rem;
+        .sidebar-block {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+        }
+        .sidebar-block-header {
+            padding: 0.7rem 1.25rem;
+            font-size: 0.7rem;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sidebar-block-header.cat-header {
+            background: linear-gradient(90deg, #ede9ff, #f5f3ff);
             color: #667eea;
-            margin: 1rem 0 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            border-bottom: 2px solid #d8d2fa;
         }
-
-        .filter-group:first-child h3 {
-            margin-top: 0;
+        .sidebar-block-header.zone-header {
+            background: linear-gradient(90deg, #e0f7f0, #f0fdf8);
+            color: #2a9d8f;
+            border-bottom: 2px solid #b2e8dd;
         }
+        .sidebar-block-header.special-header {
+            background: linear-gradient(90deg, #fff8e6, #fffbf0);
+            color: #c07a00;
+            border-bottom: 2px solid #ffe49a;
+        }
+        .sidebar-block-body { padding: 0.75rem 1.25rem; }
 
         .filter-item {
             display: flex;
             align-items: center;
-            margin: 0.5rem 0;
+            margin: 0.45rem 0;
             cursor: pointer;
         }
+        .filter-item input { margin-right: 0.7rem; cursor: pointer; accent-color: #667eea; }
+        .filter-item label { cursor: pointer; font-size: 0.88rem; }
 
-        .filter-item input {
-            margin-right: 0.75rem;
-            cursor: pointer;
-        }
+        .sidebar-block-header.zone-header ~ .sidebar-block-body .filter-item input { accent-color: #2a9d8f; }
+        .sidebar-block-header.special-header ~ .sidebar-block-body .filter-item input { accent-color: #f7b731; }
 
-        .filter-item label {
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        /* EVENTS GRID */
+        /* ─── EVENTOS GRID ─── */
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
         }
+        @media (min-width: 1200px) { .events-grid { grid-template-columns: repeat(3, 1fr); } }
 
-        @media (min-width: 1200px) {
-            .events-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 1199px) and (min-width: 768px) {
-            .events-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 767px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: none;
-            }
-
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .search-bar {
-                max-width: 100%;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* EVENT CARD */
+        /* ─── CARD ─── */
         .event-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.25s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
         }
-
-        .event-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
-
+        .event-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
         .event-image {
-            width: 100%;
-            height: 200px;
+            width: 100%; height: 180px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; position: relative; overflow: hidden;
         }
-
-        .event-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .event-body {
-            padding: 1rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
+        .event-image img { width: 100%; height: 100%; object-fit: cover; }
+        .event-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
         .event-category {
             display: inline-block;
-            background: #f0f0f0;
-            color: #667eea;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.65rem;
             border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.7rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
             width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+        .cat-culture { background: #ede9ff; color: #5340c4; }
+        .cat-music   { background: #fce4ec; color: #c2185b; }
+        .cat-sport   { background: #e8f5e9; color: #2e7d32; }
+        .cat-food    { background: #fff3e0; color: #e65100; }
+        .cat-default { background: #f0f0f0; color: #667eea; }
 
-        .event-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .event-venue {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 0.75rem;
-        }
-
-        .event-date {
-            font-size: 0.9rem;
-            color: #667eea;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
+        .event-title { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.35; }
+        .event-venue { font-size: 0.82rem; color: #777; margin-bottom: 0.6rem; }
+        .event-date  { font-size: 0.88rem; color: #667eea; font-weight: 500; margin-bottom: 0.6rem; }
         .event-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 0.75rem;
-            border-top: 1px solid #eee;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: auto; padding-top: 0.7rem; border-top: 1px solid #f0f0f0;
         }
-
-        .event-price {
-            font-weight: 600;
-            color: #667eea;
-            font-size: 0.9rem;
-        }
-
-        .event-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-
+        .event-price { font-weight: 700; color: #667eea; font-size: 0.88rem; }
+        .event-buttons { display: flex; gap: 0.4rem; }
         .btn-icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0.25rem;
-            transition: all 0.3s;
+            background: none; border: none; cursor: pointer;
+            font-size: 1.15rem; padding: 0.2rem;
+            transition: all 0.2s; line-height: 1;
         }
+        .btn-icon:hover { transform: scale(1.25); }
+        .btn-icon.saved { filter: none; }
 
-        .btn-icon:hover {
-            transform: scale(1.2);
-        }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-radius: 12px 12px 0 0;
-            max-height: 90vh;
-            overflow-y: auto;
-            z-index: 1000;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        .modal.active {
-            display: flex;
-            flex-direction: column;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-content {
-            padding: 1.5rem;
-            flex: 1;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 300px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .modal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-desc {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .modal-meta {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .meta-item {
-            margin: 0.5rem 0;
-        }
-
-        .meta-label {
-            font-weight: 600;
-            color: #667eea;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-        }
-
-        .modal-buttons button {
-            flex: 1;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #764ba2;
-        }
-
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 3rem;
-            color: #999;
-        }
-
+        /* ─── MODAL EVENTO ─── */
         .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 1000;
+        }
+        .modal-overlay.active { display: block; }
+        .modal {
+            display: none; position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: white; border-radius: 16px 16px 0 0;
+            max-height: 90vh; overflow-y: auto;
+            z-index: 1001; animation: slideUp 0.3s ease-out;
+        }
+        .modal.active { display: flex; flex-direction: column; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .modal-header {
+            padding: 1rem 1.5rem; border-bottom: 1px solid #eee;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; background: white; z-index: 1;
+        }
+        .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #999; }
+        .modal-close:hover { color: #333; }
+        .modal-content { padding: 1.5rem; flex: 1; }
+        .modal-image { width: 100%; height: 280px; background: #f0f0f0; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .modal-image img { width: 100%; height: 100%; object-fit: cover; }
+        .modal-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .modal-desc { color: #666; line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem; }
+        .modal-meta { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.92rem; }
+        .meta-item { margin: 0.45rem 0; }
+        .meta-label { font-weight: 600; color: #667eea; }
+        .modal-buttons { display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid #eee; }
+        .modal-buttons button {
+            flex: 1; padding: 0.75rem; border: none; border-radius: 8px;
+            font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
+        }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-primary:hover { background: #5568d6; }
+        .btn-secondary { background: #f0f0f0; color: #333; }
+        .btn-secondary:hover { background: #e0e0e0; }
+
+        /* ─── PANEL PERFIL / AUTH ─── */
+        .panel-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 2000;
+        }
+        .panel-overlay.active { display: block; }
+        .side-panel {
+            position: fixed; top: 0; right: -420px;
+            width: 400px; max-width: 100vw;
+            height: 100vh; background: white;
+            z-index: 2001; overflow-y: auto;
+            box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex; flex-direction: column;
+        }
+        .side-panel.active { right: 0; }
+
+        .panel-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .panel-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        .panel-body { padding: 1.5rem; flex: 1; }
+
+        /* Tabs dentro del panel */
+        .panel-tabs { display: flex; border-bottom: 2px solid #eee; margin-bottom: 1.5rem; }
+        .panel-tab {
+            flex: 1; padding: 0.7rem; text-align: center; cursor: pointer;
+            font-weight: 600; font-size: 0.88rem; color: #999;
+            border-bottom: 2px solid transparent; margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .panel-tab.active { color: #667eea; border-bottom-color: #667eea; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Formularios de auth */
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: #555; margin-bottom: 0.4rem; }
+        .form-group input {
+            width: 100%; padding: 0.7rem 1rem;
+            border: 1.5px solid #e0e0e0; border-radius: 8px;
+            font-size: 0.95rem; transition: all 0.2s; color: #333;
+        }
+        .form-group input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+        .btn-full {
+            width: 100%; padding: 0.8rem; border: none; border-radius: 8px;
+            background: #667eea; color: white; font-weight: 700;
+            font-size: 1rem; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+        }
+        .btn-full:hover { background: #5568d6; transform: translateY(-1px); }
+        .btn-full.secondary { background: #f0f0f0; color: #333; }
+        .btn-full.secondary:hover { background: #e0e0e0; }
+        .form-divider { text-align: center; color: #aaa; font-size: 0.82rem; margin: 1rem 0; position: relative; }
+        .form-divider::before, .form-divider::after {
+            content: ''; position: absolute; top: 50%;
+            width: 40%; height: 1px; background: #eee;
+        }
+        .form-divider::before { left: 0; } .form-divider::after { right: 0; }
+        .form-error { color: #e74c3c; font-size: 0.82rem; margin-top: 0.25rem; display: none; }
+        .form-error.visible { display: block; }
+        .form-success { color: #27ae60; font-size: 0.88rem; text-align: center; margin-top: 0.5rem; display: none; }
+        .form-success.visible { display: block; }
+
+        /* Perfil logueado */
+        .profile-avatar {
+            width: 72px; height: 72px; border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 700; color: white;
+            margin: 0 auto 1rem;
+        }
+        .profile-name { text-align: center; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .profile-email { text-align: center; color: #888; font-size: 0.88rem; margin-bottom: 1.5rem; }
+        .profile-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem; margin-bottom: 1.5rem;
+        }
+        .stat-card {
+            background: #f8f9fa; border-radius: 8px; padding: 0.75rem;
+            text-align: center;
+        }
+        .stat-number { font-size: 1.4rem; font-weight: 700; color: #667eea; }
+        .stat-label { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Favoritos */
+        .fav-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .fav-item {
+            display: flex; gap: 0.75rem; align-items: center;
+            background: #f8f9fa; border-radius: 8px; padding: 0.75rem;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .fav-item:hover { background: #f0f0f8; }
+        .fav-emoji { font-size: 1.8rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: white; flex-shrink: 0; }
+        .fav-info { flex: 1; min-width: 0; }
+        .fav-title { font-weight: 600; font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .fav-date { font-size: 0.78rem; color: #888; margin-top: 0.2rem; }
+        .fav-remove { background: none; border: none; color: #ccc; cursor: pointer; font-size: 1.1rem; padding: 0.25rem; flex-shrink: 0; }
+        .fav-remove:hover { color: #e74c3c; }
+        .empty-favs { text-align: center; padding: 2rem; color: #aaa; }
+        .empty-favs .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+        /* Configuración */
+        .settings-section { margin-bottom: 1.5rem; }
+        .settings-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 0.75rem; }
+        .settings-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.6rem 0; border-bottom: 1px solid #f5f5f5;
+        }
+        .settings-item label { font-size: 0.9rem; color: #333; }
+        .toggle { position: relative; width: 44px; height: 24px; }
+        .toggle input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider {
+            position: absolute; inset: 0; background: #ccc; border-radius: 24px;
+            cursor: pointer; transition: 0.3s;
+        }
+        .toggle-slider::before {
+            content: ''; position: absolute; width: 18px; height: 18px;
+            left: 3px; top: 3px; background: white; border-radius: 50%; transition: 0.3s;
+        }
+        .toggle input:checked + .toggle-slider { background: #667eea; }
+        .toggle input:checked + .toggle-slider::before { transform: translateX(20px); }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 767px) {
+            .container { grid-template-columns: 1fr; padding: 1rem; }
+            .sidebar { display: none; }
+            .events-grid { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; gap: 0.75rem; }
+            .search-bar { max-width: 100%; width: 100%; }
+            .logo { font-size: 1.2rem; }
+            .side-panel { width: 100vw; }
+            .header-actions { width: 100%; justify-content: flex-end; }
+        }
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .events-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        .modal-overlay.active {
-            display: block;
-        }
+        .empty-state { grid-column: 1 / -1; text-align: center; padding: 3rem; color: #aaa; }
+
+        /* Badge de notificación */
+        .badge { display: inline-block; background: #ff4757; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; line-height: 18px; text-align: center; vertical-align: middle; margin-left: 4px; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">🌆 DESCUBRE TU CIUDAD</div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Busca eventos...">
+
+<!-- ─── HEADER ─── -->
+<header>
+    <div class="header-content">
+        <div class="logo">🌆 DESCUBRE TU CIUDAD</div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Busca eventos, lugares...">
+        </div>
+        <div class="header-actions">
+            <div id="headerAuth">
+                <button class="btn-header" onclick="openPanel('login')">Iniciar sesión</button>
             </div>
         </div>
-    </header>
-
-    <!-- FILTERS HORIZONTAL (Mobile-friendly) -->
-    <div class="filters-container">
-        <div class="filter-pill active" onclick="filterByCategory('todos')">Todos</div>
-        <div class="filter-pill" onclick="filterByCategory('culture')">🎨 Cultura</div>
-        <div class="filter-pill" onclick="filterByCategory('music')">🎵 Música</div>
-        <div class="filter-pill" onclick="filterByCategory('sport')">⚽ Deporte</div>
-        <div class="filter-pill" onclick="filterByCategory('food')">🍽️ Comida</div>
-        <div class="filter-pill" onclick="filterByZone('cen')">📍 Centro</div>
-        <div class="filter-pill" onclick="filterByZone('vit')">📍 Vitacura</div>
-        <div class="filter-pill" onclick="toggleSpecial('kid')">👶 Niños</div>
-        <div class="filter-pill" onclick="toggleSpecial('pet')">🐕 Mascotas</div>
-        <div class="filter-pill" onclick="toggleSpecial('acc')">♿ Accesible</div>
     </div>
+</header>
 
-    <div class="container">
-        <!-- SIDEBAR - Desktop only -->
-        <aside class="sidebar">
-            <div class="filter-group">
-                <h3>Categorías</h3>
+<!-- ─── BARRA DE FILTROS (2 filas separadas) ─── -->
+<div class="filters-row">
+    <!-- Fila 1: CATEGORÍAS -->
+    <div class="filters-section">
+        <span class="filters-label cat-label">🏷 Categorías</span>
+        <div class="filter-pills">
+            <div class="filter-pill cat active" onclick="setCategoryPill(this, 'todos')">Todos</div>
+            <div class="filter-pill cat" onclick="setCategoryPill(this, 'culture')">🎨 Cultura</div>
+            <div class="filter-pill cat" onclick="setCategoryPill(this, 'music')">🎵 Música</div>
+            <div class="filter-pill cat" onclick="setCategoryPill(this, 'sport')">⚽ Deporte</div>
+            <div class="filter-pill cat" onclick="setCategoryPill(this, 'food')">🍽️ Comida</div>
+        </div>
+    </div>
+    <!-- Fila 2: FILTROS -->
+    <div class="filters-section">
+        <span class="filters-label filter-label">⚙ Filtros</span>
+        <div class="filter-pills">
+            <div class="filter-pill zone" onclick="toggleZonePill(this, 'cen')">📍 Centro</div>
+            <div class="filter-pill zone" onclick="toggleZonePill(this, 'vit')">📍 Vitacura</div>
+            <div class="filter-pill zone" onclick="toggleZonePill(this, 'lc')">📍 Las Condes</div>
+            <div class="filter-pill zone" onclick="toggleZonePill(this, 'nun')">📍 Ñuñoa</div>
+            <div class="filter-pill zone" onclick="toggleZonePill(this, 'prov')">📍 Providencia</div>
+            <div class="filter-pill special" onclick="toggleSpecialPill(this, 'kid')">👶 Niños</div>
+            <div class="filter-pill special" onclick="toggleSpecialPill(this, 'pet')">🐕 Mascotas</div>
+            <div class="filter-pill special" onclick="toggleSpecialPill(this, 'acc')">♿ Accesible</div>
+        </div>
+    </div>
+</div>
+
+<!-- ─── CONTENIDO PRINCIPAL ─── -->
+<div class="container">
+
+    <!-- SIDEBAR DESKTOP -->
+    <aside class="sidebar">
+
+        <!-- Bloque Categorías -->
+        <div class="sidebar-block">
+            <div class="sidebar-block-header cat-header">🏷 Categorías</div>
+            <div class="sidebar-block-body">
                 <div class="filter-item">
-                    <input type="checkbox" id="cat-culture" checked onchange="filterEvents()">
+                    <input type="checkbox" id="cat-culture" checked onchange="applyFilters()">
                     <label for="cat-culture">🎨 Cultura</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="cat-music" checked onchange="filterEvents()">
+                    <input type="checkbox" id="cat-music" checked onchange="applyFilters()">
                     <label for="cat-music">🎵 Música</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="cat-sport" checked onchange="filterEvents()">
+                    <input type="checkbox" id="cat-sport" checked onchange="applyFilters()">
                     <label for="cat-sport">⚽ Deporte</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="cat-food" checked onchange="filterEvents()">
+                    <input type="checkbox" id="cat-food" checked onchange="applyFilters()">
                     <label for="cat-food">🍽️ Comida</label>
                 </div>
             </div>
+        </div>
 
-            <div class="filter-group">
-                <h3>Zonas</h3>
+        <!-- Bloque Zonas -->
+        <div class="sidebar-block">
+            <div class="sidebar-block-header zone-header">📍 Zonas</div>
+            <div class="sidebar-block-body">
                 <div class="filter-item">
-                    <input type="checkbox" id="zone-cen" checked onchange="filterEvents()">
+                    <input type="checkbox" id="zone-cen" checked onchange="applyFilters()">
                     <label for="zone-cen">Centro</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="zone-vit" checked onchange="filterEvents()">
+                    <input type="checkbox" id="zone-vit" checked onchange="applyFilters()">
                     <label for="zone-vit">Vitacura</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="zone-lc" checked onchange="filterEvents()">
+                    <input type="checkbox" id="zone-lc" checked onchange="applyFilters()">
                     <label for="zone-lc">Las Condes</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="zone-nun" checked onchange="filterEvents()">
+                    <input type="checkbox" id="zone-nun" checked onchange="applyFilters()">
                     <label for="zone-nun">Ñuñoa</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="zone-lare" checked onchange="filterEvents()">
+                    <input type="checkbox" id="zone-lare" checked onchange="applyFilters()">
                     <label for="zone-lare">La Reina</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="zone-prov" checked onchange="filterEvents()">
+                    <input type="checkbox" id="zone-prov" checked onchange="applyFilters()">
                     <label for="zone-prov">Providencia</label>
                 </div>
             </div>
+        </div>
 
-            <div class="filter-group">
-                <h3>Otros</h3>
+        <!-- Bloque Especiales -->
+        <div class="sidebar-block">
+            <div class="sidebar-block-header special-header">✨ Especiales</div>
+            <div class="sidebar-block-body">
                 <div class="filter-item">
-                    <input type="checkbox" id="filter-kid" onchange="filterEvents()">
+                    <input type="checkbox" id="filter-kid" onchange="applyFilters()">
                     <label for="filter-kid">👶 Para niños</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="filter-pet" onchange="filterEvents()">
+                    <input type="checkbox" id="filter-pet" onchange="applyFilters()">
                     <label for="filter-pet">🐕 Mascotas</label>
                 </div>
                 <div class="filter-item">
-                    <input type="checkbox" id="filter-acc" onchange="filterEvents()">
+                    <input type="checkbox" id="filter-acc" onchange="applyFilters()">
                     <label for="filter-acc">♿ Accesible</label>
                 </div>
             </div>
-        </aside>
+        </div>
 
-        <!-- MAIN CONTENT -->
-        <div>
-            <div class="events-grid" id="eventsGrid"></div>
+    </aside>
+
+    <!-- GRID EVENTOS -->
+    <div>
+        <div class="events-grid" id="eventsGrid"></div>
+    </div>
+</div>
+
+<!-- ─── MODAL EVENTO ─── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="modal" id="eventModal">
+    <div class="modal-header">
+        <h2>Detalles del evento</h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-content">
+        <div class="modal-image"><img id="modalImage" src="" alt=""></div>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-meta">
+            <div class="meta-item"><span class="meta-label">📅 Fecha:</span> <span id="modalDate"></span></div>
+            <div class="meta-item"><span class="meta-label">📍 Lugar:</span> <span id="modalVenue"></span></div>
+            <div class="meta-item"><span class="meta-label">💰 Precio:</span> <span id="modalPrice"></span></div>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn-secondary" onclick="shareCurrentEvent()">⤴️ Compartir</button>
+            <button class="btn-primary" id="btnSave" onclick="toggleFavorite()">❤️ Guardar</button>
         </div>
     </div>
+</div>
 
-    <!-- MODAL -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
-    <div class="modal" id="eventModal">
-        <div class="modal-header">
-            <h2>Detalles del evento</h2>
-            <button class="modal-close" onclick="closeModal()">✕</button>
-        </div>
-        <div class="modal-content">
-            <div class="modal-image">
-                <img id="modalImage" src="" alt="">
-            </div>
-            <h3 class="modal-title" id="modalTitle"></h3>
-            <p class="modal-desc" id="modalDesc"></p>
-            <div class="modal-meta">
-                <div class="meta-item"><span class="meta-label">📅 Fecha:</span> <span id="modalDate"></span></div>
-                <div class="meta-item"><span class="meta-label">📍 Lugar:</span> <span id="modalVenue"></span></div>
-                <div class="meta-item"><span class="meta-label">💰 Precio:</span> <span id="modalPrice"></span></div>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-secondary" onclick="shareEvent()">⤴️ Compartir</button>
-                <button class="btn-primary" id="btnSave" onclick="saveEvent()">❤️ Guardar</button>
-            </div>
-        </div>
+<!-- ─── PANEL LATERAL: PERFIL / AUTH ─── -->
+<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div>
+<div class="side-panel" id="sidePanel">
+    <div class="panel-header">
+        <h2 id="panelTitle">Mi cuenta</h2>
+        <button class="panel-close" onclick="closePanel()">✕</button>
     </div>
+    <div class="panel-body" id="panelBody">
+        <!-- contenido dinámico -->
+    </div>
+</div>
 
-    <script>
-        let allEvents = [];
-        let currentEvent = null;
-        let currentFilters = { category: 'todos', zone: null, special: null };
+<script>
+// ═══════════════════════════════════════════════
+//  ESTADO
+// ═══════════════════════════════════════════════
+let allEvents = [];
+let currentEvent = null;
 
-        async function loadEvents() {
-            try {
-                let response = await fetch('/events.json').catch(() => fetch('./events.json'));
-                let data = await response.json();
-                allEvents = data.events || [];
-                renderEvents(allEvents);
-            } catch (error) {
-                console.error('Error loading events:', error);
-            }
-        }
+// Estado de filtros desde la barra horizontal
+let activeCat = 'todos';
+let activeZones = new Set();
+let activeSpecials = new Set();
 
-        function renderEvents(events) {
-            const grid = document.getElementById('eventsGrid');
-            
-            if (events.length === 0) {
-                grid.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;">No se encontraron eventos</div>`;
-                return;
-            }
+// Estado de filtros desde el sidebar (checkboxes)
+let usingSidebarFilters = false;
 
-            grid.innerHTML = events.map(event => `
-                <div class="event-card" onclick="openModal(${event.id})">
-                    <div class="event-image">
-                        ${event.img ? `<img src="${event.img}" alt="${event.title}">` : event.emoji}
+// ═══════════════════════════════════════════════
+//  AUTH: gestión local de sesión (localStorage)
+// ═══════════════════════════════════════════════
+const AUTH_KEY = 'dtc_user';
+const USERS_KEY = 'dtc_users';
+const FAVS_KEY = 'dtc_favs';
+
+function getUsers() {
+    try { return JSON.parse(localStorage.getItem(USERS_KEY) || '{}'); } catch { return {}; }
+}
+function saveUsers(u) { localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+function getCurrentUser() {
+    try { return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); } catch { return null; }
+}
+function setCurrentUser(u) {
+    if (u) localStorage.setItem(AUTH_KEY, JSON.stringify(u));
+    else localStorage.removeItem(AUTH_KEY);
+}
+function getFavorites() {
+    const user = getCurrentUser();
+    if (!user) return [];
+    try {
+        const all = JSON.parse(localStorage.getItem(FAVS_KEY) || '{}');
+        return all[user.email] || [];
+    } catch { return []; }
+}
+function saveFavorites(favs) {
+    const user = getCurrentUser();
+    if (!user) return;
+    const all = JSON.parse(localStorage.getItem(FAVS_KEY) || '{}');
+    all[user.email] = favs;
+    localStorage.setItem(FAVS_KEY, JSON.stringify(all));
+}
+function isFav(eventId) {
+    return getFavorites().some(f => f.id === eventId);
+}
+function toggleFavById(eventId) {
+    const event = allEvents.find(e => e.id === eventId);
+    if (!event) return false;
+    let favs = getFavorites();
+    const idx = favs.findIndex(f => f.id === eventId);
+    if (idx >= 0) favs.splice(idx, 1);
+    else favs.push({ id: event.id, title: event.title, date: event.date, emoji: event.emoji || '🎉', venue: event.venue });
+    saveFavorites(favs);
+    return idx < 0; // true = added
+}
+
+// ═══════════════════════════════════════════════
+//  RENDER HEADER SEGÚN AUTH
+// ═══════════════════════════════════════════════
+function renderHeader() {
+    const user = getCurrentUser();
+    const container = document.getElementById('headerAuth');
+    const favCount = getFavorites().length;
+    if (user) {
+        const initials = user.name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+        container.innerHTML = `
+            <div style="display:flex;gap:0.5rem;align-items:center">
+                <button class="btn-header" onclick="openPanel('favs')">
+                    ❤️ Favoritos${favCount > 0 ? `<span class="badge">${favCount}</span>` : ''}
+                </button>
+                <div class="avatar-btn" onclick="openPanel('profile')" title="${user.name}">${initials}</div>
+            </div>`;
+    } else {
+        container.innerHTML = `<button class="btn-header" onclick="openPanel('login')">Iniciar sesión</button>`;
+    }
+}
+
+// ═══════════════════════════════════════════════
+//  PANEL LATERAL
+// ═══════════════════════════════════════════════
+function openPanel(tab) {
+    document.getElementById('panelOverlay').classList.add('active');
+    document.getElementById('sidePanel').classList.add('active');
+    renderPanel(tab);
+}
+function closePanel() {
+    document.getElementById('panelOverlay').classList.remove('active');
+    document.getElementById('sidePanel').classList.remove('active');
+}
+
+function renderPanel(tab) {
+    const user = getCurrentUser();
+    const title = document.getElementById('panelTitle');
+    const body = document.getElementById('panelBody');
+
+    if (!user) {
+        title.textContent = 'Mi cuenta';
+        renderAuthPanel(body, tab === 'register' ? 'register' : 'login');
+        return;
+    }
+
+    title.textContent = 'Mi cuenta';
+    const tabs = [
+        { id: 'profile', label: '👤 Perfil' },
+        { id: 'favs',    label: '❤️ Favoritos' },
+        { id: 'settings', label: '⚙️ Config' }
+    ];
+    body.innerHTML = `
+        <div class="panel-tabs">
+            ${tabs.map(t => `<div class="panel-tab ${tab === t.id ? 'active' : ''}" onclick="renderPanel('${t.id}')">${t.label}</div>`).join('')}
+        </div>
+        <div id="panelTabContent"></div>
+    `;
+    const content = document.getElementById('panelTabContent');
+    if (tab === 'profile') renderProfileTab(content, user);
+    else if (tab === 'favs') renderFavsTab(content);
+    else renderSettingsTab(content, user);
+}
+
+function renderAuthPanel(body, mode) {
+    if (mode === 'login') {
+        body.innerHTML = `
+            <div style="text-align:center;margin-bottom:1.5rem">
+                <div style="font-size:3rem">🌆</div>
+                <h3 style="margin-top:0.5rem;color:#333">Bienvenido de vuelta</h3>
+                <p style="color:#888;font-size:0.88rem">Inicia sesión para guardar tus favoritos</p>
+            </div>
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" id="loginEmail" placeholder="tu@email.com">
+                <div class="form-error" id="loginEmailErr">Ingresa un correo válido</div>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="loginPass" placeholder="••••••••">
+                <div class="form-error" id="loginPassErr">Contraseña incorrecta</div>
+            </div>
+            <div class="form-error" id="loginErr" style="margin-bottom:0.5rem"></div>
+            <button class="btn-full" onclick="doLogin()">Iniciar sesión</button>
+            <div class="form-divider">o</div>
+            <button class="btn-full secondary" onclick="renderPanel('register')">Crear cuenta nueva</button>
+        `;
+    } else {
+        body.innerHTML = `
+            <div style="text-align:center;margin-bottom:1.5rem">
+                <div style="font-size:3rem">✨</div>
+                <h3 style="margin-top:0.5rem;color:#333">Crear cuenta</h3>
+                <p style="color:#888;font-size:0.88rem">Gratis, sin publicidad</p>
+            </div>
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" id="regName" placeholder="Tu nombre">
+                <div class="form-error" id="regNameErr">Ingresa tu nombre</div>
+            </div>
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" id="regEmail" placeholder="tu@email.com">
+                <div class="form-error" id="regEmailErr">Correo ya registrado o inválido</div>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="regPass" placeholder="Mínimo 6 caracteres">
+                <div class="form-error" id="regPassErr">Mínimo 6 caracteres</div>
+            </div>
+            <div class="form-error" id="regErr" style="margin-bottom:0.5rem"></div>
+            <button class="btn-full" onclick="doRegister()">Crear cuenta</button>
+            <div class="form-divider">o</div>
+            <button class="btn-full secondary" onclick="renderPanel('login')">Ya tengo cuenta</button>
+        `;
+    }
+}
+
+function renderProfileTab(el, user) {
+    const initials = user.name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+    const favCount = getFavorites().length;
+    el.innerHTML = `
+        <div class="profile-avatar">${initials}</div>
+        <p class="profile-name">${user.name}</p>
+        <p class="profile-email">${user.email}</p>
+        <div class="profile-stats">
+            <div class="stat-card">
+                <div class="stat-number">${favCount}</div>
+                <div class="stat-label">Favoritos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Seguidos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Seguidores</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="editName" value="${user.name}">
+        </div>
+        <div class="form-group">
+            <label>Correo</label>
+            <input type="email" value="${user.email}" disabled style="opacity:0.6;cursor:not-allowed">
+        </div>
+        <button class="btn-full" onclick="saveProfile()" style="margin-bottom:0.75rem">Guardar cambios</button>
+        <div class="form-success" id="profileSaved">✅ Cambios guardados</div>
+        <button class="btn-full secondary" onclick="doLogout()" style="margin-top:1rem">Cerrar sesión</button>
+    `;
+}
+
+function renderFavsTab(el) {
+    const favs = getFavorites();
+    if (favs.length === 0) {
+        el.innerHTML = `
+            <div class="empty-favs">
+                <div class="icon">❤️</div>
+                <p style="font-weight:600;color:#555">Sin favoritos aún</p>
+                <p style="font-size:0.85rem;margin-top:0.5rem">Guarda eventos con el botón ❤️ en las tarjetas</p>
+            </div>`;
+        return;
+    }
+    el.innerHTML = `
+        <p style="font-size:0.82rem;color:#888;margin-bottom:1rem">${favs.length} evento${favs.length !== 1 ? 's' : ''} guardado${favs.length !== 1 ? 's' : ''}</p>
+        <div class="fav-list">
+            ${favs.map(f => `
+                <div class="fav-item" onclick="closePanel();openModal(${f.id})">
+                    <div class="fav-emoji">${f.emoji || '🎉'}</div>
+                    <div class="fav-info">
+                        <div class="fav-title">${f.title}</div>
+                        <div class="fav-date">${f.date} · ${f.venue}</div>
                     </div>
-                    <div class="event-body">
-                        <span class="event-category">${event.tipo.toUpperCase()}</span>
-                        <h3 class="event-title">${event.title}</h3>
-                        <p class="event-venue">${event.venue}</p>
-                        <p class="event-date">${event.date}</p>
-                        <div class="event-footer">
-                            <span class="event-price">
-                                ${event.price === 0 ? 'GRATIS' : event.price ? '$' + event.price : 'Consultar'}
-                            </span>
-                            <div class="event-buttons">
-                                <button class="btn-icon" onclick="event.stopPropagation(); shareEvent(${event.id})">⤴️</button>
-                                <button class="btn-icon" onclick="event.stopPropagation(); saveEvent(${event.id})">❤️</button>
-                            </div>
-                        </div>
+                    <button class="fav-remove" onclick="event.stopPropagation();removeFav(${f.id})" title="Quitar">✕</button>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+function renderSettingsTab(el, user) {
+    const prefs = user.prefs || {};
+    el.innerHTML = `
+        <div class="settings-section">
+            <div class="settings-title">Notificaciones</div>
+            <div class="settings-item">
+                <label>Eventos nuevos en mi zona</label>
+                <label class="toggle"><input type="checkbox" ${prefs.notifZone ? 'checked' : ''} onchange="savePref('notifZone',this.checked)"><span class="toggle-slider"></span></label>
+            </div>
+            <div class="settings-item">
+                <label>Recordatorio 1 día antes</label>
+                <label class="toggle"><input type="checkbox" ${prefs.notifReminder ? 'checked' : ''} onchange="savePref('notifReminder',this.checked)"><span class="toggle-slider"></span></label>
+            </div>
+            <div class="settings-item">
+                <label>Novedades de la semana</label>
+                <label class="toggle"><input type="checkbox" ${prefs.notifWeekly ? 'checked' : ''} onchange="savePref('notifWeekly',this.checked)"><span class="toggle-slider"></span></label>
+            </div>
+        </div>
+        <div class="settings-section">
+            <div class="settings-title">Preferencias</div>
+            <div class="settings-item">
+                <label>Solo eventos gratuitos</label>
+                <label class="toggle"><input type="checkbox" ${prefs.onlyFree ? 'checked' : ''} onchange="savePref('onlyFree',this.checked)"><span class="toggle-slider"></span></label>
+            </div>
+            <div class="settings-item">
+                <label>Modo oscuro</label>
+                <label class="toggle"><input type="checkbox" ${prefs.darkMode ? 'checked' : ''} onchange="savePref('darkMode',this.checked)"><span class="toggle-slider"></span></label>
+            </div>
+        </div>
+        <button class="btn-full secondary" onclick="doLogout()" style="margin-top:1rem">Cerrar sesión</button>
+    `;
+}
+
+// ═══════════════════════════════════════════════
+//  ACCIONES AUTH
+// ═══════════════════════════════════════════════
+function doLogin() {
+    const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+    const pass  = document.getElementById('loginPass').value;
+    let ok = true;
+
+    if (!email.includes('@')) { show('loginEmailErr'); ok = false; } else hide('loginEmailErr');
+    if (!pass) { show('loginPassErr'); ok = false; } else hide('loginPassErr');
+    if (!ok) return;
+
+    const users = getUsers();
+    if (!users[email] || users[email].pass !== btoa(pass)) {
+        const err = document.getElementById('loginErr');
+        err.textContent = 'Correo o contraseña incorrectos';
+        err.classList.add('visible');
+        return;
+    }
+    setCurrentUser({ email, name: users[email].name, prefs: users[email].prefs || {} });
+    renderHeader();
+    closePanel();
+    renderEvents(filterLogic(allEvents));
+}
+
+function doRegister() {
+    const name  = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim().toLowerCase();
+    const pass  = document.getElementById('regPass').value;
+    let ok = true;
+
+    if (!name) { show('regNameErr'); ok = false; } else hide('regNameErr');
+    if (!email.includes('@')) { show('regEmailErr'); ok = false; } else hide('regEmailErr');
+    if (pass.length < 6) { show('regPassErr'); ok = false; } else hide('regPassErr');
+    if (!ok) return;
+
+    const users = getUsers();
+    if (users[email]) {
+        document.getElementById('regEmailErr').textContent = 'Este correo ya está registrado';
+        show('regEmailErr'); return;
+    }
+    users[email] = { name, pass: btoa(pass), prefs: {} };
+    saveUsers(users);
+    setCurrentUser({ email, name, prefs: {} });
+    renderHeader();
+    closePanel();
+    renderEvents(filterLogic(allEvents));
+}
+
+function doLogout() {
+    setCurrentUser(null);
+    renderHeader();
+    closePanel();
+    renderEvents(filterLogic(allEvents));
+}
+
+function saveProfile() {
+    const name = document.getElementById('editName').value.trim();
+    if (!name) return;
+    const user = getCurrentUser();
+    user.name = name;
+    setCurrentUser(user);
+    const users = getUsers();
+    users[user.email].name = name;
+    saveUsers(users);
+    const el = document.getElementById('profileSaved');
+    el.classList.add('visible');
+    setTimeout(() => el.classList.remove('visible'), 2000);
+    renderHeader();
+}
+
+function savePref(key, value) {
+    const user = getCurrentUser();
+    if (!user) return;
+    user.prefs = user.prefs || {};
+    user.prefs[key] = value;
+    setCurrentUser(user);
+    const users = getUsers();
+    users[user.email].prefs = user.prefs;
+    saveUsers(users);
+    if (key === 'onlyFree') renderEvents(filterLogic(allEvents));
+}
+
+function removeFav(id) {
+    toggleFavById(id);
+    renderHeader();
+    renderFavsTab(document.getElementById('panelTabContent'));
+    renderEvents(filterLogic(allEvents));
+}
+
+function show(id) { document.getElementById(id).classList.add('visible'); }
+function hide(id) { document.getElementById(id).classList.remove('visible'); }
+
+// ═══════════════════════════════════════════════
+//  CARGA DE EVENTOS
+// ═══════════════════════════════════════════════
+async function loadEvents() {
+    try {
+        let response = await fetch('/events.json').catch(() => fetch('./events.json'));
+        let data = await response.json();
+        allEvents = data.events || [];
+        renderEvents(allEvents);
+    } catch (error) {
+        console.error('Error loading events:', error);
+        document.getElementById('eventsGrid').innerHTML =
+            '<div class="empty-state">No se pudieron cargar los eventos</div>';
+    }
+}
+
+// ═══════════════════════════════════════════════
+//  LÓGICA DE FILTRADO (unificada)
+// ═══════════════════════════════════════════════
+function filterLogic(events) {
+    const user = getCurrentUser();
+    const prefs = user?.prefs || {};
+    return events.filter(e => {
+        // Categoría (pills)
+        if (activeCat !== 'todos' && e.cat !== activeCat) return false;
+        // Zonas (pills) — si hay alguna activa, filtrar
+        if (activeZones.size > 0 && !activeZones.has(e.zone)) return false;
+        // Especiales (pills)
+        if (activeSpecials.has('kid') && !e.kid) return false;
+        if (activeSpecials.has('pet') && !e.pet) return false;
+        if (activeSpecials.has('acc') && !e.acc) return false;
+        // Sidebar checkboxes (categorías)
+        const cats = [];
+        if (document.getElementById('cat-culture')?.checked) cats.push('culture');
+        if (document.getElementById('cat-music')?.checked) cats.push('music');
+        if (document.getElementById('cat-sport')?.checked) cats.push('sport');
+        if (document.getElementById('cat-food')?.checked) cats.push('food');
+        if (cats.length < 4 && !cats.includes(e.cat)) return false;
+        // Sidebar zonas
+        const zones = ['cen','vit','lc','nun','lare','prov'].filter(z => document.getElementById(`zone-${z}`)?.checked);
+        if (zones.length < 6 && !zones.includes(e.zone)) return false;
+        // Sidebar especiales
+        if (document.getElementById('filter-kid')?.checked && !e.kid) return false;
+        if (document.getElementById('filter-pet')?.checked && !e.pet) return false;
+        if (document.getElementById('filter-acc')?.checked && !e.acc) return false;
+        // Preferencia solo gratis
+        if (prefs.onlyFree && e.price !== 0) return false;
+        return true;
+    });
+}
+
+function applyFilters() {
+    renderEvents(filterLogic(allEvents));
+}
+
+// ═══════════════════════════════════════════════
+//  PILLS — lógica de clic
+// ═══════════════════════════════════════════════
+function setCategoryPill(el, cat) {
+    document.querySelectorAll('.filter-pill.cat').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    activeCat = cat;
+    // Sincronizar sidebar
+    if (cat !== 'todos') {
+        ['culture','music','sport','food'].forEach(c => {
+            const cb = document.getElementById(`cat-${c}`);
+            if (cb) cb.checked = (c === cat);
+        });
+    } else {
+        ['culture','music','sport','food'].forEach(c => {
+            const cb = document.getElementById(`cat-${c}`);
+            if (cb) cb.checked = true;
+        });
+    }
+    applyFilters();
+}
+
+function toggleZonePill(el, zone) {
+    if (activeZones.has(zone)) {
+        activeZones.delete(zone);
+        el.classList.remove('active');
+    } else {
+        activeZones.add(zone);
+        el.classList.add('active');
+    }
+    // Sincronizar sidebar
+    const cb = document.getElementById(`zone-${zone}`);
+    if (cb) cb.checked = activeZones.has(zone) ? false : true; // invertido: pill activa = filtrar solo esa
+    applyFilters();
+}
+
+function toggleSpecialPill(el, type) {
+    if (activeSpecials.has(type)) {
+        activeSpecials.delete(type);
+        el.classList.remove('active');
+    } else {
+        activeSpecials.add(type);
+        el.classList.add('active');
+    }
+    applyFilters();
+}
+
+// ═══════════════════════════════════════════════
+//  RENDER TARJETAS
+// ═══════════════════════════════════════════════
+function getCatClass(cat) {
+    return { culture:'cat-culture', music:'cat-music', sport:'cat-sport', food:'cat-food' }[cat] || 'cat-default';
+}
+function getCatLabel(cat) {
+    return { culture:'Cultura', music:'Música', sport:'Deporte', food:'Comida' }[cat] || cat;
+}
+
+function renderEvents(events) {
+    const grid = document.getElementById('eventsGrid');
+    if (!events || events.length === 0) {
+        grid.innerHTML = `<div class="empty-state">No se encontraron eventos con estos filtros 🙁</div>`;
+        return;
+    }
+    grid.innerHTML = events.map(ev => {
+        const faved = isFav(ev.id);
+        return `
+        <div class="event-card" onclick="openModal(${ev.id})">
+            <div class="event-image">
+                ${ev.img ? `<img src="${ev.img}" alt="${ev.title}" loading="lazy">` : (ev.emoji || '🎉')}
+            </div>
+            <div class="event-body">
+                <span class="event-category ${getCatClass(ev.cat)}">${getCatLabel(ev.cat)}</span>
+                <h3 class="event-title">${ev.title}</h3>
+                <p class="event-venue">${ev.venue}</p>
+                <p class="event-date">${ev.date}</p>
+                <div class="event-footer">
+                    <span class="event-price">
+                        ${ev.price === 0 ? 'GRATIS' : ev.price ? '$' + Number(ev.price).toLocaleString('es-CL') : 'Consultar'}
+                    </span>
+                    <div class="event-buttons">
+                        <button class="btn-icon" onclick="event.stopPropagation();shareEventById(${ev.id})" title="Compartir">⤴️</button>
+                        <button class="btn-icon ${faved ? 'saved' : ''}" id="fav-btn-${ev.id}"
+                            onclick="event.stopPropagation();quickFav(${ev.id})"
+                            title="${faved ? 'Quitar de favoritos' : 'Guardar'}">
+                            ${faved ? '❤️' : '🤍'}
+                        </button>
                     </div>
                 </div>
-            `).join('');
-        }
+            </div>
+        </div>`;
+    }).join('');
+}
 
-        function filterByCategory(cat) {
-            document.querySelectorAll('.filter-pill').forEach(p => {
-                if (p.onclick.toString().includes(`'${cat}'`)) p.classList.add('active');
-                else if (p.onclick.toString().includes('filterByCategory')) p.classList.remove('active');
-            });
-            
-            const filtered = cat === 'todos' 
-                ? allEvents 
-                : allEvents.filter(e => e.cat === cat);
-            renderEvents(filtered);
-        }
+// ═══════════════════════════════════════════════
+//  MODAL
+// ═══════════════════════════════════════════════
+function openModal(eventId) {
+    currentEvent = allEvents.find(e => e.id === eventId);
+    if (!currentEvent) return;
 
-        function filterByZone(zone) {
-            const filtered = allEvents.filter(e => e.zone === zone);
-            renderEvents(filtered);
-        }
+    document.getElementById('modalImage').src = currentEvent.img || '';
+    document.getElementById('modalImage').style.display = currentEvent.img ? 'block' : 'none';
+    document.getElementById('modalTitle').textContent = currentEvent.title;
+    document.getElementById('modalDesc').textContent = currentEvent.desc || '';
+    document.getElementById('modalDate').textContent = currentEvent.date;
+    document.getElementById('modalVenue').textContent = [currentEvent.venue, currentEvent.address].filter(Boolean).join(' · ');
+    document.getElementById('modalPrice').textContent = currentEvent.price === 0 ? 'GRATIS' : currentEvent.price ? '$' + Number(currentEvent.price).toLocaleString('es-CL') : 'Consultar';
 
-        function toggleSpecial(type) {
-            const filtered = allEvents.filter(event => {
-                if (type === 'kid') return event.kid;
-                if (type === 'pet') return event.pet;
-                if (type === 'acc') return event.acc;
-                return true;
-            });
-            renderEvents(filtered);
-        }
+    const faved = isFav(currentEvent.id);
+    document.getElementById('btnSave').textContent = faved ? '❤️ Guardado' : '🤍 Guardar';
 
-        function filterEvents() {
-            const selectedCats = [];
-            if (document.getElementById('cat-culture').checked) selectedCats.push('culture');
-            if (document.getElementById('cat-music').checked) selectedCats.push('music');
-            if (document.getElementById('cat-sport').checked) selectedCats.push('sport');
-            if (document.getElementById('cat-food').checked) selectedCats.push('food');
+    document.getElementById('eventModal').classList.add('active');
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-            const selectedZones = [];
-            ['cen', 'vit', 'lc', 'nun', 'lare', 'prov'].forEach(zone => {
-                if (document.getElementById(`zone-${zone}`).checked) selectedZones.push(zone);
-            });
+function closeModal() {
+    document.getElementById('eventModal').classList.remove('active');
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
 
-            const filterKid = document.getElementById('filter-kid').checked;
-            const filterPet = document.getElementById('filter-pet').checked;
-            const filterAcc = document.getElementById('filter-acc').checked;
+function toggleFavorite() {
+    if (!getCurrentUser()) { openPanel('login'); closeModal(); return; }
+    const added = toggleFavById(currentEvent.id);
+    document.getElementById('btnSave').textContent = added ? '❤️ Guardado' : '🤍 Guardar';
+    updateFavBtn(currentEvent.id, added);
+    renderHeader();
+}
 
-            const filtered = allEvents.filter(event => {
-                const matchCat = selectedCats.length === 0 || selectedCats.includes(event.cat);
-                const matchZone = selectedZones.length === 0 || selectedZones.includes(event.zone);
-                const matchKid = !filterKid || event.kid;
-                const matchPet = !filterPet || event.pet;
-                const matchAcc = !filterAcc || event.acc;
-                return matchCat && matchZone && matchKid && matchPet && matchAcc;
-            });
+function quickFav(id) {
+    if (!getCurrentUser()) { openPanel('login'); return; }
+    const added = toggleFavById(id);
+    updateFavBtn(id, added);
+    renderHeader();
+}
 
-            renderEvents(filtered);
-        }
+function updateFavBtn(id, added) {
+    const btn = document.getElementById(`fav-btn-${id}`);
+    if (btn) btn.textContent = added ? '❤️' : '🤍';
+}
 
-        function openModal(eventId) {
-            currentEvent = allEvents.find(e => e.id === eventId);
-            if (!currentEvent) return;
-
-            document.getElementById('modalImage').src = currentEvent.img || '';
-            document.getElementById('modalTitle').textContent = currentEvent.title;
-            document.getElementById('modalDesc').textContent = currentEvent.desc;
-            document.getElementById('modalDate').textContent = currentEvent.date;
-            document.getElementById('modalVenue').textContent = currentEvent.venue + '\n' + currentEvent.address;
-            document.getElementById('modalPrice').textContent = currentEvent.price === 0 ? 'GRATIS' : currentEvent.price ? '$' + currentEvent.price : 'Consultar';
-
-            document.getElementById('eventModal').classList.add('active');
-            document.getElementById('modalOverlay').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('eventModal').classList.remove('active');
-            document.getElementById('modalOverlay').classList.remove('active');
-        }
-
-        function shareEvent() {
-            if (!currentEvent) return;
-            const text = `${currentEvent.title} - ${currentEvent.date} en ${currentEvent.venue}`;
-            if (navigator.share) {
-                navigator.share({ title: 'Descubre Tu Ciudad', text: text });
-            } else {
-                navigator.clipboard.writeText(text);
-                alert('Copiado al portapapeles');
-            }
-        }
-
-        function saveEvent() {
-            if (!currentEvent) return;
-            let saved = JSON.parse(localStorage.getItem('savedEvents') || '[]');
-            if (!saved.find(e => e.id === currentEvent.id)) {
-                saved.push(currentEvent);
-                localStorage.setItem('savedEvents', JSON.stringify(saved));
-                document.getElementById('btnSave').textContent = '✅ Guardado';
-            }
-        }
-
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const filtered = allEvents.filter(event =>
-                event.title.toLowerCase().includes(query) ||
-                event.desc.toLowerCase().includes(query) ||
-                event.venue.toLowerCase().includes(query)
-            );
-            renderEvents(filtered);
+// ═══════════════════════════════════════════════
+//  SHARE
+// ═══════════════════════════════════════════════
+function shareCurrentEvent() {
+    if (!currentEvent) return;
+    shareEventData(currentEvent);
+}
+function shareEventById(id) {
+    const ev = allEvents.find(e => e.id === id);
+    if (ev) shareEventData(ev);
+}
+function shareEventData(ev) {
+    const text = `${ev.title} — ${ev.date} en ${ev.venue}`;
+    if (navigator.share) {
+        navigator.share({ title: 'Descubre Tu Ciudad', text, url: window.location.href });
+    } else {
+        navigator.clipboard.writeText(text).then(() => {
+            // feedback visual breve
+            const tmp = document.createElement('div');
+            tmp.textContent = '✅ Copiado';
+            Object.assign(tmp.style, { position:'fixed', bottom:'80px', left:'50%', transform:'translateX(-50%)', background:'#333', color:'white', padding:'0.5rem 1.25rem', borderRadius:'20px', fontSize:'0.88rem', zIndex:'9999', pointerEvents:'none' });
+            document.body.appendChild(tmp);
+            setTimeout(() => tmp.remove(), 2000);
         });
+    }
+}
 
-        loadEvents();
-    </script>
+// ═══════════════════════════════════════════════
+//  BÚSQUEDA
+// ═══════════════════════════════════════════════
+document.getElementById('searchInput').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase().trim();
+    if (!q) { renderEvents(filterLogic(allEvents)); return; }
+    const filtered = filterLogic(allEvents).filter(ev =>
+        ev.title.toLowerCase().includes(q) ||
+        (ev.desc || '').toLowerCase().includes(q) ||
+        ev.venue.toLowerCase().includes(q)
+    );
+    renderEvents(filtered);
+});
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
+renderHeader();
+loadEvents();
+</script>
 </body>
 </html>
