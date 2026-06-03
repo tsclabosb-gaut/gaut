@@ -6565,12 +6565,239 @@
       "kid": true,
       "tipo": "fest",
       "id": null
+    },
+    {
+      "title": "Vacaciones de Invierno 2026",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Talleres creativos para niños y jóvenes: arte, ilustración, diseño, danza, cocina, carpintería, bisutería e ingeniería.",
+      "date": "Dom 22 de junio",
+      "dateMs": 1751721600000,
+      "month": 5,
+      "days": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "venue": "Centro Cultural Las Condes",
+      "address": "Las Condes, Santiago",
+      "zone": "lc",
+      "mapsQ": "Centro+Cultural+Las+Condes+Santiago",
+      "price": null,
+      "src": "Las Condes Cultural",
+      "srcUrl": "https://agendacultural.culturallascondes.cl/",
+      "img": "",
+      "tags": [
+        "Talleres",
+        "Vacaciones",
+        "Niños"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Mercado Sustentable",
+      "cat": "food",
+      "emoji": "♻️",
+      "desc": "Mercado sustentable con reciclaje, productos sustentables, venta a granel y ropero sustentable.",
+      "date": "Sab 6 de junio 10:00",
+      "dateMs": 1748678400000,
+      "month": 5,
+      "days": [
+        6
+      ],
+      "venue": "Parque Cuauhtémoc",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Parque+Cuauhtemoc+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Mercado",
+        "Sustentabilidad"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "XVII Concurso Musical Busca Tu Banda",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Décimo séptima versión de concurso para bandas y solistas de música amateur de Chile entre 18 y 35 años.",
+      "date": "Mar 10 de junio",
+      "dateMs": 1749360000000,
+      "month": 5,
+      "days": [
+        10
+      ],
+      "venue": "Vitajoven",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitajoven+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Concurso",
+        "Música"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Obra de teatro: La sexualidad secreta de los hombres",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra de teatro dramática.",
+      "date": "Mar 9 de junio 19:00",
+      "dateMs": 1749268800000,
+      "month": 5,
+      "days": [
+        9
+      ],
+      "venue": "Centro Cultural Carabineros de Chile",
+      "address": "Providencia, Santiago",
+      "zone": "prov",
+      "mapsQ": "Centro+Cultural+Carabineros+Providencia",
+      "price": null,
+      "src": "Eventbrite - Santiago",
+      "srcUrl": "https://www.eventbrite.cl/d/chile--santiago/eventos/",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
+    },
+    {
+      "title": "Vacaciones de Invierno con Vitaniños",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Talleres creativos para niños en vacaciones de invierno.",
+      "date": "Dom 22 de junio",
+      "dateMs": 1751721600000,
+      "month": 5,
+      "days": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Vitacura",
+      "price": null,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Talleres",
+        "Vacaciones",
+        "Niños"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Vacaciones de Invierno en la Biblioteca",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Actividades y talleres en biblioteca de Vitacura.",
+      "date": "Lun 23 de junio 16:30",
+      "dateMs": 1750808400000,
+      "month": 5,
+      "days": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "venue": "Biblioteca de Vitacura",
+      "address": "Av. San Josemaría Escrivá de Balaguer 6420, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Biblioteca+Vitacura",
+      "price": null,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Talleres",
+        "Vacaciones"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Ceremonia conmemorativa 35 años de Vitacura",
+      "cat": "culture",
+      "emoji": "🎉",
+      "desc": "Ceremonia de celebración de 35 años de la comuna y 30 años de la Corporación Cultural.",
+      "date": "Mié 3 de junio 14:00",
+      "dateMs": 1749086400000,
+      "month": 5,
+      "days": [
+        3
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Ceremonia",
+        "Aniversario"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-03",
-    "totalEvents": 164,
+    "totalEvents": 171,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
