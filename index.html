@@ -787,11 +787,56 @@ img { display: block; max-width: 100%; }
   <button class="bottom-nav-item" id="nav-profile" onclick="navTo(&apos;profile&apos;)"><span class="nav-icon">👤</span>Perfil</button>
 </nav>
 
+<script>
+const _app = {};
+function adminAction(...a) { return _app.adminAction && _app.adminAction(...a); }
+function applyFilters(...a) { return _app.applyFilters && _app.applyFilters(...a); }
+function closeEventPanel(...a) { return _app.closeEventPanel && _app.closeEventPanel(...a); }
+function closePanel(...a) { return _app.closePanel && _app.closePanel(...a); }
+function closeSubmitModal(...a) { return _app.closeSubmitModal && _app.closeSubmitModal(...a); }
+function deleteComment(...a) { return _app.deleteComment && _app.deleteComment(...a); }
+function doLogin(...a) { return _app.doLogin && _app.doLogin(...a); }
+function doLogout(...a) { return _app.doLogout && _app.doLogout(...a); }
+function doRegister(...a) { return _app.doRegister && _app.doRegister(...a); }
+function handleFileUpload(...a) { return _app.handleFileUpload && _app.handleFileUpload(...a); }
+function handleStarClick(...a) { return _app.handleStarClick && _app.handleStarClick(...a); }
+function navTo(...a) { return _app.navTo && _app.navTo(...a); }
+function openEventPanel(...a) { return _app.openEventPanel && _app.openEventPanel(...a); }
+function openPanel(...a) { return _app.openPanel && _app.openPanel(...a); }
+function openSubmitModal(...a) { return _app.openSubmitModal && _app.openSubmitModal(...a); }
+function openSuggestModal(...a) { return _app.openSuggestModal && _app.openSuggestModal(...a); }
+function postComment(...a) { return _app.postComment && _app.postComment(...a); }
+function removeFav(...a) { return _app.removeFav && _app.removeFav(...a); }
+function removeImage(...a) { return _app.removeImage && _app.removeImage(...a); }
+function renderPanelMode(...a) { return _app.renderPanelMode && _app.renderPanelMode(...a); }
+function savePref(...a) { return _app.savePref && _app.savePref(...a); }
+function saveProfile(...a) { return _app.saveProfile && _app.saveProfile(...a); }
+function searchAddress(...a) { return _app.searchAddress && _app.searchAddress(...a); }
+function selectAddress(...a) { return _app.selectAddress && _app.selectAddress(...a); }
+function setCategoryPill(...a) { return _app.setCategoryPill && _app.setCategoryPill(...a); }
+function setCoverImage(...a) { return _app.setCoverImage && _app.setCoverImage(...a); }
+function setDateType(...a) { return _app.setDateType && _app.setDateType(...a); }
+function shareCurrentEvent(...a) { return _app.shareCurrentEvent && _app.shareCurrentEvent(...a); }
+function shareEventById(...a) { return _app.shareEventById && _app.shareEventById(...a); }
+function showToast(...a) { return _app.showToast && _app.showToast(...a); }
+function signInGoogle(...a) { return _app.signInGoogle && _app.signInGoogle(...a); }
+function submitForm(...a) { return _app.submitForm && _app.submitForm(...a); }
+function switchTab(...a) { return _app.switchTab && _app.switchTab(...a); }
+function toggleFavorite(...a) { return _app.toggleFavorite && _app.toggleFavorite(...a); }
+function toggleFreePrice(...a) { return _app.toggleFreePrice && _app.toggleFreePrice(...a); }
+function togglePref(...a) { return _app.togglePref && _app.togglePref(...a); }
+function toggleSpecialPill(...a) { return _app.toggleSpecialPill && _app.toggleSpecialPill(...a); }
+function toggleZonePill(...a) { return _app.toggleZonePill && _app.toggleZonePill(...a); }
+</script>
 <script type="module">
-
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, query, where, orderBy, addDoc, getDocs, serverTimestamp, updateDoc, runTransaction } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+try {
+
+
+
 
 const FIREBASE_CONFIG = {
     apiKey: "AIzaSyBwxXoTqIVOP5i1CUKSf6FNBQbapn-8izk",
@@ -819,7 +864,7 @@ function showToast(msg, dur=2500) {
     const t = gid('toast'); t.textContent = msg; t.classList.add('visible');
     setTimeout(() => t.classList.remove('visible'), dur);
 }
-window.showToast = showToast;
+_app.showToast = window.showToast = showToast;
 
 function normalizeId(id) { return String(id); }
 function findEvent(id) { return allEvents.find(e => normalizeId(e.id) === normalizeId(id)); }
@@ -828,7 +873,7 @@ onAuthStateChanged(auth, async user => {
     currentUser = user;
     renderHeader();
     if (user) await loadUserPrefs();
-    renderEvents(filterLogic(allEvents));
+    if (allEvents.length > 0) renderEvents(filterLogic(allEvents));
 });
 
 async function loadUserPrefs() {
@@ -858,32 +903,59 @@ function renderHeader() {
 }
 
 async function loadEvents() {
-    // Build candidate URLs: try relative to current page first, then absolute paths
-    const base = window.location.href.replace(/\/[^/]*$/, '/');
+    const grid = gid('eventsGrid');
+    if (grid) grid.innerHTML = '<div class="empty-state"><div style="font-size:2rem;margin-bottom:8px">⏳</div><p>Cargando eventos...</p></div>';
+
+    // Build all candidate URLs
+    const origin = window.location.origin;
+    const path = window.location.pathname.replace(/\/[^/]*$/, '/');
     const candidates = [
-        base + 'events.json',
+        origin + path + 'events.json',
+        origin + '/events.json',
         './events.json',
-        '/events.json',
+        'https://raw.githubusercontent.com/tsclabosb-gaut/gaut/main/events.json',
         'https://tsclabosb-gaut.github.io/gaut/events.json'
     ];
+
     let data = null;
+    const errors = [];
     for (const url of candidates) {
         try {
-            const r = await fetch(url);
-            if (r.ok) { data = await r.json(); break; }
-        } catch(e) { /* try next */ }
+            console.log('Trying:', url);
+            const r = await fetch(url, { cache: 'no-store' });
+            if (r.ok) {
+                data = await r.json();
+                console.log('✅ Loaded from:', url, '→', (data.events||[]).length, 'events');
+                break;
+            }
+            errors.push(`HTTP ${r.status}: ${url}`);
+            console.warn('❌', errors[errors.length-1]);
+        } catch(e) {
+            errors.push(`${e.message}: ${url}`);
+            console.warn('❌', errors[errors.length-1]);
+        }
     }
+
     if (!data) {
-        gid('eventsGrid').innerHTML = '<div class="empty-state"><div style="font-size:2.5rem;margin-bottom:12px">😕</div><p>No se pudieron cargar los eventos</p></div>';
+        if (grid) grid.innerHTML = `
+            <div class="empty-state">
+                <div style="font-size:2rem;margin-bottom:8px">⚠️</div>
+                <p style="font-weight:600;margin-bottom:8px">No se pudieron cargar los eventos</p>
+                <div style="font-size:11px;color:var(--gray);text-align:left;max-width:400px;word-break:break-all">
+                    ${errors.map(e => `<div style="margin-bottom:4px">• ${e}</div>`).join('')}
+                </div>
+            </div>`;
         return;
     }
+
     allEvents = (data.events || []).map((ev, i) => ({
         ...ev,
         id: (ev.id !== null && ev.id !== undefined) ? ev.id : 'auto_' + i
     }));
+
     const label = gid('feedLabel');
     if (label) label.textContent = allEvents.length + ' eventos en Santiago';
-    renderEvents(allEvents);
+    renderEvents(filterLogic(allEvents));
 }
 
 async function isFav(eventId) {
@@ -975,7 +1047,7 @@ async function renderRatingBlock(eventId) {
     }
 }
 
-window.handleStarClick = async (stars, eventId) => {
+_app.handleStarClick = window.handleStarClick = async (stars, eventId) => {
     document.querySelectorAll('#starsInput .star-btn').forEach(b => {
         b.textContent = Number(b.dataset.star) <= stars ? '★' : '☆';
     });
@@ -1000,9 +1072,9 @@ function filterLogic(events) {
     });
 }
 
-window.applyFilters = () => renderEvents(filterLogic(allEvents));
+_app.applyFilters = window.applyFilters = () => renderEvents(filterLogic(allEvents));
 
-window.setCategoryPill = (el, cat) => {
+_app.setCategoryPill = window.setCategoryPill = (el, cat) => {
     document.querySelectorAll('.filter-pill.cat').forEach(p => p.classList.remove('active'));
     el.classList.add('active');
     activeCat = cat;
@@ -1013,12 +1085,12 @@ window.setCategoryPill = (el, cat) => {
     renderEvents(filterLogic(allEvents));
 };
 
-window.toggleZonePill = (el, zone) => {
+_app.toggleZonePill = window.toggleZonePill = (el, zone) => {
     activeZones.has(zone) ? (activeZones.delete(zone), el.classList.remove('active')) : (activeZones.add(zone), el.classList.add('active'));
     renderEvents(filterLogic(allEvents));
 };
 
-window.toggleSpecialPill = (el, type) => {
+_app.toggleSpecialPill = window.toggleSpecialPill = (el, type) => {
     activeSpecials.has(type) ? (activeSpecials.delete(type), el.classList.remove('active')) : (activeSpecials.add(type), el.classList.add('active'));
     renderEvents(filterLogic(allEvents));
 };
@@ -1085,7 +1157,7 @@ async function quickFav(id) {
     if (btn) btn.innerHTML = added ? '❤️' : '&#129293;';
 }
 
-window.openEventPanel = async (eventId) => {
+_app.openEventPanel = window.openEventPanel = async (eventId) => {
     const ev = findEvent(eventId);
     if (!ev) { console.warn('Evento no encontrado:', eventId); return; }
     currentEvent = ev;
@@ -1145,13 +1217,13 @@ window.openEventPanel = async (eventId) => {
     document.body.style.overflow = 'hidden';
 };
 
-window.closeEventPanel = () => {
+_app.closeEventPanel = window.closeEventPanel = () => {
     gid('eventPanel').classList.remove('active');
     gid('eventPanelOverlay').classList.remove('active');
     document.body.style.overflow = '';
 };
 
-window.toggleFavorite = async () => {
+_app.toggleFavorite = window.toggleFavorite = async () => {
     if (!currentUser) { openPanel('login'); closeEventPanel(); return; }
     const added = await toggleFavDB(currentEvent);
     const btn = gid('epBtnFav');
@@ -1191,7 +1263,7 @@ async function loadComments(eventId) {
     }
 }
 
-window.postComment = async () => {
+_app.postComment = window.postComment = async () => {
     if (!currentUser || !currentEvent) return;
     const input = gid('commentInput');
     const text = (input ? input.value : '').trim();
@@ -1208,12 +1280,12 @@ window.postComment = async () => {
     } catch(e) { showToast('Error al publicar: ' + e.message); }
 };
 
-window.deleteComment = async (commentId, eventId) => {
+_app.deleteComment = window.deleteComment = async (commentId, eventId) => {
     try { await deleteDoc(doc(db, 'comments', commentId)); loadComments(eventId); } catch(e) {}
 };
 
-window.shareCurrentEvent = () => { if (currentEvent) shareEventData(currentEvent); };
-window.shareEventById = id => { const ev = findEvent(id); if (ev) shareEventData(ev); };
+_app.shareCurrentEvent = window.shareCurrentEvent = () => { if (currentEvent) shareEventData(currentEvent); };
+_app.shareEventById = window.shareEventById = id => { const ev = findEvent(id); if (ev) shareEventData(ev); };
 
 function shareEventData(ev) {
     const text = ev.title + ' — ' + ev.date + ' en ' + ev.venue;
@@ -1221,12 +1293,12 @@ function shareEventData(ev) {
     else navigator.clipboard.writeText(text).then(() => showToast('Copiado al portapapeles'));
 }
 
-window.openPanel = tab => {
+_app.openPanel = window.openPanel = tab => {
     gid('authOverlay').classList.add('active');
     gid('authDrawer').classList.add('active');
     renderPanel(tab);
 };
-window.closePanel = () => {
+_app.closePanel = window.closePanel = () => {
     gid('authOverlay').classList.remove('active');
     gid('authDrawer').classList.remove('active');
 };
@@ -1246,7 +1318,7 @@ function renderPanel(tab) {
     switchTabContent(tab);
 }
 
-window.switchTab = tab => {
+_app.switchTab = window.switchTab = tab => {
     const labelMap = {profile:'Perfil', favs:'Guardados', settings:'Config', admin:'Admin'};
     document.querySelectorAll('.drawer-tab').forEach(t => {
         t.classList.toggle('active', t.textContent === (labelMap[tab] || ''));
@@ -1288,22 +1360,22 @@ function renderAuthPanel(body, mode) {
             + '<button class="btn-secondary" onclick="renderPanelMode(&apos;login&apos;)">Ya tengo cuenta</button>';
     }
 }
-window.renderPanelMode = mode => {
+_app.renderPanelMode = window.renderPanelMode = mode => {
     gid('drawerTitle').textContent = mode === 'register' ? 'Crear cuenta' : 'Iniciar sesión';
     gid('drawerTabs').innerHTML = '';
     renderAuthPanel(gid('drawerBody'), mode);
 };
 
-window.signInGoogle = async () => {
+_app.signInGoogle = window.signInGoogle = async () => {
     try { await signInWithPopup(auth, googleProvider); closePanel(); showToast('Bienvenido!'); }
     catch(e) { showToast('Error: ' + e.message); }
 };
-window.doLogin = async () => {
+_app.doLogin = window.doLogin = async () => {
     const email = gid('loginEmail').value.trim(), pass = gid('loginPass').value;
     try { await signInWithEmailAndPassword(auth, email, pass); closePanel(); showToast('Bienvenido!'); }
     catch(e) { const err = gid('loginErr'); err.textContent = 'Correo o contrasena incorrectos'; err.classList.add('visible'); }
 };
-window.doRegister = async () => {
+_app.doRegister = window.doRegister = async () => {
     const name = gid('regName').value.trim(), email = gid('regEmail').value.trim(), pass = gid('regPass').value;
     if (!name || !email || pass.length < 6) { const e = gid('regErr'); e.textContent = 'Completa todos los campos (minimo 6 caracteres)'; e.classList.add('visible'); return; }
     try {
@@ -1312,7 +1384,7 @@ window.doRegister = async () => {
         closePanel(); showToast('Cuenta creada!');
     } catch(e) { const err = gid('regErr'); err.textContent = e.message.includes('email-already') ? 'Correo ya registrado' : e.message; err.classList.add('visible'); }
 };
-window.doLogout = async () => { await signOut(auth); closePanel(); showToast('Sesion cerrada'); };
+_app.doLogout = window.doLogout = async () => { await signOut(auth); closePanel(); showToast('Sesion cerrada'); };
 
 function renderProfileTab(el) {
     const u = currentUser;
@@ -1325,7 +1397,7 @@ function renderProfileTab(el) {
         + '<div class="form-success" id="profileSaved">Guardado</div>'
         + '<button class="btn-full danger" onclick="doLogout()" style="margin-top:1rem">Cerrar sesion</button>';
 }
-window.saveProfile = async () => {
+_app.saveProfile = window.saveProfile = async () => {
     const name = gid('editName') ? gid('editName').value.trim() : '';
     if (!name) return;
     try {
@@ -1359,7 +1431,7 @@ async function renderFavsTab(el) {
             }).join('') + '</div>';
     } catch(e) { el.innerHTML = '<div class="empty-state-sm">Error: ' + e.message + '</div>'; }
 }
-window.removeFav = async (docId, btn) => {
+_app.removeFav = window.removeFav = async (docId, btn) => {
     try { await deleteDoc(doc(db, 'favorites', docId)); btn.closest('.fav-item').remove(); showToast('Eliminado'); } catch(e) {}
 };
 
@@ -1388,14 +1460,14 @@ async function renderSettingsTab(el) {
     </div>
     <button class="btn-danger" onclick="doLogout()" style="margin-top:20px;width:100%">Cerrar sesión</button>`;
 }
-window.togglePref = async key => {
+_app.togglePref = window.togglePref = async key => {
     const chip = document.getElementById('pref-' + key);
     const active = chip.classList.toggle('active');
     const cb = document.getElementById('filter-' + key);
     if (cb) { cb.checked = active; applyFilters(); }
     await savePref(key, active);
 };
-window.savePref = async (key, value) => {
+_app.savePref = window.savePref = async (key, value) => {
     if (!currentUser) return;
     try { await setDoc(doc(db, 'users', currentUser.uid), {prefs: {[key]: value}}, {merge: true}); } catch(e) {}
 };
@@ -1423,26 +1495,26 @@ async function renderAdminTab(el) {
         }).join('');
     } catch(e) { if (gid('adminList')) gid('adminList').innerHTML = `<div class="empty-sm">Error: ${e.message}</div>`; }
 }
-window.adminAction = async (docId, status) => {
+_app.adminAction = window.adminAction = async (docId, status) => {
     try { await updateDoc(doc(db, 'submissions', docId), {status, reviewedAt: serverTimestamp()}); showToast(status === 'approved' ? 'Aprobado' : 'Rechazado'); renderAdminTab(gid('drawerBody')); }
     catch(e) { showToast('Error: ' + e.message); }
 };
 
-window.openSubmitModal = () => {
+_app.openSubmitModal = window.openSubmitModal = () => {
     if (!currentUser) { openPanel('login'); showToast('Inicia sesion para proponer eventos'); return; }
     submitMode = 'new'; uploadedImages = []; isPriceFree = false; currentDateType = 'range';
     gid('submitModalTitle').textContent = 'Proponer nuevo evento';
     renderSubmitForm();
     gid('submitOverlay').classList.add('active');
 };
-window.openSuggestModal = () => {
+_app.openSuggestModal = window.openSuggestModal = () => {
     if (!currentUser) { openPanel('login'); closeEventPanel(); return; }
     submitMode = 'suggest';
     gid('submitModalTitle').textContent = 'Sugerir cambio';
     renderSuggestForm();
     gid('submitOverlay').classList.add('active');
 };
-window.closeSubmitModal = () => gid('submitOverlay').classList.remove('active');
+_app.closeSubmitModal = window.closeSubmitModal = () => gid('submitOverlay').classList.remove('active');
 
 function renderSubmitForm() {
     gid('submitModalBody').innerHTML = `
@@ -1517,7 +1589,7 @@ function renderSubmitForm() {
     <div class="form-error" id="sf-err"></div>`;
 }
 
-window.setDateType = type => {
+_app.setDateType = window.setDateType = type => {
     currentDateType = type;
     document.getElementById('dt-range').classList.toggle('active', type === 'range');
     document.getElementById('dt-permanent').classList.toggle('active', type === 'permanent');
@@ -1525,7 +1597,7 @@ window.setDateType = type => {
     document.getElementById('dateFieldsPermanent').style.display = type === 'permanent' ? 'block' : 'none';
 };
 
-window.toggleFreePrice = free => {
+_app.toggleFreePrice = window.toggleFreePrice = free => {
     isPriceFree = free;
     document.getElementById('priceFreeBtn').classList.toggle('active', free);
     document.getElementById('pricePaidBtn').classList.toggle('active', !free);
@@ -1534,7 +1606,7 @@ window.toggleFreePrice = free => {
 };
 
 let addressTimer;
-window.searchAddress = q => {
+_app.searchAddress = window.searchAddress = q => {
     clearTimeout(addressTimer);
     const sugBox = document.getElementById('addressSuggestions');
     if (!sugBox) return;
@@ -1551,7 +1623,7 @@ window.searchAddress = q => {
     }, 500);
 };
 
-window.selectAddress = item => {
+_app.selectAddress = window.selectAddress = item => {
     const addrEl = document.getElementById('sf-address');
     const commEl = document.getElementById('sf-commune');
     const regEl = document.getElementById('sf-region');
@@ -1567,7 +1639,7 @@ window.selectAddress = item => {
     if (sugBox) sugBox.style.display = 'none';
 };
 
-window.handleFileUpload = async files => {
+_app.handleFileUpload = window.handleFileUpload = async files => {
     const statusEl = document.getElementById('uploadStatus');
     if (CLOUDINARY_CLOUD === 'TU_CLOUD_NAME') {
         for (const file of files) {
@@ -1598,8 +1670,8 @@ function renderUploadPreview() {
     if (!prev) return;
     prev.innerHTML = uploadedImages.map((img, i) => '<div class="upload-preview-item ' + (img.isCover ? 'cover' : '') + '" onclick="setCoverImage(' + i + ')" title="Clic para portada"><img src="' + img.url + '" alt="foto"><button class="remove-img" onclick="event.stopPropagation();removeImage(' + i + ')">x</button>' + (img.isCover ? '<div class="cover-badge">PORTADA</div>' : '') + '</div>').join('');
 }
-window.setCoverImage = i => { uploadedImages.forEach((img, j) => img.isCover = j === i); renderUploadPreview(); };
-window.removeImage = i => { uploadedImages.splice(i, 1); if (uploadedImages.length > 0 && !uploadedImages.some(x => x.isCover)) uploadedImages[0].isCover = true; renderUploadPreview(); };
+_app.setCoverImage = window.setCoverImage = i => { uploadedImages.forEach((img, j) => img.isCover = j === i); renderUploadPreview(); };
+_app.removeImage = window.removeImage = i => { uploadedImages.splice(i, 1); if (uploadedImages.length > 0 && !uploadedImages.some(x => x.isCover)) uploadedImages[0].isCover = true; renderUploadPreview(); };
 
 function renderSuggestForm() {
     gid('submitModalBody').innerHTML = '<div style="background:#fff8e6;border-radius:8px;padding:.85rem;margin-bottom:1rem;font-size:.88rem;color:#c07a00"><strong>Evento:</strong> ' + (currentEvent ? currentEvent.title : '') + '<br><span style="font-size:.82rem;color:#888">Tu sugerencia sera revisada antes de aplicarse</span></div>'
@@ -1609,7 +1681,7 @@ function renderSuggestForm() {
         + '<div class="form-error" id="sg-err"></div>';
 }
 
-window.submitForm = async () => {
+_app.submitForm = window.submitForm = async () => {
     if (!currentUser) return;
     try {
         if (submitMode === 'new') {
@@ -1677,12 +1749,18 @@ gid('searchInput').addEventListener('input', e => {
 loadEvents();
 
 // ── NAV ──
-window.navTo = tab => {
+_app.navTo = window.navTo = tab => {
   document.querySelectorAll(".bottom-nav-item").forEach(b => b.classList.remove("active"));
   document.getElementById("nav-" + tab)?.classList.add("active");
   if (tab === "favs") openPanel("favs");
   else if (tab === "profile") openPanel(currentUser ? "profile" : "login");
 };
+
+
+} catch(e) {
+    console.error('Module error:', e);
+}
+
 </script>
 </body>
 </html>
