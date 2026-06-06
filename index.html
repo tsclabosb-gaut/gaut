@@ -851,7 +851,7 @@ function renderHeader() {
     const isAdmin = currentUser.email === ADMIN_EMAIL;
     c.innerHTML = '<div style="display:flex;gap:.5rem;align-items:center">'
         + '<button class="btn-header" onclick="openPanel(&apos;favs&apos;)">Favoritos</button>'
-        + (isAdmin ? '<button class="btn-header" style="background:rgba(255,200,0,.3);border-color:rgba(255,200,0,.7)" onclick="openPanel('admin')">Admin</button>' : '')
+        + (isAdmin ? '<button class="btn-header" style="background:rgba(255,200,0,.3);border-color:rgba(255,200,0,.7)" onclick="openPanel(&apos;admin&apos;)">Admin</button>' : '')
         + '<div class="avatar-btn" onclick="openPanel(&apos;profile&apos;)" title="' + (currentUser.displayName || '') + '">'
         + (currentUser.photoURL ? '<img src="' + currentUser.photoURL + '" style="width:100%;height:100%;object-fit:cover">' : initials)
         + '</div></div>';
@@ -966,7 +966,7 @@ async function renderRatingBlock(eventId) {
     if (currentUser) {
         let starsHTML = '<div style="font-size:.82rem;color:#888;margin-bottom:.4rem">' + (userRating > 0 ? 'Tu valoracion:' : 'Valora este evento:') + '</div><div class="stars-input" id="starsInput">';
         for (let n = 1; n <= 5; n++) {
-            starsHTML += '<button class="star-btn" data-star="' + n + '" onclick="handleStarClick(' + n + ',&apos;' + normalizeId(eventId) + '&apos;)">' + (n <= userRating ? '★' : '☆') + '</button>';
+            starsHTML += `<button class="star-btn" data-star="${n}" onclick="handleStarClick(${n},'${normalizeId(eventId)}')">${n <= userRating ? '★' : '☆'}</button>`;
         }
         starsHTML += '</div>';
         inputEl.innerHTML = starsHTML;
@@ -1183,7 +1183,7 @@ async function loadComments(eventId) {
             const date = c.createdAt && c.createdAt.toDate ? c.createdAt.toDate().toLocaleDateString('es-CL', {day:'numeric',month:'short'}) : '';
             return '<div class="comment-item"><div class="comment-header"><span class="comment-author">' + (c.userName || 'Usuario') + '</span>'
                 + '<div style="display:flex;align-items:center;gap:.5rem"><span class="comment-date">' + date + '</span>'
-                + (isOwn ? '<button class="comment-del" onclick="deleteComment(&apos;' + d.id + '&apos;,&apos;' + normalizeId(eventId) + '&apos;)">✕</button>' : '')
+                + (isOwn ? `<button class="comment-del" onclick="deleteComment('${d.id}','${normalizeId(eventId)}')">✕</button>` : '')
                 + '</div></div><p class="comment-text">' + c.text + '</p></div>';
         }).join('');
     } catch(e) {
@@ -1242,7 +1242,7 @@ function renderPanel(tab) {
     gid('drawerTitle').textContent = 'Mi cuenta';
     const tabs = [{id:'profile',label:'Perfil'},{id:'favs',label:'Guardados'},{id:'settings',label:'Config'}];
     if (currentUser.email === ADMIN_EMAIL) tabs.push({id:'admin',label:'Admin'});
-    gid('drawerTabs').innerHTML = '<div class="drawer-tabs">' + tabs.map(t => '<div class="drawer-tab ' + (tab === t.id ? 'active' : '') + '" onclick="switchTab(&apos;' + t.id + '&apos;)">' + t.label + '</div>').join('') + '</div>';
+    gid('drawerTabs').innerHTML = `<div class="drawer-tabs">${tabs.map(t => `<div class="drawer-tab ${tab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')">${t.label}</div>`).join('')}</div>`;
     switchTabContent(tab);
 }
 
@@ -1345,13 +1345,17 @@ async function renderFavsTab(el) {
             el.innerHTML = '<div class="empty-sm"><div class="ei">❤️</div><p style="font-weight:600;margin-bottom:6px">Sin guardados aún</p><p style="font-size:13px">Guarda eventos tocando el corazón</p></div>';
             return;
         }
-        el.innerHTML = '<p style="font-size:.82rem;color:#888;margin-bottom:1rem">' + snap.size + ' guardado' + (snap.size !== 1 ? 's' : '') + '</p><div class="fav-list">'
+        el.innerHTML = `<p style="font-size:13px;color:var(--gray);margin-bottom:16px">${snap.size} guardado${snap.size !== 1 ? 's' : ''}</p><div class="fav-list">`
             + snap.docs.map(d => {
                 const f = d.data();
-                return '<div class="fav-item" onclick="closePanel();openEventPanel(&apos;' + f.eventId + '&apos;)">'
-                    + '<div class="fav-emoji">' + (f.emoji || '🎉') + '</div>'
-                    + '<div class="fav-info"><div class="fav-title">' + f.title + '</div><div class="fav-date">' + f.date + '</div></div>'
-                    + '<button class="fav-rm" onclick="event.stopPropagation();removeFav('' + d.id + '',this)">✕</button></div>';
+                return `<div class="fav-item" onclick="closePanel();openEventPanel('${f.eventId}')">
+                    <div class="fav-emoji">${f.emoji || '🎉'}</div>
+                    <div class="fav-info">
+                        <div class="fav-title">${f.title}</div>
+                        <div class="fav-meta">${f.date}</div>
+                    </div>
+                    <button class="fav-rm" onclick="event.stopPropagation();removeFav('${d.id}',this)">✕</button>
+                </div>`;
             }).join('') + '</div>';
     } catch(e) { el.innerHTML = '<div class="empty-state-sm">Error: ' + e.message + '</div>'; }
 }
@@ -1428,22 +1432,76 @@ window.openSuggestModal = () => {
 window.closeSubmitModal = () => gid('submitOverlay').classList.remove('active');
 
 function renderSubmitForm() {
-    gid('submitModalBody').innerHTML = '<div class="form-group"><label>Nombre del evento *</label><input type="text" id="sf-title" placeholder="Ej: Feria de arte"></div>'
-        + '<div class="form-row"><div class="form-group"><label>Categoria *</label><select id="sf-cat"><option value="culture">Cultura</option><option value="music">Musica</option><option value="sport">Deporte</option><option value="food">Comida</option></select></div>'
-        + '<div class="form-group"><label>Precio</label><div class="price-toggle"><button class="price-toggle-btn" id="priceFreeBtn" onclick="toggleFreePrice(true)">GRATIS</button><button class="price-toggle-btn active" id="pricePaidBtn" onclick="toggleFreePrice(false)">Con precio</button></div><input type="number" id="sf-price" placeholder="Ej: 5000" min="0"></div></div>'
-        + '<div class="form-group"><label>Tiene fechas?</label><div class="date-type-toggle"><div class="date-type-btn active" id="dt-range" onclick="setDateType('range')">Con fecha inicio/fin</div><div class="date-type-btn" id="dt-permanent" onclick="setDateType('permanent')">Siempre abierto</div></div>'
-        + '<div id="dateFieldsRange"><div class="form-row"><div class="form-group"><label>Fecha inicio</label><input type="date" id="sf-dateStart"></div><div class="form-group"><label>Fecha fin</label><input type="date" id="sf-dateEnd"></div></div></div>'
-        + '<div id="dateFieldsPermanent" style="display:none"><input type="text" id="sf-dateText" value="Abierto diariamente"></div></div>'
-        + '<div class="form-row"><div class="form-group"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div><div class="form-group"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div></div>'
-        + '<div class="form-group"><label>Lugar / Recinto *</label><input type="text" id="sf-venue" placeholder="Nombre del lugar"></div>'
-        + '<div class="form-group"><label>Direccion *</label><div class="address-field-wrapper"><input type="text" id="sf-address" placeholder="Busca la direccion..." autocomplete="off" oninput="searchAddress(this.value)"><div id="addressSuggestions" class="address-suggestions" style="display:none"></div></div></div>'
-        + '<div class="form-row"><div class="form-group"><label>Comuna</label><input type="text" id="sf-commune" readonly style="background:#f8f8f8"></div><div class="form-group"><label>Region</label><input type="text" id="sf-region" readonly style="background:#f8f8f8"></div></div>'
-        + '<div class="form-row"><div class="form-group"><label>Link entradas</label><input type="url" id="sf-tickets" placeholder="https://..."></div><div class="form-group"><label>Instagram</label><input type="url" id="sf-instagram" placeholder="https://instagram.com/..."></div></div>'
-        + '<div class="form-group"><label>Sitio web del evento</label><input type="url" id="sf-web" placeholder="https://..."></div>'
-        + '<div class="form-group"><label>Descripcion</label><textarea id="sf-desc" rows="3" placeholder="Describe el evento..."></textarea></div>'
-        + '<div class="form-group"><label>Caracteristicas</label><div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.25rem"><label style="display:flex;align-items:center;gap:.4rem;font-size:.88rem"><input type="checkbox" id="sf-kid"> Ninos</label><label style="display:flex;align-items:center;gap:.4rem;font-size:.88rem"><input type="checkbox" id="sf-pet"> Mascotas</label><label style="display:flex;align-items:center;gap:.4rem;font-size:.88rem"><input type="checkbox" id="sf-acc"> Accesible</label></div></div>'
-        + '<div class="form-group"><label>Fotos del evento</label><div class="upload-area" onclick="document.getElementById('fileInput').click()"><input type="file" id="fileInput" accept="image/*" multiple onchange="handleFileUpload(this.files)"><div style="font-size:1.5rem;margin-bottom:.5rem">📷</div><div style="font-size:.88rem;color:#888">Clic para subir fotos<br><span style="font-size:.78rem">La primera foto sera la portada</span></div></div><div class="upload-preview" id="uploadPreview"></div><div id="uploadStatus" style="font-size:.8rem;color:#888;margin-top:.4rem"></div></div>'
-        + '<div class="form-error" id="sf-err"></div>';
+    gid('submitModalBody').innerHTML = `
+    <div class="fg"><label>Nombre del evento *</label><input type="text" id="sf-title" placeholder="Ej: Feria de arte"></div>
+    <div class="form-row-2">
+      <div class="fg"><label>Categoría *</label><select id="sf-cat">
+        <option value="culture">🎨 Cultura</option>
+        <option value="music">🎵 Música</option>
+        <option value="sport">⚽ Deporte</option>
+        <option value="food">🍽️ Gastronomía</option>
+      </select></div>
+      <div class="fg"><label>Precio</label>
+        <div class="price-row">
+          <button class="price-btn" id="priceFreeBtn" onclick="toggleFreePrice(true)">GRATIS</button>
+          <button class="price-btn active" id="pricePaidBtn" onclick="toggleFreePrice(false)">Con precio</button>
+        </div>
+        <input type="number" id="sf-price" placeholder="Ej: 5000" min="0">
+      </div>
+    </div>
+    <div class="fg"><label>¿Tiene fechas?</label>
+      <div class="date-type-row">
+        <div class="date-type-btn active" id="dt-range" onclick="setDateType('range')">📅 Con fecha inicio/fin</div>
+        <div class="date-type-btn" id="dt-permanent" onclick="setDateType('permanent')">🔄 Siempre abierto</div>
+      </div>
+      <div id="dateFieldsRange">
+        <div class="form-row-2">
+          <div class="fg"><label>Fecha inicio</label><input type="date" id="sf-dateStart"></div>
+          <div class="fg"><label>Fecha fin</label><input type="date" id="sf-dateEnd"></div>
+        </div>
+      </div>
+      <div id="dateFieldsPermanent" style="display:none">
+        <input type="text" id="sf-dateText" value="Abierto diariamente">
+      </div>
+    </div>
+    <div class="form-row-2">
+      <div class="fg"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div>
+      <div class="fg"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div>
+    </div>
+    <div class="fg"><label>Lugar / Recinto *</label><input type="text" id="sf-venue" placeholder="Nombre del lugar"></div>
+    <div class="fg"><label>Dirección *</label>
+      <div class="address-wrap">
+        <input type="text" id="sf-address" placeholder="Busca la dirección..." autocomplete="off" oninput="searchAddress(this.value)">
+        <div id="addressSuggestions" class="address-list" style="display:none"></div>
+      </div>
+    </div>
+    <div class="form-row-2">
+      <div class="fg"><label>Comuna</label><input type="text" id="sf-commune" readonly style="opacity:.6"></div>
+      <div class="fg"><label>Región</label><input type="text" id="sf-region" readonly style="opacity:.6"></div>
+    </div>
+    <div class="form-row-2">
+      <div class="fg"><label>Link entradas</label><input type="url" id="sf-tickets" placeholder="https://..."></div>
+      <div class="fg"><label>Instagram</label><input type="url" id="sf-instagram" placeholder="https://instagram.com/..."></div>
+    </div>
+    <div class="fg"><label>Sitio web del evento</label><input type="url" id="sf-web" placeholder="https://..."></div>
+    <div class="fg"><label>Descripción</label><textarea id="sf-desc" rows="3" placeholder="Describe el evento..."></textarea></div>
+    <div class="fg"><label>Características</label>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-kid"> 👶 Niños</label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-pet"> 🐕 Mascotas</label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-acc"> ♿ Accesible</label>
+      </div>
+    </div>
+    <div class="fg"><label>Fotos del evento</label>
+      <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+        <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFileUpload(this.files)" style="display:none">
+        <div style="font-size:1.5rem;margin-bottom:6px">📷</div>
+        <div style="font-size:14px;color:var(--gray)">Toca para subir fotos<br><span style="font-size:12px">La primera foto será la portada</span></div>
+      </div>
+      <div class="upload-preview" id="uploadPreview"></div>
+      <div id="uploadStatus" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
+    </div>
+    <div class="form-error" id="sf-err"></div>`;
 }
 
 window.setDateType = type => {
