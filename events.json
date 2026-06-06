@@ -7677,12 +7677,106 @@
       "kid": false,
       "tipo": "expo",
       "id": null
+    },
+    {
+      "title": "Acercarte Galería NAC - Debajo de la espuma / Desviar horizontes",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exhibición sobre ambigüedad entre transparencia y opacidad, permanencia y tránsito en contextos cotidianos y domésticos.",
+      "date": "Sab 6 de junio 10:00",
+      "dateMs": 1717645200000,
+      "month": 5,
+      "days": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "venue": "Acercarte Galería NAC",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Acercarte+Galeria+NAC+Vitacura",
+      "price": null,
+      "src": "Vitacura",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Arte Visual",
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Concierto Sound of the Forest - Instituto de Música UC",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto del Instituto de Música UC.",
+      "date": "Mié 24 de junio 19:00",
+      "dateMs": 1719258000000,
+      "month": 5,
+      "days": [
+        24
+      ],
+      "venue": "Centro Cultural Carabineros de Chile",
+      "address": "Providencia, Santiago",
+      "zone": "prov",
+      "mapsQ": "Centro+Cultural+Carabineros+Chile+Providencia",
+      "price": null,
+      "src": "Eventbrite",
+      "srcUrl": "https://www.eventbrite.cl/d/chile--santiago/eventos/",
+      "img": "",
+      "tags": [
+        "Música",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "CGS SANTIAGO 2026 (6th Edition)",
+      "cat": "culture",
+      "emoji": "🎯",
+      "desc": "Conferencia o evento profesional en su sexta edición.",
+      "date": "Jue 25 de junio 08:00",
+      "dateMs": 1719340800000,
+      "month": 5,
+      "days": [
+        25
+      ],
+      "venue": "InterContinental Santiago",
+      "address": "Las Condes, Santiago",
+      "zone": "lc",
+      "mapsQ": "InterContinental+Santiago+Las+Condes",
+      "price": null,
+      "src": "Eventbrite",
+      "srcUrl": "https://www.eventbrite.cl/d/chile--santiago/eventos/",
+      "img": "",
+      "tags": [
+        "Conferencia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-06",
-    "totalEvents": 193,
+    "totalEvents": 196,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
