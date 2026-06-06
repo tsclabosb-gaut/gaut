@@ -7424,12 +7424,157 @@
       "kid": true,
       "tipo": "fest",
       "id": null
+    },
+    {
+      "title": "Lanzamiento archivo y exhibición: Osvaldo Salas Veas",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Lanzamiento de archivo y exhibición de obra gráfica de Osvaldo Salas Veas (1930-1970).",
+      "date": "Lun 9 de junio 12:00",
+      "dateMs": 1749244800000,
+      "month": 5,
+      "days": [
+        9
+      ],
+      "venue": "CEDOC MNBA - Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "MNBA+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Archivo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Debajo de la espuma / Desviar horizontes",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exhibición sobre transparencia y opacidad, permanencia y tránsito en espacios cotidianos y domésticos.",
+      "date": "Sab 6 de junio",
+      "dateMs": 1748016000000,
+      "month": 5,
+      "days": [
+        6
+      ],
+      "venue": "Acercarte, Galería NAC",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Acercarte+Galeria+NAC+Vitacura",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Arte Visual"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Mercado Sustentable de Vitacura",
+      "cat": "food",
+      "emoji": "🌱",
+      "desc": "Mercado sustentable con productos ecológicos, reciclaje, ropero sustentable y reparación. Primer sábado de cada mes.",
+      "date": "Sab 6 de junio",
+      "dateMs": 1748016000000,
+      "month": 5,
+      "days": [
+        6
+      ],
+      "venue": "Parque Cuauhtémoc, Vitacura",
+      "address": "Vitacura, Santiago",
+      "zone": "vit",
+      "mapsQ": "Parque+Cuauhtemoc+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Mercado",
+        "Sustentabilidad"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Festival Holístico de La Reina",
+      "cat": "culture",
+      "emoji": "🌟",
+      "desc": "Feria holística de La Reina con múltiples actividades y propuestas.",
+      "date": "Sab 27 de junio 12:00",
+      "dateMs": 1751587200000,
+      "month": 5,
+      "days": [
+        27
+      ],
+      "venue": "Centro Cultural Vicente Bianchi",
+      "address": "Santa Rita 1153, La Reina",
+      "zone": "lare",
+      "mapsQ": "Centro+Cultural+Vicente+Bianchi+La+Reina",
+      "price": null,
+      "src": "Corporacion Cultural La Reina",
+      "srcUrl": "https://culturalareina.cl/",
+      "img": "",
+      "tags": [
+        "Festival",
+        "Holístico"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "The Jury Experience - Muerte en Babor",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Experiencia teatral interactiva sobre misterio y crimen.",
+      "date": "Jue 21 de junio",
+      "dateMs": 1749465600000,
+      "month": 5,
+      "days": [
+        21
+      ],
+      "venue": "Teatro Mori Parque Arauco",
+      "address": "Parque Arauco, Santiago",
+      "zone": "cen",
+      "mapsQ": "The+Jury+Experience+Teatro+Mori",
+      "price": 23200,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Experiencia Teatral",
+        "Interactivo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-05",
-    "totalEvents": 186,
+    "lastUpdated": "2026-06-06",
+    "totalEvents": 191,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
