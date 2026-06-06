@@ -1366,16 +1366,27 @@ window.removeFav = async (docId, btn) => {
 async function renderSettingsTab(el) {
     let prefs = {};
     try { const snap = await getDoc(doc(db, 'users', currentUser.uid)); if (snap.exists()) prefs = snap.data().prefs || {}; } catch(e) {}
-    el.innerHTML = '<div class="settings-section"><div class="settings-title">Preferencias</div>'
-        + '<p style="font-size:.82rem;color:#888;margin-bottom:.75rem">Se aplican automaticamente al filtrar</p>'
-        + '<div class="pref-chip-group">'
-        + '<div class="pref-chip ' + (prefs.kid ? 'active' : '') + '" id="pref-kid" onclick="togglePref(&apos;kid&apos;)">👶 Ninos</div>'
-        + '<div class="pref-chip ' + (prefs.pet ? 'active' : '') + '" id="pref-pet" onclick="togglePref(&apos;pet&apos;)">🐕 Mascotas</div>'
-        + '<div class="pref-chip ' + (prefs.acc ? 'active' : '') + '" id="pref-acc" onclick="togglePref(&apos;acc&apos;)">♿ Accesible</div>'
-        + '</div></div>'
-        + '<div class="settings-section"><div class="settings-title">Filtros</div>'
-        + '<div class="settings-item"><label>Solo eventos gratuitos</label><label class="toggle"><input type="checkbox" ' + (prefs.onlyFree ? 'checked' : '') + ' onchange="savePref('onlyFree',this.checked)"><span class="toggle-slider"></span></label></div>'
-        + '</div><button class="btn-full danger" onclick="doLogout()" style="margin-top:2rem">Cerrar sesion</button>';
+    el.innerHTML = `
+    <div style="margin-bottom:20px">
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px">Preferencias</p>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:12px">Se aplican automáticamente al filtrar</p>
+        <div class="pref-chips">
+            <div class="pref-chip ${prefs.kid ? 'active' : ''}" id="pref-kid" onclick="togglePref('kid')">👶 Niños</div>
+            <div class="pref-chip ${prefs.pet ? 'active' : ''}" id="pref-pet" onclick="togglePref('pet')">🐕 Mascotas</div>
+            <div class="pref-chip ${prefs.acc ? 'active' : ''}" id="pref-acc" onclick="togglePref('acc')">♿ Accesible</div>
+        </div>
+    </div>
+    <div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:4px">Filtros</p>
+        <div class="settings-item">
+            <label>Solo eventos gratuitos</label>
+            <label class="toggle">
+                <input type="checkbox" ${prefs.onlyFree ? 'checked' : ''} onchange="savePref('onlyFree',this.checked)">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+    <button class="btn-danger" onclick="doLogout()" style="margin-top:20px;width:100%">Cerrar sesión</button>`;
 }
 window.togglePref = async key => {
     const chip = document.getElementById('pref-' + key);
