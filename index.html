@@ -783,8 +783,8 @@ img { display: block; max-width: 100%; }
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <button class="bottom-nav-item active" id="nav-home" onclick="navTo('home')"><span class="nav-icon">🏠</span>Inicio</button>
-  <button class="bottom-nav-item" id="nav-favs" onclick="navTo('favs')"><span class="nav-icon">❤️</span>Guardados</button>
-  <button class="bottom-nav-item" id="nav-profile" onclick="navTo('profile')"><span class="nav-icon">👤</span>Perfil</button>
+  <button class="bottom-nav-item" id="nav-favs" onclick="navTo(&apos;favs&apos;)"><span class="nav-icon">❤️</span>Guardados</button>
+  <button class="bottom-nav-item" id="nav-profile" onclick="navTo(&apos;profile&apos;)"><span class="nav-icon">👤</span>Perfil</button>
 </nav>
 
 <script type="module">
@@ -846,29 +846,44 @@ async function loadUserPrefs() {
 
 function renderHeader() {
     const c = gid('headerAuth');
-    if (!currentUser) { c.innerHTML = '<button class="btn-header" onclick="openPanel('login')">Iniciar sesion</button>'; return; }
+    if (!currentUser) { c.innerHTML = '<button class="btn-header" onclick="openPanel(&apos;login&apos;)">Iniciar sesion</button>'; return; }
     const initials = (currentUser.displayName || currentUser.email || 'U').split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
     const isAdmin = currentUser.email === ADMIN_EMAIL;
     c.innerHTML = '<div style="display:flex;gap:.5rem;align-items:center">'
-        + '<button class="btn-header" onclick="openPanel('favs')">Favoritos</button>'
+        + '<button class="btn-header" onclick="openPanel(&apos;favs&apos;)">Favoritos</button>'
         + (isAdmin ? '<button class="btn-header" style="background:rgba(255,200,0,.3);border-color:rgba(255,200,0,.7)" onclick="openPanel('admin')">Admin</button>' : '')
-        + '<div class="avatar-btn" onclick="openPanel('profile')" title="' + (currentUser.displayName || '') + '">'
+        + '<div class="avatar-btn" onclick="openPanel(&apos;profile&apos;)" title="' + (currentUser.displayName || '') + '">'
         + (currentUser.photoURL ? '<img src="' + currentUser.photoURL + '" style="width:100%;height:100%;object-fit:cover">' : initials)
         + '</div></div>';
 }
 
 async function loadEvents() {
-    try {
-        const r = await fetch('/events.json').catch(() => fetch('./events.json'));
-        const data = await r.json();
-        allEvents = (data.events || []).map((ev, i) => ({
-            ...ev,
-            id: (ev.id !== null && ev.id !== undefined) ? ev.id : 'auto_' + i
-        }));
-        renderEvents(allEvents);
-    } catch(e) {
-        gid('eventsGrid').innerHTML = '<div class="empty-state">No se pudieron cargar los eventos</div>';
+    // Build candidate URLs: try relative to current page first, then absolute paths
+    const base = window.location.href.replace(/\/[^/]*$/, '/');
+    const candidates = [
+        base + 'events.json',
+        './events.json',
+        '/events.json',
+        'https://tsclabosb-gaut.github.io/gaut/events.json'
+    ];
+    let data = null;
+    for (const url of candidates) {
+        try {
+            const r = await fetch(url);
+            if (r.ok) { data = await r.json(); break; }
+        } catch(e) { /* try next */ }
     }
+    if (!data) {
+        gid('eventsGrid').innerHTML = '<div class="empty-state"><div style="font-size:2.5rem;margin-bottom:12px">😕</div><p>No se pudieron cargar los eventos</p></div>';
+        return;
+    }
+    allEvents = (data.events || []).map((ev, i) => ({
+        ...ev,
+        id: (ev.id !== null && ev.id !== undefined) ? ev.id : 'auto_' + i
+    }));
+    const label = gid('feedLabel');
+    if (label) label.textContent = allEvents.length + ' eventos en Santiago';
+    renderEvents(allEvents);
 }
 
 async function isFav(eventId) {
@@ -951,12 +966,12 @@ async function renderRatingBlock(eventId) {
     if (currentUser) {
         let starsHTML = '<div style="font-size:.82rem;color:#888;margin-bottom:.4rem">' + (userRating > 0 ? 'Tu valoracion:' : 'Valora este evento:') + '</div><div class="stars-input" id="starsInput">';
         for (let n = 1; n <= 5; n++) {
-            starsHTML += '<button class="star-btn" data-star="' + n + '" onclick="handleStarClick(' + n + ','' + normalizeId(eventId) + '')">' + (n <= userRating ? '★' : '☆') + '</button>';
+            starsHTML += '<button class="star-btn" data-star="' + n + '" onclick="handleStarClick(' + n + ',&apos;' + normalizeId(eventId) + '&apos;)">' + (n <= userRating ? '★' : '☆') + '</button>';
         }
         starsHTML += '</div>';
         inputEl.innerHTML = starsHTML;
     } else {
-        inputEl.innerHTML = '<div style="font-size:.82rem;color:#aaa"><span style="color:#667eea;cursor:pointer" onclick="openPanel('login')">Inicia sesion</span> para valorar</div>';
+        inputEl.innerHTML = '<div style="font-size:.82rem;color:#aaa"><span style="color:#667eea;cursor:pointer" onclick="openPanel(&apos;login&apos;)">Inicia sesion</span> para valorar</div>';
     }
 }
 
@@ -1009,27 +1024,46 @@ window.toggleSpecialPill = (el, type) => {
 };
 
 function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food'}[cat] || 'cat-default'; }
-function getCatLabel(cat) { return {culture:'Cultura',music:'Musica',sport:'Deporte',food:'Comida'}[cat] || cat; }
+function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía'}[cat] || cat; }
+function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food'}[cat] || 'badge-default'; }
 
 async function renderEvents(events) {
     const grid = gid('eventsGrid');
-    if (!events || events.length === 0) { grid.innerHTML = '<div class="empty-state"><div class="icon" style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No se encontraron eventos</p></div>'; return; }
+    if (!grid) return;
+    if (!events || events.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No se encontraron eventos</p></div>';
+        return;
+    }
     grid.innerHTML = events.map(ev => {
         const eid = normalizeId(ev.id);
         const price = ev.price === 0 ? 'GRATIS' : ev.price ? '$' + Number(ev.price).toLocaleString('es-CL') : 'Consultar';
-        return '<div class="event-card" onclick="openEventPanel('' + eid + '')">'
-            + '<div class="event-image">' + (ev.img ? '<img src="' + ev.img + '" alt="' + ev.title + '" loading="lazy">' : (ev.emoji || '🎉')) + '</div>'
-            + '<div class="event-body">'
-            + '<span class="event-category ' + getCatClass(ev.cat) + '">' + getCatLabel(ev.cat) + '</span>'
-            + '<h3 class="event-title">' + ev.title + '</h3>'
-            + '<p class="event-venue">' + ev.venue + '</p>'
-            + '<p class="event-date">' + ev.date + '</p>'
-            + '<div class="event-footer">'
-            + '<span class="event-price">' + price + '</span>'
-            + '<div class="event-buttons">'
-            + '<button class="btn-icon" onclick="event.stopPropagation();shareEventById('' + eid + '')">&#8679;&#65039;</button>'
-            + '<button class="btn-icon" id="fav-card-' + eid + '" onclick="event.stopPropagation();quickFav('' + eid + '')">&#129293;</button>'
-            + '</div></div></div></div>';
+        const isFree = ev.price === 0;
+        const badgeClass = getBadgeClass(ev.cat);
+        const catLabel = getCatLabel(ev.cat);
+        const imgContent = ev.img
+            ? '<img src="' + ev.img + '" alt="' + ev.title + '" loading="lazy">'
+            : '<div class="card-img-placeholder">' + (ev.emoji || '🎉') + '</div>';
+        return '<div class="event-card" onclick="openEventPanel(\'' + eid + '\')">'
+            + '<div class="card-img-wrap">'
+            + imgContent
+            + '<span class="card-badge ' + badgeClass + '">' + catLabel + '</span>'
+            + '<button class="card-fav-btn" id="fav-card-' + eid + '" onclick="event.stopPropagation();quickFav(\'' + eid + '\')">🤍</button>'
+            + '<span class="card-price-tag' + (isFree ? ' free' : '') + '">' + price + '</span>'
+            + '</div>'
+            + '<div class="card-body">'
+            + '<div class="card-title">' + ev.title + '</div>'
+            + '<div class="card-venue">📍 ' + ev.venue + '</div>'
+            + '<div class="card-date">' + ev.date + '</div>'
+            + '<div class="card-footer">'
+            + '<div class="card-tags">'
+            + (ev.kid ? '<span class="card-tag">👶</span>' : '')
+            + (ev.pet ? '<span class="card-tag">🐕</span>' : '')
+            + (ev.acc ? '<span class="card-tag">♿</span>' : '')
+            + '</div>'
+            + '<button class="card-share-btn" onclick="event.stopPropagation();shareEventById(\'' + eid + '\')">⤴️</button>'
+            + '</div>'
+            + '</div>'
+            + '</div>';
     }).join('');
     if (currentUser) refreshCardFavs(events);
 }
@@ -1069,7 +1103,7 @@ window.openEventPanel = async (eventId) => {
 
     const catEl = gid('epCategory');
     catEl.textContent = getCatLabel(ev.cat);
-    catEl.className = 'ep-cat-badge ' + getCatClass(ev.cat);
+    catEl.className = 'ep-badge ' + getBadgeClass(ev.cat);
     gid('epTitle').textContent = ev.title;
     gid('epDesc').textContent = ev.desc || '';
     gid('epDate').textContent = ev.date || 'Ver fuente';
@@ -1130,7 +1164,7 @@ window.toggleFavorite = async () => {
 function renderCommentForm() {
     const area = gid('commentFormArea');
     if (!currentUser) {
-        area.innerHTML = '<div class="comment-login-nudge"><span onclick="openPanel('login');closeEventPanel()">Inicia sesion</span> para comentar</div>';
+        area.innerHTML = '<div class="comment-login-nudge"><span onclick="openPanel(&apos;login&apos;);closeEventPanel()">Inicia sesion</span> para comentar</div>';
         return;
     }
     area.innerHTML = '<div class="comment-form"><textarea id="commentInput" placeholder="Escribe un comentario..."></textarea><button onclick="postComment()">Publicar</button></div>';
@@ -1149,7 +1183,7 @@ async function loadComments(eventId) {
             const date = c.createdAt && c.createdAt.toDate ? c.createdAt.toDate().toLocaleDateString('es-CL', {day:'numeric',month:'short'}) : '';
             return '<div class="comment-item"><div class="comment-header"><span class="comment-author">' + (c.userName || 'Usuario') + '</span>'
                 + '<div style="display:flex;align-items:center;gap:.5rem"><span class="comment-date">' + date + '</span>'
-                + (isOwn ? '<button class="comment-delete" onclick="deleteComment('' + d.id + '','' + normalizeId(eventId) + '')">✕</button>' : '')
+                + (isOwn ? '<button class="comment-del" onclick="deleteComment(&apos;' + d.id + '&apos;,&apos;' + normalizeId(eventId) + '&apos;)">✕</button>' : '')
                 + '</div></div><p class="comment-text">' + c.text + '</p></div>';
         }).join('');
     } catch(e) {
@@ -1208,7 +1242,7 @@ function renderPanel(tab) {
     gid('drawerTitle').textContent = 'Mi cuenta';
     const tabs = [{id:'profile',label:'Perfil'},{id:'favs',label:'Guardados'},{id:'settings',label:'Config'}];
     if (currentUser.email === ADMIN_EMAIL) tabs.push({id:'admin',label:'Admin'});
-    gid('drawerTabs').innerHTML = '<div class="drawer-tabs">' + tabs.map(t => '<div class="drawer-tab ' + (tab === t.id ? 'active' : '') + '" onclick="switchTab(\'' + t.id + '\')">' + t.label + '</div>').join('') + '</div>';
+    gid('drawerTabs').innerHTML = '<div class="drawer-tabs">' + tabs.map(t => '<div class="drawer-tab ' + (tab === t.id ? 'active' : '') + '" onclick="switchTab(&apos;' + t.id + '&apos;)">' + t.label + '</div>').join('') + '</div>';
     switchTabContent(tab);
 }
 
@@ -1240,7 +1274,7 @@ function renderAuthPanel(body, mode) {
             + '<div class="form-error" id="loginErr"></div>'
             + '<button class="btn-full" onclick="doLogin()">Iniciar sesion</button>'
             + '<div class="form-divider">o</div>'
-            + '<button class="btn-full secondary" onclick="renderPanelMode('register')">Crear cuenta nueva</button>';
+            + '<button class="btn-secondary" onclick="renderPanelMode(&apos;register&apos;)">Crear cuenta nueva</button>';
     } else {
         body.innerHTML = '<div style="text-align:center;margin-bottom:1.5rem"><div style="font-size:3rem">✨</div><h3 style="margin-top:.5rem">Crear cuenta</h3></div>'
             + '<button class="btn-full google" onclick="signInGoogle()"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20"> Continuar con Google</button>'
@@ -1251,7 +1285,7 @@ function renderAuthPanel(body, mode) {
             + '<div class="form-error" id="regErr"></div>'
             + '<button class="btn-full" onclick="doRegister()">Crear cuenta</button>'
             + '<div class="form-divider">o</div>'
-            + '<button class="btn-full secondary" onclick="renderPanelMode('login')">Ya tengo cuenta</button>';
+            + '<button class="btn-secondary" onclick="renderPanelMode(&apos;login&apos;)">Ya tengo cuenta</button>';
     }
 }
 window.renderPanelMode = mode => {
@@ -1314,7 +1348,7 @@ async function renderFavsTab(el) {
         el.innerHTML = '<p style="font-size:.82rem;color:#888;margin-bottom:1rem">' + snap.size + ' guardado' + (snap.size !== 1 ? 's' : '') + '</p><div class="fav-list">'
             + snap.docs.map(d => {
                 const f = d.data();
-                return '<div class="fav-item" onclick="closePanel();openEventPanel('' + f.eventId + '')">'
+                return '<div class="fav-item" onclick="closePanel();openEventPanel(&apos;' + f.eventId + '&apos;)">'
                     + '<div class="fav-emoji">' + (f.emoji || '🎉') + '</div>'
                     + '<div class="fav-info"><div class="fav-title">' + f.title + '</div><div class="fav-date">' + f.date + '</div></div>'
                     + '<button class="fav-rm" onclick="event.stopPropagation();removeFav('' + d.id + '',this)">✕</button></div>';
@@ -1331,9 +1365,9 @@ async function renderSettingsTab(el) {
     el.innerHTML = '<div class="settings-section"><div class="settings-title">Preferencias</div>'
         + '<p style="font-size:.82rem;color:#888;margin-bottom:.75rem">Se aplican automaticamente al filtrar</p>'
         + '<div class="pref-chip-group">'
-        + '<div class="pref-chip ' + (prefs.kid ? 'active' : '') + '" id="pref-kid" onclick="togglePref('kid')">👶 Ninos</div>'
-        + '<div class="pref-chip ' + (prefs.pet ? 'active' : '') + '" id="pref-pet" onclick="togglePref('pet')">🐕 Mascotas</div>'
-        + '<div class="pref-chip ' + (prefs.acc ? 'active' : '') + '" id="pref-acc" onclick="togglePref('acc')">♿ Accesible</div>'
+        + '<div class="pref-chip ' + (prefs.kid ? 'active' : '') + '" id="pref-kid" onclick="togglePref(&apos;kid&apos;)">👶 Ninos</div>'
+        + '<div class="pref-chip ' + (prefs.pet ? 'active' : '') + '" id="pref-pet" onclick="togglePref(&apos;pet&apos;)">🐕 Mascotas</div>'
+        + '<div class="pref-chip ' + (prefs.acc ? 'active' : '') + '" id="pref-acc" onclick="togglePref(&apos;acc&apos;)">♿ Accesible</div>'
         + '</div></div>'
         + '<div class="settings-section"><div class="settings-title">Filtros</div>'
         + '<div class="settings-item"><label>Solo eventos gratuitos</label><label class="toggle"><input type="checkbox" ' + (prefs.onlyFree ? 'checked' : '') + ' onchange="savePref('onlyFree',this.checked)"><span class="toggle-slider"></span></label></div>'
@@ -1366,8 +1400,8 @@ async function renderAdminTab(el) {
                 + '<div class="admin-item-meta">Por: ' + (s.userName || 'Anonimo') + ' - ' + date + '</div>'
                 + (s.message ? '<p style="font-size:.85rem;color:#555;margin-bottom:.75rem;white-space:pre-wrap">' + s.message + '</p>' : '')
                 + '<div class="admin-actions">'
-                + '<button class="btn-approve" onclick="adminAction('' + d.id + '','approved')">Aprobar</button>'
-                + '<button class="btn-reject" onclick="adminAction('' + d.id + '','rejected')">Rechazar</button>'
+                + '<button class="btn-approve" onclick="adminAction('' + d.id + '',&apos;approved&apos;)">Aprobar</button>'
+                + '<button class="btn-reject" onclick="adminAction('' + d.id + '',&apos;rejected&apos;)">Rechazar</button>'
                 + '</div></div>';
         }).join('');
     } catch(e) { if (gid('adminList')) gid('adminList').innerHTML = '<div class="empty-state-sm">Error: ' + e.message + '</div>'; }
