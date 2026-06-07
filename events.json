@@ -8607,12 +8607,232 @@
       "kid": false,
       "tipo": "conc",
       "id": null
+    },
+    {
+      "title": "Antigüos Oficios de Chile",
+      "cat": "culture",
+      "emoji": "📸",
+      "desc": "Exposición de imágenes históricas del Estudio Brügmann que rescatan escenas cotidianas y formas de vida que son parte de nuestra identidad cultural.",
+      "date": "Sáb 30 de mayo 10:00",
+      "dateMs": 1748688000000,
+      "month": 4,
+      "days": [
+        30,
+        31
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Centro, Santiago",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": 0,
+      "src": "Estación Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Lanzamiento archivo: Osvaldo Salas Veas. Obra gráfica (1930-1970)",
+      "cat": "culture",
+      "emoji": "🖼️",
+      "desc": "Lanzamiento de archivo y exhibición de obra gráfica de Osvaldo Salas Veas en el Museo Nacional de Bellas Artes.",
+      "date": "Lun 9 de junio 12:00",
+      "dateMs": 1749571200000,
+      "month": 5,
+      "days": [
+        9
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Archivo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Exposición Paisaje material - Magdalena Vial",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Exposición de pinturas y obras sobre papel con técnicas de talla en madera, gofrado y otras técnicas mixtas de la artista visual Magdalena Vial.",
+      "date": "Sáb 6 de junio 10:00",
+      "dateMs": 1749273600000,
+      "month": 5,
+      "days": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Exposición El Umbral del Tránsito - Eduardo Vilches",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Serigrafías, xilografías y grabados que reflexionan sobre la memoria, la huella y la persistencia de la imagen, a través de paisajes, cementerios y territorios periféricos. Premio Nacional de Artes Plásticas 2019.",
+      "date": "Sáb 6 de junio 10:00",
+      "dateMs": 1749273600000,
+      "month": 5,
+      "days": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "venue": "Lo Matta Cultural",
+      "address": "Av. Kennedy 9350, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Lo+Matta+Cultural+Santiago",
+      "price": 0,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Exposición"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Ciclo de charlas Filmoarte",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Historia del Arte y de grandes artistas plásticos a través del cine. Actividad dirigida con conversación y debate posterior con Enrique Solanich, Magíster en Teoría e Historia del Arte.",
+      "date": "Mié 10 de junio 15:00",
+      "dateMs": 1749624000000,
+      "month": 5,
+      "days": [
+        10,
+        17,
+        24
+      ],
+      "venue": "Vitaclub Cleveland",
+      "address": "Cleveland 8038, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitaclub+Cleveland+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Cine",
+        "Charla"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
+    },
+    {
+      "title": "Festival Late Ñuñoa 2026",
+      "cat": "culture",
+      "emoji": "🎪",
+      "desc": "Festival con teatro, música y magia en el corazón de Ñuñoa durante el verano en los barrios y espacios públicos de la comuna.",
+      "date": "Sáb 1 de junio 18:00",
+      "dateMs": 1748860800000,
+      "month": 5,
+      "days": [
+        1,
+        2,
+        3
+      ],
+      "venue": "Espacios públicos de Ñuñoa",
+      "address": "Ñuñoa, Santiago",
+      "zone": "nun",
+      "mapsQ": "Nunoa+Santiago",
+      "price": 0,
+      "src": "Municipalidad Ñuñoa - Cultura",
+      "srcUrl": "https://www.nunoa.cl/category/cultura/",
+      "img": "",
+      "tags": [
+        "Festival",
+        "Música",
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Titanic: Un viaje a través del tiempo en Cenco Costanera",
+      "cat": "culture",
+      "emoji": "🚢",
+      "desc": "Experiencia inmersiva sobre el viaje histórico del Titanic en Cenco Costanera.",
+      "date": "Dom 7 de junio 10:00",
+      "dateMs": 1749356400000,
+      "month": 5,
+      "days": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "venue": "Cenco Costanera",
+      "address": "Costanera Center, Santiago",
+      "zone": "cen",
+      "mapsQ": "Cenco+Costanera+Santiago",
+      "price": 11000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Experiencia Inmersiva"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-07",
-    "totalEvents": 215,
+    "totalEvents": 222,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
