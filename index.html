@@ -56,14 +56,11 @@ img { display: block; max-width: 100%; }
   display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 16px; font-weight: 700; color: var(--carbon); letter-spacing: -0.3px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 600; color: var(--carbon); letter-spacing: -0.3px;
 }
-.logo-icon {
-  width: 32px; height: 32px; background: var(--terracotta);
-  border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  font-size: 16px; color: white; flex-shrink: 0;
-}
+.logo strong { font-weight: 700; }
+.logo svg { flex-shrink: 0; }
 .header-actions { display: flex; align-items: center; gap: 8px; }
 .btn-icon-header {
   width: 38px; height: 38px; border-radius: var(--radius-full);
@@ -156,24 +153,7 @@ img { display: block; max-width: 100%; }
 .sub-chip.active.zone { background: #2a9d8f; color: white; border-color: #2a9d8f; }
 .sub-chip.active.special { background: var(--amber); color: #7a3800; border-color: var(--amber); }
 
-/* ── PROPOSE BTN ── */
-.propose-bar {
-  padding: 12px 16px;
-  background: var(--bg);
-  display: flex; align-items: center; gap: 12px;
-}
-.btn-propose {
-  flex: 1; padding: 13px 20px; background: var(--terracotta); color: white;
-  border: none; border-radius: var(--radius-md); font-size: 15px; font-weight: 600;
-  transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
-}
-.btn-propose:hover { background: #b54d28; transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn-propose-outline {
-  padding: 13px 20px; background: white; color: var(--terracotta);
-  border: 1.5px solid var(--terracotta); border-radius: var(--radius-md); font-size: 15px; font-weight: 600;
-  transition: var(--transition);
-}
-.btn-propose-outline:hover { background: #fff5f2; }
+
 
 /* ── FEED ── */
 .feed-section { padding: 16px; }
@@ -606,6 +586,19 @@ img { display: block; max-width: 100%; }
 .empty-sm .ei { font-size: 2.5rem; margin-bottom: 10px; }
 
 /* ── BOTTOM NAV (mobile) ── */
+/* ── FAB ── */
+.fab-propose {
+  position: fixed; bottom: 80px; right: 20px; z-index: 490;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--terracotta); color: white; border: none;
+  font-size: 24px; font-weight: 300; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(200,90,50,0.4);
+  transition: var(--transition); display: flex; align-items: center; justify-content: center;
+}
+.fab-propose:hover { background: #b54d28; transform: scale(1.08); }
+@media (min-width: 1024px) { .fab-propose { bottom: 24px; right: 32px; } }
+
+/* ── BOTTOM NAV ── */
 .bottom-nav {
   position: fixed; bottom: 0; left: 0; right: 0; height: 64px;
   background: white; border-top: 1px solid var(--gray-light);
@@ -619,7 +612,7 @@ img { display: block; max-width: 100%; }
 }
 .bottom-nav-item.active { color: var(--terracotta); }
 .bottom-nav-item .nav-icon { font-size: 20px; line-height: 1; }
-.feed-pad { padding-bottom: 80px; }
+.feed-pad { padding-bottom: 90px; }
 
 @media (min-width: 1024px) {
   .bottom-nav { display: none; }
@@ -628,7 +621,7 @@ img { display: block; max-width: 100%; }
   .search-hero { padding: 20px 32px 0; max-width: 1200px; margin: 0 auto; }
   .filters-bar { padding-left: 32px; max-width: none; }
   .sub-filters-bar { padding-left: 32px; }
-  .propose-bar { padding: 16px 32px; max-width: 1200px; margin: 0 auto; }
+
   .feed-section { padding: 24px 32px; }
 }
 </style>
@@ -656,8 +649,18 @@ img { display: block; max-width: 100%; }
 <!-- HEADER -->
 <header class="header">
   <div class="logo">
-    <div class="logo-icon">📍</div>
-    <span>descubretuciudad</span>
+    <svg width="32" height="32" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 8C38 8 20 26 20 48c0 30 40 64 40 64s40-34 40-64C100 26 82 8 60 8z" fill="#1A1D20"/>
+      <circle cx="60" cy="47" r="28" fill="white"/>
+      <line x1="60" y1="19" x2="60" y2="75" stroke="#1A1D20" stroke-width="2.5"/>
+      <line x1="32" y1="47" x2="88" y2="47" stroke="#1A1D20" stroke-width="2.5"/>
+      <path d="M60 19 A28 28 0 0 1 88 47 L60 47 Z" fill="#C85A32"/>
+      <path d="M60 47 A28 28 0 0 1 32 47 L60 19 A28 28 0 0 0 60 47 Z" fill="none"/>
+      <path d="M32 47 A28 28 0 0 1 60 19 L60 47 Z" fill="#E6A15C"/>
+      <path d="M60 47 L88 47 A28 28 0 0 1 60 75 Z" fill="#B8C4C0"/>
+      <path d="M60 75 A28 28 0 0 1 32 47 L60 47 Z" fill="#C9A898"/>
+    </svg>
+    <span>descubre<strong style="color:var(--terracotta)">tu</strong>ciudad</span>
   </div>
   <div class="header-actions" id="headerAuth">
     <button class="btn-icon-header" onclick="openPanel('login')">👤</button>
@@ -694,11 +697,7 @@ img { display: block; max-width: 100%; }
 </div>
 
 <!-- PROPOSE BAR -->
-<div class="propose-bar">
-  <button class="btn-propose" onclick="openSubmitModal()">
-    <span>＋</span> Proponer evento
-  </button>
-</div>
+<!-- Floating propose button - bottom right -->
 
 <!-- FEED -->
 <div class="feed-section feed-pad">
@@ -781,6 +780,9 @@ img { display: block; max-width: 100%; }
 </div>
 
 <!-- BOTTOM NAV -->
+<!-- Floating propose button -->
+<button class="fab-propose" onclick="openSubmitModal()" title="Proponer evento">＋</button>
+
 <nav class="bottom-nav">
   <button class="bottom-nav-item active" id="nav-home" onclick="navTo('home')"><span class="nav-icon">🏠</span>Inicio</button>
   <button class="bottom-nav-item" id="nav-favs" onclick="navTo(&apos;favs&apos;)"><span class="nav-icon">❤️</span>Guardados</button>
@@ -1075,12 +1077,18 @@ function filterLogic(events) {
 _app.applyFilters = window.applyFilters = () => renderEvents(filterLogic(allEvents));
 
 _app.setCategoryPill = window.setCategoryPill = (el, cat) => {
-    document.querySelectorAll('.filter-pill.cat').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    activeCat = cat;
+    const wasActive = el.classList.contains('active') && cat !== 'todos';
+    document.querySelectorAll('.filter-chip.cat').forEach(p => p.classList.remove('active'));
+    if (wasActive) {
+        activeCat = 'todos';
+        document.querySelector('.filter-chip.cat').classList.add('active');
+    } else {
+        el.classList.add('active');
+        activeCat = cat;
+    }
     ['culture','music','sport','food'].forEach(c => {
         const cb = document.getElementById('cat-' + c);
-        if (cb) cb.checked = cat === 'todos' || c === cat;
+        if (cb) cb.checked = activeCat === 'todos' || c === activeCat;
     });
     renderEvents(filterLogic(allEvents));
 };
@@ -1158,8 +1166,12 @@ async function quickFav(id) {
 }
 
 _app.openEventPanel = window.openEventPanel = async (eventId) => {
+    console.log('openEventPanel called:', eventId);
     const ev = findEvent(eventId);
-    if (!ev) { console.warn('Evento no encontrado:', eventId); return; }
+    if (!ev) { console.warn('Evento no encontrado:', eventId, 'allEvents:', allEvents.length); return; }
+    const panel = document.getElementById('eventPanel');
+    const overlay = document.getElementById('eventPanelOverlay');
+    if (!panel) { console.error('eventPanel element not found!'); return; }
     currentEvent = ev;
 
     const epImg = gid('epImage');
@@ -1212,8 +1224,8 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     renderCommentForm();
     loadComments(ev.id);
 
-    gid('eventPanel').classList.add('active');
-    gid('eventPanelOverlay').classList.add('active');
+    panel.classList.add('active');
+    if(overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 };
 
@@ -1389,13 +1401,18 @@ _app.doLogout = window.doLogout = async () => { await signOut(auth); closePanel(
 function renderProfileTab(el) {
     const u = currentUser;
     const initials = (u.displayName || u.email || 'U').split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
-    el.innerHTML = '<div class="profile-avatar">' + (u.photoURL ? '<img src="' + u.photoURL + '">' : initials) + '</div>'
-        + '<p class="profile-name">' + (u.displayName || 'Usuario') + '</p>'
-        + '<p class="profile-email">' + u.email + '</p>'
-        + '<div class="form-group" style="margin-top:1rem"><label>Nombre</label><input type="text" id="editName" value="' + (u.displayName || '') + '"></div>'
-        + '<button class="btn-full" onclick="saveProfile()" style="margin-bottom:.5rem">Guardar cambios</button>'
-        + '<div class="form-success" id="profileSaved">Guardado</div>'
-        + '<button class="btn-full danger" onclick="doLogout()" style="margin-top:1rem">Cerrar sesion</button>';
+    el.innerHTML = `
+    <div style="text-align:center;padding:24px 0 20px">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--terracotta);color:white;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;overflow:hidden;flex-shrink:0">
+            ${u.photoURL ? `<img src="${u.photoURL}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">` : initials}
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--carbon)">${u.displayName || 'Usuario'}</div>
+        <div style="font-size:13px;color:var(--gray);margin-top:4px">${u.email}</div>
+    </div>
+    <div class="fg"><label>Nombre</label><input type="text" id="editName" value="${u.displayName || ''}"></div>
+    <button class="btn-primary" onclick="saveProfile()">Guardar cambios</button>
+    <div id="profileSaved" style="display:none;text-align:center;color:#2e7d32;font-size:13px;margin-top:8px">✓ Guardado</div>
+    <button class="btn-danger" onclick="doLogout()" style="margin-top:12px">Cerrar sesión</button>`;
 }
 _app.saveProfile = window.saveProfile = async () => {
     const name = gid('editName') ? gid('editName').value.trim() : '';
@@ -1404,14 +1421,14 @@ _app.saveProfile = window.saveProfile = async () => {
         await updateProfile(currentUser, {displayName: name});
         renderHeader();
         const el = gid('profileSaved');
-        if (el) { el.classList.add('visible'); setTimeout(() => el.classList.remove('visible'), 2000); }
-    } catch(e) {}
+        if (el) { el.style.display = 'block'; setTimeout(() => el.style.display = 'none', 2000); }
+    } catch(e) { showToast('Error: ' + e.message); }
 };
 
 async function renderFavsTab(el) {
     el.innerHTML = '<div class="empty-sm">Cargando...</div>';
     try {
-        const q = query(collection(db, 'favorites'), where('userId', '==', currentUser.uid), orderBy('savedAt', 'desc'));
+        const q = query(collection(db, 'favorites'), where('userId', '==', currentUser.uid));
         const snap = await getDocs(q);
         if (snap.empty) {
             el.innerHTML = '<div class="empty-sm"><div class="ei">❤️</div><p style="font-weight:600;margin-bottom:6px">Sin guardados aún</p><p style="font-size:13px">Guarda eventos tocando el corazón</p></div>';
