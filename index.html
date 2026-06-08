@@ -823,6 +823,7 @@ function shareEventById(...a) { return _app.shareEventById && _app.shareEventByI
 function showToast(...a) { return _app.showToast && _app.showToast(...a); }
 function signInGoogle(...a) { return _app.signInGoogle && _app.signInGoogle(...a); }
 function submitForm(...a) { return _app.submitForm && _app.submitForm(...a); }
+function fillFromUrl(...a) { return _app.fillFromUrl && _app.fillFromUrl(...a); }
 function switchTab(...a) { return _app.switchTab && _app.switchTab(...a); }
 function toggleFavorite(...a) { return _app.toggleFavorite && _app.toggleFavorite(...a); }
 function toggleFreePrice(...a) { return _app.toggleFreePrice && _app.toggleFreePrice(...a); }
@@ -859,6 +860,7 @@ const googleProvider = new GoogleAuthProvider();
 const gid = id => document.getElementById(id);
 
 let allEvents = [], currentEvent = null, currentUser = null;
+let activeCategories = new Set(); // multi-select categories
 let activeCat = 'todos', activeZones = new Set(), activeSpecials = new Set();
 let submitMode = 'new', uploadedImages = [], currentDateType = 'range', isPriceFree = false;
 
@@ -869,7 +871,10 @@ function showToast(msg, dur=2500) {
 _app.showToast = window.showToast = showToast;
 
 function normalizeId(id) { return String(id); }
-function findEvent(id) { return allEvents.find(e => normalizeId(e.id) === normalizeId(id)); }
+function findEvent(id) {
+    const nid = normalizeId(id);
+    return allEvents.find(e => normalizeId(e.id) === nid);
+}
 
 onAuthStateChanged(auth, async user => {
     currentUser = user;
@@ -893,15 +898,16 @@ async function loadUserPrefs() {
 
 function renderHeader() {
     const c = gid('headerAuth');
-    if (!currentUser) { c.innerHTML = '<button class="btn-header" onclick="openPanel(&apos;login&apos;)">Iniciar sesion</button>'; return; }
+    if (!currentUser) {
+        c.innerHTML = '<button class="btn-icon-header" onclick="openPanel(&apos;login&apos;)">👤</button>';
+        return;
+    }
     const initials = (currentUser.displayName || currentUser.email || 'U').split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
     const isAdmin = currentUser.email === ADMIN_EMAIL;
-    c.innerHTML = '<div style="display:flex;gap:.5rem;align-items:center">'
-        + '<button class="btn-header" onclick="openPanel(&apos;favs&apos;)">Favoritos</button>'
-        + (isAdmin ? '<button class="btn-header" style="background:rgba(255,200,0,.3);border-color:rgba(255,200,0,.7)" onclick="openPanel(&apos;admin&apos;)">Admin</button>' : '')
-        + '<div class="avatar-btn" onclick="openPanel(&apos;profile&apos;)" title="' + (currentUser.displayName || '') + '">'
-        + (currentUser.photoURL ? '<img src="' + currentUser.photoURL + '" style="width:100%;height:100%;object-fit:cover">' : initials)
-        + '</div></div>';
+    // Only avatar in header — all nav inside the drawer
+    c.innerHTML = '<div class="avatar-circle' + (isAdmin ? ' admin-dot' : '') + '" onclick="openPanel(&apos;profile&apos;)" title="' + (currentUser.displayName || '') + '">'
+        + (currentUser.photoURL ? '<img src="' + currentUser.photoURL + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">' : initials)
+        + '</div>';
 }
 
 async function loadEvents() {
@@ -1058,18 +1064,14 @@ _app.handleStarClick = window.handleStarClick = async (stars, eventId) => {
 
 function filterLogic(events) {
     return events.filter(e => {
-        if (activeCat !== 'todos' && e.cat !== activeCat) return false;
+        // Multi-category filter
+        if (activeCategories.size > 0 && !activeCategories.has(e.cat)) return false;
+        // Zone filter
         if (activeZones.size > 0 && !activeZones.has(e.zone)) return false;
+        // Special filters
         if (activeSpecials.has('kid') && !e.kid) return false;
         if (activeSpecials.has('pet') && !e.pet) return false;
         if (activeSpecials.has('acc') && !e.acc) return false;
-        const cats = ['culture','music','sport','food'].filter(c => document.getElementById('cat-' + c) && document.getElementById('cat-' + c).checked);
-        if (cats.length > 0 && cats.length < 4 && !cats.includes(e.cat)) return false;
-        const zones = ['cen','vit','lc','nun','lare','prov'].filter(z => document.getElementById('zone-' + z) && document.getElementById('zone-' + z).checked);
-        if (zones.length > 0 && zones.length < 6 && !zones.includes(e.zone)) return false;
-        if (gid('filter-kid') && gid('filter-kid').checked && !e.kid) return false;
-        if (gid('filter-pet') && gid('filter-pet').checked && !e.pet) return false;
-        if (gid('filter-acc') && gid('filter-acc').checked && !e.acc) return false;
         return true;
     });
 }
@@ -1077,19 +1079,26 @@ function filterLogic(events) {
 _app.applyFilters = window.applyFilters = () => renderEvents(filterLogic(allEvents));
 
 _app.setCategoryPill = window.setCategoryPill = (el, cat) => {
-    const wasActive = el.classList.contains('active') && cat !== 'todos';
-    document.querySelectorAll('.filter-chip.cat').forEach(p => p.classList.remove('active'));
-    if (wasActive) {
-        activeCat = 'todos';
-        document.querySelector('.filter-chip.cat').classList.add('active');
-    } else {
+    if (cat === 'todos') {
+        // Reset all to todos
+        document.querySelectorAll('.filter-chip.cat').forEach(p => p.classList.remove('active'));
         el.classList.add('active');
-        activeCat = cat;
+        activeCategories.clear();
+    } else {
+        // Toggle this category; remove 'todos' active
+        document.querySelector('.filter-chip.cat').classList.remove('active');
+        if (el.classList.contains('active')) {
+            el.classList.remove('active');
+            activeCategories.delete(cat);
+        } else {
+            el.classList.add('active');
+            activeCategories.add(cat);
+        }
+        // If nothing selected go back to todos
+        if (activeCategories.size === 0) {
+            document.querySelector('.filter-chip.cat').classList.add('active');
+        }
     }
-    ['culture','music','sport','food'].forEach(c => {
-        const cb = document.getElementById('cat-' + c);
-        if (cb) cb.checked = activeCat === 'todos' || c === activeCat;
-    });
     renderEvents(filterLogic(allEvents));
 };
 
@@ -1479,10 +1488,11 @@ async function renderSettingsTab(el) {
 }
 _app.togglePref = window.togglePref = async key => {
     const chip = document.getElementById('pref-' + key);
+    if (!chip) return;
     const active = chip.classList.toggle('active');
-    const cb = document.getElementById('filter-' + key);
-    if (cb) { cb.checked = active; applyFilters(); }
+    // Preferences are saved but do NOT affect current filters
     await savePref(key, active);
+    showToast(active ? '✓ Preferencia guardada' : 'Preferencia eliminada');
 };
 _app.savePref = window.savePref = async (key, value) => {
     if (!currentUser) return;
@@ -1535,160 +1545,85 @@ _app.closeSubmitModal = window.closeSubmitModal = () => gid('submitOverlay').cla
 
 function renderSubmitForm() {
     gid('submitModalBody').innerHTML = `
+    <div style="background:linear-gradient(135deg,#fff8f5,#fef3e6);border:1.5px solid #fde0d4;border-radius:12px;padding:16px;margin-bottom:20px">
+        <div style="font-size:13px;font-weight:700;color:var(--terracotta);margin-bottom:8px">✨ Relleno automático con IA</div>
+        <p style="font-size:12px;color:var(--gray);margin-bottom:10px">Pega el link del evento y la IA rellena el formulario automáticamente</p>
+        <div style="display:flex;gap:8px">
+            <input type="url" id="ai-url" placeholder="https://... (link del evento)" style="flex:1;padding:10px 14px;border:1.5px solid #fde0d4;border-radius:8px;font-size:14px;font-family:inherit;outline:none">
+            <button onclick="fillFromUrl()" style="padding:10px 16px;background:var(--terracotta);color:white;border:none;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap">Rellenar ✨</button>
+        </div>
+        <div id="ai-status" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
+    </div>
     <div class="fg"><label>Nombre del evento *</label><input type="text" id="sf-title" placeholder="Ej: Feria de arte"></div>
     <div class="form-row-2">
-      <div class="fg"><label>Categoría *</label><select id="sf-cat">
-        <option value="culture">🎨 Cultura</option>
-        <option value="music">🎵 Música</option>
-        <option value="sport">⚽ Deporte</option>
-        <option value="food">🍽️ Gastronomía</option>
-      </select></div>
-      <div class="fg"><label>Precio</label>
-        <div class="price-row">
-          <button class="price-btn" id="priceFreeBtn" onclick="toggleFreePrice(true)">GRATIS</button>
-          <button class="price-btn active" id="pricePaidBtn" onclick="toggleFreePrice(false)">Con precio</button>
+        <div class="fg"><label>Categoría *</label><select id="sf-cat">
+            <option value="culture">🎨 Cultura</option>
+            <option value="music">🎵 Música</option>
+            <option value="sport">⚽ Deporte</option>
+            <option value="food">🍽️ Gastronomía</option>
+        </select></div>
+        <div class="fg"><label>Precio</label>
+            <div class="price-row">
+                <button class="price-btn" id="priceFreeBtn" onclick="toggleFreePrice(true)">GRATIS</button>
+                <button class="price-btn active" id="pricePaidBtn" onclick="toggleFreePrice(false)">Con precio</button>
+            </div>
+            <input type="number" id="sf-price" placeholder="Ej: 5000" min="0">
         </div>
-        <input type="number" id="sf-price" placeholder="Ej: 5000" min="0">
-      </div>
     </div>
     <div class="fg"><label>¿Tiene fechas?</label>
-      <div class="date-type-row">
-        <div class="date-type-btn active" id="dt-range" onclick="setDateType('range')">📅 Con fecha inicio/fin</div>
-        <div class="date-type-btn" id="dt-permanent" onclick="setDateType('permanent')">🔄 Siempre abierto</div>
-      </div>
-      <div id="dateFieldsRange">
-        <div class="form-row-2">
-          <div class="fg"><label>Fecha inicio</label><input type="date" id="sf-dateStart"></div>
-          <div class="fg"><label>Fecha fin</label><input type="date" id="sf-dateEnd"></div>
+        <div class="date-type-row">
+            <div class="date-type-btn active" id="dt-range" onclick="setDateType('range')">📅 Con fecha inicio/fin</div>
+            <div class="date-type-btn" id="dt-permanent" onclick="setDateType('permanent')">🔄 Siempre abierto</div>
         </div>
-      </div>
-      <div id="dateFieldsPermanent" style="display:none">
-        <input type="text" id="sf-dateText" value="Abierto diariamente">
-      </div>
+        <div id="dateFieldsRange">
+            <div class="form-row-2">
+                <div class="fg"><label>Fecha inicio</label><input type="date" id="sf-dateStart"></div>
+                <div class="fg"><label>Fecha fin</label><input type="date" id="sf-dateEnd"></div>
+            </div>
+        </div>
+        <div id="dateFieldsPermanent" style="display:none">
+            <input type="text" id="sf-dateText" value="Abierto diariamente">
+        </div>
     </div>
     <div class="form-row-2">
-      <div class="fg"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div>
-      <div class="fg"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div>
+        <div class="fg"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div>
+        <div class="fg"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div>
     </div>
     <div class="fg"><label>Lugar / Recinto *</label><input type="text" id="sf-venue" placeholder="Nombre del lugar"></div>
-    <div class="fg"><label>Dirección *</label>
-      <div class="address-wrap">
-        <input type="text" id="sf-address" placeholder="Busca la dirección..." autocomplete="off" oninput="searchAddress(this.value)">
-        <div id="addressSuggestions" class="address-list" style="display:none"></div>
-      </div>
+    <div class="fg"><label>Dirección</label>
+        <div class="address-wrap">
+            <input type="text" id="sf-address" placeholder="Busca la dirección..." autocomplete="off" oninput="searchAddress(this.value)">
+            <div id="addressSuggestions" class="address-list" style="display:none"></div>
+        </div>
     </div>
     <div class="form-row-2">
-      <div class="fg"><label>Comuna</label><input type="text" id="sf-commune" readonly style="opacity:.6"></div>
-      <div class="fg"><label>Región</label><input type="text" id="sf-region" readonly style="opacity:.6"></div>
+        <div class="fg"><label>Comuna</label><input type="text" id="sf-commune" readonly style="opacity:.6"></div>
+        <div class="fg"><label>Región</label><input type="text" id="sf-region" readonly style="opacity:.6"></div>
     </div>
     <div class="form-row-2">
-      <div class="fg"><label>Link entradas</label><input type="url" id="sf-tickets" placeholder="https://..."></div>
-      <div class="fg"><label>Instagram</label><input type="url" id="sf-instagram" placeholder="https://instagram.com/..."></div>
+        <div class="fg"><label>Link entradas</label><input type="url" id="sf-tickets" placeholder="https://..."></div>
+        <div class="fg"><label>Instagram</label><input type="url" id="sf-instagram" placeholder="https://instagram.com/..."></div>
     </div>
     <div class="fg"><label>Sitio web del evento</label><input type="url" id="sf-web" placeholder="https://..."></div>
     <div class="fg"><label>Descripción</label><textarea id="sf-desc" rows="3" placeholder="Describe el evento..."></textarea></div>
     <div class="fg"><label>Características</label>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-        <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-kid"> 👶 Niños</label>
-        <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-pet"> 🐕 Mascotas</label>
-        <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-acc"> ♿ Accesible</label>
-      </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+            <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-kid"> 👶 Niños</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-pet"> 🐕 Mascotas</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="sf-acc"> ♿ Accesible</label>
+        </div>
     </div>
     <div class="fg"><label>Fotos del evento</label>
-      <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
-        <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFileUpload(this.files)" style="display:none">
-        <div style="font-size:1.5rem;margin-bottom:6px">📷</div>
-        <div style="font-size:14px;color:var(--gray)">Toca para subir fotos<br><span style="font-size:12px">La primera foto será la portada</span></div>
-      </div>
-      <div class="upload-preview" id="uploadPreview"></div>
-      <div id="uploadStatus" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+            <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFileUpload(this.files)" style="display:none">
+            <div style="font-size:1.5rem;margin-bottom:6px">📷</div>
+            <div style="font-size:14px;color:var(--gray)">Toca para subir fotos<br><span style="font-size:12px">La primera foto será la portada</span></div>
+        </div>
+        <div class="upload-preview" id="uploadPreview"></div>
+        <div id="uploadStatus" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
     </div>
     <div class="form-error" id="sf-err"></div>`;
 }
-
-_app.setDateType = window.setDateType = type => {
-    currentDateType = type;
-    document.getElementById('dt-range').classList.toggle('active', type === 'range');
-    document.getElementById('dt-permanent').classList.toggle('active', type === 'permanent');
-    document.getElementById('dateFieldsRange').style.display = type === 'range' ? 'block' : 'none';
-    document.getElementById('dateFieldsPermanent').style.display = type === 'permanent' ? 'block' : 'none';
-};
-
-_app.toggleFreePrice = window.toggleFreePrice = free => {
-    isPriceFree = free;
-    document.getElementById('priceFreeBtn').classList.toggle('active', free);
-    document.getElementById('pricePaidBtn').classList.toggle('active', !free);
-    document.getElementById('sf-price').style.display = free ? 'none' : 'block';
-    if (free) document.getElementById('sf-price').value = '0';
-};
-
-let addressTimer;
-_app.searchAddress = window.searchAddress = q => {
-    clearTimeout(addressTimer);
-    const sugBox = document.getElementById('addressSuggestions');
-    if (!sugBox) return;
-    if (q.length < 4) { sugBox.style.display = 'none'; return; }
-    addressTimer = setTimeout(async () => {
-        try {
-            const url = 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(q + ' Chile') + '&format=json&addressdetails=1&limit=5&countrycodes=cl';
-            const r = await fetch(url, {headers: {'Accept-Language': 'es', 'User-Agent': 'DescubreTuCiudad/1.0'}});
-            const data = await r.json();
-            if (!data.length) { sugBox.style.display = 'none'; return; }
-            sugBox.innerHTML = data.map(item => '<div class="address-suggestion-item" onclick="selectAddress(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">' + item.display_name + '</div>').join('');
-            sugBox.style.display = 'block';
-        } catch(e) { if (sugBox) sugBox.style.display = 'none'; }
-    }, 500);
-};
-
-_app.selectAddress = window.selectAddress = item => {
-    const addrEl = document.getElementById('sf-address');
-    const commEl = document.getElementById('sf-commune');
-    const regEl = document.getElementById('sf-region');
-    const sugBox = document.getElementById('addressSuggestions');
-    if (addrEl) addrEl.value = item.display_name.split(',').slice(0,3).join(',').trim();
-    const a = item.address || {};
-    if (commEl) commEl.value = a.city || a.town || a.village || a.municipality || a.suburb || '';
-    if (regEl) regEl.value = a.state || a.region || '';
-    const commune = (commEl ? commEl.value : '').toLowerCase();
-    const zoneMap = {'vitacura':'vit','las condes':'lc','providencia':'prov','nunoa':'nun','la reina':'lare','santiago':'cen'};
-    const zone = Object.entries(zoneMap).find(([k]) => commune.includes(k));
-    window._detectedZone = zone ? zone[1] : 'cen';
-    if (sugBox) sugBox.style.display = 'none';
-};
-
-_app.handleFileUpload = window.handleFileUpload = async files => {
-    const statusEl = document.getElementById('uploadStatus');
-    if (CLOUDINARY_CLOUD === 'TU_CLOUD_NAME') {
-        for (const file of files) {
-            const url = URL.createObjectURL(file);
-            uploadedImages.push({url, public_id: null, isCover: uploadedImages.length === 0});
-        }
-        if (statusEl) statusEl.textContent = uploadedImages.length + ' foto(s) lista(s)';
-        renderUploadPreview();
-        return;
-    }
-    if (statusEl) statusEl.textContent = 'Subiendo...';
-    for (const file of files) {
-        const fd = new FormData();
-        fd.append('file', file);
-        fd.append('upload_preset', CLOUDINARY_PRESET);
-        try {
-            const r = await fetch('https://api.cloudinary.com/v1_1/' + CLOUDINARY_CLOUD + '/image/upload', {method:'POST', body:fd});
-            const data = await r.json();
-            uploadedImages.push({url: data.secure_url, public_id: data.public_id, isCover: uploadedImages.length === 0});
-        } catch(e) { showToast('Error subiendo imagen'); }
-    }
-    if (statusEl) statusEl.textContent = uploadedImages.length + ' foto(s) lista(s)';
-    renderUploadPreview();
-};
-
-function renderUploadPreview() {
-    const prev = document.getElementById('uploadPreview');
-    if (!prev) return;
-    prev.innerHTML = uploadedImages.map((img, i) => '<div class="upload-preview-item ' + (img.isCover ? 'cover' : '') + '" onclick="setCoverImage(' + i + ')" title="Clic para portada"><img src="' + img.url + '" alt="foto"><button class="remove-img" onclick="event.stopPropagation();removeImage(' + i + ')">x</button>' + (img.isCover ? '<div class="cover-badge">PORTADA</div>' : '') + '</div>').join('');
-}
-_app.setCoverImage = window.setCoverImage = i => { uploadedImages.forEach((img, j) => img.isCover = j === i); renderUploadPreview(); };
-_app.removeImage = window.removeImage = i => { uploadedImages.splice(i, 1); if (uploadedImages.length > 0 && !uploadedImages.some(x => x.isCover)) uploadedImages[0].isCover = true; renderUploadPreview(); };
 
 function renderSuggestForm() {
     gid('submitModalBody').innerHTML = '<div style="background:#fff8e6;border-radius:8px;padding:.85rem;margin-bottom:1rem;font-size:.88rem;color:#c07a00"><strong>Evento:</strong> ' + (currentEvent ? currentEvent.title : '') + '<br><span style="font-size:.82rem;color:#888">Tu sugerencia sera revisada antes de aplicarse</span></div>'
@@ -1698,6 +1633,104 @@ function renderSuggestForm() {
         + '<div class="form-error" id="sg-err"></div>';
 }
 
+
+// ── AI URL FILLER ──
+_app.fillFromUrl = window.fillFromUrl = async () => {
+    const url = (gid('ai-url') && gid('ai-url').value.trim()) || '';
+    const status = gid('ai-status');
+    if (!url || !url.startsWith('http')) {
+        if (status) status.textContent = '⚠️ Ingresa una URL válida';
+        return;
+    }
+    if (status) status.textContent = '⏳ Analizando el link con IA...';
+
+    try {
+        // Fetch page content via a CORS proxy
+        const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
+        const r = await fetch(proxyUrl, { signal: AbortSignal.timeout(12000) });
+        const data = await r.json();
+        const pageText = data.contents ? data.contents.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').substring(0, 6000) : '';
+
+        if (!pageText) {
+            if (status) status.textContent = '⚠️ No se pudo leer la página. Rellena manualmente.';
+            return;
+        }
+
+        if (status) status.textContent = '🤖 Extrayendo información...';
+
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'claude-sonnet-4-20250514',
+                max_tokens: 1000,
+                messages: [{
+                    role: 'user',
+                    content: `Extrae la información de este evento en Santiago Chile desde el siguiente texto de una página web. Responde SOLO con JSON válido, sin explicaciones ni markdown.
+
+Formato requerido:
+{"title":"nombre del evento","desc":"descripción corta 1-2 oraciones","date":"fecha como aparece en el texto","schedule":"horario si aparece, sino vacío","venue":"nombre del lugar","address":"dirección si aparece","price":0,"isFree":true,"tickets":"url de entradas si hay","instagram":"url instagram si hay","web":"${url}","cat":"culture|music|sport|food","pet":true|false,"kid":true|false,"acc":false}
+
+Reglas:
+- cat: "sport" si es deporte/carrera/actividad física, "culture" si es arte/exposición/teatro, "music" si es concierto, "food" si es gastronomía
+- pet: true si el evento es con o para mascotas/perros
+- kid: true si es apto para niños
+- price: número en pesos chilenos (solo el número), 0 si es gratis
+- isFree: true si price es 0
+
+Texto de la página:
+${pageText}`
+                }]
+            })
+        });
+
+        const aiData = await response.json();
+        const text = aiData.content && aiData.content[0] ? aiData.content[0].text : '';
+        const jsonMatch = text.match(/\{[\s\S]+\}/);
+        if (!jsonMatch) throw new Error('No JSON in response');
+        const ev = JSON.parse(jsonMatch[0]);
+
+        // Fill form fields
+        const setVal = (id, val) => { const el = gid(id); if (el && val !== undefined && val !== null) el.value = val; };
+        setVal('sf-title', ev.title);
+        setVal('sf-desc', ev.desc);
+        setVal('sf-venue', ev.venue);
+        setVal('sf-address', ev.address);
+        setVal('sf-tickets', ev.tickets);
+        setVal('sf-instagram', ev.instagram);
+        setVal('sf-web', ev.web || url);
+
+        // Date
+        if (ev.date) {
+            setDateType('permanent');
+            setVal('sf-dateText', ev.date);
+        }
+        if (ev.schedule) setVal('sf-timeStart', ev.schedule);
+
+        // Price
+        if (ev.isFree || ev.price === 0) {
+            toggleFreePrice(true);
+        } else if (ev.price) {
+            toggleFreePrice(false);
+            setVal('sf-price', ev.price);
+        }
+
+        // Category
+        const catSel = gid('sf-cat');
+        if (catSel && ev.cat) catSel.value = ev.cat;
+
+        // Checkboxes
+        const setChk = (id, val) => { const el = gid(id); if (el) el.checked = !!val; };
+        setChk('sf-pet', ev.pet);
+        setChk('sf-kid', ev.kid);
+        setChk('sf-acc', ev.acc);
+
+        if (status) status.innerHTML = '<span style="color:#2e7d32">✅ Información extraída. Revisa y corrige si es necesario.</span>';
+    } catch(e) {
+        console.error('fillFromUrl error:', e);
+        if (status) status.innerHTML = '<span style="color:#e74c3c">⚠️ Error: ' + e.message + '. Rellena manualmente.</span>';
+    }
+};
 _app.submitForm = window.submitForm = async () => {
     if (!currentUser) return;
     try {
