@@ -45,11 +45,12 @@ const SOURCES = [
   // Agregadores (sin zona fija, Claude asigna segun evento)
   { name: 'Fever - Santiago',                  zone: 'cen',  url: 'https://feverup.com/es/santiago' },
   { name: 'Eventbrite - Santiago',             zone: 'cen',  url: 'https://www.eventbrite.cl/d/chile--santiago/eventos/' },
-  // TicketPlus Chile - venta de entradas
-  { name: 'TicketPlus - Region Metropolitana', zone: 'cen',  url: 'https://ticketplus.cl/region/region-metropolitana-de-santiago' },
-  { name: 'TicketPlus - Teatro',               zone: 'cen',  url: 'https://ticketplus.cl/category/teatro' },
-  { name: 'TicketPlus - Musica',               zone: 'cen',  url: 'https://ticketplus.cl/category/musica' },
-  { name: 'TicketPlus - Fiestas',              zone: 'cen',  url: 'https://ticketplus.cl/category/fiesta' },
+  // PuntoTicket - mayor ticketera de Chile, HTML estático
+  { name: 'PuntoTicket - Santiago',            zone: 'cen',  url: 'https://www.puntoticket.com/' },
+  // Ticketpro Chile - HTML accesible
+  { name: 'Ticketpro - Santiago',              zone: 'cen',  url: 'https://www.ticketpro.cl/' },
+  // Teatro Nacional / Teatros municipales
+  { name: 'Teatro Municipal de Santiago',      zone: 'cen',  url: 'https://www.municipal.cl/cartelera/' },
 ];
 
 // ── Limpia HTML a texto plano ─────────────────────────────────────────────────
@@ -103,58 +104,7 @@ NOTAS:
 - Para eventos de TicketPlus: el tickets debe ser la misma URL del evento`;
 
 // ── Raspar una URL ────────────────────────────────────────────────────────────
-async function scrapeTicketPlus(source) {
-  // TicketPlus renders via JS — try their search API endpoint first
-  const region = 'region-metropolitana-de-santiago';
-  try {
-    // Try JSON API endpoint (undocumented but works)
-    const apiUrl = `https://ticketplus.cl/api/v1/events?country=CL&region=${region}&per_page=50&sort=date`;
-    const res = await fetch(apiUrl, {
-      headers: { 'Accept': 'application/json', 'User-Agent': 'Mozilla/5.0' },
-      signal: AbortSignal.timeout(10000)
-    });
-    if (res.ok) {
-      const ct = res.headers.get('content-type') || '';
-      if (ct.includes('json')) {
-        const data = await res.json();
-        const events = data.events || data.data || data || [];
-        if (Array.isArray(events) && events.length > 0) {
-          const text = events.map(e =>
-            `Evento: ${e.name || e.title || ''}\nFecha: ${e.start_date || e.date || ''}\nLugar: ${e.venue?.name || e.place || ''}\nPrecio: ${e.min_price || e.price || 'consultar'}\nURL: https://ticketplus.cl/events/${e.slug || e.id || ''}`
-          ).join('\n\n');
-          console.log(`  OK   ${source.name} (API): ${events.length} eventos`);
-          return text.slice(0, 4000);
-        }
-      }
-    }
-  } catch(e) { /* fall through to HTML scrape */ }
-
-  // Fallback: scrape HTML normally
-  try {
-    const res = await fetch(source.url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GautBot/1.0)', 'Accept-Language': 'es-CL,es;q=0.9' },
-      signal: AbortSignal.timeout(12000)
-    });
-    if (!res.ok) { console.warn(`  SKIP ${source.name}: HTTP ${res.status}`); return null; }
-    const html = await res.text();
-    const text = htmlToText(html);
-    // TicketPlus HTML might be sparse — only use if meaningful content found
-    if (text.length > 500) {
-      console.log(`  OK   ${source.name} (HTML): ${text.length} chars`);
-      return text;
-    }
-    console.warn(`  SKIP ${source.name}: contenido insuficiente (JS-rendered)`);
-    return null;
-  } catch(err) {
-    console.warn(`  SKIP ${source.name}: ${err.message}`);
-    return null;
-  }
-}
-// ── Raspar una URL ────────────────────────────────────────────────────────────
 async function scrape(source) {
-  // Route TicketPlus to dedicated scraper
-  if (source.url.includes('ticketplus.cl')) return scrapeTicketPlus(source);
-
   try {
     const res = await fetch(source.url, {
       headers: {
