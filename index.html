@@ -1183,7 +1183,7 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     if (!panel) { console.error('eventPanel element not found!'); return; }
     currentEvent = ev;
 
-    const epImg = gid('epImage');
+    const epImg = gid('epImgWrap');
     const closeBtn = epImg.querySelector('.ep-close');
     Array.from(epImg.childNodes).forEach(n => { if (n !== closeBtn) n.remove(); });
     if (ev.img) {
@@ -1194,7 +1194,7 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
         epImg.insertBefore(document.createTextNode(ev.emoji || '🎉'), closeBtn);
     }
 
-    const catEl = gid('epCategory');
+    const catEl = gid('epBadge');
     catEl.textContent = getCatLabel(ev.cat);
     catEl.className = 'ep-badge ' + getBadgeClass(ev.cat);
     gid('epTitle').textContent = ev.title;
@@ -1203,8 +1203,8 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     gid('epSchedule').textContent = ev.schedule || ev.horario || 'Ver fuente';
     const priceEl = gid('epPrice');
     priceEl.textContent = ev.price === 0 ? 'GRATIS' : ev.price ? '$' + Number(ev.price).toLocaleString('es-CL') : 'Consultar';
-    priceEl.className = 'ep-info-value' + (ev.price === 0 ? ' price-free' : '');
-    gid('epCatInfo').textContent = getCatLabel(ev.cat);
+    priceEl.className = 'ep-info-val' + (ev.price === 0 ? ' price-free' : '');
+    gid('epType').textContent = getCatLabel(ev.cat);
     gid('epVenue').textContent = ev.venue || '';
     gid('epAddress').textContent = ev.address || '';
 
@@ -1213,21 +1213,21 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
 
     const linksEl = gid('epLinks');
     linksEl.innerHTML = '';
-    if (ev.instagram) linksEl.innerHTML += '<a class="ep-link-btn ep-link-instagram" href="' + ev.instagram + '" target="_blank" rel="noopener">📸 Instagram</a>';
-    if (ev.web) linksEl.innerHTML += '<a class="ep-link-btn ep-link-web" href="' + ev.web + '" target="_blank" rel="noopener">🌐 Sitio web</a>';
-    if (ev.tickets) linksEl.innerHTML += '<a class="ep-link-btn ep-link-tickets" href="' + ev.tickets + '" target="_blank" rel="noopener">🎟 Entradas</a>';
-    if (ev.srcUrl) linksEl.innerHTML += '<a class="ep-link-btn ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
+    if (ev.instagram) linksEl.innerHTML += '<a class="ep-link-pill ep-link-ig" href="' + ev.instagram + '" target="_blank" rel="noopener">📸 Instagram</a>';
+    if (ev.web) linksEl.innerHTML += '<a class="ep-link-pill ep-link-web" href="' + ev.web + '" target="_blank" rel="noopener">🌐 Sitio web</a>';
+    if (ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-tickets" href="' + ev.tickets + '" target="_blank" rel="noopener">🎟 Entradas</a>';
+    if (ev.srcUrl) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
 
     const tagsEl = gid('epTags');
     tagsEl.innerHTML = (ev.kid ? '<span class="ep-tag">👶 Niños</span>' : '')
         + (ev.pet ? '<span class="ep-tag">🐕 Mascotas</span>' : '')
         + (ev.acc ? '<span class="ep-tag">♿ Accesible</span>' : '')
-        + (ev.tags || []).map(t => '<span class="ep-tag">' + t + '</span>').join('');
+        + (ev.tags || []).map(t => '<span class="ep-tag-pill">' + t + '</span>').join('');
 
     const faved = await isFav(ev.id);
     const favBtn = gid('epBtnFav');
     favBtn.innerHTML = faved ? '❤️ Guardado' : '🤍 Guardar';
-    favBtn.className = 'btn-fav' + (faved ? ' saved' : '');
+    favBtn.className = 'ep-action-btn fav' + (faved ? ' saved' : '');
 
     await renderRatingBlock(ev.id);
     renderCommentForm();
@@ -1249,7 +1249,7 @@ _app.toggleFavorite = window.toggleFavorite = async () => {
     const added = await toggleFavDB(currentEvent);
     const btn = gid('epBtnFav');
     btn.innerHTML = added ? '❤️ Guardado' : '🤍 Guardar';
-    btn.className = 'btn-fav' + (added ? ' saved' : '');
+    btn.className = 'ep-action-btn fav' + (added ? ' saved' : '');
     const cardBtn = document.getElementById('fav-card-' + normalizeId(currentEvent.id));
     if (cardBtn) cardBtn.innerHTML = added ? '❤️' : '&#129293;';
 };
@@ -1359,26 +1359,39 @@ function switchTabContent(tab) {
 
 function renderAuthPanel(body, mode) {
     if (mode === 'login') {
-        body.innerHTML = '<div style="text-align:center;margin-bottom:1.5rem"><div style="font-size:3rem">🌆</div><h3 style="margin-top:.5rem">Bienvenido</h3><p style="color:#888;font-size:.88rem">Guarda favoritos y comenta eventos</p></div>'
-            + '<button class="btn-full google" onclick="signInGoogle()"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20"> Continuar con Google</button>'
-            + '<div class="form-divider">o con correo</div>'
-            + '<div class="form-group"><label>Correo</label><input type="email" id="loginEmail" placeholder="tu@email.com"></div>'
-            + '<div class="form-group"><label>Contrasena</label><input type="password" id="loginPass" placeholder="••••••••"></div>'
-            + '<div class="form-error" id="loginErr"></div>'
-            + '<button class="btn-full" onclick="doLogin()">Iniciar sesion</button>'
-            + '<div class="form-divider">o</div>'
-            + '<button class="btn-secondary" onclick="renderPanelMode(&apos;register&apos;)">Crear cuenta nueva</button>';
+        body.innerHTML = `
+        <div style="text-align:center;margin-bottom:20px">
+            <div style="font-size:3rem;margin-bottom:8px">🌆</div>
+            <h3 style="font-size:20px;font-weight:800">Bienvenido</h3>
+            <p style="color:var(--gray);font-size:14px;margin-top:4px">Guarda favoritos y comenta eventos</p>
+        </div>
+        <button class="btn-google" onclick="signInGoogle()">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20"> Continuar con Google
+        </button>
+        <div class="divider-text">o con correo</div>
+        <div class="fg"><label>Correo</label><input type="email" id="loginEmail" placeholder="tu@email.com"></div>
+        <div class="fg"><label>Contraseña</label><input type="password" id="loginPass" placeholder="••••••••"></div>
+        <div class="form-error" id="loginErr"></div>
+        <button class="btn-primary" onclick="doLogin()">Iniciar sesión</button>
+        <div class="divider-text">o</div>
+        <button class="btn-secondary" onclick="renderPanelMode('register')">Crear cuenta nueva</button>`;
     } else {
-        body.innerHTML = '<div style="text-align:center;margin-bottom:1.5rem"><div style="font-size:3rem">✨</div><h3 style="margin-top:.5rem">Crear cuenta</h3></div>'
-            + '<button class="btn-full google" onclick="signInGoogle()"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20"> Continuar con Google</button>'
-            + '<div class="form-divider">o con correo</div>'
-            + '<div class="form-group"><label>Nombre</label><input type="text" id="regName" placeholder="Tu nombre"></div>'
-            + '<div class="form-group"><label>Correo</label><input type="email" id="regEmail" placeholder="tu@email.com"></div>'
-            + '<div class="form-group"><label>Contrasena</label><input type="password" id="regPass" placeholder="Minimo 6 caracteres"></div>'
-            + '<div class="form-error" id="regErr"></div>'
-            + '<button class="btn-full" onclick="doRegister()">Crear cuenta</button>'
-            + '<div class="form-divider">o</div>'
-            + '<button class="btn-secondary" onclick="renderPanelMode(&apos;login&apos;)">Ya tengo cuenta</button>';
+        body.innerHTML = `
+        <div style="text-align:center;margin-bottom:20px">
+            <div style="font-size:3rem;margin-bottom:8px">✨</div>
+            <h3 style="font-size:20px;font-weight:800">Crear cuenta</h3>
+        </div>
+        <button class="btn-google" onclick="signInGoogle()">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20"> Continuar con Google
+        </button>
+        <div class="divider-text">o con correo</div>
+        <div class="fg"><label>Nombre</label><input type="text" id="regName" placeholder="Tu nombre"></div>
+        <div class="fg"><label>Correo</label><input type="email" id="regEmail" placeholder="tu@email.com"></div>
+        <div class="fg"><label>Contraseña</label><input type="password" id="regPass" placeholder="Mínimo 6 caracteres"></div>
+        <div class="form-error" id="regErr"></div>
+        <button class="btn-primary" onclick="doRegister()">Crear cuenta</button>
+        <div class="divider-text">o</div>
+        <button class="btn-secondary" onclick="renderPanelMode('login')">Ya tengo cuenta</button>`;
     }
 }
 _app.renderPanelMode = window.renderPanelMode = mode => {
@@ -1530,21 +1543,21 @@ _app.adminAction = window.adminAction = async (docId, status) => {
 _app.openSubmitModal = window.openSubmitModal = () => {
     if (!currentUser) { openPanel('login'); showToast('Inicia sesion para proponer eventos'); return; }
     submitMode = 'new'; uploadedImages = []; isPriceFree = false; currentDateType = 'range';
-    gid('submitModalTitle').textContent = 'Proponer nuevo evento';
+    gid('submitTitle').textContent = 'Proponer nuevo evento';
     renderSubmitForm();
     gid('submitOverlay').classList.add('active');
 };
 _app.openSuggestModal = window.openSuggestModal = () => {
     if (!currentUser) { openPanel('login'); closeEventPanel(); return; }
     submitMode = 'suggest';
-    gid('submitModalTitle').textContent = 'Sugerir cambio';
+    gid('submitTitle').textContent = 'Sugerir cambio';
     renderSuggestForm();
     gid('submitOverlay').classList.add('active');
 };
 _app.closeSubmitModal = window.closeSubmitModal = () => gid('submitOverlay').classList.remove('active');
 
 function renderSubmitForm() {
-    gid('submitModalBody').innerHTML = `
+    gid('submitBody').innerHTML = `
     <div style="background:linear-gradient(135deg,#fff8f5,#fef3e6);border:1.5px solid #fde0d4;border-radius:12px;padding:16px;margin-bottom:20px">
         <div style="font-size:13px;font-weight:700;color:var(--terracotta);margin-bottom:8px">✨ Relleno automático con IA</div>
         <p style="font-size:12px;color:var(--gray);margin-bottom:10px">Pega el link del evento y la IA rellena el formulario automáticamente</p>
@@ -1626,7 +1639,7 @@ function renderSubmitForm() {
 }
 
 function renderSuggestForm() {
-    gid('submitModalBody').innerHTML = '<div style="background:#fff8e6;border-radius:8px;padding:.85rem;margin-bottom:1rem;font-size:.88rem;color:#c07a00"><strong>Evento:</strong> ' + (currentEvent ? currentEvent.title : '') + '<br><span style="font-size:.82rem;color:#888">Tu sugerencia sera revisada antes de aplicarse</span></div>'
+    gid('submitBody').innerHTML = '<div style="background:#fff8e6;border-radius:8px;padding:.85rem;margin-bottom:1rem;font-size:.88rem;color:#c07a00"><strong>Evento:</strong> ' + (currentEvent ? currentEvent.title : '') + '<br><span style="font-size:.82rem;color:#888">Tu sugerencia sera revisada antes de aplicarse</span></div>'
         + '<div class="form-group"><label>Que quieres corregir o agregar? *</label><textarea id="sg-message" rows="4" placeholder="Ej: El horario correcto es 19:00 - 23:00"></textarea></div>'
         + '<div class="form-row"><div class="form-group"><label>Horario correcto</label><input type="text" id="sg-schedule" placeholder="Ej: 19:00 - 23:00"></div><div class="form-group"><label>Precio correcto</label><input type="text" id="sg-price" placeholder="Ej: 8000 o GRATIS"></div></div>'
         + '<div class="form-row"><div class="form-group"><label>Instagram</label><input type="url" id="sg-instagram" placeholder="https://instagram.com/..."></div><div class="form-group"><label>Link directo al evento</label><input type="url" id="sg-srcUrl" placeholder="https://..."></div></div>'
