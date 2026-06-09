@@ -9362,12 +9362,71 @@
       "kid": false,
       "tipo": "charla",
       "id": null
+    },
+    {
+      "title": "Presentación investigación y sitio web Acervo Francisco Copello",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Presentación de investigación y sitio web del Acervo Francisco Copello en el MNBA.",
+      "date": "Mar 16 de junio 12:00",
+      "dateMs": 1718544000000,
+      "month": 5,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Presentación",
+        "Investigación"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
+    },
+    {
+      "title": "Feria Bocas Moradas - Venta de Bodega",
+      "cat": "food",
+      "emoji": "🍷",
+      "desc": "Feria de vinos y gastronomía con venta de bodega.",
+      "date": "Sab 13 de junio 10:00",
+      "dateMs": 1718318400000,
+      "month": 5,
+      "days": [
+        13,
+        14
+      ],
+      "venue": "Mall Plaza Los Dominicos",
+      "address": "Las Condes",
+      "zone": "lc",
+      "mapsQ": "Mall+Plaza+Los+Dominicos",
+      "price": null,
+      "src": "PuntoTicket - Santiago",
+      "srcUrl": "https://www.puntoticket.com/",
+      "img": "",
+      "tags": [
+        "Feria",
+        "Gastronomía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "fest",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-09",
-    "totalEvents": 237,
+    "totalEvents": 239,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
