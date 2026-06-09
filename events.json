@@ -9161,12 +9161,155 @@
       "kid": true,
       "tipo": "conc",
       "id": null
+    },
+    {
+      "title": "Comparsa de Muertos",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra que fusiona teatro físico, danza, Butoh, música y canto en un homenaje a la memoria, los ancestros y la vida. Inspirada en la celebración mexicana del Día de Muertos.",
+      "date": "Mié 10 de junio 19:00",
+      "dateMs": 1749095400000,
+      "month": 5,
+      "days": [
+        10,
+        11
+      ],
+      "venue": "Estación Mapocho",
+      "address": "Centro Cultural Estación Mapocho, Santiago",
+      "zone": "cen",
+      "mapsQ": "Estacion+Mapocho+Santiago",
+      "price": null,
+      "src": "Estación Mapocho",
+      "srcUrl": "https://www.estacionmapocho.cl/",
+      "img": "",
+      "tags": [
+        "Teatro",
+        "Danza",
+        "Arte escénico"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
+    },
+    {
+      "title": "Presentación investigación: Acervo Francisco Copello",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Presentación de investigación y sitio web del Acervo Francisco Copello.",
+      "date": "Mar 16 de junio 12:00",
+      "dateMs": 1749610200000,
+      "month": 5,
+      "days": [
+        16
+      ],
+      "venue": "Salón José Miguel Blanco",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "MNBA+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Lanzamiento",
+        "Investigación",
+        "Patrimonio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
+    },
+    {
+      "title": "Dopamine Land: experiencia multisensorial",
+      "cat": "culture",
+      "emoji": "✨",
+      "desc": "Experiencia multisensorial inmersiva en Dopamine Land.",
+      "date": "Mar 9 de junio",
+      "dateMs": 1749000000000,
+      "month": 5,
+      "days": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        1,
+        2
+      ],
+      "venue": "Cenco Costanera",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Dopamine+Land+Santiago",
+      "price": 10000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Experiencia inmersiva",
+        "Arte digital"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Exposición Centro Cultural Vicente Bianchi",
+      "cat": "culture",
+      "emoji": "🖼️",
+      "desc": "Exposición en el Centro Cultural Vicente Bianchi de La Reina.",
+      "date": "Sab 13 de junio",
+      "dateMs": 1749390600000,
+      "month": 5,
+      "days": [
+        13,
+        14
+      ],
+      "venue": "Centro Cultural Vicente Bianchi",
+      "address": "Santa Rita 1153, La Reina",
+      "zone": "lare",
+      "mapsQ": "Centro+Cultural+Vicente+Bianchi+La+Reina",
+      "price": 0,
+      "src": "Corporación Cultural La Reina",
+      "srcUrl": "https://culturalareina.cl/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Artes visuales"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-09",
-    "totalEvents": 231,
+    "totalEvents": 235,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
