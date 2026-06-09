@@ -9304,12 +9304,70 @@
       "kid": false,
       "tipo": "expo",
       "id": null
+    },
+    {
+      "title": "Cambiatón de láminas",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Evento de intercambio de láminas para todo público en el Estadio Municipal Paul Harris.",
+      "date": "Dom 14 de junio 10:00",
+      "dateMs": 1749868800000,
+      "month": 5,
+      "days": [
+        14
+      ],
+      "venue": "Estadio Municipal Paul Harris",
+      "address": "Estadio Municipal Paul Harris, Las Condes",
+      "zone": "lc",
+      "mapsQ": "Estadio+Municipal+Paul+Harris+Las+Condes",
+      "price": 0,
+      "src": "Las Condes - Panorama mensual",
+      "srcUrl": "https://www2.lascondes.cl/vive-las-condes/panorama-mensual/",
+      "img": "",
+      "tags": [
+        "Láminas",
+        "Intercambio"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
+    },
+    {
+      "title": "Visita guiada en Museo Ralli",
+      "cat": "culture",
+      "emoji": "🖼️",
+      "desc": "Recorrido guiado por las colecciones del Museo Ralli.",
+      "date": "Sab 13 de junio 12:00",
+      "dateMs": 1749955200000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Museo Ralli",
+      "address": "Museo Ralli, Vitacura",
+      "zone": "vit",
+      "mapsQ": "Museo+Ralli+Vitacura",
+      "price": null,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Museo",
+        "Arte"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-09",
-    "totalEvents": 235,
+    "totalEvents": 237,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
