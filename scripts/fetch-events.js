@@ -47,10 +47,12 @@ const SOURCES = [
   { name: 'Eventbrite - Santiago',             zone: 'cen',  url: 'https://www.eventbrite.cl/d/chile--santiago/eventos/' },
   // PuntoTicket - mayor ticketera de Chile, HTML estático
   { name: 'PuntoTicket - Santiago',            zone: 'cen',  url: 'https://www.puntoticket.com/' },
-  // Ticketpro Chile - HTML accesible
-  { name: 'Ticketpro - Santiago',              zone: 'cen',  url: 'https://www.ticketpro.cl/' },
-  // Teatro Nacional / Teatros municipales
+  // Teatro Municipal de Santiago
   { name: 'Teatro Municipal de Santiago',      zone: 'cen',  url: 'https://www.municipal.cl/cartelera/' },
+  // TicketPlus - sitemap XML estático (evita JS rendering)
+  { name: 'TicketPlus - Sitemap',              zone: 'cen',  url: 'https://ticketplus.cl/sitemap.xml', isXml: true },
+  // Passline - ticketera alternativa
+  { name: 'Passline - Santiago',               zone: 'cen',  url: 'https://www.passline.com/eventos/ciudad-santiago' },
 ];
 
 // ── Limpia HTML a texto plano ─────────────────────────────────────────────────
@@ -106,22 +108,35 @@ NOTAS:
 // ── Raspar una URL ────────────────────────────────────────────────────────────
 async function scrape(source) {
   try {
-    const res = await fetch(source.url, {
-      headers: {
-        'User-Agent':      'Mozilla/5.0 (compatible; GautBot/1.0)',
-        'Accept-Language': 'es-CL,es;q=0.9',
-        'Accept':          'text/html'
-      },
-      signal: AbortSignal.timeout(15000)
-    });
+    const headers = {
+      'User-Agent':      'Mozilla/5.0 (compatible; GautBot/1.0)',
+      'Accept-Language': 'es-CL,es;q=0.9',
+      'Accept':          source.isXml ? 'application/xml,text/xml' : 'text/html'
+    };
+    const res = await fetch(source.url, { headers, signal: AbortSignal.timeout(15000) });
     if (!res.ok) {
       console.warn(`  SKIP ${source.name}: HTTP ${res.status}`);
       return null;
     }
-    const html = await res.text();
-    const text = htmlToText(html);
-    console.log(`  OK   ${source.name}: ${text.length} chars`);
-    return text;
+    const rawText = await res.text();
+    let text;
+    if (source.isXml) {
+      // Extract URLs and titles from sitemap XML
+      const urls = [...rawText.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+      const titles = [...rawText.matchAll(/<title>([^<]+)<\/title>/gi)].map(m => m[1]);
+      // Filter to event URLs only
+      const eventUrls = urls.filter(u => u.includes('/events/') || u.includes('/evento/'));
+      if (eventUrls.length === 0) {
+        console.warn(`  SKIP ${source.name}: no event URLs in sitemap`);
+        return null;
+      }
+      text = 'URLs de eventos encontradas en sitemap:\n' + eventUrls.slice(0, 50).join('\n');
+      console.log(`  OK   ${source.name}: ${eventUrls.length} event URLs from sitemap`);
+    } else {
+      text = htmlToText(rawText);
+      console.log(`  OK   ${source.name}: ${text.length} chars`);
+    }
+    return text.slice(0, CHARS_PER_SOURCE);
   } catch (err) {
     console.warn(`  SKIP ${source.name}: ${err.message}`);
     return null;
