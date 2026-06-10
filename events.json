@@ -9601,12 +9601,42 @@
       "kid": true,
       "tipo": "dep",
       "id": null
+    },
+    {
+      "title": "Festival Pirque Day",
+      "cat": "culture",
+      "emoji": "🎉",
+      "desc": "Experiencia cultural y muestra que celebra el espíritu rural en Plaza Ñuñoa Sur con actividades variadas.",
+      "date": "Vie 6 de junio - Sab 7 de junio",
+      "dateMs": 1747737600000,
+      "month": 5,
+      "days": [
+        6,
+        7
+      ],
+      "venue": "Plaza Ñuñoa Sur",
+      "address": "Ñuñoa",
+      "zone": "nun",
+      "mapsQ": "Plaza+Nunoa+Sur+Santiago",
+      "price": null,
+      "src": "Municipalidad Nunoa - Cultura",
+      "srcUrl": "https://www.nunoa.cl/category/cultura/",
+      "img": "",
+      "tags": [
+        "Festival",
+        "Cultura"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "fest",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-10",
-    "totalEvents": 245,
+    "totalEvents": 246,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
