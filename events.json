@@ -9421,12 +9421,69 @@
       "kid": false,
       "tipo": "fest",
       "id": null
+    },
+    {
+      "title": "Presentación Acervo Francisco Copello",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Presentación de investigación y sitio web del Acervo Francisco Copello.",
+      "date": "Mar 16 de junio 12:00",
+      "dateMs": 1718564400000,
+      "month": 5,
+      "days": [
+        16
+      ],
+      "venue": "Salón José Miguel Blanco - Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Investigación",
+        "Presentación"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
+    },
+    {
+      "title": "Visita guiada Museo Ralli",
+      "cat": "culture",
+      "emoji": "🎨",
+      "desc": "Visita guiada al Museo Ralli de Vitacura.",
+      "date": "Sab 13 de junio 12:00",
+      "dateMs": 1718280000000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Museo Ralli",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Museo+Ralli+Vitacura",
+      "price": null,
+      "src": "Vitacura Cultura",
+      "srcUrl": "https://vitacuracultura.cl/",
+      "img": "",
+      "tags": [
+        "Recorrido Guiado"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-09",
-    "totalEvents": 239,
+    "lastUpdated": "2026-06-10",
+    "totalEvents": 241,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
