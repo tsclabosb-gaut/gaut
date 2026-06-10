@@ -1493,7 +1493,10 @@ async function renderFavsTab(el) {
                     <button class="fav-rm" onclick="event.stopPropagation();removeFav('${d.id}',this)">✕</button>
                 </div>`;
             }).join('') + '</div>';
-    } catch(e) { el.innerHTML = '<div class="empty-state-sm">Error: ' + e.message + '</div>'; }
+    } catch(e) { 
+        console.error('renderFavsTab error:', e.code, e.message);
+        el.innerHTML = '<div class="empty-sm"><p style="color:#e74c3c;font-size:13px">Error: ' + e.message + '</p><p style="font-size:12px;color:var(--gray);margin-top:6px">Código: ' + (e.code||'?') + '</p></div>'; 
+    }
 }
 _app.removeFav = window.removeFav = async (docId, btn) => {
     try { await deleteDoc(doc(db, 'favorites', docId)); btn.closest('.fav-item').remove(); showToast('Eliminado'); } catch(e) {}
@@ -1627,16 +1630,16 @@ function renderSubmitForm() {
         <div class="fg"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div>
         <div class="fg"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div>
     </div>
-    <div class="fg"><label>Lugar / Recinto *</label><input type="text" id="sf-venue" placeholder="Nombre del lugar"></div>
-    <div class="fg"><label>Dirección</label>
+    <div class="fg"><label>Dirección del evento *</label>
         <div class="address-wrap">
-            <input type="text" id="sf-address" placeholder="Busca la dirección..." autocomplete="off" oninput="searchAddress(this.value)">
+            <input type="text" id="sf-address" placeholder="Escribe la dirección o nombre del lugar..." autocomplete="off" oninput="searchAddress(this.value)">
             <div id="addressSuggestions" class="address-list" style="display:none"></div>
         </div>
+        <p style="font-size:11px;color:var(--gray);margin-top:4px">El nombre del recinto se detecta automáticamente</p>
     </div>
     <div class="form-row-2">
+        <div class="fg"><label>Recinto / Lugar</label><input type="text" id="sf-venue" placeholder="Se llena automáticamente" style="opacity:.7"></div>
         <div class="fg"><label>Comuna</label><input type="text" id="sf-commune" readonly style="opacity:.6"></div>
-        <div class="fg"><label>Región</label><input type="text" id="sf-region" readonly style="opacity:.6"></div>
     </div>
     <div class="form-row-2">
         <div class="fg"><label>Link entradas</label><input type="url" id="sf-tickets" placeholder="https://..."></div>
@@ -1798,6 +1801,135 @@ price=número entero en pesos chilenos, 0 si gratis.`
         if (status) status.innerHTML = '<span style="color:#e74c3c">⚠️ ' + e.message + '</span>';
     }
 };
+// ── Date type & price toggles ──
+_app.setDateType = window.setDateType = type => {
+    currentDateType = type;
+    const r = document.getElementById('dt-range');
+    const p = document.getElementById('dt-permanent');
+    const rf = document.getElementById('dateFieldsRange');
+    const pf = document.getElementById('dateFieldsPermanent');
+    if (r) r.classList.toggle('active', type === 'range');
+    if (p) p.classList.toggle('active', type === 'permanent');
+    if (rf) rf.style.display = type === 'range' ? 'block' : 'none';
+    if (pf) pf.style.display = type === 'permanent' ? 'block' : 'none';
+};
+
+_app.toggleFreePrice = window.toggleFreePrice = free => {
+    isPriceFree = free;
+    const fb = document.getElementById('priceFreeBtn');
+    const pb = document.getElementById('pricePaidBtn');
+    const pi = document.getElementById('sf-price');
+    if (fb) fb.classList.toggle('active', free);
+    if (pb) pb.classList.toggle('active', !free);
+    if (pi) { pi.style.display = free ? 'none' : 'block'; if (free) pi.value = ''; }
+};
+
+// ── Missing implementations ──
+
+_app.quickFav = window.quickFav = async id => {
+    if (!currentUser) { openPanel('login'); return; }
+    const ev = findEvent(id);
+    if (!ev) return;
+    const added = await toggleFavDB(ev);
+    const btn = document.getElementById('fav-card-' + normalizeId(id));
+    if (btn) btn.textContent = added ? '❤️' : '🤍';
+};
+
+_app.searchAddress = window.searchAddress = q => {
+    const sugBox = document.getElementById('addressSuggestions');
+    if (!sugBox) return;
+    clearTimeout(window._addrTimer);
+    if (!q || q.length < 3) { sugBox.style.display = 'none'; return; }
+    window._addrTimer = setTimeout(async () => {
+        try {
+            const url = 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(q + ' Chile') + '&format=json&addressdetails=1&limit=6&countrycodes=cl&accept-language=es';
+            const r = await fetch(url, { headers: { 'User-Agent': 'DescubreTuCiudad/1.0' }, signal: AbortSignal.timeout(5000) });
+            const data = await r.json();
+            if (!data.length) { sugBox.style.display = 'none'; return; }
+            sugBox.innerHTML = data.map(item => {
+                const a = item.address || {};
+                const name = item.name || a.amenity || a.tourism || '';
+                const street = [a.road || a.pedestrian || '', a.house_number || ''].filter(Boolean).join(' ');
+                const commune = a.city || a.town || a.village || a.suburb || '';
+                const display = [name, street, commune].filter(Boolean).join(', ') || item.display_name.split(',').slice(0,3).join(',');
+                const safeItem = JSON.stringify(item).replace(/"/g, '&quot;');
+                return '<div class="address-item" onclick="selectAddress(' + safeItem + ')">' + display + '</div>';
+            }).join('');
+            sugBox.style.display = 'block';
+        } catch(e) { sugBox.style.display = 'none'; }
+    }, 400);
+};
+
+_app.selectAddress = window.selectAddress = item => {
+    const a = item.address || {};
+    const street = [a.road || a.pedestrian || a.path || '', a.house_number || ''].filter(Boolean).join(' ');
+    const commune = a.city || a.town || a.village || a.municipality || a.suburb || '';
+    const cleanAddr = [street, commune].filter(Boolean).join(', ') || item.display_name.split(',').slice(0,3).join(',').trim();
+    const placeName = item.name || a.amenity || a.tourism || a.leisure || '';
+
+    const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+    set('sf-address', cleanAddr);
+    if (placeName) set('sf-venue', placeName);
+    set('sf-commune', commune);
+
+    const commLower = commune.toLowerCase();
+    const zoneMap = {'vitacura':'vit','las condes':'lc','providencia':'prov','ñuñoa':'nun','nunoa':'nun','la reina':'lare','santiago':'cen','macul':'nun'};
+    const zone = Object.entries(zoneMap).find(([k]) => commLower.includes(k));
+    window._detectedZone = zone ? zone[1] : 'cen';
+
+    const sugBox = document.getElementById('addressSuggestions');
+    if (sugBox) sugBox.style.display = 'none';
+};
+
+_app.handleFileUpload = window.handleFileUpload = async files => {
+    const statusEl = document.getElementById('uploadStatus');
+    if (CLOUDINARY_CLOUD === 'TU_CLOUD_NAME') {
+        for (const file of files) {
+            const url = URL.createObjectURL(file);
+            uploadedImages.push({ url, public_id: null, isCover: uploadedImages.length === 0 });
+        }
+        if (statusEl) statusEl.textContent = uploadedImages.length + ' foto(s) lista(s) — configura Cloudinary para subida real';
+        renderUploadPreview();
+        return;
+    }
+    if (statusEl) statusEl.textContent = 'Subiendo...';
+    for (const file of files) {
+        const fd = new FormData();
+        fd.append('file', file);
+        fd.append('upload_preset', CLOUDINARY_PRESET);
+        try {
+            const r = await fetch('https://api.cloudinary.com/v1_1/' + CLOUDINARY_CLOUD + '/image/upload', { method:'POST', body:fd });
+            const data = await r.json();
+            uploadedImages.push({ url: data.secure_url, public_id: data.public_id, isCover: uploadedImages.length === 0 });
+        } catch(e) { showToast('Error subiendo imagen'); }
+    }
+    if (statusEl) statusEl.textContent = uploadedImages.length + ' foto(s) lista(s)';
+    renderUploadPreview();
+};
+
+_app.setCoverImage = window.setCoverImage = i => {
+    uploadedImages.forEach((img, j) => img.isCover = j === i);
+    renderUploadPreview();
+};
+
+_app.removeImage = window.removeImage = i => {
+    uploadedImages.splice(i, 1);
+    if (uploadedImages.length > 0 && !uploadedImages.some(x => x.isCover)) uploadedImages[0].isCover = true;
+    renderUploadPreview();
+};
+
+function renderUploadPreview() {
+    const prev = document.getElementById('uploadPreview');
+    if (!prev) return;
+    prev.innerHTML = uploadedImages.map((img, i) =>
+        '<div class="upload-thumb ' + (img.isCover ? 'cover' : '') + '" onclick="setCoverImage(' + i + ')" title="Clic para portada">'
+        + '<img src="' + img.url + '" alt="foto">'
+        + (img.isCover ? '<div class="upload-cover-lbl">PORTADA</div>' : '')
+        + '<button class="upload-rm" onclick="event.stopPropagation();removeImage(' + i + ')">x</button>'
+        + '</div>'
+    ).join('');
+}
+
 _app.submitForm = window.submitForm = async () => {
     if (!currentUser) return;
     try {
