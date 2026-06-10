@@ -121,17 +121,37 @@ async function scrape(source) {
     const rawText = await res.text();
     let text;
     if (source.isXml) {
-      // Extract URLs and titles from sitemap XML
+      // Extract event URLs from sitemap XML
       const urls = [...rawText.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-      const titles = [...rawText.matchAll(/<title>([^<]+)<\/title>/gi)].map(m => m[1]);
-      // Filter to event URLs only
       const eventUrls = urls.filter(u => u.includes('/events/') || u.includes('/evento/'));
       if (eventUrls.length === 0) {
         console.warn(`  SKIP ${source.name}: no event URLs in sitemap`);
         return null;
       }
-      text = 'URLs de eventos encontradas en sitemap:\n' + eventUrls.slice(0, 50).join('\n');
-      console.log(`  OK   ${source.name}: ${eventUrls.length} event URLs from sitemap`);
+      console.log(`  OK   ${source.name}: ${eventUrls.length} event URLs from sitemap, fetching first 12...`);
+      // Fetch first 12 event pages to get real content
+      const pageTexts = [];
+      const toFetch = eventUrls.slice(0, 12);
+      await Promise.allSettled(toFetch.map(async url => {
+        try {
+          const r = await fetch(url, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GautBot/1.0)', 'Accept-Language': 'es-CL,es;q=0.9' },
+            signal: AbortSignal.timeout(8000)
+          });
+          if (!r.ok) return;
+          const pageHtml = await r.text();
+          const pageText = htmlToText(pageHtml, 800);
+          if (pageText.length > 100) pageTexts.push(`--- ${url} ---
+${pageText}`);
+        } catch(e) { /* skip failed pages */ }
+      }));
+      if (pageTexts.length === 0) {
+        // Fallback: just send the URLs and let Claude infer from them
+        text = 'Eventos en TicketPlus Chile (infiere de las URLs):\n' + eventUrls.slice(0, 30).join('\n');
+      } else {
+        text = pageTexts.join('\n\n').slice(0, CHARS_PER_SOURCE);
+        console.log(`  TicketPlus: got content from ${pageTexts.length}/${toFetch.length} pages`);
+      }
     } else {
       text = htmlToText(rawText);
       console.log(`  OK   ${source.name}: ${text.length} chars`);
