@@ -148,3 +148,46 @@ data.meta = {
 
 fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 console.log(`\nDone. Added ${added} events. Total: ${events.length}`);
+
+// ── CIAO FIORENTINA ──
+const ciaoFiorentina = {
+    title: "Ciao Fiorentina",
+    cat: "food",
+    emoji: "☕",
+    tipo: "rest",
+    desc: "Cafetería de especialidad con carta de autor en una casona de 1942. Laboratorio gastronómico con café de especialidad, carta italiana-fusión y terraza. Pet friendly en toda la casa, área cowork en segundo piso, opciones sin gluten y sin azúcar.",
+    date: "Mar–Dom (Lunes cerrado)",
+    schedule: "Mar–Sáb 9:00–21:00 | Dom 10:00–20:00",
+    venue: "Ciao Fiorentina",
+    address: "Avenida Pocuro 3015, Providencia",
+    zone: "prov",
+    mapsQ: "Ciao+Fiorentina+Pocuro+3015+Providencia+Santiago",
+    price: null,
+    priceRange: "$7.990–$15.000 aprox",
+    web: "https://ciaofiorentina.cl",
+    instagram: "https://www.instagram.com/ciaofiorentina",
+    img: "https://ciaofiorentina.cl/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-05-at-12.48.35-5.jpeg",
+    tags: ["Café de especialidad", "Carta de autor", "Terraza", "Cowork", "Sin gluten"],
+    acc: false,
+    pet: true,
+    kid: true,
+    kidInfo: "Área de juegos sin costo adicional (solo consumo de la mesa). Opciones sin azúcar y sin gluten para niños.",
+    petInfo: "Pet friendly en toda la casa, incluyendo terraza interior.",
+    hours: {
+        Mon: null,
+        Tue: "09:00–21:00",
+        Wed: "09:00–21:00",
+        Thu: "09:00–21:00",
+        Fri: "09:00–21:00",
+        Sat: "09:00–21:00",
+        Sun: "10:00–20:00"
+    },
+    id: maxId + 10
+};
+
+if (!existingTitles.has(ciaoFiorentina.title.toLowerCase())) {
+    events.push(ciaoFiorentina);
+    existingTitles.add(ciaoFiorentina.title.toLowerCase());
+    added++;
+    console.log(`  + Added: ${ciaoFiorentina.title}`);
+}
