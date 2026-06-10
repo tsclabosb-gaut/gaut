@@ -971,7 +971,11 @@ async function isFav(eventId) {
     try {
         const snap = await getDoc(doc(db, 'favorites', currentUser.uid + '_' + normalizeId(eventId)));
         return snap.exists();
-    } catch(e) { return false; }
+    } catch(e) { 
+        if (e.code === 'permission-denied') console.warn('isFav permission-denied - check Firestore rules');
+        else console.warn('isFav error:', e.code, e.message);
+        return false; 
+    }
 }
 
 async function toggleFavDB(ev) {
@@ -1000,6 +1004,7 @@ async function toggleFavDB(ev) {
     } catch(e) {
         console.error('toggleFavDB error:', e.code, e.message);
         if (e.code === 'permission-denied') {
+            console.error('FIRESTORE PERMISSION DENIED on favorites - rules not updated!');
             showToast('⚠️ Sin permisos — actualiza las Firestore Rules');
         } else {
             showToast('Error: ' + e.message);
@@ -1185,13 +1190,19 @@ async function quickFav(id) {
 }
 
 _app.openEventPanel = window.openEventPanel = async (eventId) => {
-    console.log('openEventPanel called:', eventId);
+    console.log('openEventPanel called:', eventId, 'allEvents count:', allEvents.length);
     const ev = findEvent(eventId);
-    if (!ev) { console.warn('Evento no encontrado:', eventId, 'allEvents:', allEvents.length); return; }
+    if (!ev) { 
+        console.error('Evento no encontrado:', eventId); 
+        console.log('Available IDs:', allEvents.slice(0,5).map(e => e.id));
+        return; 
+    }
     const panel = document.getElementById('eventPanel');
     const overlay = document.getElementById('eventPanelOverlay');
     if (!panel) { console.error('eventPanel element not found!'); return; }
     currentEvent = ev;
+    console.log('Opening event:', ev.title);
+    try {
 
     const epImg = gid('epImgWrap');
     const closeBtn = epImg.querySelector('.ep-close');
@@ -1236,7 +1247,7 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
 
     const faved = await isFav(ev.id);
     const favBtn = gid('epBtnFav');
-    favBtn.innerHTML = faved ? '❤️ Guardado' : '🤍 Guardar';
+    favBtn.textContent = faved ? '❤️ Guardado' : '🤍 Guardar';
     favBtn.className = 'ep-action-btn fav' + (faved ? ' saved' : '');
 
     await renderRatingBlock(ev.id);
@@ -1246,6 +1257,7 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     panel.classList.add('active');
     if(overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    } catch(err) { console.error('openEventPanel error:', err); }
 };
 
 _app.closeEventPanel = window.closeEventPanel = () => {
@@ -1261,7 +1273,7 @@ _app.toggleFavorite = window.toggleFavorite = async () => {
     btn.textContent = added ? '❤️ Guardado' : '🤍 Guardar';
     btn.className = 'ep-action-btn fav' + (added ? ' saved' : '');
     const cardBtn = document.getElementById('fav-card-' + normalizeId(currentEvent.id));
-    if (cardBtn) cardBtn.innerHTML = added ? '❤️' : '&#129293;';
+    if (cardBtn) cardBtn.textContent = added ? '❤️' : '🤍';
 };
 
 function renderCommentForm() {
