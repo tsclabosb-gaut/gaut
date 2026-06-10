@@ -585,17 +585,30 @@ img { display: block; max-width: 100%; }
 .empty-sm { text-align: center; padding: 30px 16px; color: var(--gray); }
 .empty-sm .ei { font-size: 2.5rem; margin-bottom: 10px; }
 
+/* ── DAY PICKER ── */
+.day-btn {
+  padding: 7px 12px; border-radius: var(--radius-full);
+  border: 1.5px solid var(--gray-light); background: white;
+  font-size: 13px; font-weight: 500; cursor: pointer; transition: var(--transition);
+  color: var(--gray);
+}
+.day-btn.active { background: var(--terracotta); color: white; border-color: var(--terracotta); font-weight: 600; }
+.day-hours-row { display: flex; align-items: center; gap: 8px; background: var(--bg); border-radius: var(--radius-md); padding: 8px 12px; }
+.day-hours-label { font-size: 13px; font-weight: 600; width: 32px; color: var(--carbon); }
+
 /* ── BOTTOM NAV (mobile) ── */
 /* ── FAB ── */
 .fab-propose {
-  position: fixed; bottom: 80px; right: 20px; z-index: 490;
-  width: 52px; height: 52px; border-radius: 50%;
+  position: fixed; bottom: 80px; right: 16px; z-index: 490;
+  height: 48px; border-radius: var(--radius-full);
   background: var(--terracotta); color: white; border: none;
-  font-size: 24px; font-weight: 300; cursor: pointer;
+  padding: 0 20px 0 16px;
+  font-weight: 600; font-size: 14px; cursor: pointer;
   box-shadow: 0 4px 16px rgba(200,90,50,0.4);
-  transition: var(--transition); display: flex; align-items: center; justify-content: center;
+  transition: var(--transition); display: flex; align-items: center; gap: 8px;
 }
-.fab-propose:hover { background: #b54d28; transform: scale(1.08); }
+.fab-propose:hover { background: #b54d28; transform: translateY(-2px); }
+.fab-label { font-size: 14px; font-weight: 600; }
 @media (min-width: 1024px) { .fab-propose { bottom: 24px; right: 32px; } }
 
 /* ── BOTTOM NAV ── */
@@ -768,7 +781,7 @@ img { display: block; max-width: 100%; }
 <div class="submit-overlay" id="submitOverlay">
   <div class="submit-modal">
     <div class="submit-modal-hdr">
-      <h3 id="submitTitle">Proponer evento</h3>
+      <h3 id="submitTitle">Proponer nuevo evento o restaurante</h3>
       <button style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--gray)" onclick="closeSubmitModal()">✕</button>
     </div>
     <div class="submit-modal-body" id="submitBody"></div>
@@ -781,7 +794,7 @@ img { display: block; max-width: 100%; }
 
 <!-- BOTTOM NAV -->
 <!-- Floating propose button -->
-<button class="fab-propose" onclick="openSubmitModal()" title="Proponer evento">＋</button>
+<button class="fab-propose" onclick="openSubmitModal()" title="Agregar evento"><span style="font-size:20px;line-height:1">＋</span><span class="fab-label">Agregar evento</span></button>
 
 <nav class="bottom-nav">
   <button class="bottom-nav-item active" id="nav-home" onclick="navTo('home')"><span class="nav-icon">🏠</span>Inicio</button>
@@ -834,6 +847,25 @@ function quickFav(...a) { return _app.quickFav && _app.quickFav(...a); }
 function searchUsers(...a) { return _app.searchUsers && _app.searchUsers(...a); }
 function toggleFollow(...a) { return _app.toggleFollow && _app.toggleFollow(...a); }
 function viewUserFavs(...a) { return _app.viewUserFavs && _app.viewUserFavs(...a); }
+function toggleDay(el) {
+    el.classList.toggle('active');
+    const container = document.getElementById('dayHoursContainer');
+    if (!container) return;
+    const day = el.dataset.day;
+    if (el.classList.contains('active')) {
+        const row = document.createElement('div');
+        row.className = 'day-hours-row'; row.id = 'hours-' + day;
+        row.innerHTML = '<span class="day-hours-label">' + day + '</span>'
+            + '<input type="time" id="open-' + day + '" value="09:00" style="border:1.5px solid var(--gray-light);border-radius:8px;padding:5px 8px;font-size:13px;font-family:inherit">'
+            + '<span style="font-size:13px;color:var(--gray)">a</span>'
+            + '<input type="time" id="close-' + day + '" value="21:00" style="border:1.5px solid var(--gray-light);border-radius:8px;padding:5px 8px;font-size:13px;font-family:inherit">'
+            + '<button type="button" onclick="this.closest('.day-hours-row').remove();document.querySelector('[data-day=\"' + day + '\"]').classList.remove('active')" style="background:none;border:none;color:#ccc;cursor:pointer;font-size:16px;padding:0 4px">✕</button>';
+        container.appendChild(row);
+    } else {
+        const row = document.getElementById('hours-' + day);
+        if (row) row.remove();
+    }
+}
 </script>
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
@@ -1757,7 +1789,7 @@ _app.adminAction = window.adminAction = async (docId, status) => {
 _app.openSubmitModal = window.openSubmitModal = () => {
     if (!currentUser) { openPanel('login'); showToast('Inicia sesion para proponer eventos'); return; }
     submitMode = 'new'; uploadedImages = []; isPriceFree = false; currentDateType = 'range';
-    gid('submitTitle').textContent = 'Proponer nuevo evento';
+    gid('submitTitle').textContent = 'Proponer nuevo evento o restaurante';
     renderSubmitForm();
     gid('submitOverlay').classList.add('active');
 };
@@ -1797,25 +1829,38 @@ function renderSubmitForm() {
             <input type="number" id="sf-price" placeholder="Ej: 5000" min="0">
         </div>
     </div>
-    <div class="fg"><label>¿Tiene fechas?</label>
+    <div class="fg"><label>¿Cuándo es?</label>
         <div class="date-type-row">
-            <div class="date-type-btn active" id="dt-range" onclick="setDateType('range')">📅 Con fecha inicio/fin</div>
-            <div class="date-type-btn" id="dt-permanent" onclick="setDateType('permanent')">🔄 Siempre abierto</div>
+            <div class="date-type-btn active" id="dt-range" onclick="setDateType('range')">📅 Fechas específicas</div>
+            <div class="date-type-btn" id="dt-permanent" onclick="setDateType('permanent')">📆 Días y horarios</div>
         </div>
         <div id="dateFieldsRange">
             <div class="form-row-2">
                 <div class="fg"><label>Fecha inicio</label><input type="date" id="sf-dateStart"></div>
                 <div class="fg"><label>Fecha fin</label><input type="date" id="sf-dateEnd"></div>
             </div>
+            <div class="form-row-2">
+                <div class="fg"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div>
+                <div class="fg"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div>
+            </div>
         </div>
         <div id="dateFieldsPermanent" style="display:none">
-            <input type="text" id="sf-dateText" value="Abierto diariamente">
+            <div style="margin-bottom:10px">
+                <div style="font-size:12px;color:var(--gray);margin-bottom:8px">Selecciona los días disponibles:</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px" id="weekdayPicker">
+                    <button type="button" class="day-btn" data-day="Lun" onclick="toggleDay(this)">Lun</button>
+                    <button type="button" class="day-btn" data-day="Mar" onclick="toggleDay(this)">Mar</button>
+                    <button type="button" class="day-btn" data-day="Mié" onclick="toggleDay(this)">Mié</button>
+                    <button type="button" class="day-btn" data-day="Jue" onclick="toggleDay(this)">Jue</button>
+                    <button type="button" class="day-btn" data-day="Vie" onclick="toggleDay(this)">Vie</button>
+                    <button type="button" class="day-btn" data-day="Sáb" onclick="toggleDay(this)">Sáb</button>
+                    <button type="button" class="day-btn" data-day="Dom" onclick="toggleDay(this)">Dom</button>
+                </div>
+            </div>
+            <div id="dayHoursContainer" style="display:flex;flex-direction:column;gap:6px"></div>
         </div>
     </div>
-    <div class="form-row-2">
-        <div class="fg"><label>Hora inicio</label><input type="time" id="sf-timeStart"></div>
-        <div class="fg"><label>Hora fin</label><input type="time" id="sf-timeEnd"></div>
-    </div>
+
     <div class="fg"><label>Dirección del evento *</label>
         <div class="address-wrap">
             <input type="text" id="sf-address" placeholder="Escribe dirección o nombre del lugar..." autocomplete="off" oninput="searchAddress(this.value)">
@@ -1885,20 +1930,32 @@ _app.fillFromUrl = window.fillFromUrl = async () => {
         const proxies = [
             `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`,
             `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`,
+            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
         ];
         for (const proxy of proxies) {
             try {
-                const r = await fetch(proxy, { signal: AbortSignal.timeout(8000) });
+                const r = await fetch(proxy, { signal: AbortSignal.timeout(10000) });
                 if (!r.ok) continue;
-                const data = await r.json();
-                const raw = data.contents || data.body || '';
-                if (raw.length > 200) {
-                    return raw.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-                              .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-                              .replace(/<[^>]+>/g, ' ')
-                              .replace(/\s+/g, ' ')
-                              .trim()
-                              .substring(0, 5000);
+                // Handle both JSON (allorigins) and plain text (corsproxy, codetabs) responses
+                const ct = r.headers.get('content-type') || '';
+                let raw = '';
+                if (ct.includes('json')) {
+                    const data = await r.json();
+                    raw = data.contents || data.body || data.data || '';
+                } else {
+                    raw = await r.text();
+                }
+                if (raw.length > 300) {
+                    return raw
+                        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+                        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+                        .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+                        .replace(/<!--[\s\S]*?-->/g, '')
+                        .replace(/<[^>]+>/g, ' ')
+                        .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+                        .replace(/\s{2,}/g, ' ')
+                        .trim()
+                        .substring(0, 6000);
                 }
             } catch(e) { /* try next proxy */ }
         }
@@ -2118,18 +2175,32 @@ _app.submitForm = window.submitForm = async () => {
     try {
         if (submitMode === 'new') {
             const title = (gid('sf-title') ? gid('sf-title').value : '').trim();
-            const venue = (gid('sf-venue') ? gid('sf-venue').value : '').trim();
-            if (!title || !venue) { const e = gid('sf-err'); if (e) { e.textContent = 'Nombre y lugar son obligatorios'; e.classList.add('visible'); } return; }
-            let dateStr = 'Abierto diariamente', scheduleStr = '';
+            if (!title) { 
+                const e = gid('sf-err'); 
+                if (e) { e.textContent = '⚠️ El nombre del evento es obligatorio'; e.style.display='block'; e.style.color='#e74c3c'; }
+                const tf = gid('sf-title');
+                if (tf) { tf.style.borderColor='#e74c3c'; tf.focus(); }
+                return; 
+            }
+            let dateStr = '', scheduleStr = '';
             if (currentDateType === 'range') {
                 const ds = gid('sf-dateStart') ? gid('sf-dateStart').value : '';
                 const de = gid('sf-dateEnd') ? gid('sf-dateEnd').value : '';
-                if (ds) dateStr = de ? ds + ' al ' + de : ds;
+                if (ds) dateStr = de && de !== ds ? ds + ' al ' + de : ds;
                 const ts = gid('sf-timeStart') ? gid('sf-timeStart').value : '';
                 const te = gid('sf-timeEnd') ? gid('sf-timeEnd').value : '';
                 if (ts) scheduleStr = te ? ts + ' - ' + te : ts;
             } else {
-                dateStr = gid('sf-dateText') ? gid('sf-dateText').value : 'Abierto diariamente';
+                // Build from weekly picker
+                const days = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+                const activeDays = days.filter(d => document.querySelector('[data-day="' + d + '"]')?.classList.contains('active'));
+                const schedule = activeDays.map(d => {
+                    const open = document.getElementById('open-' + d)?.value || '';
+                    const close = document.getElementById('close-' + d)?.value || '';
+                    return d + ': ' + (open && close ? open + '–' + close : open || 'abierto');
+                });
+                dateStr = activeDays.length > 0 ? activeDays.join(', ') : 'Consultar horarios';
+                scheduleStr = schedule.join(' | ');
             }
             const coverImg = uploadedImages.find(x => x.isCover);
             await addDoc(collection(db, 'submissions'), {
