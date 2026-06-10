@@ -830,6 +830,7 @@ function toggleFreePrice(...a) { return _app.toggleFreePrice && _app.toggleFreeP
 function togglePref(...a) { return _app.togglePref && _app.togglePref(...a); }
 function toggleSpecialPill(...a) { return _app.toggleSpecialPill && _app.toggleSpecialPill(...a); }
 function toggleZonePill(...a) { return _app.toggleZonePill && _app.toggleZonePill(...a); }
+function quickFav(...a) { return _app.quickFav && _app.quickFav(...a); }
 </script>
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
@@ -972,8 +973,9 @@ async function isFav(eventId) {
         const snap = await getDoc(doc(db, 'favorites', currentUser.uid + '_' + normalizeId(eventId)));
         return snap.exists();
     } catch(e) { 
-        if (e.code === 'permission-denied') console.warn('isFav permission-denied - check Firestore rules');
-        else console.warn('isFav error:', e.code, e.message);
+        // permission-denied on read means doc doesn't exist (rules deny reading non-owned docs)
+        if (e.code === 'permission-denied') return false;
+        console.warn('isFav error:', e.code, e.message);
         return false; 
     }
 }
@@ -1056,9 +1058,10 @@ async function submitRating(eventId, stars) {
 async function renderRatingBlock(eventId) {
     const [rData, userRating] = await Promise.all([loadRating(eventId), getUserRating(eventId)]);
     const avg = rData.avg || 0, count = rData.count || 0;
-    gid('epRatingAvg').textContent = avg > 0 ? avg.toFixed(1) : '—';
-    gid('epRatingStars').textContent = avg > 0 ? '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg)) : '☆☆☆☆☆';
-    gid('epRatingCount').textContent = count > 0 ? count + ' valoracion' + (count !== 1 ? 'es' : '') : 'Sin valoraciones aun';
+    const avgEl = gid('epAvgNum'), starsEl = gid('epAvgStars'), countEl = gid('epAvgCount');
+    if (avgEl) avgEl.textContent = avg > 0 ? avg.toFixed(1) : '—';
+    if (starsEl) starsEl.textContent = avg > 0 ? '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg)) : '☆☆☆☆☆';
+    if (countEl) countEl.textContent = count > 0 ? count + ' valoracion' + (count !== 1 ? 'es' : '') : 'Sin valoraciones aun';
     const inputEl = gid('epRatingInput');
     if (currentUser) {
         let starsHTML = '<div style="font-size:.82rem;color:#888;margin-bottom:.4rem">' + (userRating > 0 ? 'Tu valoracion:' : 'Valora este evento:') + '</div><div class="stars-input" id="starsInput">';
