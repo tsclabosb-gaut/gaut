@@ -9478,12 +9478,135 @@
       "kid": false,
       "tipo": "charla",
       "id": null
+    },
+    {
+      "title": "MONSTA X WORLD TOUR THE X: NEXUS IN SANTIAGO",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto de MONSTA X en Santiago.",
+      "date": "Mié 11 de junio 19:00",
+      "dateMs": 1718107200000,
+      "month": 5,
+      "days": [
+        11
+      ],
+      "venue": "Teatro Caupolicán",
+      "address": "Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Teatro+Caupolicán+Santiago",
+      "price": null,
+      "src": "PuntoTicket - Santiago",
+      "srcUrl": "https://www.puntoticket.com/",
+      "img": "",
+      "tags": [
+        "K-Pop",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Dios Salve a la Reina",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Concierto de rock en Teatro Caupolicán.",
+      "date": "Sab 13 de junio 20:00",
+      "dateMs": 1718320800000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Teatro Caupolicán",
+      "address": "Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Teatro+Caupolicán+Santiago",
+      "price": null,
+      "src": "PuntoTicket - Santiago",
+      "srcUrl": "https://www.puntoticket.com/",
+      "img": "",
+      "tags": [
+        "Rock"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Ricardo Arjona - Lo que el Seco no dijo",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto de Ricardo Arjona en Movistar Arena.",
+      "date": "Jue 12 de junio 20:00",
+      "dateMs": 1718188800000,
+      "month": 5,
+      "days": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "venue": "Movistar Arena",
+      "address": "Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "Movistar+Arena+Santiago",
+      "price": null,
+      "src": "PuntoTicket - Santiago",
+      "srcUrl": "https://www.puntoticket.com/",
+      "img": "",
+      "tags": [
+        "Baladas",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Colo-Colo vs. Cobresal - Liga Primera",
+      "cat": "sport",
+      "emoji": "⚽",
+      "desc": "Partido de fútbol de la Liga de Primera Mercado Libre, Fecha 15.",
+      "date": "Sab 13 de junio 19:00",
+      "dateMs": 1718320800000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Estadio Monumental",
+      "address": "Macul, Santiago",
+      "zone": "nun",
+      "mapsQ": "Estadio+Monumental+Macul+Santiago",
+      "price": null,
+      "src": "PuntoTicket - Santiago",
+      "srcUrl": "https://www.puntoticket.com/",
+      "img": "",
+      "tags": [
+        "Fútbol",
+        "Deporte"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-10",
-    "totalEvents": 241,
+    "totalEvents": 245,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
