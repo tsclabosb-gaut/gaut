@@ -831,6 +831,9 @@ function togglePref(...a) { return _app.togglePref && _app.togglePref(...a); }
 function toggleSpecialPill(...a) { return _app.toggleSpecialPill && _app.toggleSpecialPill(...a); }
 function toggleZonePill(...a) { return _app.toggleZonePill && _app.toggleZonePill(...a); }
 function quickFav(...a) { return _app.quickFav && _app.quickFav(...a); }
+function searchUsers(...a) { return _app.searchUsers && _app.searchUsers(...a); }
+function toggleFollow(...a) { return _app.toggleFollow && _app.toggleFollow(...a); }
+function viewUserFavs(...a) { return _app.viewUserFavs && _app.viewUserFavs(...a); }
 </script>
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
@@ -989,6 +992,7 @@ async function toggleFavDB(ev) {
         if (snap.exists()) {
             await deleteDoc(ref);
             showToast('💔 Eliminado de favoritos');
+            syncPublicFavorite(ev, false);
             return false;
         } else {
             await setDoc(ref, {
@@ -1001,6 +1005,7 @@ async function toggleFavDB(ev) {
                 savedAt: serverTimestamp()
             });
             showToast('❤️ Guardado en favoritos');
+            syncPublicFavorite(ev, true);
             return true;
         }
     } catch(e) {
@@ -1358,7 +1363,7 @@ function renderPanel(tab) {
         return;
     }
     gid('drawerTitle').textContent = 'Mi cuenta';
-    const tabs = [{id:'profile',label:'Perfil'},{id:'favs',label:'Guardados'},{id:'settings',label:'Config'}];
+    const tabs = [{id:'profile',label:'Perfil'},{id:'favs',label:'Guardados'},{id:'social',label:'Social'},{id:'settings',label:'Config'}];
     if (currentUser.email === ADMIN_EMAIL) tabs.push({id:'admin',label:'Admin'});
     gid('drawerTabs').innerHTML = `<div class="drawer-tabs">${tabs.map(t => `<div class="drawer-tab ${tab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')">${t.label}</div>`).join('')}</div>`;
     switchTabContent(tab);
@@ -1378,6 +1383,7 @@ function switchTabContent(tab) {
     el.innerHTML = '';
     if (tab === 'profile') renderProfileTab(el);
     else if (tab === 'favs') renderFavsTab(el);
+    else if (tab === 'social') renderSocialTab(el);
     else if (tab === 'settings') renderSettingsTab(el);
     else if (tab === 'admin') renderAdminTab(el);
 }
@@ -1540,6 +1546,186 @@ _app.savePref = window.savePref = async (key, value) => {
     try { await setDoc(doc(db, 'users', currentUser.uid), {prefs: {[key]: value}}, {merge: true}); } catch(e) {}
 };
 
+
+// ── SOCIAL: search users, follow, see their favorites ──
+async function renderSocialTab(el) {
+    el.innerHTML = `
+    <div style="margin-bottom:16px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:10px">Buscar personas</div>
+        <div style="display:flex;gap:8px">
+            <input type="text" id="userSearchInput" placeholder="Busca por nombre o correo..." 
+                style="flex:1;padding:10px 14px;border:1.5px solid var(--gray-light);border-radius:var(--radius-md);font-size:14px;font-family:inherit;background:var(--bg)"
+                oninput="searchUsers(this.value)">
+        </div>
+        <div id="userSearchResults" style="margin-top:10px"></div>
+    </div>
+    <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:10px">Siguiendo</div>
+        <div id="followingList"><div class="empty-sm" style="padding:16px 0">Cargando...</div></div>
+    </div>`;
+    loadFollowing();
+}
+
+let userSearchTimer;
+_app.searchUsers = window.searchUsers = async q => {
+    const res = document.getElementById('userSearchResults');
+    if (!res) return;
+    clearTimeout(userSearchTimer);
+    if (!q || q.length < 2) { res.innerHTML = ''; return; }
+    userSearchTimer = setTimeout(async () => {
+        try {
+            // Search public profiles by displayName
+            const snap = await getDocs(query(
+                collection(db, 'publicProfiles'),
+                where('nameLower', '>=', q.toLowerCase()),
+                where('nameLower', '<=', q.toLowerCase() + '')
+            ));
+            if (snap.empty) {
+                res.innerHTML = '<p style="font-size:13px;color:var(--gray);padding:8px 0">Sin resultados</p>';
+                return;
+            }
+            res.innerHTML = snap.docs.map(d => {
+                const p = d.data();
+                const isMe = d.id === currentUser.uid;
+                return `<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray-light)">
+                    <div style="width:40px;height:40px;border-radius:50%;background:var(--terracotta);color:white;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                        ${(p.displayName||'?')[0].toUpperCase()}
+                    </div>
+                    <div style="flex:1;min-width:0">
+                        <div style="font-weight:600;font-size:14px">${p.displayName || 'Usuario'}</div>
+                        <div style="font-size:12px;color:var(--gray)">${p.favCount || 0} guardados</div>
+                    </div>
+                    ${!isMe ? `<button onclick="toggleFollow('${d.id}','${p.displayName||'Usuario'}')" 
+                        id="follow-btn-${d.id}"
+                        style="padding:6px 14px;border-radius:var(--radius-full);border:1.5px solid var(--terracotta);background:white;color:var(--terracotta);font-size:13px;font-weight:600;cursor:pointer">
+                        Seguir
+                    </button>
+                    <button onclick="viewUserFavs('${d.id}','${p.displayName||'Usuario'}')"
+                        style="padding:6px 14px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;color:var(--gray);font-size:13px;font-weight:600;cursor:pointer">
+                        Ver ❤️
+                    </button>` : '<span style="font-size:12px;color:var(--gray)">Tú</span>'}
+                </div>`;
+            }).join('');
+        } catch(e) { res.innerHTML = '<p style="font-size:13px;color:var(--gray)">Error: ' + e.message + '</p>'; }
+    }, 400);
+};
+
+async function loadFollowing() {
+    const list = document.getElementById('followingList');
+    if (!list) return;
+    try {
+        const snap = await getDoc(doc(db, 'following', currentUser.uid));
+        const following = snap.exists() ? (snap.data().list || []) : [];
+        if (following.length === 0) {
+            list.innerHTML = '<div class="empty-sm" style="padding:16px 0"><p style="font-size:13px">Aún no sigues a nadie</p></div>';
+            return;
+        }
+        // Load profiles of followed users
+        const profiles = await Promise.all(following.map(uid => getDoc(doc(db, 'publicProfiles', uid))));
+        list.innerHTML = profiles.filter(d => d.exists()).map(d => {
+            const p = d.data();
+            return `<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray-light)">
+                <div style="width:40px;height:40px;border-radius:50%;background:var(--terracotta);color:white;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    ${(p.displayName||'?')[0].toUpperCase()}
+                </div>
+                <div style="flex:1;min-width:0">
+                    <div style="font-weight:600;font-size:14px">${p.displayName || 'Usuario'}</div>
+                    <div style="font-size:12px;color:var(--gray)">${p.favCount || 0} guardados</div>
+                </div>
+                <button onclick="viewUserFavs('${d.id}','${p.displayName||'Usuario'}')"
+                    style="padding:6px 14px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;color:var(--gray);font-size:13px;font-weight:600;cursor:pointer">
+                    Ver ❤️
+                </button>
+                <button onclick="toggleFollow('${d.id}','${p.displayName||''}')"
+                    style="padding:6px 14px;border-radius:var(--radius-full);border:1.5px solid #fcc;background:#fff0f3;color:#e74c3c;font-size:13px;font-weight:600;cursor:pointer">
+                    Dejar
+                </button>
+            </div>`;
+        }).join('') || '<div class="empty-sm" style="padding:16px 0"><p style="font-size:13px">Sin resultados</p></div>';
+    } catch(e) { list.innerHTML = '<p style="font-size:13px;color:var(--gray)">Error: ' + e.message + '</p>'; }
+}
+
+_app.toggleFollow = window.toggleFollow = async (targetUid, targetName) => {
+    if (!currentUser) return;
+    try {
+        const followingRef = doc(db, 'following', currentUser.uid);
+        const followersRef = doc(db, 'followers', targetUid);
+        const snap = await getDoc(followingRef);
+        const list = snap.exists() ? (snap.data().list || []) : [];
+        const isFollowing = list.includes(targetUid);
+        
+        if (isFollowing) {
+            await setDoc(followingRef, { list: list.filter(id => id !== targetUid) }, { merge: false });
+            const fSnap = await getDoc(followersRef);
+            const fList = fSnap.exists() ? (fSnap.data().list || []) : [];
+            await setDoc(followersRef, { list: fList.filter(id => id !== currentUser.uid) }, { merge: false });
+            showToast('Dejaste de seguir a ' + targetName);
+        } else {
+            await setDoc(followingRef, { list: [...list, targetUid] }, { merge: false });
+            const fSnap = await getDoc(followersRef);
+            const fList = fSnap.exists() ? (fSnap.data().list || []) : [];
+            await setDoc(followersRef, { list: [...fList, currentUser.uid] }, { merge: false });
+            showToast('Ahora sigues a ' + targetName);
+            // Update button
+            const btn = document.getElementById('follow-btn-' + targetUid);
+            if (btn) { btn.textContent = 'Siguiendo'; btn.style.background = 'var(--terracotta)'; btn.style.color = 'white'; }
+        }
+        loadFollowing();
+    } catch(e) { showToast('Error: ' + e.message); }
+};
+
+_app.viewUserFavs = window.viewUserFavs = async (uid, name) => {
+    const el = document.getElementById('drawerBody');
+    if (!el) return;
+    el.innerHTML = `<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <button onclick="switchTab('social')" style="background:none;border:none;cursor:pointer;color:var(--terracotta);font-size:14px;font-weight:600">← Volver</button>
+        <span style="font-size:15px;font-weight:700">Favoritos de ${name}</span>
+    </div><div id="userFavsList"><div class="empty-sm">Cargando...</div></div>`;
+    try {
+        const snap = await getDocs(query(collection(db, 'publicFavorites'), where('userId', '==', uid)));
+        const list = document.getElementById('userFavsList');
+        if (!list) return;
+        if (snap.empty) { list.innerHTML = '<div class="empty-sm"><p style="font-size:13px">Sin favoritos públicos</p></div>'; return; }
+        list.innerHTML = '<div class="fav-list">' + snap.docs.map(d => {
+            const f = d.data();
+            return `<div class="fav-item" onclick="closePanel();openEventPanel('${f.eventId}')">
+                <div class="fav-emoji">${f.emoji || '🎉'}</div>
+                <div class="fav-info">
+                    <div class="fav-title">${f.title}</div>
+                    <div class="fav-meta">${f.date || ''}</div>
+                </div>
+            </div>`;
+        }).join('') + '</div>';
+    } catch(e) { 
+        const list = document.getElementById('userFavsList');
+        if (list) list.innerHTML = '<p style="font-size:13px;color:var(--gray)">Error: ' + e.message + '</p>';
+    }
+};
+
+// When user saves a favorite, also save to publicFavorites for social visibility
+async function syncPublicFavorite(ev, added) {
+    if (!currentUser) return;
+    try {
+        const pubRef = doc(db, 'publicFavorites', currentUser.uid + '_' + normalizeId(ev.id));
+        if (added) {
+            await setDoc(pubRef, {
+                userId: currentUser.uid, eventId: normalizeId(ev.id),
+                title: ev.title, date: ev.date || '', emoji: ev.emoji || '🎉',
+                venue: ev.venue || ''
+            });
+        } else {
+            await deleteDoc(pubRef);
+        }
+        // Update public profile fav count
+        const favSnap = await getDocs(query(collection(db, 'publicFavorites'), where('userId', '==', currentUser.uid)));
+        const displayName = currentUser.displayName || currentUser.email?.split('@')[0] || 'Usuario';
+        await setDoc(doc(db, 'publicProfiles', currentUser.uid), {
+            displayName, nameLower: displayName.toLowerCase(),
+            favCount: favSnap.size, updatedAt: serverTimestamp()
+        }, { merge: true });
+    } catch(e) { /* social sync is best-effort */ }
+}
+
 async function renderAdminTab(el) {
     el.innerHTML = '<div style="color:var(--gray);font-size:14px;margin-bottom:16px">Solicitudes pendientes</div><div id="adminList"><div class="empty-sm">Cargando...</div></div>';
     try {
@@ -1632,15 +1818,12 @@ function renderSubmitForm() {
     </div>
     <div class="fg"><label>Dirección del evento *</label>
         <div class="address-wrap">
-            <input type="text" id="sf-address" placeholder="Escribe la dirección o nombre del lugar..." autocomplete="off" oninput="searchAddress(this.value)">
+            <input type="text" id="sf-address" placeholder="Escribe dirección o nombre del lugar..." autocomplete="off" oninput="searchAddress(this.value)">
             <div id="addressSuggestions" class="address-list" style="display:none"></div>
         </div>
-        <p style="font-size:11px;color:var(--gray);margin-top:4px">El nombre del recinto se detecta automáticamente</p>
     </div>
-    <div class="form-row-2">
-        <div class="fg"><label>Recinto / Lugar</label><input type="text" id="sf-venue" placeholder="Se llena automáticamente" style="opacity:.7"></div>
-        <div class="fg"><label>Comuna</label><input type="text" id="sf-commune" readonly style="opacity:.6"></div>
-    </div>
+    <input type="hidden" id="sf-venue">
+    <input type="hidden" id="sf-commune">
     <div class="form-row-2">
         <div class="fg"><label>Link entradas</label><input type="url" id="sf-tickets" placeholder="https://..."></div>
         <div class="fg"><label>Instagram</label><input type="url" id="sf-instagram" placeholder="https://instagram.com/..."></div>
