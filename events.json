@@ -9845,12 +9845,42 @@
       "kid": false,
       "tipo": "conc",
       "id": null
+    },
+    {
+      "title": "Candlelight: Tributo a Hans Zimmer",
+      "cat": "music",
+      "emoji": "🎬",
+      "desc": "Concierto Candlelight dedicado a las obras musicales del compositor Hans Zimmer.",
+      "date": "Vie 20 de junio 20:00",
+      "dateMs": 1718894400000,
+      "month": 5,
+      "days": [
+        20
+      ],
+      "venue": "Teatro Vicente Bianchi",
+      "address": "La Reina, Santiago",
+      "zone": "lare",
+      "mapsQ": "Teatro+Vicente+Bianchi+La+Reina",
+      "price": 16000,
+      "src": "Fever - Santiago",
+      "srcUrl": "https://feverup.com/es/santiago",
+      "img": "",
+      "tags": [
+        "Concierto",
+        "Candlelight",
+        "Bandas Sonoras"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-10",
-    "totalEvents": 251,
+    "lastUpdated": "2026-06-11",
+    "totalEvents": 252,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
