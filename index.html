@@ -708,6 +708,11 @@ img { display: block; max-width: 100%; }
   <button class="sub-chip special" onclick="toggleSpecialPill(this,'kid')">👶 Niños</button>
   <button class="sub-chip special" onclick="toggleSpecialPill(this,'pet')">🐕 Mascotas</button>
   <button class="sub-chip special" onclick="toggleSpecialPill(this,'acc')">♿ Accesible</button>
+  <div style="width:1px;background:var(--gray-light);margin:4px 8px;flex-shrink:0"></div>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'today')">📅 Hoy</button>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'week')">📅 Esta semana</button>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'month')">📅 Este mes</button>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'weekend')">📅 Este fin de semana</button>
 </div>
 
 <!-- PROPOSE BAR -->
@@ -758,6 +763,10 @@ img { display: block; max-width: 100%; }
     <button class="ep-action-btn fav" id="epBtnFav" onclick="toggleFavorite()">🤍 Guardar</button>
     <button class="ep-action-btn share" onclick="shareCurrentEvent()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Compartir</button>
     <button class="ep-action-btn suggest" onclick="openSuggestModal()">✏️ Sugerir</button>
+  </div>
+  <div id="epAdminActions" style="display:none;padding:0 16px 8px;display:flex;gap:8px;background:var(--surface)">
+    <button onclick="adminEditCurrentEvent()" style="flex:1;padding:8px;border-radius:var(--radius-md);border:1.5px solid var(--gray-light);background:white;font-size:13px;cursor:pointer">✏️ Editar</button>
+    <button onclick="adminDeleteCurrentEvent()" style="flex:1;padding:8px;border-radius:var(--radius-md);border:1.5px solid #fcc;background:#fff0f3;color:#e74c3c;font-size:13px;cursor:pointer">🗑️ Eliminar</button>
   </div>
   <div class="ep-comments">
     <div class="ep-section-title">💬 Comentarios</div>
@@ -844,6 +853,13 @@ function toggleFreePrice(...a) { return _app.toggleFreePrice && _app.toggleFreeP
 function togglePref(...a) { return _app.togglePref && _app.togglePref(...a); }
 function toggleSpecialPill(...a) { return _app.toggleSpecialPill && _app.toggleSpecialPill(...a); }
 function toggleZonePill(...a) { return _app.toggleZonePill && _app.toggleZonePill(...a); }
+function toggleDateFilter(el, range) {
+    const wasActive = el.classList.contains('active');
+    document.querySelectorAll('.date-filter').forEach(b => b.classList.remove('active'));
+    if (!wasActive) { el.classList.add('active'); _app.activeDateRange = range; }
+    else { _app.activeDateRange = null; }
+    if (_app.applyFilters) _app.applyFilters();
+}
 function quickFav(...a) { return _app.quickFav && _app.quickFav(...a); }
 function searchUsers(...a) { return _app.searchUsers && _app.searchUsers(...a); }
 function toggleFollow(...a) { return _app.toggleFollow && _app.toggleFollow(...a); }
@@ -970,6 +986,41 @@ function renderHeader() {
         + '</div>';
 }
 
+
+window.adminEditCurrentEvent = async () => {
+    if (!currentEvent) return;
+    const ev = currentEvent;
+    const newTitle = prompt('Título:', ev.title);
+    if (!newTitle || newTitle === ev.title) return;
+    if (String(ev.id).startsWith('fs_')) {
+        const docId = String(ev.id).replace('fs_', '');
+        try {
+            await updateDoc(doc(db, 'submissions', docId), { title: newTitle });
+            ev.title = newTitle;
+            document.getElementById('epTitle').textContent = newTitle;
+            showToast('✅ Actualizado');
+        } catch(e) { showToast('Error: ' + e.message); }
+    } else {
+        showToast('Para editar eventos del JSON, usa GitHub');
+    }
+};
+
+window.adminDeleteCurrentEvent = async () => {
+    if (!currentEvent) return;
+    if (!confirm('¿Eliminar "' + currentEvent.title + '"?')) return;
+    if (String(currentEvent.id).startsWith('fs_')) {
+        const docId = String(currentEvent.id).replace('fs_', '');
+        try {
+            await updateDoc(doc(db, 'submissions', docId), { status: 'deleted' });
+            allEvents = allEvents.filter(e => normalizeId(e.id) !== normalizeId(currentEvent.id));
+            renderEvents(filterLogic(allEvents));
+            closeEventPanel();
+            showToast('🗑️ Eliminado');
+        } catch(e) { showToast('Error: ' + e.message); }
+    } else {
+        showToast('Para eliminar eventos del JSON, edita events.json en GitHub');
+    }
+};
 async function loadEvents() {
     const grid = gid('eventsGrid');
     if (grid) grid.innerHTML = '<div class="empty-state"><div style="font-size:2rem;margin-bottom:8px">⏳</div><p>Cargando eventos...</p></div>';
@@ -1187,15 +1238,32 @@ _app.handleStarClick = window.handleStarClick = async (stars, eventId) => {
 };
 
 function filterLogic(events) {
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const todayEnd = todayStart + 86400000;
+    const weekEnd = todayStart + 7 * 86400000;
+    const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 1).getTime();
+    // Weekend: next Sat and Sun
+    const dayOfWeek = now.getDay(); // 0=Sun
+    const daysToSat = dayOfWeek <= 6 ? (6 - dayOfWeek) : 0;
+    const weekendStart = todayStart + daysToSat * 86400000;
+    const weekendEnd = weekendStart + 2 * 86400000;
+
     return events.filter(e => {
-        // Multi-category filter
         if (activeCategories.size > 0 && !activeCategories.has(e.cat)) return false;
-        // Zone filter
         if (activeZones.size > 0 && !activeZones.has(e.zone)) return false;
-        // Special filters
         if (activeSpecials.has('kid') && !e.kid) return false;
         if (activeSpecials.has('pet') && !e.pet) return false;
         if (activeSpecials.has('acc') && !e.acc) return false;
+        // Date range filter
+        const range = _app.activeDateRange;
+        if (range && e.dateMs) {
+            const ms = e.dateMs;
+            if (range === 'today' && (ms < todayStart || ms > todayEnd)) return false;
+            if (range === 'week' && (ms < todayStart || ms > weekEnd)) return false;
+            if (range === 'month' && (ms < todayStart || ms > monthEnd)) return false;
+            if (range === 'weekend' && (ms < weekendStart || ms > weekendEnd)) return false;
+        }
         return true;
     });
 }
@@ -1342,10 +1410,11 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
 
     const linksEl = gid('epLinks');
     linksEl.innerHTML = '';
-    if (ev.instagram) linksEl.innerHTML += '<a class="ep-link-pill ep-link-ig" href="' + ev.instagram + '" target="_blank" rel="noopener">📸 Instagram</a>';
-    if (ev.web) linksEl.innerHTML += '<a class="ep-link-pill ep-link-web" href="' + ev.web + '" target="_blank" rel="noopener">🌐 Sitio web</a>';
-    if (ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-tickets" href="' + ev.tickets + '" target="_blank" rel="noopener">🎟 Entradas</a>';
-    if (ev.srcUrl) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
+    if (ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-tickets" href="' + ev.tickets + '" target="_blank" rel="noopener">🎟️ Comprar entradas</a>';
+    if (ev.web && ev.web !== ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-web" href="' + ev.web + '" target="_blank" rel="noopener">🌐 Sitio web</a>';
+    if (ev.instagram && ev.instagram.startsWith('http')) linksEl.innerHTML += '<a class="ep-link-pill ep-link-ig" href="' + ev.instagram + '" target="_blank" rel="noopener">📸 Instagram</a>';
+    if (ev.srcUrl && !ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
+    if (!linksEl.innerHTML && ev.title) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="https://www.google.com/search?q=' + encodeURIComponent(ev.title + ' Santiago entradas') + '" target="_blank" rel="noopener">🔍 Buscar info</a>';
 
     const tagsEl = gid('epTags');
         let tagsHtml = '';
