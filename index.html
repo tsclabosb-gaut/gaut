@@ -1336,7 +1336,7 @@ async function loadComments(eventId) {
     const list = gid('commentsList');
     list.innerHTML = '<div class="no-comments">Cargando...</div>';
     try {
-        const q = query(collection(db, 'comments'), where('eventId', '==', normalizeId(eventId)), orderBy('createdAt', 'desc'));
+        const q = query(collection(db, 'comments'), where('eventId', '==', normalizeId(eventId)));
         const snap = await getDocs(q);
         if (snap.empty) { list.innerHTML = '<div class="no-comments">Sin comentarios aun. Se el primero!</div>'; return; }
         list.innerHTML = snap.docs.map(d => {
@@ -1768,7 +1768,7 @@ async function syncPublicFavorite(ev, added) {
 async function renderAdminTab(el) {
     el.innerHTML = '<div style="color:var(--gray);font-size:14px;margin-bottom:16px">Solicitudes pendientes</div><div id="adminList"><div class="empty-sm">Cargando...</div></div>';
     try {
-        const q = query(collection(db, 'submissions'), where('status', '==', 'pending'), orderBy('createdAt', 'desc'));
+        const q = query(collection(db, 'submissions'), where('status', '==', 'pending'));
         const snap = await getDocs(q);
         const list = gid('adminList');
         if (snap.empty) { list.innerHTML = '<div class="empty-sm">✅ Sin solicitudes pendientes</div>'; return; }
@@ -2216,7 +2216,8 @@ _app.submitForm = window.submitForm = async () => {
                 zone: window._detectedZone || 'cen',
                 commune: gid('sf-commune') ? gid('sf-commune').value : '',
                 date: dateStr, schedule: scheduleStr,
-                venue, address: gid('sf-address') ? gid('sf-address').value : '',
+                venue: (gid('sf-venue') ? gid('sf-venue').value : '') || (gid('sf-address') ? gid('sf-address').value.split(',')[0] : ''),
+            address: gid('sf-address') ? gid('sf-address').value : '',
                 price: isPriceFree ? 0 : Number(gid('sf-price') ? gid('sf-price').value : 0) || null,
                 tickets: gid('sf-tickets') ? gid('sf-tickets').value : '',
                 instagram: gid('sf-instagram') ? gid('sf-instagram').value : '',
