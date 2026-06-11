@@ -51,6 +51,8 @@ const SOURCES = [
   { name: 'Teatro Municipal de Santiago',      zone: 'cen',  url: 'https://www.municipal.cl/cartelera/' },
   // TicketPlus - sitemap XML estático (evita JS rendering)
   { name: 'TicketPlus - Sitemap',              zone: 'cen',  url: 'https://ticketplus.cl/sitemap.xml', isXml: true },
+  // Ticketmaster Chile
+  { name: 'Ticketmaster Chile',                zone: 'cen',  url: 'https://www.ticketmaster.cl/es-cl/home' },
   // Passline - ticketera alternativa
   { name: 'Passline - Santiago',               zone: 'cen',  url: 'https://www.passline.com/eventos/ciudad-santiago' },
 ];
@@ -128,10 +130,10 @@ async function scrape(source) {
         console.warn(`  SKIP ${source.name}: no event URLs in sitemap`);
         return null;
       }
-      console.log(`  OK   ${source.name}: ${eventUrls.length} event URLs from sitemap, fetching first 12...`);
-      // Fetch first 12 event pages to get real content
+      console.log(`  OK   ${source.name}: ${eventUrls.length} event URLs from sitemap, fetching first 25...`);
+      // Fetch first 25 event pages to get real content
       const pageTexts = [];
-      const toFetch = eventUrls.slice(0, 12);
+      const toFetch = eventUrls.slice(0, 25);
       await Promise.allSettled(toFetch.map(async url => {
         try {
           const r = await fetch(url, {
