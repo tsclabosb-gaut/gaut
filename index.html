@@ -854,17 +854,24 @@ function toggleDay(el) {
     const day = el.dataset.day;
     if (el.classList.contains('active')) {
         const row = document.createElement('div');
-        row.className = 'day-hours-row'; row.id = 'hours-' + day;
-        row.innerHTML = '<span class="day-hours-label">' + day + '</span>'
-            + '<input type="time" id="open-' + day + '" value="09:00" style="border:1.5px solid var(--gray-light);border-radius:8px;padding:5px 8px;font-size:13px;font-family:inherit">'
-            + '<span style="font-size:13px;color:var(--gray)">a</span>'
-            + '<input type="time" id="close-' + day + '" value="21:00" style="border:1.5px solid var(--gray-light);border-radius:8px;padding:5px 8px;font-size:13px;font-family:inherit">'
-            + '<button type="button" onclick="this.closest('.day-hours-row').remove();document.querySelector('[data-day=\"' + day + '\"]').classList.remove('active')" style="background:none;border:none;color:#ccc;cursor:pointer;font-size:16px;padding:0 4px">✕</button>';
+        row.className = 'day-hours-row';
+        row.id = 'hours-' + day;
+        row.innerHTML = 
+            '<span class="day-hours-label">' + day + '</span>' +
+            '<input type="time" id="open-' + day + '" value="09:00" style="border:1.5px solid var(--gray-light);border-radius:8px;padding:5px 8px;font-size:13px;font-family:inherit">' +
+            '<span style="font-size:13px;color:var(--gray)">a</span>' +
+            '<input type="time" id="close-' + day + '" value="21:00" style="border:1.5px solid var(--gray-light);border-radius:8px;padding:5px 8px;font-size:13px;font-family:inherit">' +
+            '<button type="button" onclick="removeDay(this,&apos;' + day + '&apos;)" style="background:none;border:none;color:#ccc;cursor:pointer;font-size:16px;padding:0 4px">&#x2715;</button>';
         container.appendChild(row);
     } else {
         const row = document.getElementById('hours-' + day);
         if (row) row.remove();
     }
+}
+function removeDay(btn, day) {
+    btn.closest('.day-hours-row').remove();
+    const dayBtn = document.querySelector('[data-day="' + day + '"]');
+    if (dayBtn) dayBtn.classList.remove('active');
 }
 </script>
 <script type="module">
