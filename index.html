@@ -922,9 +922,25 @@ function findEvent(id) {
 onAuthStateChanged(auth, async user => {
     currentUser = user;
     renderHeader();
-    if (user) await loadUserPrefs();
+    if (user) {
+        await loadUserPrefs();
+        // Create/update public profile so user appears in social search
+        ensurePublicProfile(user).catch(() => {});
+    }
     if (allEvents.length > 0) renderEvents(filterLogic(allEvents));
 });
+
+async function ensurePublicProfile(user) {
+    const displayName = user.displayName || user.email?.split('@')[0] || 'Usuario';
+    try {
+        await setDoc(doc(db, 'publicProfiles', user.uid), {
+            displayName,
+            nameLower: displayName.toLowerCase(),
+            email: user.email || '',
+            updatedAt: serverTimestamp()
+        }, { merge: true });
+    } catch(e) { /* best effort */ }
+}
 
 async function loadUserPrefs() {
     if (!currentUser) return;
@@ -1003,6 +1019,49 @@ async function loadEvents() {
         ...ev,
         id: (ev.id !== null && ev.id !== undefined) ? ev.id : 'auto_' + i
     }));
+
+    // Also load approved submissions from Firestore
+    try {
+        const approvedSnap = await getDocs(query(
+            collection(db, 'submissions'),
+            where('status', '==', 'approved'),
+            where('type', '==', 'new')
+        ));
+        if (!approvedSnap.empty) {
+            const existingTitles = new Set(allEvents.map(e => e.title?.toLowerCase()));
+            let added = 0;
+            approvedSnap.docs.forEach(d => {
+                const s = d.data();
+                if (!existingTitles.has((s.title||'').toLowerCase())) {
+                    allEvents.push({
+                        id: 'fs_' + d.id,
+                        title: s.title || 'Evento sin nombre',
+                        cat: s.cat || 'culture',
+                        emoji: '🎉',
+                        desc: s.desc || '',
+                        date: s.date || '',
+                        schedule: s.schedule || '',
+                        venue: s.venue || s.address || '',
+                        address: s.address || '',
+                        zone: s.zone || 'cen',
+                        mapsQ: encodeURIComponent((s.venue||'') + ' ' + (s.address||'') + ' Santiago'),
+                        price: s.price,
+                        tickets: s.tickets || '',
+                        instagram: s.instagram || '',
+                        web: s.web || '',
+                        img: s.img || '',
+                        kid: !!s.kid, pet: !!s.pet, acc: !!s.acc,
+                        tags: [],
+                        src: 'Propuesto por usuario',
+                        srcUrl: ''
+                    });
+                    existingTitles.add((s.title||'').toLowerCase());
+                    added++;
+                }
+            });
+            if (added > 0) console.log('✅ Loaded', added, 'approved events from Firestore');
+        }
+    } catch(e) { console.warn('Could not load approved events:', e.message); }
 
     const label = gid('feedLabel');
     if (label) label.textContent = allEvents.length + ' eventos en Santiago';
@@ -1614,16 +1673,29 @@ _app.searchUsers = window.searchUsers = async q => {
     userSearchTimer = setTimeout(async () => {
         try {
             // Search public profiles by displayName
+            const qLower = q.toLowerCase();
+            // Search by name
             const snap = await getDocs(query(
                 collection(db, 'publicProfiles'),
-                where('nameLower', '>=', q.toLowerCase()),
-                where('nameLower', '<=', q.toLowerCase() + '')
+                where('nameLower', '>=', qLower),
+                where('nameLower', '<=', qLower + '')
             ));
-            if (snap.empty) {
-                res.innerHTML = '<p style="font-size:13px;color:var(--gray);padding:8px 0">Sin resultados</p>';
+            // Also search by email prefix  
+            const emailSnap = await getDocs(query(
+                collection(db, 'publicProfiles'),
+                where('email', '>=', qLower),
+                where('email', '<=', qLower + '')
+            ));
+            // Merge results, dedupe by id
+            const allDocs = [...snap.docs];
+            const seenIds = new Set(snap.docs.map(d => d.id));
+            emailSnap.docs.forEach(d => { if (!seenIds.has(d.id)) allDocs.push(d); });
+            const mergedSnap = { empty: allDocs.length === 0, docs: allDocs };
+            if (mergedSnap.empty) {
+                res.innerHTML = '<p style="font-size:13px;color:var(--gray);padding:8px 0">Sin resultados para "' + q + '"</p>';
                 return;
             }
-            res.innerHTML = snap.docs.map(d => {
+            res.innerHTML = mergedSnap.docs.map(d => {
                 const p = d.data();
                 const isMe = d.id === currentUser.uid;
                 return `<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray-light)">
