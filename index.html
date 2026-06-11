@@ -638,6 +638,7 @@ img { display: block; max-width: 100%; }
   .feed-section { padding: 24px 32px; }
 }
 </style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath d='M60 8C38 8 20 26 20 48c0 30 40 64 40 64s40-34 40-64C100 26 82 8 60 8z' fill='%231A1D20'/%3E%3Ccircle cx='60' cy='47' r='28' fill='white'/%3E%3Cline x1='60' y1='19' x2='60' y2='75' stroke='%231A1D20' stroke-width='2.5'/%3E%3Cline x1='32' y1='47' x2='88' y2='47' stroke='%231A1D20' stroke-width='2.5'/%3E%3Cpath d='M60 19 A28 28 0 0 1 88 47 L60 47 Z' fill='%23C85A32'/%3E%3Cpath d='M32 47 A28 28 0 0 1 60 19 L60 47 Z' fill='%23E6A15C'/%3E%3Cpath d='M60 47 L88 47 A28 28 0 0 1 60 75 Z' fill='%23B8C4C0'/%3E%3Cpath d='M60 75 A28 28 0 0 1 32 47 L60 47 Z' fill='%23C9A898'/%3E%3C/svg%3E">
 </head>
 <body>
 <div class="toast" id="toast"></div>
@@ -755,7 +756,7 @@ img { display: block; max-width: 100%; }
   </div>
   <div class="ep-actions">
     <button class="ep-action-btn fav" id="epBtnFav" onclick="toggleFavorite()">🤍 Guardar</button>
-    <button class="ep-action-btn share" onclick="shareCurrentEvent()">⤴️ Compartir</button>
+    <button class="ep-action-btn share" onclick="shareCurrentEvent()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Compartir</button>
     <button class="ep-action-btn suggest" onclick="openSuggestModal()">✏️ Sugerir</button>
   </div>
   <div class="ep-comments">
@@ -1235,6 +1236,7 @@ _app.toggleSpecialPill = window.toggleSpecialPill = (el, type) => {
     renderEvents(filterLogic(allEvents));
 };
 
+const shareSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food'}[cat] || 'cat-default'; }
 function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía'}[cat] || cat; }
 function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food'}[cat] || 'badge-default'; }
@@ -1346,10 +1348,18 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     if (ev.srcUrl) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
 
     const tagsEl = gid('epTags');
-    tagsEl.innerHTML = (ev.kid ? '<span class="ep-tag">👶 Niños</span>' : '')
-        + (ev.pet ? '<span class="ep-tag">🐕 Mascotas</span>' : '')
-        + (ev.acc ? '<span class="ep-tag">♿ Accesible</span>' : '')
-        + (ev.tags || []).map(t => '<span class="ep-tag-pill">' + t + '</span>').join('');
+        let tagsHtml = '';
+    if (ev.kid) {
+        tagsHtml += '<span class="ep-tag-pill">👶 Apto para niños</span>';
+        if (ev.kidInfo) tagsHtml += '<div style="font-size:12px;color:#666;margin:6px 0 8px;padding:8px 12px;background:#fff8f5;border-radius:8px;border-left:3px solid var(--amber)">👶 ' + ev.kidInfo + '</div>';
+    }
+    if (ev.pet) {
+        tagsHtml += '<span class="ep-tag-pill">🐕 Pet friendly</span>';
+        if (ev.petInfo) tagsHtml += '<div style="font-size:12px;color:#666;margin:6px 0 8px;padding:8px 12px;background:#fff8f5;border-radius:8px;border-left:3px solid var(--amber)">🐕 ' + ev.petInfo + '</div>';
+    }
+    if (ev.acc) tagsHtml += '<span class="ep-tag-pill">♿ Accesible</span>';
+    tagsHtml += (ev.tags || []).map(t => '<span class="ep-tag-pill">' + t + '</span>').join('');
+    tagsEl.innerHTML = tagsHtml;
 
     const faved = await isFav(ev.id);
     const favBtn = gid('epBtnFav');
@@ -1838,7 +1848,30 @@ async function syncPublicFavorite(ev, added) {
 }
 
 async function renderAdminTab(el) {
-    el.innerHTML = '<div style="color:var(--gray);font-size:14px;margin-bottom:16px">Solicitudes pendientes</div><div id="adminList"><div class="empty-sm">Cargando...</div></div>';
+    el.innerHTML = `
+    <div class="drawer-tabs" style="margin:-20px -20px 16px;padding:0 20px;border-bottom:1px solid var(--gray-light)">
+        <div class="drawer-tab active" id="admin-tab-submissions" onclick="switchAdminTab('submissions')">Solicitudes</div>
+        <div class="drawer-tab" id="admin-tab-events" onclick="switchAdminTab('events')">Gestionar eventos</div>
+    </div>
+    <div id="adminContent"></div>`;
+    switchAdminTab('submissions');
+}
+
+window.switchAdminTab = async tab => {
+    document.querySelectorAll('[id^="admin-tab-"]').forEach(t => t.classList.remove('active'));
+    const activeTab = document.getElementById('admin-tab-' + tab);
+    if (activeTab) activeTab.classList.add('active');
+    const content = document.getElementById('adminContent');
+    if (!content) return;
+    if (tab === 'submissions') {
+        await renderAdminSubmissions(content);
+    } else {
+        await renderAdminEvents(content);
+    }
+};
+
+async function renderAdminSubmissions(el) {
+    el.innerHTML = '<div id="adminList"><div class="empty-sm">Cargando...</div></div>';
     try {
         const q = query(collection(db, 'submissions'), where('status', '==', 'pending'));
         const snap = await getDocs(q);
@@ -1860,6 +1893,64 @@ async function renderAdminTab(el) {
         }).join('');
     } catch(e) { if (gid('adminList')) gid('adminList').innerHTML = `<div class="empty-sm">Error: ${e.message}</div>`; }
 }
+
+async function renderAdminEvents(el) {
+    el.innerHTML = '<div style="font-size:13px;color:var(--gray);margin-bottom:12px">Todos los eventos (JSON + aprobados)</div><div id="adminEventsList"><div class="empty-sm">Cargando...</div></div>';
+    const list = document.getElementById('adminEventsList');
+    if (!list) return;
+    // Show all events with edit/delete
+    const events = allEvents.slice(0, 50); // show first 50
+    list.innerHTML = events.map(ev => `
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--gray-light)">
+            <div style="flex:1;min-width:0">
+                <div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ev.title}</div>
+                <div style="font-size:11px;color:var(--gray)">${ev.date || ''} · ${ev.zone || ''}</div>
+            </div>
+            <button onclick="adminEditEvent('${normalizeId(ev.id)}')" 
+                style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;font-size:12px;cursor:pointer;color:var(--carbon)">✏️</button>
+            <button onclick="adminDeleteEvent('${normalizeId(ev.id)}')" 
+                style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid #fcc;background:#fff0f3;font-size:12px;cursor:pointer;color:#e74c3c">🗑️</button>
+        </div>`).join('');
+}
+
+window.adminEditEvent = async id => {
+    const ev = findEvent(id);
+    if (!ev) return;
+    // If it's a Firestore event (id starts with fs_), open edit form
+    if (String(id).startsWith('fs_')) {
+        const docId = id.replace('fs_', '');
+        const newTitle = prompt('Nuevo título:', ev.title);
+        if (newTitle && newTitle !== ev.title) {
+            try {
+                await updateDoc(doc(db, 'submissions', docId), { title: newTitle });
+                ev.title = newTitle;
+                showToast('✅ Evento actualizado');
+                switchAdminTab('events');
+            } catch(e) { showToast('Error: ' + e.message); }
+        }
+    } else {
+        showToast('Para editar eventos del JSON, edita events.json en GitHub');
+    }
+};
+
+window.adminDeleteEvent = async id => {
+    const ev = findEvent(id);
+    if (!ev) return;
+    if (!confirm('¿Eliminar "' + ev.title + '"?')) return;
+    if (String(id).startsWith('fs_')) {
+        const docId = id.replace('fs_', '');
+        try {
+            await updateDoc(doc(db, 'submissions', docId), { status: 'deleted' });
+            allEvents = allEvents.filter(e => normalizeId(e.id) !== normalizeId(id));
+            renderEvents(filterLogic(allEvents));
+            showToast('🗑️ Evento eliminado');
+            switchAdminTab('events');
+        } catch(e) { showToast('Error: ' + e.message); }
+    } else {
+        showToast('Para eliminar eventos del JSON, edita events.json en GitHub');
+    }
+};
+
 _app.adminAction = window.adminAction = async (docId, status) => {
     try { await updateDoc(doc(db, 'submissions', docId), {status, reviewedAt: serverTimestamp()}); showToast(status === 'approved' ? 'Aprobado' : 'Rechazado'); renderAdminTab(gid('drawerBody')); }
     catch(e) { showToast('Error: ' + e.message); }
