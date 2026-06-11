@@ -10085,12 +10085,42 @@
       "kid": true,
       "tipo": "expo",
       "id": null
+    },
+    {
+      "title": "Presentación investigación Acervo Francisco Copello",
+      "cat": "culture",
+      "emoji": "📚",
+      "desc": "Lanzamiento de investigación y sitio web sobre el acervo de Francisco Copello en el Museo Nacional de Bellas Artes.",
+      "date": "Mar 16 de junio 12:00",
+      "dateMs": 1750188000000,
+      "month": 5,
+      "days": [
+        16
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA - Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Presentación",
+        "Archivo",
+        "Investigación"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-11",
-    "totalEvents": 256,
+    "totalEvents": 257,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
