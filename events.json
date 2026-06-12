@@ -10115,12 +10115,218 @@
       "kid": false,
       "tipo": "charla",
       "id": null
+    },
+    {
+      "title": "Podas comunitarias en plaza Serani",
+      "cat": "sport",
+      "emoji": "🌳",
+      "desc": "Actividad de poda comunitaria y cuidado de áreas verdes con paisajista ecosistémico Cristóbal Elgueta.",
+      "date": "Dom 13 de junio 10:00",
+      "dateMs": 1718294400000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Plaza Serani",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Plaza+Serani+Vitacura",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Comunitario",
+        "Medio Ambiente",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": true,
+      "tipo": "dep",
+      "id": null
+    },
+    {
+      "title": "Charla sobre crianza: Volver a mirar",
+      "cat": "culture",
+      "emoji": "💬",
+      "desc": "Charla con Felipe Lecannelier sobre prácticas de crianza desde perspectiva de apego, empatía y bienestar emocional.",
+      "date": "Dom 15 de junio 19:00",
+      "dateMs": 1718486400000,
+      "month": 5,
+      "days": [
+        15
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": 0,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Crianza",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
+    },
+    {
+      "title": "Beatlemania en Concierto",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Tributo a The Beatles en concierto en Teatro Oriente.",
+      "date": "Vie 12 de junio 19:00",
+      "dateMs": 1718198400000,
+      "month": 5,
+      "days": [
+        12
+      ],
+      "venue": "Teatro Oriente",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Teatro+Oriente+Santiago",
+      "price": null,
+      "src": "Ticketmaster Chile",
+      "srcUrl": "https://www.ticketmaster.cl/es-cl/home",
+      "img": "",
+      "tags": [
+        "Música",
+        "Tributo",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Noche De Broadway",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Espectáculo de teatro musical con clásicos de Broadway.",
+      "date": "Sab 13 de junio 19:00",
+      "dateMs": 1718330400000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Teatro Universidad de Concepción",
+      "address": "Concepción",
+      "zone": "prov",
+      "mapsQ": "Teatro+Universidad+Concepcion",
+      "price": null,
+      "src": "Ticketmaster Chile",
+      "srcUrl": "https://www.ticketmaster.cl/es-cl/home",
+      "img": "",
+      "tags": [
+        "Teatro Musical",
+        "Broadway"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": null
+    },
+    {
+      "title": "Ana Torroja",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto de Ana Torroja en Gran Arena Monticello.",
+      "date": "Sab 13 de junio 19:00",
+      "dateMs": 1718330400000,
+      "month": 5,
+      "days": [
+        13
+      ],
+      "venue": "Gran Arena Monticello",
+      "address": "Chile",
+      "zone": "prov",
+      "mapsQ": "Gran+Arena+Monticello",
+      "price": null,
+      "src": "Ticketmaster Chile",
+      "srcUrl": "https://www.ticketmaster.cl/es-cl/home",
+      "img": "",
+      "tags": [
+        "Música",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "Karina - Freedom Tour 2026",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto de Karina en Teatro Oriente.",
+      "date": "Mié 18 de junio 19:00",
+      "dateMs": 1718617200000,
+      "month": 5,
+      "days": [
+        18
+      ],
+      "venue": "Teatro Oriente",
+      "address": "Santiago",
+      "zone": "cen",
+      "mapsQ": "Teatro+Oriente+Santiago",
+      "price": null,
+      "src": "Ticketmaster Chile",
+      "srcUrl": "https://www.ticketmaster.cl/es-cl/home",
+      "img": "",
+      "tags": [
+        "Música",
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
+    },
+    {
+      "title": "New Sensations Tributo a INXS + Frontier",
+      "cat": "music",
+      "emoji": "🎸",
+      "desc": "Tributo a INXS con banda Frontier en Gran Arena Monticello.",
+      "date": "Sab 19 de junio 19:00",
+      "dateMs": 1718882400000,
+      "month": 5,
+      "days": [
+        19
+      ],
+      "venue": "Gran Arena Monticello",
+      "address": "Chile",
+      "zone": "prov",
+      "mapsQ": "Gran+Arena+Monticello",
+      "price": null,
+      "src": "Ticketmaster Chile",
+      "srcUrl": "https://www.ticketmaster.cl/es-cl/home",
+      "img": "",
+      "tags": [
+        "Música",
+        "Tributo"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-11",
-    "totalEvents": 257,
+    "lastUpdated": "2026-06-12",
+    "totalEvents": 264,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
