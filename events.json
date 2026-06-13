@@ -10321,12 +10321,91 @@
       "kid": false,
       "tipo": "conc",
       "id": null
+    },
+    {
+      "title": "Charla sobre crianza con Felipe Lecannelier",
+      "cat": "culture",
+      "emoji": "👨‍👩‍👧",
+      "desc": "Encuentro con familias y comunidad: charla sobre crianza con perspectiva de apego y empatía dirigida por especialista en desarrollo infantil.",
+      "date": "Dom 15 de junio 20:00",
+      "dateMs": 1718462400000,
+      "month": 5,
+      "days": [
+        15
+      ],
+      "venue": "Vitacura",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura Actividades",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Familia"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
+    },
+    {
+      "title": "Exposición Osvaldo Salas Veas. Obra gráfica 1930-1970",
+      "cat": "culture",
+      "emoji": "🖼️",
+      "desc": "Exposición de obra gráfica de Osvaldo Salas Veas en el CEDOC del Museo Nacional de Bellas Artes.",
+      "date": "Mié 9 de junio 10:00",
+      "dateMs": 1717939200000,
+      "month": 5,
+      "days": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "venue": "Museo Nacional de Bellas Artes",
+      "address": "José Miguel de la Barra 650, Santiago",
+      "zone": "cen",
+      "mapsQ": "Museo+Nacional+de+Bellas+Artes+Santiago",
+      "price": 0,
+      "src": "MNBA Cartelera",
+      "srcUrl": "https://www.mnba.gob.cl/cartelera",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Fotografía"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-12",
-    "totalEvents": 264,
+    "lastUpdated": "2026-06-13",
+    "totalEvents": 266,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
