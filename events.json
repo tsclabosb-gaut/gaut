@@ -10472,12 +10472,172 @@
       "kid": false,
       "tipo": "charla",
       "id": null
+    },
+    {
+      "title": "Amantes, parejas, disparejas",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Evento en TicketPlus.",
+      "date": "",
+      "dateMs": null,
+      "month": null,
+      "days": [],
+      "venue": "",
+      "address": "",
+      "zone": "cen",
+      "mapsQ": "",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/amantes-parejas-disparejas-sabado",
+      "img": "",
+      "tags": [],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 89
+    },
+    {
+      "title": "Amarga navidad",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Película en Sala K.",
+      "date": "",
+      "dateMs": null,
+      "month": null,
+      "days": [],
+      "venue": "Sala K",
+      "address": "",
+      "zone": "cen",
+      "mapsQ": "Sala+K+Santiago",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/amarga-navidad-de-pedro-almodovar-en-sala-k",
+      "img": "",
+      "tags": [
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 90
+    },
+    {
+      "title": "Los invasores",
+      "cat": "music",
+      "emoji": "🎵",
+      "desc": "Concierto de Los Invasores.",
+      "date": "Sab 6 de junio 18:00",
+      "dateMs": 1717704000000,
+      "month": 5,
+      "days": [
+        6
+      ],
+      "venue": "",
+      "address": "",
+      "zone": "cen",
+      "mapsQ": "Los+Invasores+Santiago",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/los-invasores-2026-06-06-18-00-00-0400",
+      "img": "",
+      "tags": [
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 91
+    },
+    {
+      "title": "La misteriosa mirada del flamenco",
+      "cat": "culture",
+      "emoji": "💃",
+      "desc": "Espectáculo de flamenco de Diego Céspedes.",
+      "date": "Mar 3 de junio 18:00",
+      "dateMs": 1717444800000,
+      "month": 5,
+      "days": [
+        3
+      ],
+      "venue": "Sala K",
+      "address": "",
+      "zone": "cen",
+      "mapsQ": "Sala+K+Santiago",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/la-misteriosa-mirada-del-flamenco-2026-06-03-18-00-00-0400",
+      "img": "",
+      "tags": [
+        "Danza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 92
+    },
+    {
+      "title": "Otelo",
+      "cat": "culture",
+      "emoji": "🎭",
+      "desc": "Obra de teatro Otelo.",
+      "date": "Mié 4 de junio 19:00",
+      "dateMs": 1717540800000,
+      "month": 5,
+      "days": [
+        4
+      ],
+      "venue": "",
+      "address": "",
+      "zone": "cen",
+      "mapsQ": "Otelo+Santiago",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/otelo-2026-06-04-19-00-00-0400",
+      "img": "",
+      "tags": [
+        "Teatro"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 93
+    },
+    {
+      "title": "Francisca Valenzuela - Maldita Tour",
+      "cat": "music",
+      "emoji": "🎤",
+      "desc": "Concierto de Francisca Valenzuela.",
+      "date": "",
+      "dateMs": null,
+      "month": null,
+      "days": [],
+      "venue": "",
+      "address": "",
+      "zone": "cen",
+      "mapsQ": "Francisca+Valenzuela+Santiago",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/francisca-valenzuela-maldita-tour",
+      "img": "",
+      "tags": [
+        "Concierto"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "conc",
+      "id": 94
     }
   ],
   "coords": {},
   "meta": {
     "lastUpdated": "2026-06-14",
-    "totalEvents": 268,
+    "totalEvents": 274,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
