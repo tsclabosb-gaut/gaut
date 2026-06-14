@@ -16,6 +16,7 @@ const EVENTS_PATH      = path.join(__dirname, '..', 'events.json');
 const MODEL            = 'claude-haiku-4-5';
 const TODAY            = new Date().toISOString().slice(0, 10);
 const CHARS_PER_SOURCE = 4000;
+const CHARS_TICKETPLUS = 10000; // TicketPlus gets more chars (25 pages)
 
 // ── Fuentes a raspar ──────────────────────────────────────────────────────────
 const SOURCES = [
@@ -210,7 +211,7 @@ async function callClaude(userPrompt) {
     },
     body: JSON.stringify({
       model:      MODEL,
-      max_tokens: 16000,
+      max_tokens: 16000, // Max for claude-haiku
       system:     SYSTEM_PROMPT,
       messages:   [{ role: 'user', content: userPrompt }]
     }),
@@ -355,12 +356,29 @@ async function main() {
     return;
   }
 
-  // 2. Una sola llamada a Claude (batch)
+  // 2. Separate TicketPlus from the batch (it has large content)
+  const tpScraped = scraped.filter(s => s.source.name.includes('TicketPlus'));
+  const regularScraped = scraped.filter(s => !s.source.name.includes('TicketPlus'));
+  
   console.log(`Llamando a Claude con ${scraped.length} fuentes en batch...`);
   let allNew = [];
   try {
-    allNew = await extractAllWithClaude(scraped);
-    console.log(`Claude extrajo: ${allNew.length} eventos en total\n`);
+    // Extract regular sources
+    const regularNew = regularScraped.length > 0 ? await extractAllWithClaude(regularScraped) : [];
+    // Extract TicketPlus separately  
+    let tpNew = [];
+    if (tpScraped.length > 0) {
+      console.log(`  Extrayendo TicketPlus por separado (${tpScraped[0]?.text?.length || 0} chars)...`);
+      tpNew = await extractAllWithClaude(tpScraped);
+      console.log(`  TicketPlus extrajo: ${tpNew.length} eventos`);
+    }
+    allNew = [...regularNew, ...tpNew];
+    console.log(`Claude extrajo: ${allNew.length} eventos en total`);
+    if (allNew.length > 0) {
+      console.log('  Títulos extraídos:');
+      allNew.forEach(e => console.log(`    - ${e.title} | src: ${e.src || ''} | tickets: ${e.tickets || ''}`));
+    }
+    console.log('');
   } catch (err) {
     console.error(`Error en Claude: ${err.message}`);
     process.exit(1);
