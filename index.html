@@ -152,6 +152,7 @@ img { display: block; max-width: 100%; }
 .sub-chip:hover { border-color: var(--carbon); color: var(--carbon); }
 .sub-chip.active.zone { background: #2a9d8f; color: white; border-color: #2a9d8f; }
 .sub-chip.active.special { background: var(--amber); color: #7a3800; border-color: var(--amber); }
+.sub-chip.date-filter.active { background: #3949ab; color: white; border-color: #3949ab; font-weight: 600; }
 
 
 
@@ -586,8 +587,8 @@ img { display: block; max-width: 100%; }
 .empty-sm .ei { font-size: 2.5rem; margin-bottom: 10px; }
 
 /* ── ADMIN PANEL ── */
-#adminOverlay { display: none; }
-#adminOverlay.active { display: flex !important; }
+#adminOverlay { display: none !important; }
+#adminOverlay.active { display: flex !important; flex-direction: column; }
 .admin-nav-btn {
   display: block; width: 100%; text-align: left;
   padding: 11px 20px; background: none; border: none;
@@ -907,6 +908,7 @@ function searchUsers(...a) { return _app.searchUsers && _app.searchUsers(...a); 
 function toggleFollow(...a) { return _app.toggleFollow && _app.toggleFollow(...a); }
 function viewUserFavs(...a) { return _app.viewUserFavs && _app.viewUserFavs(...a); }
 function adminNav(...a) { return window.adminNav && window.adminNav(...a); }
+function closeAdminPanel(...a) { return window.closeAdminPanel && window.closeAdminPanel(...a); }
 function adminEditEventFull(...a) { return window.adminEditEventFull && window.adminEditEventFull(...a); }
 function adminSaveEventEdit(...a) { return window.adminSaveEventEdit && window.adminSaveEventEdit(...a); }
 function adminDeleteEvent(...a) { return window.adminDeleteEvent && window.adminDeleteEvent(...a); }
@@ -1096,6 +1098,7 @@ window.sendContactMessage = async () => {
 window.closeAdminPanel = () => {
     const overlay = document.getElementById('adminOverlay');
     if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
 };
 async function loadEvents() {
     const grid = gid('eventsGrid');
@@ -1663,7 +1666,7 @@ function switchTabContent(tab) {
     else if (tab === 'favs') renderFavsTab(el);
     else if (tab === 'social') renderSocialTab(el);
     else if (tab === 'settings') renderSettingsTab(el);
-    else if (tab === 'admin') renderAdminTab(el);
+    else if (tab === 'admin') { closePanel(); renderAdminFull(); }
 }
 
 function renderAuthPanel(body, mode) {
