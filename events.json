@@ -10400,12 +10400,84 @@
       "kid": false,
       "tipo": "expo",
       "id": null
+    },
+    {
+      "title": "LMBL - Exposición de Artes Visuales y Mediales",
+      "cat": "culture",
+      "emoji": "🖼️",
+      "desc": "Exposición de artes visuales y mediales en el GAM (Centro Gabriela Mistral).",
+      "date": "Mar 15 de abril - Dom 28 de junio",
+      "dateMs": 1748534400000,
+      "month": 5,
+      "days": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "venue": "GAM - Centro Gabriela Mistral",
+      "address": "Santiago Centro",
+      "zone": "cen",
+      "mapsQ": "GAM+Centro+Gabriela+Mistral+Santiago",
+      "price": 0,
+      "src": "GAM - Centro Gabriela Mistral",
+      "srcUrl": "https://gam.cl/es/calendario/",
+      "img": "",
+      "tags": [
+        "Exposición",
+        "Artes Visuales"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "expo",
+      "id": null
+    },
+    {
+      "title": "Encuentro con Familias y Comunidad: Charla sobre crianza con Felipe Lecannelier",
+      "cat": "culture",
+      "emoji": "👨‍👩‍👧‍👦",
+      "desc": "Charla sobre prácticas de crianza desde una perspectiva de apego, empatía y bienestar emocional dirigida por el doctor en Psicología Felipe Lecannelier.",
+      "date": "Sab 15 de junio",
+      "dateMs": 1748097600000,
+      "month": 5,
+      "days": [
+        15
+      ],
+      "venue": "Centro Cultural Vitacura",
+      "address": "Vitacura",
+      "zone": "vit",
+      "mapsQ": "Centro+Cultural+Vitacura+Santiago",
+      "price": null,
+      "src": "Vitacura - Actividades municipales",
+      "srcUrl": "https://vitacura.cl/actividades/",
+      "img": "",
+      "tags": [
+        "Charla",
+        "Familia",
+        "Crianza"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "charla",
+      "id": null
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-13",
-    "totalEvents": 266,
+    "lastUpdated": "2026-06-14",
+    "totalEvents": 268,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
