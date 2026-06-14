@@ -1354,7 +1354,7 @@ function filterLogic(events) {
         if (activeSpecials.has('acc') && !e.acc) return false;
         // Date range filter
         const range = window._activeDateRange;
-        if (range && e.dateMs) {
+        if (range && e.dateMs && e.tipo !== 'rest') {
             const ms = e.dateMs;
             if (range === 'today' && (ms < todayStart || ms > todayEnd)) return false;
             if (range === 'week' && (ms < todayStart || ms > weekEnd)) return false;
@@ -1619,23 +1619,31 @@ function shareEventData(ev) {
 }
 
 _app.openPanel = window.openPanel = tab => {
-    if (tab === 'admin' || (currentUser && currentUser.email === ADMIN_EMAIL && tab === 'admin')) {
-        // Admin opens full-screen
-        gid('adminOverlay').classList.add('active');
-        renderAdminFull();
+    if (tab === 'admin') {
+        openAdminPanel();
         return;
     }
     gid('authOverlay').classList.add('active');
     gid('authDrawer').classList.add('active');
     renderPanel(tab);
 };
+
+function openAdminPanel() {
+    const overlay = gid('adminOverlay');
+    if (!overlay) { console.error('adminOverlay not found in DOM'); return; }
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    const content = gid('adminPanelContent');
+    if (content) content.innerHTML = '<div class="empty-sm">Cargando...</div>';
+    setTimeout(() => adminNav('submissions'), 100);
+}
 _app.closePanel = window.closePanel = () => {
     gid('authOverlay').classList.remove('active');
     gid('authDrawer').classList.remove('active');
 };
 
 function renderPanel(tab) {
-    if (tab === 'admin') { renderAdminFull(); return; }
+    if (tab === 'admin') { openAdminPanel(); return; }
     const body = gid('drawerBody');
     if (!currentUser) {
         gid('drawerTitle').textContent = tab === 'register' ? 'Crear cuenta' : 'Iniciar sesión';
@@ -1666,7 +1674,7 @@ function switchTabContent(tab) {
     else if (tab === 'favs') renderFavsTab(el);
     else if (tab === 'social') renderSocialTab(el);
     else if (tab === 'settings') renderSettingsTab(el);
-    else if (tab === 'admin') { closePanel(); renderAdminFull(); }
+    else if (tab === 'admin') { closePanel(); openAdminPanel(); }
 }
 
 function renderAuthPanel(body, mode) {
