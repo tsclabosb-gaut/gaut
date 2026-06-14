@@ -108,8 +108,10 @@ NOTAS:
 - Para eventos de TicketPlus: el srcUrl y tickets deben ser la URL completa (https://ticketplus.cl/events/...)
 - Para eventos de TicketPlus: la imagen ya está en el campo "Imagen:" del texto
 - Para eventos de Ticketmaster: srcUrl y tickets deben ser la URL del evento
-- IMPORTANTE: Si el texto dice "Evento: X" con "URL entradas: Y", extrae ESO como evento con tickets=Y
-- IMPORTANTE: Extrae TODOS los eventos de TicketPlus que aparezcan en el texto, no solo los primeros`;
+- IMPORTANTE: Si el texto dice "Evento: X" con "URL entradas: Y", extrae ESO como evento con tickets=Y y srcUrl=Y
+- IMPORTANTE: Extrae TODOS los eventos de TicketPlus que aparezcan en el texto
+- IMPORTANTE: Para TicketPlus, usa la URL como identificador único - NO marques como duplicado si viene de URL diferente
+- IMPORTANTE: Eventos de TicketPlus tienen zona="cen" por defecto, cat según el nombre del evento`;
 
 // ── Raspar una URL ────────────────────────────────────────────────────────────
 async function scrape(source) {
@@ -183,7 +185,7 @@ async function scrape(source) {
         // Fallback: just send the URLs and let Claude infer from them
         text = 'Eventos en TicketPlus Chile (infiere de las URLs):\n' + eventUrls.slice(0, 30).join('\n');
       } else {
-        text = pageTexts.join('\n\n').slice(0, CHARS_PER_SOURCE);
+        text = pageTexts.join('\n\n').slice(0, CHARS_TICKETPLUS);
         console.log(`  TicketPlus: got content from ${pageTexts.length}/${toFetch.length} pages`);
       }
     } else {
@@ -274,17 +276,23 @@ function mergeEvents(existing, incoming) {
   const byTitle = new Map();
   (existing.events || []).forEach(e => byTitle.set(normalize(e.title), e));
 
-  let nextId = existing.events?.length
-    ? Math.max(...existing.events.map(e => e.id)) + 1
-    : 1;
+  const numIds = (existing.events || []).map(e => Number(e.id)).filter(n => !isNaN(n) && n > 0);
+  let nextId = numIds.length ? Math.max(...numIds) + 1 : 1;
   let added = 0, dupes = 0;
   const merged = [...(existing.events || [])];
 
+  // Also index by URL to avoid URL-based duplicates
+  const byUrl = new Map();
+  (existing.events || []).forEach(e => { if (e.srcUrl) byUrl.set(e.srcUrl, e); if (e.tickets) byUrl.set(e.tickets, e); });
+
   incoming.forEach(ev => {
     const key = normalize(ev.title);
+    const urlKey = ev.srcUrl || ev.tickets || '';
     if (byTitle.has(key)) { dupes++; return; }
+    if (urlKey && byUrl.has(urlKey)) { dupes++; return; }
     merged.push({ ...ev, id: nextId++ });
     byTitle.set(key, ev);
+    if (urlKey) byUrl.set(urlKey, ev);
     added++;
   });
 
