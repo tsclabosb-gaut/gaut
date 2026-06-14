@@ -51,8 +51,9 @@ const SOURCES = [
   { name: 'Teatro Municipal de Santiago',      zone: 'cen',  url: 'https://www.municipal.cl/cartelera/' },
   // TicketPlus - sitemap XML estático (evita JS rendering)
   { name: 'TicketPlus - Sitemap',              zone: 'cen',  url: 'https://ticketplus.cl/sitemap.xml', isXml: true },
-  // Ticketmaster Chile
-  { name: 'Ticketmaster Chile',                zone: 'cen',  url: 'https://www.ticketmaster.cl/es-cl/home' },
+  // Ticketmaster Chile - página principal + eventos específicos
+  { name: 'Ticketmaster Chile - Home',         zone: 'cen',  url: 'https://www.ticketmaster.cl/es-cl/home' },
+  { name: 'Ticketmaster - Family Fest Hasbro', zone: 'cen',  url: 'https://www.ticketmaster.cl/event/family-fest-by-hasbro' },
   // Passline - ticketera alternativa
   { name: 'Passline - Santiago',               zone: 'cen',  url: 'https://www.passline.com/eventos/ciudad-santiago' },
 ];
@@ -104,8 +105,11 @@ NOTAS:
 - "days": dias del mes en que ocurre
 - "dateMs": timestamp ms del primer dia a las 20:00 si no hay hora especifica
 - "img": URL real de imagen si aparece en el texto, sino cadena vacia ""
-- Para eventos de TicketPlus: el srcUrl debe ser la URL completa del evento (https://ticketplus.cl/events/...)
-- Para eventos de TicketPlus: el tickets debe ser la misma URL del evento`;
+- Para eventos de TicketPlus: el srcUrl y tickets deben ser la URL completa (https://ticketplus.cl/events/...)
+- Para eventos de TicketPlus: la imagen ya está en el campo "Imagen:" del texto
+- Para eventos de Ticketmaster: srcUrl y tickets deben ser la URL del evento
+- IMPORTANTE: Si el texto dice "Evento: X" con "URL entradas: Y", extrae ESO como evento con tickets=Y
+- IMPORTANTE: Extrae TODOS los eventos de TicketPlus que aparezcan en el texto, no solo los primeros`;
 
 // ── Raspar una URL ────────────────────────────────────────────────────────────
 async function scrape(source) {
@@ -122,7 +126,22 @@ async function scrape(source) {
     }
     const rawText = await res.text();
     let text;
-    if (source.isXml) {
+    // For Ticketmaster, extract meta tags + body
+    if (source.url && source.url.includes('ticketmaster.cl') && !source.isXml) {
+      const metaTitle = (rawText.match(/meta-og:title:[^\S\n]*([^\n]+)/) || [])[1] || '';
+      const metaDesc = (rawText.match(/meta-og:description:[^\S\n]*([^\n]+)/) || [])[1] || '';
+      const metaImg = (rawText.match(/meta-og:image:[^\S\n]*([^\n]+)/) || [])[1] || '';
+      const bodyText = htmlToText(rawText, 2000);
+      text = [
+        metaTitle ? `Evento: ${metaTitle}` : '',
+        metaDesc ? `Fecha: ${metaDesc}` : '',
+        metaImg ? `Imagen: ${metaImg}` : '',
+        `URL: ${source.url}`,
+        `Tickets: ${source.url}`,
+        bodyText
+      ].filter(Boolean).join('\n').slice(0, CHARS_PER_SOURCE);
+      console.log(`  OK   ${source.name}: extracted from meta tags`);
+    } else if (source.isXml) {
       // Extract event URLs from sitemap XML
       const urls = [...rawText.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
       const eventUrls = urls.filter(u => u.includes('/events/') || u.includes('/evento/'));
@@ -137,15 +156,28 @@ async function scrape(source) {
       await Promise.allSettled(toFetch.map(async url => {
         try {
           const r = await fetch(url, {
-            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GautBot/1.0)', 'Accept-Language': 'es-CL,es;q=0.9' },
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GautBot/1.0)', 'Accept-Language': 'es-CL,es;q=0.9', 'Accept': 'text/html' },
             signal: AbortSignal.timeout(8000)
           });
           if (!r.ok) return;
           const pageHtml = await r.text();
-          const pageText = htmlToText(pageHtml, 800);
-          if (pageText.length > 100) pageTexts.push(`--- ${url} ---
-${pageText}`);
-        } catch(e) { /* skip failed pages */ }
+          // Extract meta tags - TicketPlus has rich og: meta tags even though body is JS-rendered
+          const gm = (key) => { const m = pageHtml.match(new RegExp(key + '[^\\S\\n]*([^\\n<"]+)')); return m ? m[1].trim() : ''; };
+          const title = gm('meta-og:title:') || gm('title:') || '';
+          const desc = gm('meta-og:description:') || gm('meta-description:') || '';
+          const price = gm('meta-og:product:price:amount:');
+          const img = gm('meta-og:image:');
+          const cleanTitle = title.replace('Entradas para ', '').replace(/ - Ticketplus$/i, '').trim();
+          if (!cleanTitle || cleanTitle.length < 3) return;
+          const lines = [
+            `Evento: ${cleanTitle}`,
+            desc ? `Descripción: ${desc}` : '',
+            price ? `Precio: $${price} CLP` : '',
+            `URL entradas: ${url}`,
+            img ? `Imagen: ${img}` : '',
+          ].filter(Boolean).join('\n');
+          pageTexts.push(`--- ${url} ---\n${lines}`);
+        } catch(e) { /* skip */ }
       }));
       if (pageTexts.length === 0) {
         // Fallback: just send the URLs and let Claude infer from them
