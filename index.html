@@ -690,8 +690,11 @@ img { display: block; max-width: 100%; }
     </svg>
     <span>descubre<strong style="color:var(--terracotta)">tu</strong>ciudad</span>
   </div>
-  <div class="header-actions" id="headerAuth">
-    <button class="btn-icon-header" onclick="openPanel('login')">👤</button>
+  <div class="header-actions">
+    <button class="btn-icon-header" onclick="openContact()" title="Contacto">✉️</button>
+    <div id="headerAuth" style="display:inline-flex;align-items:center">
+      <button class="btn-icon-header" onclick="openPanel('login')">👤</button>
+    </div>
   </div>
 </header>
 
@@ -841,6 +844,27 @@ img { display: block; max-width: 100%; }
     <div class="submit-modal-ftr">
       <button style="background:var(--bg);color:var(--carbon);border:1.5px solid var(--gray-light)" onclick="closeSubmitModal()">Cancelar</button>
       <button style="background:var(--terracotta);color:white" onclick="submitForm()">Enviar solicitud</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="submit-overlay" id="contactOverlay">
+  <div class="submit-modal">
+    <div class="submit-modal-hdr">
+      <h3>💬 Contáctanos</h3>
+      <button style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--gray)" onclick="closeContact()">✕</button>
+    </div>
+    <div class="submit-modal-body">
+      <p style="font-size:13px;color:var(--gray);margin-bottom:12px">¿Sugerencias, un problema que reportar o una consulta? Escríbenos.</p>
+      <div class="fg"><label>Nombre (opcional)</label><input type="text" id="contactName" placeholder="Tu nombre"></div>
+      <div class="fg"><label>Correo (opcional)</label><input type="email" id="contactEmail" placeholder="tu@email.com"></div>
+      <div class="fg"><label>Mensaje</label><textarea id="contactMsg" rows="4" placeholder="Sugerencias, reportar problema, consultas..."></textarea></div>
+      <div id="contactStatus" style="font-size:12px;text-align:center;margin-top:8px;color:var(--gray)"></div>
+    </div>
+    <div class="submit-modal-ftr">
+      <button style="background:var(--bg);color:var(--carbon);border:1.5px solid var(--gray-light)" onclick="closeContact()">Cancelar</button>
+      <button style="background:var(--terracotta);color:white" onclick="sendContactMessage()">Enviar mensaje</button>
     </div>
   </div>
 </div>
@@ -1078,13 +1102,14 @@ window.sendContactMessage = async () => {
     const msg = document.getElementById('contactMsg')?.value?.trim();
     const status = document.getElementById('contactStatus');
     if (!msg) { if (status) status.textContent = 'Escribe un mensaje'; return; }
-    if (!currentUser) { if (status) status.textContent = 'Debes iniciar sesión'; return; }
     if (status) status.textContent = 'Enviando...';
+    const name = document.getElementById('contactName')?.value?.trim();
+    const email = document.getElementById('contactEmail')?.value?.trim();
     try {
         await addDoc(collection(db, 'messages'), {
-            name: currentUser.displayName || 'Usuario',
-            email: currentUser.email || '',
-            userId: currentUser.uid,
+            name: name || currentUser?.displayName || 'Anónimo',
+            email: email || currentUser?.email || '',
+            userId: currentUser?.uid || null,
             message: msg,
             createdAt: serverTimestamp(),
             read: false
@@ -1092,8 +1117,20 @@ window.sendContactMessage = async () => {
         if (status) status.textContent = '✅ Mensaje enviado. ¡Gracias!';
         const input = document.getElementById('contactMsg');
         if (input) input.value = '';
+        setTimeout(() => closeContact(), 1500);
     } catch(e) { if (status) status.textContent = '⚠️ Error: ' + e.message; }
 };
+window.openContact = () => {
+    const o = gid('contactOverlay');
+    if (!o) return;
+    const s = gid('contactStatus'); if (s) s.textContent = '';
+    if (currentUser) {
+        const n = gid('contactName'); if (n && !n.value) n.value = currentUser.displayName || '';
+        const e = gid('contactEmail'); if (e && !e.value) e.value = currentUser.email || '';
+    }
+    o.classList.add('active');
+};
+window.closeContact = () => { const o = gid('contactOverlay'); if (o) o.classList.remove('active'); };
 
 window.closeAdminPanel = () => {
     const overlay = document.getElementById('adminOverlay');
@@ -1820,13 +1857,7 @@ async function renderSettingsTab(el) {
             </label>
         </div>
     </div>
-    <button class="btn-danger" onclick="doLogout()" style="margin-top:20px;width:100%">Cerrar sesión</button>
-    <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--gray-light)">
-        <p style="font-size:13px;font-weight:700;margin-bottom:10px">💬 Contactar al equipo</p>
-        <div class="fg"><label>Mensaje</label><textarea id="contactMsg" rows="3" placeholder="Sugerencias, reportar problema, consultas..."></textarea></div>
-        <button onclick="sendContactMessage()" style="width:100%;padding:11px;border-radius:var(--radius-md);background:var(--terracotta);color:white;border:none;font-weight:600;cursor:pointer;font-size:14px">Enviar mensaje</button>
-        <div id="contactStatus" style="font-size:12px;text-align:center;margin-top:8px;color:var(--gray)"></div>
-    </div>`;
+    <button class="btn-danger" onclick="doLogout()" style="margin-top:20px;width:100%">Cerrar sesión</button>`;
 }
 _app.togglePref = window.togglePref = async key => {
     const chip = document.getElementById('pref-' + key);
@@ -2207,7 +2238,7 @@ async function adminSectionUsers(el) {
         (snap.empty ? '<div class="empty-sm">Sin usuarios aún</div>' :
         snap.docs.map(d => {
             const p = d.data();
-            return `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-light)">
+            return `<div onclick="adminViewUser('${d.id}')" style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-light);cursor:pointer">
                 <div style="width:36px;height:36px;border-radius:50%;background:var(--terracotta);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">
                     ${(p.displayName||'?')[0].toUpperCase()}
                 </div>
@@ -2215,6 +2246,7 @@ async function adminSectionUsers(el) {
                     <div style="font-size:13px;font-weight:600">${p.displayName || 'Sin nombre'}</div>
                     <div style="font-size:11px;color:var(--gray)">${p.email || ''} · ${p.favCount||0} favoritos</div>
                 </div>
+                <div style="color:var(--gray);font-size:18px">›</div>
             </div>`;
         }).join(''));
     } catch(e) { el.innerHTML = '<div class="empty-sm">Error: ' + e.message + '</div>'; }
@@ -2265,6 +2297,126 @@ async function adminSectionMessages(el) {
         }).join(''));
     } catch(e) { el.innerHTML = '<div class="empty-sm">Sin mensajes aún</div>'; }
 }
+
+async function adminSectionAnalytics(el) {
+    el.innerHTML = '<div style="font-size:14px;font-weight:700;margin-bottom:12px">📊 Analytics</div><div class="empty-sm">Cargando...</div>';
+    try {
+        const [profilesSnap, subsSnap, commentsSnap, msgsSnap, pubFavsSnap] = await Promise.all([
+            getDocs(collection(db, 'publicProfiles')),
+            getDocs(collection(db, 'submissions')),
+            getDocs(collection(db, 'comments')),
+            getDocs(collection(db, 'messages')),
+            getDocs(collection(db, 'publicFavorites')),
+        ]);
+        let pending = 0, approved = 0, deleted = 0;
+        subsSnap.docs.forEach(d => {
+            const s = d.data().status;
+            if (s === 'pending') pending++;
+            else if (s === 'approved') approved++;
+            else if (s === 'deleted') deleted++;
+        });
+        const favCounts = {};
+        pubFavsSnap.docs.forEach(d => {
+            const f = d.data();
+            const key = f.eventId || '?';
+            if (!favCounts[key]) favCounts[key] = { title: f.title || f.eventId, count: 0 };
+            favCounts[key].count++;
+        });
+        const topFavs = Object.values(favCounts).sort((a, b) => b.count - a.count).slice(0, 5);
+        const card = (label, value, emoji) => `
+            <div style="background:var(--bg);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:14px">
+                <div style="font-size:22px;font-weight:800;color:var(--carbon)">${value}</div>
+                <div style="font-size:12px;color:var(--gray);margin-top:2px">${emoji} ${label}</div>
+            </div>`;
+        el.innerHTML = `
+            <div style="font-size:14px;font-weight:700;margin-bottom:12px">📊 Analytics</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:20px">
+                ${card('Usuarios', profilesSnap.size, '👥')}
+                ${card('Eventos', allEvents.length, '🗓')}
+                ${card('Comentarios', commentsSnap.size, '💬')}
+                ${card('Favoritos', pubFavsSnap.size, '❤️')}
+                ${card('Mensajes', msgsSnap.size, '✉️')}
+                ${card('Solicitudes', subsSnap.size, '📋')}
+            </div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:8px">Solicitudes por estado</div>
+            <div style="display:flex;gap:10px;margin-bottom:20px">
+                ${card('Pendientes', pending, '⏳')}
+                ${card('Aprobadas', approved, '✅')}
+                ${card('Eliminadas', deleted, '🗑️')}
+            </div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:8px">Top eventos por favoritos</div>
+            ${topFavs.length === 0 ? '<div class="empty-sm">Sin datos aún</div>' :
+              topFavs.map((t, i) => `
+                <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-light)">
+                    <div style="font-weight:800;color:var(--terracotta);width:20px">${i + 1}</div>
+                    <div style="flex:1;font-size:13px">${t.title}</div>
+                    <div style="font-size:13px;font-weight:700">❤️ ${t.count}</div>
+                </div>`).join('')}
+        `;
+    } catch(e) {
+        el.innerHTML = '<div class="empty-sm">Error cargando analytics: ' + e.message + '</div>';
+    }
+}
+
+window.adminViewUser = async uid => {
+    const el = gid('adminPanelContent');
+    if (!el) return;
+    el.innerHTML = '<div class="empty-sm">Cargando...</div>';
+    const backBtn = `<div style="margin-bottom:16px"><button onclick="adminNav('users')" style="background:none;border:none;cursor:pointer;color:var(--terracotta);font-size:14px;font-weight:600">← Volver</button></div>`;
+    try {
+        const [profileSnap, favsSnap, subsSnap, followingSnap, followersSnap] = await Promise.all([
+            getDoc(doc(db, 'publicProfiles', uid)),
+            getDocs(query(collection(db, 'publicFavorites'), where('userId', '==', uid))),
+            getDocs(query(collection(db, 'submissions'), where('userId', '==', uid))),
+            getDoc(doc(db, 'following', uid)),
+            getDoc(doc(db, 'followers', uid)),
+        ]);
+        const p = profileSnap.exists() ? profileSnap.data() : {};
+        const followingCount = followingSnap.exists() ? (followingSnap.data().list || []).length : 0;
+        const followersCount = followersSnap.exists() ? (followersSnap.data().list || []).length : 0;
+        const favsHtml = favsSnap.empty ? '<div class="empty-sm">Sin favoritos públicos</div>' :
+            favsSnap.docs.map(d => {
+                const f = d.data();
+                return `<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray-light)">
+                    <span>${f.emoji || '🎉'}</span>
+                    <span style="flex:1;font-size:13px">${f.title || f.eventId}</span>
+                    <span style="font-size:11px;color:var(--gray)">${f.date || ''}</span>
+                </div>`;
+            }).join('');
+        const subsHtml = subsSnap.empty ? '<div class="empty-sm">Sin solicitudes</div>' :
+            subsSnap.docs.map(d => {
+                const s = d.data();
+                const badge = { approved: '✅', pending: '⏳', deleted: '🗑️' }[s.status] || '•';
+                return `<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray-light)">
+                    <span>${badge}</span>
+                    <span style="flex:1;font-size:13px">${s.title || '(sin título)'}</span>
+                    <span style="font-size:11px;color:var(--gray)">${s.status || ''}</span>
+                </div>`;
+            }).join('');
+        el.innerHTML = backBtn + `
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+                <div style="width:56px;height:56px;border-radius:50%;background:var(--terracotta);color:white;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    ${(p.displayName || '?')[0].toUpperCase()}
+                </div>
+                <div style="min-width:0">
+                    <div style="font-size:16px;font-weight:700">${p.displayName || 'Sin nombre'}</div>
+                    <div style="font-size:12px;color:var(--gray)">${p.email || ''}</div>
+                    <div style="font-size:11px;color:var(--gray);margin-top:2px;word-break:break-all">${uid}</div>
+                </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-bottom:20px">
+                <div style="flex:1;text-align:center;background:var(--bg);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:10px"><div style="font-size:18px;font-weight:800">${favsSnap.size}</div><div style="font-size:11px;color:var(--gray)">❤️ Favoritos</div></div>
+                <div style="flex:1;text-align:center;background:var(--bg);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:10px"><div style="font-size:18px;font-weight:800">${followersCount}</div><div style="font-size:11px;color:var(--gray)">Seguidores</div></div>
+                <div style="flex:1;text-align:center;background:var(--bg);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:10px"><div style="font-size:18px;font-weight:800">${followingCount}</div><div style="font-size:11px;color:var(--gray)">Siguiendo</div></div>
+            </div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">❤️ Favoritos públicos (${favsSnap.size})</div>
+            <div style="margin-bottom:20px">${favsHtml}</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">📋 Solicitudes enviadas (${subsSnap.size})</div>
+            <div>${subsHtml}</div>`;
+    } catch(e) {
+        el.innerHTML = backBtn + '<div class="empty-sm">Error: ' + e.message + '</div>';
+    }
+};
 
 window.adminEditEvent = async id => {
     const ev = findEvent(id);

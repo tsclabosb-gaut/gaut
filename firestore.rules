@@ -91,9 +91,9 @@ service cloud.firestore {
       allow delete: if isAdmin() || existingOwner();
     }
 
-    // ---- messages/{id} — formulario de contacto (solo admin lee) --------
+    // ---- messages/{id} — contacto público (cualquiera envía, solo admin lee) --
     match /messages/{id} {
-      allow create: if signedIn();
+      allow create: if true;
       allow read:   if isAdmin();
     }
 
