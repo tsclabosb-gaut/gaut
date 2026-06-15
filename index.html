@@ -162,6 +162,33 @@ img { display: block; max-width: 100%; }
 .sub-chip.active.special { background: var(--amber); color: #7a3800; border-color: var(--amber); }
 .sub-chip.date-filter.active { background: #3949ab; color: white; border-color: #3949ab; font-weight: 600; }
 
+/* ── FILTROS: inline en desktop, menú lateral (drawer) en móvil ── */
+.filter-group-label { display: none; }
+.filters-trigger { display: none; }
+.filters-close { display: none; }
+#filtersBackdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2100; }
+@media (max-width: 1023px) {
+  .filters-trigger {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 4px 16px 0; padding: 11px 14px; width: calc(100% - 32px);
+    background: var(--surface); border: 1.5px solid var(--gray-light); border-radius: var(--radius-full);
+    font-size: 14px; font-weight: 600; color: var(--carbon); cursor: pointer; font-family: inherit;
+  }
+  #filtersBackdrop.open { display: block; }
+  #filtersWrap {
+    position: fixed; top: 0; right: 0; bottom: 0; width: 84%; max-width: 340px;
+    background: white; z-index: 2200; box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+    transform: translateX(100%); transition: transform 0.28s ease;
+    overflow-y: auto; padding: 60px 18px 28px;
+  }
+  #filtersWrap.open { transform: translateX(0); }
+  .filters-close { display: block; position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--gray); }
+  .filter-group { margin-bottom: 22px; }
+  .filter-group-label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin: 0 0 10px 2px; }
+  #filtersWrap .filters-bar, #filtersWrap .sub-filters-bar { flex-wrap: wrap; overflow: visible; padding: 0; border-bottom: none; background: transparent; gap: 8px; }
+  #filtersWrap .filters-bar::after, #filtersWrap .sub-filters-bar::after { display: none; }
+}
+
 
 
 /* ── FEED ── */
@@ -721,30 +748,46 @@ img { display: block; max-width: 100%; }
   </div>
 </div>
 
-<!-- CATEGORY FILTERS -->
-<div class="filters-bar hide-scroll" id="catFilters">
-  <button class="filter-chip active cat" onclick="setCategoryPill(this,'todos')">Todo</button>
-  <button class="filter-chip cat" onclick="setCategoryPill(this,'food')">🍽️ Gastronomía</button>
-  <button class="filter-chip cat" onclick="setCategoryPill(this,'music')">🎵 Música</button>
-  <button class="filter-chip cat" onclick="setCategoryPill(this,'culture')">🎨 Cultura</button>
-  <button class="filter-chip cat" onclick="setCategoryPill(this,'sport')">⚽ Deporte</button>
-</div>
+<!-- FILTROS: barras inline en desktop, menú lateral (☰) en móvil -->
+<button class="filters-trigger" onclick="toggleFiltersDrawer()"><span style="font-size:18px;line-height:1">☰</span> Filtros</button>
+<div id="filtersBackdrop" onclick="toggleFiltersDrawer()"></div>
+<div id="filtersWrap">
+  <button class="filters-close" onclick="toggleFiltersDrawer()" title="Cerrar">✕</button>
 
-<!-- ZONE + SPECIAL FILTERS -->
-<div class="sub-filters-bar hide-scroll">
-  <button class="sub-chip zone" onclick="toggleZonePill(this,'cen')">📍 Centro</button>
-  <button class="sub-chip zone" onclick="toggleZonePill(this,'vit')">📍 Vitacura</button>
-  <button class="sub-chip zone" onclick="toggleZonePill(this,'lc')">📍 Las Condes</button>
-  <button class="sub-chip zone" onclick="toggleZonePill(this,'nun')">📍 Ñuñoa</button>
-  <button class="sub-chip zone" onclick="toggleZonePill(this,'prov')">📍 Providencia</button>
-  <button class="sub-chip special" onclick="toggleSpecialPill(this,'kid')">👶 Niños</button>
-  <button class="sub-chip special" onclick="toggleSpecialPill(this,'pet')">🐕 Mascotas</button>
-  <button class="sub-chip special" onclick="toggleSpecialPill(this,'acc')">♿ Accesible</button>
-  <div style="width:1px;background:var(--gray-light);margin:4px 8px;flex-shrink:0"></div>
-  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'today')">📅 Hoy</button>
-  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'week')">📅 Esta semana</button>
-  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'month')">📅 Este mes</button>
-  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'weekend')">📅 Este fin de semana</button>
+  <div class="filter-group">
+    <div class="filter-group-label">Categoría</div>
+    <div class="filters-bar hide-scroll" id="catFilters">
+      <button class="filter-chip active cat" onclick="setCategoryPill(this,'todos')">Todo</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'food')">🍽️ Gastronomía</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'music')">🎵 Música</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'culture')">🎨 Cultura</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'sport')">⚽ Deporte</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Filtros</div>
+    <div class="sub-filters-bar hide-scroll">
+      <button class="sub-chip zone" onclick="toggleZonePill(this,'cen')">📍 Centro</button>
+      <button class="sub-chip zone" onclick="toggleZonePill(this,'vit')">📍 Vitacura</button>
+      <button class="sub-chip zone" onclick="toggleZonePill(this,'lc')">📍 Las Condes</button>
+      <button class="sub-chip zone" onclick="toggleZonePill(this,'nun')">📍 Ñuñoa</button>
+      <button class="sub-chip zone" onclick="toggleZonePill(this,'prov')">📍 Providencia</button>
+      <button class="sub-chip special" onclick="toggleSpecialPill(this,'kid')">👶 Niños</button>
+      <button class="sub-chip special" onclick="toggleSpecialPill(this,'pet')">🐕 Mascotas</button>
+      <button class="sub-chip special" onclick="toggleSpecialPill(this,'acc')">♿ Accesible</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Fechas</div>
+    <div class="sub-filters-bar hide-scroll">
+      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'today')">📅 Hoy</button>
+      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'week')">📅 Esta semana</button>
+      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'month')">📅 Este mes</button>
+      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'weekend')">📅 Este fin de semana</button>
+    </div>
+  </div>
 </div>
 
 <!-- PROPOSE BAR -->
@@ -1456,6 +1499,15 @@ _app.toggleZonePill = window.toggleZonePill = (el, zone) => {
 _app.toggleSpecialPill = window.toggleSpecialPill = (el, type) => {
     activeSpecials.has(type) ? (activeSpecials.delete(type), el.classList.remove('active')) : (activeSpecials.add(type), el.classList.add('active'));
     renderEvents(filterLogic(allEvents));
+};
+
+window.toggleFiltersDrawer = () => {
+    const w = document.getElementById('filtersWrap');
+    const b = document.getElementById('filtersBackdrop');
+    if (!w) return;
+    const open = w.classList.toggle('open');
+    if (b) b.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
 };
 
 const shareSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
