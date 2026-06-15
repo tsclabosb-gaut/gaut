@@ -624,6 +624,16 @@ img { display: block; max-width: 100%; }
 .fab-propose:hover { background: #b54d28; transform: translateY(-2px); }
 .fab-label { font-size: 14px; font-weight: 600; }
 @media (min-width: 1024px) { .fab-propose { bottom: 24px; right: 32px; } }
+.fab-contact {
+  position: fixed; bottom: 138px; right: 16px; z-index: 490;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: white; color: var(--terracotta); border: 1.5px solid var(--gray-light);
+  font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex; align-items: center; justify-content: center; transition: var(--transition);
+}
+.fab-contact:hover { transform: translateY(-2px); }
+@media (min-width: 1024px) { .fab-contact { bottom: 84px; right: 32px; } }
+.legal-footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--gray-light); color: var(--gray); font-size: 11px; line-height: 1.6; text-align: center; }
 
 /* ── BOTTOM NAV ── */
 .bottom-nav {
@@ -690,11 +700,8 @@ img { display: block; max-width: 100%; }
     </svg>
     <span>descubre<strong style="color:var(--terracotta)">tu</strong>ciudad</span>
   </div>
-  <div class="header-actions">
-    <button class="btn-icon-header" onclick="openContact()" title="Contacto">✉️</button>
-    <div id="headerAuth" style="display:inline-flex;align-items:center">
-      <button class="btn-icon-header" onclick="openPanel('login')">👤</button>
-    </div>
+  <div class="header-actions" id="headerAuth">
+    <button class="btn-icon-header" onclick="openPanel('login')">👤</button>
   </div>
 </header>
 
@@ -739,6 +746,10 @@ img { display: block; max-width: 100%; }
 <div class="feed-section feed-pad">
   <div class="section-label" id="feedLabel">Todos los eventos</div>
   <div class="events-grid" id="eventsGrid"></div>
+  <footer class="legal-footer">
+    <p><strong>DescubreTuCiudad</strong> es una plataforma informativa que recopila y difunde información de eventos y panoramas a partir de fuentes públicas de terceros. No organizamos, producimos ni vendemos entradas para estos eventos. La información (fechas, precios, lugares y disponibilidad) puede cambiar sin previo aviso o contener errores, por lo que recomendamos confirmar siempre con el organizador oficial antes de asistir o comprar. No nos hacemos responsables por cambios, cancelaciones ni por transacciones realizadas en sitios de terceros. Todas las marcas y contenidos pertenecen a sus respectivos dueños.</p>
+    <p style="margin-top:10px">© 2026 DescubreTuCiudad · Santiago, Chile</p>
+  </footer>
 </div>
 
 <!-- EVENT PANEL -->
@@ -872,6 +883,7 @@ img { display: block; max-width: 100%; }
 <!-- BOTTOM NAV -->
 <!-- Floating propose button -->
 <button class="fab-propose" onclick="openSubmitModal()" title="Agregar evento"><span style="font-size:20px;line-height:1">＋</span><span class="fab-label">Agregar evento</span></button>
+<button class="fab-contact" onclick="openContact()" title="Contacto">✉️</button>
 
 <nav class="bottom-nav">
   <button class="bottom-nav-item active" id="nav-home" onclick="navTo('home')"><span class="nav-icon">🏠</span>Inicio</button>
@@ -2281,6 +2293,8 @@ window.adminRestoreEvent = async docId => {
     } catch(e) { showToast('Error: ' + e.message); }
 };
 
+const escapeHtml = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
 async function adminSectionMessages(el) {
     el.innerHTML = '<div style="font-size:14px;font-weight:700;margin-bottom:12px">💬 Mensajes recibidos</div><div class="empty-sm">Cargando...</div>';
     try {
@@ -2289,14 +2303,29 @@ async function adminSectionMessages(el) {
         (snap.empty ? '<div class="empty-sm">Sin mensajes aún</div>' :
         snap.docs.map(d => {
             const m = d.data();
-            const date = m.createdAt?.toDate?.().toLocaleDateString('es-CL') || '';
+            const date = m.createdAt?.toDate?.().toLocaleString('es-CL') || '';
+            const email = (m.email || '').trim();
+            const subject = encodeURIComponent('Respuesta — DescubreTuCiudad');
+            const body = encodeURIComponent('\n\n----------\nTu mensaje: ' + (m.message || ''));
+            const reply = email
+                ? `<a href="mailto:${escapeHtml(email)}?subject=${subject}&body=${body}" style="text-decoration:none;padding:6px 12px;border-radius:var(--radius-full);background:var(--terracotta);color:white;font-size:12px;font-weight:600">✉️ Responder</a>`
+                : '<span style="font-size:11px;color:var(--gray)">Sin correo para responder</span>';
             return `<div style="background:var(--bg);border-radius:var(--radius-md);padding:12px;margin-bottom:8px;border:1px solid var(--gray-light)">
-                <div style="font-size:12px;font-weight:700;color:var(--terracotta);margin-bottom:4px">${m.name || 'Anónimo'} · ${m.email || ''} · ${date}</div>
-                <div style="font-size:13px;color:var(--carbon);line-height:1.5">${m.message || ''}</div>
+                <div style="font-size:12px;font-weight:700;color:var(--terracotta);margin-bottom:4px">${escapeHtml(m.name) || 'Anónimo'} · ${escapeHtml(email) || 'sin correo'} · ${date}</div>
+                <div style="font-size:13px;color:var(--carbon);line-height:1.5;margin-bottom:10px;white-space:pre-wrap">${escapeHtml(m.message)}</div>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                    ${reply}
+                    <button onclick="adminDeleteMessage('${d.id}')" style="padding:6px 12px;border-radius:var(--radius-full);background:white;border:1.5px solid #fcc;color:#e74c3c;font-size:12px;font-weight:600;cursor:pointer">🗑️ Borrar</button>
+                </div>
             </div>`;
         }).join(''));
     } catch(e) { el.innerHTML = '<div class="empty-sm">Sin mensajes aún</div>'; }
 }
+window.adminDeleteMessage = async id => {
+    if (!confirm('¿Borrar este mensaje? No se puede deshacer.')) return;
+    try { await deleteDoc(doc(db, 'messages', id)); showToast('🗑️ Mensaje borrado'); adminNav('messages'); }
+    catch(e) { showToast('Error: ' + e.message); }
+};
 
 async function adminSectionAnalytics(el) {
     el.innerHTML = '<div style="font-size:14px;font-weight:700;margin-bottom:12px">📊 Analytics</div><div class="empty-sm">Cargando...</div>';

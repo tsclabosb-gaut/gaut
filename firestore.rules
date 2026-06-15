@@ -91,10 +91,10 @@ service cloud.firestore {
       allow delete: if isAdmin() || existingOwner();
     }
 
-    // ---- messages/{id} — contacto público (cualquiera envía, solo admin lee) --
+    // ---- messages/{id} — contacto público (cualquiera envía; admin lee/gestiona) --
     match /messages/{id} {
       allow create: if true;
-      allow read:   if isAdmin();
+      allow read, update, delete: if isAdmin();
     }
 
     // ---- following/{uid} — a quién sigue cada usuario -------------------
