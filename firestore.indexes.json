@@ -1,0 +1,14 @@
+{
+  "indexes": [
+    {
+      "comment": "Necesario para la consulta de eventos aprobados (index.html ~1156): where status==approved AND type==new",
+      "collectionGroup": "submissions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "type", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

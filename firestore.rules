@@ -1,0 +1,120 @@
+rules_version = '2';
+
+// ============================================================================
+//  Reglas de seguridad de Firestore — descubre-tu-ciudad
+//  Generadas a partir del modelo de datos real de index.html.
+//  ⚠️  REVISAR Y PROBAR antes del primer despliegue a producción.
+//      El chequeo de admin del cliente (index.html) NO da seguridad por sí
+//      solo; la seguridad real vive aquí.
+// ============================================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- Helpers --------------------------------------------------------
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+    // Admin = el correo definido en index.html (ADMIN_EMAIL).
+    function isAdmin() {
+      return signedIn() && request.auth.token.email == 'tsclabosb@gmail.com';
+    }
+    // El doc ENTRANTE pertenece a quien escribe (campo userId).
+    function incomingOwner() {
+      return signedIn() && request.resource.data.userId == request.auth.uid;
+    }
+    // El doc EXISTENTE pertenece a quien lee/borra (campo userId).
+    function existingOwner() {
+      return signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // ---- users/{uid} — preferencias privadas ----------------------------
+    match /users/{uid} {
+      allow read, write: if isOwner(uid) || isAdmin();
+    }
+
+    // ---- publicProfiles/{uid} — perfil público (búsqueda y follow) ------
+    match /publicProfiles/{uid} {
+      allow read:  if signedIn();
+      allow write: if isOwner(uid);
+    }
+
+    // ---- submissions/{id} — eventos enviados por usuarios ---------------
+    match /submissions/{id} {
+      allow read:   if isAdmin()
+                    || resource.data.status == 'approved'
+                    || existingOwner();
+      allow create: if incomingOwner();
+      // El dueño puede editar su envío pero NO cambiar el status
+      // (evita auto-aprobación). El admin sí puede cambiar el status.
+      allow update: if isAdmin()
+                    || (existingOwner()
+                        && request.resource.data.status == resource.data.status);
+      allow delete: if isAdmin();
+    }
+
+    // ---- favorites/{uid_eventId} — favoritos privados -------------------
+    match /favorites/{id} {
+      allow read:          if signedIn() && (resource == null
+                              || resource.data.userId == request.auth.uid);
+      allow create, update: if incomingOwner();
+      allow delete:        if existingOwner();
+    }
+
+    // ---- publicFavorites/{uid_eventId} — favoritos visibles en perfil ---
+    match /publicFavorites/{id} {
+      allow read:           if signedIn();
+      allow create, update: if incomingOwner();
+      allow delete:         if existingOwner();
+    }
+
+    // ---- ratings/{eventId} — agregado (promedio/conteo), lectura pública -
+    match /ratings/{eventId} {
+      allow read:  if true;
+      allow write: if signedIn();
+    }
+
+    // ---- userRatings/{uid_eventId} — calificación de cada usuario --------
+    match /userRatings/{id} {
+      allow read:           if signedIn() && (resource == null
+                              || resource.data.userId == request.auth.uid);
+      allow create, update: if incomingOwner();
+    }
+
+    // ---- comments/{id} — comentarios públicos en eventos ----------------
+    match /comments/{id} {
+      allow read:   if true;
+      allow create: if incomingOwner();
+      allow delete: if isAdmin() || existingOwner();
+    }
+
+    // ---- messages/{id} — formulario de contacto (solo admin lee) --------
+    match /messages/{id} {
+      allow create: if signedIn();
+      allow read:   if isAdmin();
+    }
+
+    // ---- following/{uid} — a quién sigue cada usuario -------------------
+    match /following/{uid} {
+      allow read:  if isOwner(uid) || isAdmin();
+      allow write: if isOwner(uid);
+    }
+
+    // ---- followers/{uid} — seguidores (escritura cruzada al seguir) -----
+    // Nota: al seguir a alguien se escribe en SU doc de followers, por eso
+    // la escritura se permite a cualquier usuario autenticado. Es la regla
+    // más laxa del set; revisar si se quiere endurecer más adelante.
+    match /followers/{uid} {
+      allow read:  if signedIn();
+      allow write: if signedIn();
+    }
+
+    // ---- Por defecto: todo lo demás denegado ----------------------------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
