@@ -10847,12 +10847,40 @@
       "kid": false,
       "tipo": "tetr",
       "id": 101
+    },
+    {
+      "title": "La bestia",
+      "cat": "culture",
+      "emoji": "🎬",
+      "desc": "Proyección cinematográfica en Sala K.",
+      "date": "Vie 5 de junio 20:00",
+      "dateMs": 1746547200000,
+      "month": 5,
+      "days": [
+        5
+      ],
+      "venue": "Sala K",
+      "address": "Santiago, Chile",
+      "zone": "cen",
+      "mapsQ": "Sala+K+Santiago",
+      "price": null,
+      "src": "TicketPlus",
+      "srcUrl": "https://ticketplus.cl/events/la-bestia-2026-06-05-20-00-00-0400",
+      "img": "",
+      "tags": [
+        "Cine"
+      ],
+      "acc": false,
+      "pet": false,
+      "kid": false,
+      "tipo": "tetr",
+      "id": 102
     }
   ],
   "coords": {},
   "meta": {
-    "lastUpdated": "2026-06-17",
-    "totalEvents": 281,
+    "lastUpdated": "2026-06-18",
+    "totalEvents": 282,
     "generatedBy": "github-actions + scraping + claude"
   }
 }
