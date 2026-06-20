@@ -50,8 +50,7 @@ const SOURCES = [
   { name: 'PuntoTicket - Santiago',            zone: 'cen',  url: 'https://www.puntoticket.com/' },
   // Teatro Municipal de Santiago
   { name: 'Teatro Municipal de Santiago',      zone: 'cen',  url: 'https://www.municipal.cl/cartelera/' },
-  // TicketPlus - sitemap XML estático (evita JS rendering)
-  { name: 'TicketPlus - Sitemap',              zone: 'cen',  url: 'https://ticketplus.cl/sitemap.xml', isXml: true },
+  // TicketPlus ahora lo maneja scripts/scrape-ticketplus.js (JSON-LD, fechas reales, sin Claude)
   // Ticketmaster Chile - página principal + eventos específicos
   { name: 'Ticketmaster Chile - Home',         zone: 'cen',  url: 'https://www.ticketmaster.cl/es-cl/home' },
   { name: 'Ticketmaster - Family Fest Hasbro', zone: 'cen',  url: 'https://www.ticketmaster.cl/event/family-fest-by-hasbro' },
