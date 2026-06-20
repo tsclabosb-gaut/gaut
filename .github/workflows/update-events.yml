@@ -22,7 +22,10 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/fetch-events.js || true
-      
+
+      - name: Scraper Ticketplus (JSON-LD, sin Claude)
+        run: node scripts/scrape-ticketplus.js || true
+
       - name: Agregar imágenes placeholder
         run: node scripts/add-placeholder-images.js || true
       
