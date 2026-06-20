@@ -26,6 +26,9 @@ jobs:
       - name: Scraper Ticketplus (JSON-LD, sin Claude)
         run: node scripts/scrape-ticketplus.js || true
 
+      - name: Scraper Centro Cultural La Moneda (CCLM)
+        run: node scripts/scrape-cclm.js || true
+
       - name: Agregar imágenes placeholder
         run: node scripts/add-placeholder-images.js || true
       
