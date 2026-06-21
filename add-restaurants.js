@@ -494,7 +494,7 @@ function createRestaurantEvent(r, id) {
         desc: r.desc || `Café/Restaurante kid-friendly. Instagram: @${r.instagram}`,
         date: r.date || "Consultar horarios",
         schedule: r.schedule || "",
-        dateMs: today.getTime(),
+        dateMs: null,
         month: today.getMonth(),
         days: [],
         venue: r.name,
@@ -544,6 +544,13 @@ try {
             existing.instagram = `https://www.instagram.com/${r.instagram}/`;
             existing.srcUrl = `https://www.instagram.com/${r.instagram}/`;
             if (r.address && r.address !== 'Santiago') existing.address = r.address;
+            // Forzar marca de restaurante (corrige entradas corruptas) y quitar fecha
+            existing.tipo = 'rest';
+            existing.cat = 'food';
+            existing.emoji = existing.emoji || '🍴';
+            existing.kid = true;
+            existing.dateMs = null;
+            delete existing.isPast;
             updated++;
         } else {
             data.events.push(createRestaurantEvent(r, ++maxId));

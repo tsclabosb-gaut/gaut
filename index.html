@@ -1298,7 +1298,7 @@ async function loadEvents() {
     const now = Date.now();
     const thisYear = new Date().getFullYear();
     allEvents = allEvents.map(ev => {
-        if (!ev.dateMs) return ev; // no date = always show
+        if (!ev.dateMs || ev.tipo === 'rest') return ev; // sin fecha o restaurante = siempre visible
         // Correct year if dateMs is in the past by more than a year
         let ms = ev.dateMs;
         const d = new Date(ms);
