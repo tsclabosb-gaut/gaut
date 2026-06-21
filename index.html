@@ -633,6 +633,13 @@ img { display: block; max-width: 100%; }
 }
 .admin-nav-btn:hover { color: white; background: rgba(255,255,255,0.06); }
 .admin-nav-btn.active { color: white; background: rgba(200,90,50,0.18); border-left-color: #C85A32; }
+@media (max-width: 1023px) {
+  .admin-body { flex-direction: column !important; }
+  .admin-sidebar { width: 100% !important; flex-direction: row !important; overflow-x: auto !important; overflow-y: hidden !important; padding: 8px !important; gap: 6px; }
+  .admin-sidebar > div:not(button) { display: none !important; }
+  .admin-sidebar .admin-nav-btn { white-space: nowrap; flex-shrink: 0; border-left: none !important; border-radius: var(--radius-full); padding: 8px 14px; }
+  #adminPanelContent { padding: 16px !important; }
+}
 
 /* ── DAY PICKER ── */
 .day-btn {
@@ -866,9 +873,9 @@ img { display: block; max-width: 100%; }
     </div>
     <button onclick="closeAdminPanel()" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray);padding:4px 8px">✕</button>
   </div>
-  <div style="display:flex;flex:1;overflow:hidden">
+  <div class="admin-body" style="display:flex;flex:1;overflow:hidden">
     <!-- Sidebar -->
-    <div style="width:200px;flex-shrink:0;background:#1A1D20;display:flex;flex-direction:column;padding:20px 0;overflow-y:auto">
+    <div class="admin-sidebar" style="width:200px;flex-shrink:0;background:#1A1D20;display:flex;flex-direction:column;padding:20px 0;overflow-y:auto">
       <div style="color:rgba(255,255,255,0.35);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:0 20px;margin-bottom:12px">Gestión</div>
       <button onclick="adminNav('submissions')" id="anav-submissions" class="admin-nav-btn">📋 Solicitudes</button>
       <button onclick="adminNav('events')" id="anav-events" class="admin-nav-btn">🗓 Todos los eventos</button>
@@ -1602,8 +1609,12 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     catEl.className = 'ep-badge ' + getBadgeClass(ev.cat);
     gid('epTitle').textContent = ev.title;
     gid('epDesc').textContent = ev.desc || '';
-    gid('epDate').textContent = ev.date || 'Ver fuente';
-    gid('epSchedule').textContent = ev.schedule || ev.horario || 'Ver fuente';
+    const _evUrl = ev.srcUrl || ev.tickets || ev.web || (ev.instagram && ev.instagram.startsWith('http') ? ev.instagram : '') || '';
+    gid('epDate').textContent = ev.date || 'Consultar';
+    const _schedEl = gid('epSchedule');
+    if (ev.schedule || ev.horario) _schedEl.textContent = ev.schedule || ev.horario;
+    else if (_evUrl) _schedEl.innerHTML = '<a href="' + _evUrl + '" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:600;text-decoration:none">Ver en la página del evento →</a>';
+    else _schedEl.textContent = 'Consultar';
     const priceEl = gid('epPrice');
     priceEl.textContent = ev.price === 0 ? 'GRATIS' : ev.price ? '$' + Number(ev.price).toLocaleString('es-CL') : 'Consultar';
     priceEl.className = 'ep-info-val' + (ev.price === 0 ? ' price-free' : '');
@@ -1619,7 +1630,7 @@ _app.openEventPanel = window.openEventPanel = async (eventId) => {
     if (ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-tickets" href="' + ev.tickets + '" target="_blank" rel="noopener">🎟️ Comprar entradas</a>';
     if (ev.web && ev.web !== ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-web" href="' + ev.web + '" target="_blank" rel="noopener">🌐 Sitio web</a>';
     if (ev.instagram && ev.instagram.startsWith('http')) linksEl.innerHTML += '<a class="ep-link-pill ep-link-ig" href="' + ev.instagram + '" target="_blank" rel="noopener">📸 Instagram</a>';
-    if (ev.srcUrl && !ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
+    if (ev.srcUrl && ev.srcUrl !== ev.tickets) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="' + ev.srcUrl + '" target="_blank" rel="noopener">🔗 ' + (ev.src || 'Ver fuente') + '</a>';
     if (!linksEl.innerHTML && ev.title) linksEl.innerHTML += '<a class="ep-link-pill ep-link-src" href="https://www.google.com/search?q=' + encodeURIComponent(ev.title + ' Santiago entradas') + '" target="_blank" rel="noopener">🔍 Buscar info</a>';
 
     const tagsEl = gid('epTags');
@@ -2204,15 +2215,25 @@ async function adminSectionSubmissions(el) {
     } catch(e) { if (gid('adminList')) gid('adminList').innerHTML = `<div class="empty-sm">Error: ${e.message}</div>`; }
 }
 
+let _adminEvCat = '';
 async function adminSectionEvents(el) {
-    const search = el.querySelector?.('#adminEventSearch')?.value?.toLowerCase() || '';
-    const events = allEvents.filter(e => !search || e.title?.toLowerCase().includes(search));
+    _adminEvCat = '';
+    const cats = [['', 'Todos'], ['food', '🍽️ Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['sport', '⚽ Deporte'], ['rest', '🍴 Restaurantes']];
     el.innerHTML = `
     <div style="font-size:14px;font-weight:700;margin-bottom:12px">🗓 Todos los eventos (${allEvents.length})</div>
-    <input type="text" placeholder="Buscar evento..." id="adminEventSearch" oninput="adminFilterEvents(this.value)"
-        style="width:100%;padding:8px 12px;border:1.5px solid var(--gray-light);border-radius:var(--radius-md);font-size:13px;margin-bottom:12px;font-family:inherit">
-    <div id="adminEventsList">${renderAdminEventList(events)}</div>`;
+    <input type="text" placeholder="Buscar evento..." id="adminEventSearch" oninput="adminFilterEvents()"
+        style="width:100%;padding:8px 12px;border:1.5px solid var(--gray-light);border-radius:var(--radius-md);font-size:13px;margin-bottom:10px;font-family:inherit">
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+        ${cats.map(([c, l]) => `<button class="aev-cat${c === '' ? ' active' : ''}" onclick="adminSetEvCat('${c}',this)" style="padding:5px 12px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:${c === '' ? 'var(--terracotta)' : 'white'};color:${c === '' ? 'white' : 'inherit'};font-size:12px;cursor:pointer;font-family:inherit">${l}</button>`).join('')}
+    </div>
+    <div id="adminEventsList">${renderAdminEventList(allEvents)}</div>`;
 }
+window.adminSetEvCat = (c, btn) => {
+    _adminEvCat = c;
+    document.querySelectorAll('.aev-cat').forEach(b => { b.style.background = 'white'; b.style.color = 'inherit'; b.classList.remove('active'); });
+    btn.classList.add('active'); btn.style.background = 'var(--terracotta)'; btn.style.color = 'white';
+    adminFilterEvents();
+};
 
 function renderAdminEventList(events) {
     if (!events.length) return '<div class="empty-sm">Sin resultados</div>';
@@ -2230,9 +2251,14 @@ function renderAdminEventList(events) {
     </div>`).join('');
 }
 
-window.adminFilterEvents = val => {
+window.adminFilterEvents = () => {
+    const q = (document.getElementById('adminEventSearch')?.value || '').toLowerCase();
     const list = document.getElementById('adminEventsList');
-    if (list) list.innerHTML = renderAdminEventList(allEvents.filter(e => e.title?.toLowerCase().includes(val.toLowerCase())));
+    if (!list) return;
+    list.innerHTML = renderAdminEventList(allEvents.filter(e =>
+        (!q || (e.title || '').toLowerCase().includes(q)) &&
+        (!_adminEvCat || (_adminEvCat === 'rest' ? e.tipo === 'rest' : e.cat === _adminEvCat))
+    ));
 };
 
 window.adminEditEventFull = async id => {
