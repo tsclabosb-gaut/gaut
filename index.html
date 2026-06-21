@@ -2209,11 +2209,50 @@ async function adminSectionSubmissions(el) {
                 <div class="admin-btns">
                     <button class="btn-ok" onclick="adminAction('${d.id}','approved')">✅ Aprobar</button>
                     <button class="btn-ko" onclick="adminAction('${d.id}','rejected')">✗ Rechazar</button>
+                    <button onclick="adminViewSubmission('${d.id}')" style="padding:8px 12px;border-radius:var(--radius-md);border:1.5px solid var(--gray-light);background:white;cursor:pointer;font-size:13px">🔍 Ver detalle</button>
                 </div>
             </div>`;
         }).join('');
     } catch(e) { if (gid('adminList')) gid('adminList').innerHTML = `<div class="empty-sm">Error: ${e.message}</div>`; }
 }
+
+window.adminViewSubmission = async id => {
+    const el = gid('adminPanelContent');
+    if (!el) return;
+    el.innerHTML = '<div class="empty-sm">Cargando...</div>';
+    const back = `<div style="margin-bottom:16px"><button onclick="adminNav('submissions')" style="background:none;border:none;cursor:pointer;color:var(--terracotta);font-size:14px;font-weight:600">← Volver a solicitudes</button></div>`;
+    try {
+        const snap = await getDoc(doc(db, 'submissions', id));
+        if (!snap.exists()) { el.innerHTML = back + '<div class="empty-sm">No encontrada</div>'; return; }
+        const s = snap.data();
+        const imgs = (s.allImages && s.allImages.length ? s.allImages : (s.img ? [s.img] : []));
+        const gallery = imgs.length
+            ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">${imgs.map(u => `<img src="${escapeHtml(u)}" style="width:150px;height:110px;object-fit:cover;border-radius:var(--radius-md);border:1px solid var(--gray-light)">`).join('')}</div>`
+            : '<div class="empty-sm" style="margin-bottom:16px">Sin fotos adjuntas</div>';
+        const row = (label, val) => (val || val === 0) ? `<div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray-light)"><div style="width:110px;font-size:12px;color:var(--gray);flex-shrink:0">${label}</div><div style="font-size:13px;flex:1">${escapeHtml(val)}</div></div>` : '';
+        const link = (label, url) => url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" style="color:var(--terracotta);font-size:13px;margin-right:14px">${label} ↗</a>` : '';
+        const flags = [s.kid && '👶 Niños', s.pet && '🐕 Mascotas', s.acc && '♿ Accesible'].filter(Boolean).join(' · ');
+        el.innerHTML = back + `
+            <div style="font-size:18px;font-weight:700;margin-bottom:4px">${escapeHtml(s.title || s.eventTitle || '(sin título)')}</div>
+            <div style="font-size:12px;color:var(--gray);margin-bottom:14px">${s.type === 'suggest' ? '✏️ Corrección' : '➕ Nuevo evento'} · por ${escapeHtml(s.userName || 'Anónimo')}</div>
+            ${gallery}
+            ${s.message ? `<div style="background:var(--bg);border:1px solid var(--gray-light);border-radius:var(--radius-md);padding:12px;margin-bottom:14px;font-size:13px;white-space:pre-wrap">${escapeHtml(s.message)}</div>` : ''}
+            ${row('Descripción', s.desc)}
+            ${row('Categoría', s.cat)}
+            ${row('Fecha', s.date)}
+            ${row('Horario', s.schedule)}
+            ${row('Lugar', s.venue)}
+            ${row('Dirección', s.address)}
+            ${row('Comuna/Zona', s.commune || s.zone)}
+            ${row('Precio', s.price === 0 ? 'GRATIS' : (s.price ? '$' + s.price : ''))}
+            ${flags ? row('Apto para', flags) : ''}
+            <div style="margin:14px 0">${link('🎟️ Entradas', s.tickets)}${link('🌐 Web', s.web)}${link('📸 Instagram', s.instagram)}${link('🔗 Fuente', s.srcUrl)}</div>
+            <div class="admin-btns" style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn-ok" onclick="adminAction('${id}','approved')">✅ Aprobar</button>
+                <button class="btn-ko" onclick="adminAction('${id}','rejected')">✗ Rechazar</button>
+            </div>`;
+    } catch(e) { el.innerHTML = back + '<div class="empty-sm">Error: ' + e.message + '</div>'; }
+};
 
 let _adminEvCat = '';
 async function adminSectionEvents(el) {
