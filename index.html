@@ -13,7 +13,7 @@
   gtag('config', 'G-4PZC0X3ZSK');
 </script>
 <!-- Google Maps JS API (mapa de eventos) -->
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxrpUvNLkD1jlfRjM18YQUslE8fQ1BMLk&loading=async"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxrpUvNLkD1jlfRjM18YQUslE8fQ1BMLk&loading=async&libraries=places"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2677,7 +2677,7 @@ _app.adminAction = window.adminAction = async (docId, status) => {
 
 _app.openSubmitModal = window.openSubmitModal = () => {
     if (!currentUser) { openPanel('login'); showToast('Inicia sesion para proponer eventos'); return; }
-    submitMode = 'new'; uploadedImages = []; isPriceFree = false; currentDateType = 'range';
+    submitMode = 'new'; uploadedImages = []; isPriceFree = false; currentDateType = 'range'; window._submitLatLng = null;
     gid('submitTitle').textContent = 'Proponer nuevo evento o restaurante';
     renderSubmitForm();
     gid('submitOverlay').classList.add('active');
@@ -2701,6 +2701,12 @@ function renderSubmitForm() {
             <button onclick="fillFromUrl()" style="padding:10px 16px;background:var(--terracotta);color:white;border:none;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap">Rellenar ✨</button>
         </div>
         <div id="ai-status" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
+    </div>
+    <div style="background:#f0f7ff;border:1.5px solid #cfe3ff;border-radius:12px;padding:16px;margin-bottom:20px">
+        <div style="font-size:13px;font-weight:700;color:#2563eb;margin-bottom:8px">📍 Buscar lugar en Google</div>
+        <p style="font-size:12px;color:var(--gray);margin-bottom:10px">Escribe el nombre del lugar y autocompleta dirección, foto, horario y ubicación.</p>
+        <input type="text" id="sf-place-search" placeholder="Ej: Centro Cultural La Moneda, Café X..." autocomplete="off" style="width:100%;padding:10px 14px;border:1.5px solid #cfe3ff;border-radius:8px;font-size:14px;font-family:inherit;outline:none">
+        <div id="sf-place-status" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
     </div>
     <div class="fg"><label>Nombre del evento *</label><input type="text" id="sf-title" placeholder="Ej: Feria de arte"></div>
     <div class="form-row-2">
@@ -2781,6 +2787,52 @@ function renderSubmitForm() {
         <div id="uploadStatus" style="font-size:12px;color:var(--gray);margin-top:6px"></div>
     </div>
     <div class="form-error" id="sf-err"></div>`;
+    setTimeout(initPlaceAutocomplete, 60);
+}
+
+async function initPlaceAutocomplete() {
+    const input = gid('sf-place-search');
+    if (!input || input.dataset.acReady) return;
+    await waitForGoogle();
+    if (!(window.google && google.maps.places && google.maps.places.Autocomplete)) {
+        const st = gid('sf-place-status'); if (st) st.textContent = '(Buscador de Google no disponible)';
+        return;
+    }
+    input.dataset.acReady = '1';
+    const ac = new google.maps.places.Autocomplete(input, {
+        fields: ['name', 'formatted_address', 'geometry', 'photos', 'opening_hours', 'website', 'address_components'],
+        componentRestrictions: { country: 'cl' },
+    });
+    ac.addListener('place_changed', () => {
+        const p = ac.getPlace();
+        if (!p || !p.name) return;
+        const set = (id, v) => { const el = gid(id); if (el && v) el.value = v; };
+        set('sf-venue', p.name);
+        const t = gid('sf-title'); if (t && !t.value) t.value = p.name;
+        if (p.formatted_address) set('sf-address', p.formatted_address);
+        if (p.website) set('sf-web', p.website);
+        let commune = '';
+        (p.address_components || []).forEach(c => { if (c.types.includes('administrative_area_level_3') || (c.types.includes('locality') && !commune)) commune = c.long_name; });
+        set('sf-commune', commune);
+        const cl = (commune + ' ' + (p.formatted_address || '')).toLowerCase();
+        const zoneMap = { 'vitacura': 'vit', 'las condes': 'lc', 'providencia': 'prov', 'ñuñoa': 'nun', 'nunoa': 'nun', 'la reina': 'lare', 'lo barnechea': 'lob' };
+        const z = Object.entries(zoneMap).find(([k]) => cl.includes(k));
+        window._detectedZone = z ? z[1] : 'cen';
+        if (p.geometry && p.geometry.location) window._submitLatLng = { lat: p.geometry.location.lat(), lng: p.geometry.location.lng() };
+        if (p.opening_hours && p.opening_hours.weekday_text) {
+            const desc = gid('sf-desc');
+            if (desc && !/horario/i.test(desc.value)) desc.value = (desc.value ? desc.value + '\n\n' : '') + 'Horario:\n' + p.opening_hours.weekday_text.join('\n');
+        }
+        if (p.photos && p.photos.length) {
+            try {
+                const url = p.photos[0].getUrl({ maxWidth: 1000 });
+                uploadedImages = [{ url, public_id: null, isCover: true }, ...uploadedImages.map(x => ({ ...x, isCover: false }))];
+                const prev = gid('uploadPreview');
+                if (prev) prev.insertAdjacentHTML('afterbegin', '<img src="' + url + '" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin:4px">');
+            } catch (e) {}
+        }
+        const st = gid('sf-place-status'); if (st) st.textContent = '✅ Autocompletado: dirección, ubicación' + (p.photos ? ', foto' : '') + (p.opening_hours ? ', horario' : '');
+    });
 }
 
 function renderSuggestForm() {
@@ -3096,6 +3148,8 @@ _app.submitForm = window.submitForm = async () => {
                 type: 'new', status: 'pending',
                 title, cat: gid('sf-cat') ? gid('sf-cat').value : 'culture',
                 zone: window._detectedZone || 'cen',
+                lat: window._submitLatLng ? window._submitLatLng.lat : null,
+                lng: window._submitLatLng ? window._submitLatLng.lng : null,
                 commune: gid('sf-commune') ? gid('sf-commune').value : '',
                 date: dateStr, schedule: scheduleStr,
                 venue: (gid('sf-venue') ? gid('sf-venue').value : '') || (gid('sf-address') ? gid('sf-address').value.split(',')[0] : ''),
