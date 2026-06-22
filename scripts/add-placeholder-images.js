@@ -62,12 +62,17 @@ const IMAGE_LIBRARY = {
   ],
 };
 
+// IDs de Unsplash VERIFICADOS (HTTP 200) por categoría — evita las URLs muertas (404)
+const VERIFIED = {
+  food: ['1517248135467-4c7edcad34c4', '1414235077428-338989a2e8c0', '1555396273-367ea4eb4db5'],
+  music: ['1459749411175-04bf5292ceea', '1493225457124-a3eb161ffa5f'],
+  sport: ['1461896836934-ffe607ba8211'],
+  culture: ['1561070791-2526d30994b5', '1514320291840-2e0a9bf2a9ae', '1578301978162-7aae4d755744', '1552664730-d307ca884978', '1487180144351-b8472da7d491'],
+};
 function getImageUrl(cat, tipo) {
-  const key = `${cat}|${tipo}`;
-  const urls = IMAGE_LIBRARY[key] || IMAGE_LIBRARY['default'];
-  // Rota entre imágenes para variar
-  const hash = (cat + tipo).charCodeAt(0) % urls.length;
-  return urls[hash];
+  const list = VERIFIED[cat] || VERIFIED.culture;
+  const seed = (String(cat) + String(tipo)).split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  return 'https://images.unsplash.com/photo-' + list[seed % list.length] + '?w=400&h=250&fit=crop';
 }
 
 async function main() {
@@ -82,8 +87,9 @@ async function main() {
   let updated = 0;
 
   for (const event of data.events || []) {
-    // Si ya tiene imagen y es URL válida, skip
-    if (event.img && event.img.startsWith('http')) {
+    // Mantener fotos reales (Ticketplus/CCLM); reemplazar placeholders de Unsplash
+    // (muchos IDs viejos daban 404) y rellenar los que no tienen imagen
+    if (event.img && event.img.startsWith('http') && !event.img.includes('images.unsplash.com')) {
       continue;
     }
 
