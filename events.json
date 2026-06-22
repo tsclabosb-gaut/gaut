@@ -34,7 +34,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 1
+      "id": 1,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Constanza Hurtado - Y todo lo otro",
@@ -85,7 +87,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 2
+      "id": 2,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "José Luis Risetti - Aperiódico",
@@ -137,7 +141,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 3
+      "id": 3,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Daniel Errázuriz - Geometría variable",
@@ -188,7 +194,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 4
+      "id": 4,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Sueños",
@@ -217,7 +225,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 5
+      "id": 5,
+      "lat": -33.439072,
+      "lng": -70.641077
     },
     {
       "title": "Conversaciones Concertantes",
@@ -246,7 +256,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 6
+      "id": 6,
+      "lat": -33.439072,
+      "lng": -70.641077
     },
     {
       "title": "La Furia del Libro",
@@ -278,7 +290,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 7
+      "id": 7,
+      "lat": -33.439072,
+      "lng": -70.641077
     },
     {
       "title": "Antiguos oficios de Chile",
@@ -309,7 +323,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 8
+      "id": 8,
+      "lat": -33.439072,
+      "lng": -70.641077
     },
     {
       "title": "En viaje a la infancia: juguetes patrimoniales chilenos",
@@ -340,7 +356,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 9
+      "id": 9,
+      "lat": -33.439072,
+      "lng": -70.641077
     },
     {
       "title": "La Memoria Guachaca",
@@ -369,7 +387,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 10
+      "id": 10,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "El niño de los fósiles",
@@ -406,7 +426,9 @@
       "pet": false,
       "kid": true,
       "tipo": "tetr",
-      "id": 11
+      "id": 11,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "El purgatorio",
@@ -434,7 +456,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 12
+      "id": 12,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "LMBL ícono",
@@ -462,7 +486,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 13
+      "id": 13,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Hecho en China",
@@ -490,7 +516,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 14
+      "id": 14,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Concierto Depto. Música Universidad de Chile",
@@ -519,7 +547,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 15
+      "id": 15,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Mónica Bengoa. Un libro viajero",
@@ -547,7 +577,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 16
+      "id": 16,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Una colección en expansión (1900-1980)",
@@ -575,7 +607,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 17
+      "id": 17,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Presentación catálogo muestra Episodio Monvoisin",
@@ -606,7 +640,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 18
+      "id": 18,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Valentina Cruz. De amor, humor y muerte",
@@ -636,7 +672,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 19
+      "id": 19,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Exposición Fotográfica Pin Campaña",
@@ -673,7 +711,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 20
+      "id": 20,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Ciclo Danzas del Mundo: baile ruso",
@@ -702,7 +742,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 21
+      "id": 21,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Cita cinéfila: Valor sentimental",
@@ -731,7 +773,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 22
+      "id": 22,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "IX Festival Música de Cámara: Trío clarinete, viola y piano",
@@ -760,7 +804,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 23
+      "id": 23,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición Chile y el mundo unidos por el cómic",
@@ -797,7 +843,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 24
+      "id": 24,
+      "lat": -33.416078,
+      "lng": -70.595876
     },
     {
       "title": "Ciclo de charlas Filmoarte: La ronda de noche",
@@ -827,7 +875,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 25
+      "id": 25,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "title": "Cuentacuentos: Monstruo, sé bueno",
@@ -856,7 +906,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 26
+      "id": 26,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "Exploro Mi Parque: Una caminata con sentido",
@@ -885,7 +937,9 @@
       "pet": false,
       "kid": true,
       "tipo": "dep",
-      "id": 27
+      "id": 27,
+      "lat": -33.398628,
+      "lng": -70.60248
     },
     {
       "title": "Día del Patrimonio en Lo Matta Cultural",
@@ -914,7 +968,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 28
+      "id": 28,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Taller de Flamenco",
@@ -943,7 +999,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 29
+      "id": 29,
+      "lat": -33.390302,
+      "lng": -70.572294
     },
     {
       "title": "Presentación catálogo Episodio Monvoisin",
@@ -974,7 +1032,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 30
+      "id": 30,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Sueños - Fotografía Subacuática",
@@ -1004,7 +1064,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 31
+      "id": 31,
+      "lat": -33.438271,
+      "lng": -70.641085
     },
     {
       "title": "Conversaciones Concertantes - Orquesta de Cámara de Santiago",
@@ -1033,7 +1095,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 32
+      "id": 32,
+      "lat": -33.438271,
+      "lng": -70.641085
     },
     {
       "title": "La Furia del Libro - Festival de Editoriales",
@@ -1065,7 +1129,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 33
+      "id": 33,
+      "lat": -33.438271,
+      "lng": -70.641085
     },
     {
       "title": "Danzas del mundo: Baile ruso",
@@ -1094,7 +1160,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 34
+      "id": 34,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición Fotográfica Pin Campaña - Imágenes Paganas",
@@ -1131,7 +1199,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 35
+      "id": 35,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Cuentacuentos en la Biblioteca de Vitacura",
@@ -1160,7 +1230,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 36
+      "id": 36,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "Titanic: Un viaje a través del tiempo",
@@ -1196,7 +1268,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 37
+      "id": 37,
+      "lat": -33.417994,
+      "lng": -70.60639
     },
     {
       "title": "Candlelight: Lo Mejor de Hans Zimmer",
@@ -1223,7 +1297,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 38
+      "id": 38,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Candlelight: Tributo a ABBA y Más",
@@ -1253,7 +1329,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 39
+      "id": 39,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Concierto Jóvenes Sinfónicos de la OSIM - FOJI",
@@ -1282,7 +1360,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 40
+      "id": 40,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Exposición Chile y el mundo unidos por el cómicl",
@@ -1311,7 +1391,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 41
+      "id": 41,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Concierto de Natalino - Celebración del Día de las Madres",
@@ -1340,7 +1422,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 42
+      "id": 42,
+      "lat": -33.456084,
+      "lng": -70.593715
     },
     {
       "title": "Mónica Bengoa - Un libro viajero",
@@ -1368,7 +1452,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 43
+      "id": 43,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Valentina Cruz - De amor, humor y muerte",
@@ -1398,7 +1484,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 44
+      "id": 44,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Ciclo de charlas Filmoarte: Cine sobre grandes artistas plásticos",
@@ -1428,7 +1516,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 45
+      "id": 45,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "title": "Concierto gratuito de Natalino - Celebración del Día de la Madre",
@@ -1457,7 +1547,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 46
+      "id": 46,
+      "lat": -33.454918,
+      "lng": -70.598292
     },
     {
       "title": "Propaganda",
@@ -1487,7 +1579,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 47
+      "id": 47,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Convocatoria de danza: Estados de deriva",
@@ -1519,7 +1613,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 48
+      "id": 48,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Candlelight: Lo Mejor de Outlander en Cuerdas",
@@ -1549,7 +1645,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 49
+      "id": 49,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Cita Cinéfila - Valor sentimental",
@@ -1578,7 +1676,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 50
+      "id": 50,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Ciclo de charlas Filmoarte - La ronda de noche",
@@ -1608,7 +1708,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 51
+      "id": 51,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "title": "Cuentacuentos - Monstruo, sé bueno",
@@ -1637,7 +1739,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 52
+      "id": 52,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "Exploro Mi Parque - Caminata con sentido",
@@ -1666,7 +1770,9 @@
       "pet": false,
       "kid": true,
       "tipo": "dep",
-      "id": 53
+      "id": 53,
+      "lat": -33.398628,
+      "lng": -70.60248
     },
     {
       "title": "Proyecto de título Danza UNIACC: Interius Motum",
@@ -1695,7 +1801,9 @@
       "pet": false,
       "kid": true,
       "tipo": "tetr",
-      "id": 54
+      "id": 54,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Concierto Danzas sin Fronteras de la OSEM-FOJI",
@@ -1724,7 +1832,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 55
+      "id": 55,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Día del Patrimonio 2026",
@@ -1754,7 +1864,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 56
+      "id": 56,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Día del Patrimonio 2026 - MNBA",
@@ -1783,7 +1895,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 57
+      "id": 57,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Día del Patrimonio - Lo Matta Cultural",
@@ -1814,7 +1928,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 58
+      "id": 58,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Gran fiesta bailable Vitamayor",
@@ -1843,7 +1959,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 59
+      "id": 59,
+      "lat": -33.395323,
+      "lng": -70.600365
     },
     {
       "title": "Ciclo de charlas: India, pasado y presente",
@@ -1872,7 +1990,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 60
+      "id": 60,
+      "lat": -33.390302,
+      "lng": -70.572294
     },
     {
       "title": "Dopamine Land: una experiencia multisensorial",
@@ -1903,7 +2023,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 61
+      "id": 61,
+      "lat": -33.417994,
+      "lng": -70.60639
     },
     {
       "title": "Alfredo Adduard: El hallazgo de un genio",
@@ -1932,7 +2054,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 62
+      "id": 62,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Constanza Hurtado: Y todo lo otro",
@@ -1962,7 +2086,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 63
+      "id": 63,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "José Luis Risetti: Aperiódico",
@@ -1992,7 +2118,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 64
+      "id": 64,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Daniel Errázuriz: Geometría variable",
@@ -2022,7 +2150,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 65
+      "id": 65,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Día del Patrimonio Las Condes",
@@ -2051,7 +2181,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 66
+      "id": 66,
+      "lat": -33.416109,
+      "lng": -70.534062
     },
     {
       "title": "Día del Patrimonio Vitacura",
@@ -2081,7 +2213,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 67
+      "id": 67,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición \"Imágenes Paganas\" - Pin Campaña",
@@ -2110,7 +2244,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 68
+      "id": 68,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Candlelight: Mozart vs Beethoven",
@@ -2139,7 +2275,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 69
+      "id": 69,
+      "lat": -33.51083,
+      "lng": -70.766273
     },
     {
       "title": "Visita guiada en Galería NAC",
@@ -2168,7 +2306,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 70
+      "id": 70,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Candlelight: Tributo a Coldplay",
@@ -2197,7 +2337,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 71
+      "id": 71,
+      "lat": -33.51083,
+      "lng": -70.766273
     },
     {
       "title": "Día del Patrimonio 2026 en MNBA",
@@ -2227,7 +2369,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 72
+      "id": 72,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Exposición Imágenes Paganas - Pin Campaña",
@@ -2256,7 +2400,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 73
+      "id": 73,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Día del Patrimonio 2026 - Lo Matta Cultural",
@@ -2285,7 +2431,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 74
+      "id": 74,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición \"Imágenes Paganas\", Pin Campaña",
@@ -2314,7 +2462,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 75
+      "id": 75,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Rescate",
@@ -2352,7 +2502,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 76
+      "id": 76,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Glengarry Glen Ross",
@@ -2390,7 +2542,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 77
+      "id": 77,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Lanzamiento de libro: Escritura y montaje",
@@ -2418,7 +2572,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 78
+      "id": 78,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Lanzamiento de la trilogía: Código Vicario",
@@ -2446,7 +2602,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 79
+      "id": 79,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Ciclo Armónica: música & perfo",
@@ -2477,7 +2635,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 80
+      "id": 80,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Expo Vivienda",
@@ -2507,7 +2667,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 81
+      "id": 81,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "Nuevas exposiciones en Lo Matta Cultural",
@@ -2535,7 +2697,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 82
+      "id": 82,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Café con Autor: Marilú Ortiz de Rozas",
@@ -2564,7 +2728,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 83
+      "id": 83,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Concierto de Piano: Edith Fischer",
@@ -2593,7 +2759,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 84
+      "id": 84,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Ballet of Lights: La Bella Durmiente",
@@ -2622,7 +2790,9 @@
       "pet": false,
       "kid": true,
       "tipo": "tetr",
-      "id": 85
+      "id": 85,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Alicia Wonderland Experience",
@@ -2668,7 +2838,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 86
+      "id": 86,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "Cita cinéfila con MUBI",
@@ -2696,7 +2868,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 87
+      "id": 87,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Cita cinéfila con MUBI: Fue solo un accidente",
@@ -2724,7 +2898,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 88
+      "id": 88,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "id": 89,
@@ -2786,7 +2962,9 @@
       "schedule": "Mar–Vie 13:00–16:00 | Sáb–Dom 12:00–17:00",
       "kidInfo": "Ambiente familiar tranquilo, sillas altas disponibles, carta con opciones simples para niños.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/characata.cl/"
+      "instagram": "https://www.instagram.com/characata.cl/",
+      "lat": -33.428938,
+      "lng": -70.620839
     },
     {
       "id": 90,
@@ -2848,7 +3026,9 @@
       "schedule": "Lun–Jue 12:00–22:00 | Vie–Sáb 12:00–23:00 | Dom 12:00–21:00",
       "kidInfo": "Menú infantil disponible, espacio amplio y ambiente acogedor para familias.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/pom_restaurante/"
+      "instagram": "https://www.instagram.com/pom_restaurante/",
+      "lat": -33.44254,
+      "lng": -70.612748
     },
     {
       "id": 91,
@@ -2910,7 +3090,9 @@
       "schedule": "Lun–Vie 9:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Los niños adoran sus chocolates calientes y postres artesanales. Sin juegos pero perfecto para desayunos familiares.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/chococafeprovidencia/"
+      "instagram": "https://www.instagram.com/chococafeprovidencia/",
+      "lat": -33.438313,
+      "lng": -70.615118
     },
     {
       "id": 92,
@@ -2972,7 +3154,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:00",
       "kidInfo": "Área de juegos incluida con consumo. Juegos para niños de 1–8 años. Ambiente supervisado y seguro.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/lacasajuego_/"
+      "instagram": "https://www.instagram.com/lacasajuego_/",
+      "lat": -33.42773,
+      "lng": -70.59374
     },
     {
       "id": 93,
@@ -3034,7 +3218,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Área de juegos de 300m² con piscina de pelotas, toboganes y arte. Entrada niños ~$5.000, adultos gratis con consumo mínimo.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/contigomedivierto/"
+      "instagram": "https://www.instagram.com/contigomedivierto/",
+      "lat": -33.445222,
+      "lng": -70.657366
     },
     {
       "id": 94,
@@ -3096,7 +3282,9 @@
       "schedule": "Mié–Vie 15:00–20:00 | Sáb–Dom 11:00–20:00",
       "kidInfo": "Entrada niños desde $4.500. Área de juegos cubierta. Cafetería para padres incluida. Ideal para días de lluvia.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/fun4kids_maipu/"
+      "instagram": "https://www.instagram.com/fun4kids_maipu/",
+      "lat": -33.479692,
+      "lng": -70.744039
     },
     {
       "id": 95,
@@ -3158,7 +3346,9 @@
       "schedule": "Lun–Vie 8:30–18:00 | Sáb 9:00–16:00",
       "kidInfo": "Espacio amplio, sillas altas disponibles, jugos naturales y sándwiches para niños.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafeteria_happymonday/"
+      "instagram": "https://www.instagram.com/cafeteria_happymonday/",
+      "lat": -33.558861,
+      "lng": -70.789729
     },
     {
       "id": 96,
@@ -3220,7 +3410,9 @@
       "schedule": "Mar–Vie 9:00–20:00 | Sáb–Dom 9:00–18:00",
       "kidInfo": "Jardín exterior donde los niños pueden moverse libremente mientras los papás disfrutan el café.",
       "petInfo": "Pet friendly en terraza exterior.",
-      "instagram": "https://www.instagram.com/aquimequedo.coffee/"
+      "instagram": "https://www.instagram.com/aquimequedo.coffee/",
+      "lat": -33.535644,
+      "lng": -70.575262
     },
     {
       "id": 97,
@@ -3282,7 +3474,9 @@
       "schedule": "Lun–Vie 8:00–20:00 | Sáb–Dom 9:00–19:00",
       "kidInfo": "Jugos naturales y batidos para niños, opciones saludables y sin azúcar. Ambiente tranquilo.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/happygood.coffee/"
+      "instagram": "https://www.instagram.com/happygood.coffee/",
+      "lat": -33.533688,
+      "lng": -70.581898
     },
     {
       "id": 98,
@@ -3344,7 +3538,9 @@
       "schedule": "Mar–Vie 9:30–19:00 | Sáb–Dom 10:00–19:00",
       "kidInfo": "Área de juegos incluida. Talleres de arte y estimulación temprana los fines de semana. Para niños de 0–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/casatateti/"
+      "instagram": "https://www.instagram.com/casatateti/",
+      "lat": -33.444537,
+      "lng": -70.562117
     },
     {
       "id": 99,
@@ -3406,7 +3602,9 @@
       "schedule": "Mié–Vie 14:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Entrada niños $5.000–7.000. Área de escalada, toboganes y zona sensorial. Padres entran gratis. Ideal de 2–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/lekepark/"
+      "instagram": "https://www.instagram.com/lekepark/",
+      "lat": -33.44186,
+      "lng": -70.534555
     },
     {
       "id": 100,
@@ -3468,7 +3666,9 @@
       "schedule": "Lun–Vie 8:00–17:00 | Sáb 9:00–15:00",
       "kidInfo": "Cocina casera y porciones generosas. Ambiente acogedor tipo abuela, ideal para almuerzos familiares.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/elcafetindevirgilio/"
+      "instagram": "https://www.instagram.com/elcafetindevirgilio/",
+      "lat": -33.41099,
+      "lng": -70.561112
     },
     {
       "id": 101,
@@ -3530,7 +3730,9 @@
       "schedule": "Mar–Vie 14:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Trampolines y zona de juego libre. Entrada $6.000–8.000 por niño, adultos gratis con consumo. Para 1–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/kboing.cl/"
+      "instagram": "https://www.instagram.com/kboing.cl/",
+      "lat": -33.414958,
+      "lng": -70.540609
     },
     {
       "id": 102,
@@ -3592,7 +3794,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Talleres de desarrollo motor y estimulación temprana. Área sensorial para bebés. Entrada desde $4.500.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/bkids_chile/"
+      "instagram": "https://www.instagram.com/bkids_chile/",
+      "lat": -33.398902,
+      "lng": -70.507184
     },
     {
       "id": 103,
@@ -3654,7 +3858,9 @@
       "schedule": "Mar–Vie 9:30–18:00 | Sáb–Dom 9:30–17:00",
       "kidInfo": "Área de juegos blanda incluida en el consumo. Menú infantil desde $3.500 con jugo. Para niños 0–5 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/nidocafe.play/"
+      "instagram": "https://www.instagram.com/nidocafe.play/",
+      "lat": -33.402901,
+      "lng": -70.55632
     },
     {
       "id": 104,
@@ -3716,7 +3922,9 @@
       "schedule": "Lun–Vie 9:30–19:30 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Juegos educativos y área sensorial. Entrada ~$6.000 por niño. Café y snacks para papás incluidos. 0–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/wippiboo/"
+      "instagram": "https://www.instagram.com/wippiboo/",
+      "lat": -33.390221,
+      "lng": -70.500526
     },
     {
       "id": 105,
@@ -3778,7 +3986,9 @@
       "schedule": "Lun–Vie 9:00–20:00 | Sáb–Dom 10:00–19:00",
       "kidInfo": "Espacio amplio, menú variado, opciones sin gluten disponibles. Sillas altas.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafetropa/"
+      "instagram": "https://www.instagram.com/cafetropa/",
+      "lat": -33.416286,
+      "lng": -70.564413
     },
     {
       "id": 106,
@@ -3840,7 +4050,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Área de juegos incluida con consumo mínimo. Menú infantil con pasta y mini pizza. Para 1–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/delucca.playroom/"
+      "instagram": "https://www.instagram.com/delucca.playroom/",
+      "lat": -33.448398,
+      "lng": -70.592929
     },
     {
       "id": 107,
@@ -3902,7 +4114,9 @@
       "schedule": "Mar–Vie 9:00–19:00 | Sáb–Dom 9:00–18:00",
       "kidInfo": "Ambiente muy acogedor e inclusivo, jugos naturales y opciones sin azúcar para niños.",
       "petInfo": "Pet friendly en terraza.",
-      "instagram": "https://www.instagram.com/voycontigocafe/"
+      "instagram": "https://www.instagram.com/voycontigocafe/",
+      "lat": -33.450278,
+      "lng": -70.588254
     },
     {
       "id": 108,
@@ -3964,7 +4178,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Área de juegos integrada, menú infantil con pasta fresca. Los niños ven preparar la pasta en la cocina abierta.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/livornokids/"
+      "instagram": "https://www.instagram.com/livornokids/",
+      "lat": -33.449183,
+      "lng": -70.590595
     },
     {
       "id": 109,
@@ -4026,7 +4242,9 @@
       "schedule": "Lun–Vie 8:30–19:00 | Sáb–Dom 9:00–18:00",
       "kidInfo": "Sillas altas disponibles, opciones dulces artesanales para niños, postres sin azúcar a pedido.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafeteria.together/"
+      "instagram": "https://www.instagram.com/cafeteria.together/",
+      "lat": -33.392665,
+      "lng": -70.558064
     },
     {
       "id": 110,
@@ -4088,7 +4306,9 @@
       "schedule": "Mar–Vie 9:00–20:00 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Ambiente tranquilo, menú adaptable para niños, pasta o ensalada siempre disponible.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/nolia_cl/"
+      "instagram": "https://www.instagram.com/nolia_cl/",
+      "lat": -33.385065,
+      "lng": -70.558707
     },
     {
       "id": 111,
@@ -4150,7 +4370,9 @@
       "schedule": "Mar–Jue 12:00–20:00 | Vie–Sáb 12:00–21:30 | Dom 12:00–20:00",
       "kidInfo": "¡Los niños los adoran! Sabores creativos como maracuyá, menta-chocolate y lúcuma. Porciones tamaño kids disponibles (~$2.500).",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/heladosbosa/"
+      "instagram": "https://www.instagram.com/heladosbosa/",
+      "lat": -33.385995,
+      "lng": -70.552825
     },
     {
       "id": 112,
@@ -4212,7 +4434,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:00",
       "kidInfo": "Juegos de mesa para todas las edades, área de juego libre. Ambiente muy familiar y entretenido.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/gluck_juegosycafe/"
+      "instagram": "https://www.instagram.com/gluck_juegosycafe/",
+      "lat": -33.396399,
+      "lng": -70.576285
     },
     {
       "id": 113,
@@ -4274,7 +4498,9 @@
       "schedule": "Lun–Vie 8:00–20:00 | Sáb–Dom 9:00–18:00",
       "kidInfo": "Chocolates calientes artesanales, meriendas para niños. Ambiente relajado.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafelomatta/"
+      "instagram": "https://www.instagram.com/cafelomatta/",
+      "lat": -33.391205,
+      "lng": -70.553698
     },
     {
       "id": 114,
@@ -4336,7 +4562,9 @@
       "schedule": "Mar–Vie 9:30–18:00 | Sáb 9:30–17:00",
       "kidInfo": "Talleres de arte incluidos con consumo. Cerámica, pintura y cocina para niños de 3–12 años. Ambiente creativo y educativo.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/espaciococarte/"
+      "instagram": "https://www.instagram.com/espaciococarte/",
+      "lat": -33.3862,
+      "lng": -70.568267
     },
     {
       "id": 115,
@@ -4398,7 +4626,9 @@
       "schedule": "Mar–Vie 12:00–22:00 | Sáb 12:00–23:00 | Dom 12:00–21:00",
       "kidInfo": "Menú infantil con pasta y pizza en porciones pequeñas (~$4.500). Sillas altas, espacio amplio. Los niños pueden ver la pizza en el horno de leña.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/bambinollirestaurante/"
+      "instagram": "https://www.instagram.com/bambinollirestaurante/",
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "id": 116,
@@ -4460,7 +4690,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Área de juegos incluida. Talleres de manualidades los fines de semana. Para niños de 1–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/kidstopiacafe/"
+      "instagram": "https://www.instagram.com/kidstopiacafe/",
+      "lat": -33.362368,
+      "lng": -70.51464
     },
     {
       "id": 117,
@@ -4522,7 +4754,9 @@
       "schedule": "Lun–Vie 9:00–19:00 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Área de juegos supervisada incluida con consumo. Para niños de 1–8 años. Padres pueden tomar café tranquilos.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/beeplaycoffee.cl/"
+      "instagram": "https://www.instagram.com/beeplaycoffee.cl/",
+      "lat": -33.434537,
+      "lng": -70.591786
     },
     {
       "id": 118,
@@ -4584,7 +4818,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Múltiples zonas de juego: bebés, 2–5 años y 5–10 años por separado. Entrada niños ~$6.000.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/kidix.stayandplay/"
+      "instagram": "https://www.instagram.com/kidix.stayandplay/",
+      "lat": -33.352463,
+      "lng": -70.514755
     },
     {
       "id": 119,
@@ -4646,7 +4882,9 @@
       "schedule": "Mar–Vie 14:00–19:30 | Sáb–Dom 10:30–19:30",
       "kidInfo": "Estructuras de trepado y toboganes. Entrada ~$5.500 por niño. Snacks y café disponibles. Para 1–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/monkeykids.cl/"
+      "instagram": "https://www.instagram.com/monkeykids.cl/",
+      "lat": -33.347324,
+      "lng": -70.741894
     },
     {
       "id": 120,
@@ -4708,7 +4946,9 @@
       "schedule": "Mar–Vie 14:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Jungla temática con tirolesa, toboganes y arte. Entrada $6.000–8.000 por niño. Para 1–12 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/junglamagicacdlv/"
+      "instagram": "https://www.instagram.com/junglamagicacdlv/",
+      "lat": -33.444632,
+      "lng": -70.847793
     },
     {
       "id": 121,
@@ -4770,7 +5010,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Área de juegos temática con zona de disfraces. Perfecto para cumpleaños y celebraciones. Para 1–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/mooncat.fiesta/"
+      "instagram": "https://www.instagram.com/mooncat.fiesta/",
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "id": 122,
@@ -4832,7 +5074,9 @@
       "schedule": "Mar–Vie 9:30–18:30 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Filosofía de crianza respetuosa. Área de juego libre no estructurado. Talleres para padres e hijos. Para 0–5 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/espaciocaju/"
+      "instagram": "https://www.instagram.com/espaciocaju/",
+      "lat": -33.362375,
+      "lng": -70.67004
     },
     {
       "id": 123,
@@ -4894,7 +5138,9 @@
       "schedule": "Lun–Vie 9:00–19:00 | Sáb–Dom 10:00–19:00",
       "kidInfo": "Área de juegos incluida sin costo adicional (consumo mínimo $3.500). Menú infantil desde $4.000 con jugo. Para 0–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafekidscl/"
+      "instagram": "https://www.instagram.com/cafekidscl/",
+      "lat": -33.504346,
+      "lng": -70.656033
     },
     {
       "id": 124,
@@ -4956,7 +5202,9 @@
       "schedule": "Mar–Vie 14:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Shows en vivo los fines de semana. Zona de juegos temática. Entrada niños ~$6.000. Para 1–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/mywonderland_sanmiguel/"
+      "instagram": "https://www.instagram.com/mywonderland_sanmiguel/",
+      "lat": -33.492597,
+      "lng": -70.650152
     },
     {
       "id": 125,
@@ -5018,7 +5266,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Jardín amplio donde los niños pueden jugar. Opciones orgánicas y sin azúcar refinada.",
       "petInfo": "Pet friendly en jardín exterior.",
-      "instagram": "https://www.instagram.com/cafelacasadelsol/"
+      "instagram": "https://www.instagram.com/cafelacasadelsol/",
+      "lat": -33.485328,
+      "lng": -70.547879
     },
     {
       "id": 126,
@@ -5080,7 +5330,9 @@
       "schedule": "Mar–Vie 10:00–18:00 | Sáb–Dom 10:00–18:30",
       "kidInfo": "Juegos de rol y realidad virtual para niños mayores (6+). Ambiente muy entretenido y creativo.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/espaciodeotromundo/"
+      "instagram": "https://www.instagram.com/espaciodeotromundo/",
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "id": 127,
@@ -5142,7 +5394,9 @@
       "schedule": "Lun–Vie 8:00–21:00 | Sáb–Dom 9:00–20:00",
       "kidInfo": "Chocolates calientes artesanales y meriendas para niños. Ambiente moderno y rápido.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/coffeestation.cl/"
+      "instagram": "https://www.instagram.com/coffeestation.cl/",
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "id": 128,
@@ -5204,7 +5458,9 @@
       "schedule": "Jue–Vie 15:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Zona de juego libre y fiestas infantiles. Entrada niños ~$5.000. Cafetería para padres. Para 1–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/porotines_party/"
+      "instagram": "https://www.instagram.com/porotines_party/",
+      "lat": -33.490536,
+      "lng": -70.542496
     },
     {
       "id": 129,
@@ -5266,7 +5522,9 @@
       "schedule": "Mar–Vie 9:30–19:00 | Sáb–Dom 10:00–19:00",
       "kidInfo": "Área de juegos de diseño escandinavo, materiales naturales. Menú saludable para niños. Ambiente muy cuidado.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/alto.kids/"
+      "instagram": "https://www.instagram.com/alto.kids/",
+      "lat": -33.478841,
+      "lng": -70.544195
     },
     {
       "id": 130,
@@ -5328,7 +5586,9 @@
       "schedule": "Lun–Vie 9:00–18:00 | Sáb 9:00–17:00",
       "kidInfo": "Sala de lactancia privada, área de mudas, juguetes y espacio de gateo. Primer café en Santiago pensado para mamás con guaguas y niños 0–2 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/mombee_coffee/"
+      "instagram": "https://www.instagram.com/mombee_coffee/",
+      "lat": -33.286153,
+      "lng": -70.676687
     },
     {
       "id": 131,
@@ -5390,7 +5650,9 @@
       "schedule": "Mar–Vie 14:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Instrumentos musicales para niños, área de juego libre y shows musicales. Para niños de 1–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/playbeats_cl/"
+      "instagram": "https://www.instagram.com/playbeats_cl/",
+      "lat": -33.284279,
+      "lng": -70.68376
     },
     {
       "id": 132,
@@ -5452,7 +5714,9 @@
       "schedule": "Mié–Vie 14:00–20:00 | Sáb–Dom 10:00–20:00",
       "kidInfo": "Juegos al aire libre e interior. Entrada ~$5.000 niños. Gran patio para niños más activos. Para 1–10 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/happyplay.chicureo/"
+      "instagram": "https://www.instagram.com/happyplay.chicureo/",
+      "lat": -33.289758,
+      "lng": -70.672922
     },
     {
       "id": 133,
@@ -5514,7 +5778,9 @@
       "schedule": "Mar–Vie 9:30–19:00 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Área de juegos y talleres de arte incluidos. Menú infantil saludable. Para niños de 1–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafeteriavalleykids/"
+      "instagram": "https://www.instagram.com/cafeteriavalleykids/",
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "id": 134,
@@ -5576,7 +5842,9 @@
       "schedule": "Mar–Vie 10:00–19:00 | Sáb–Dom 10:00–19:30",
       "kidInfo": "Juego libre no estructurado en ambiente seguro. Talleres de crianza consciente para padres. Para 0–5 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/casaplay.cl/"
+      "instagram": "https://www.instagram.com/casaplay.cl/",
+      "lat": -33.327609,
+      "lng": -70.746836
     },
     {
       "id": 135,
@@ -5638,7 +5906,9 @@
       "schedule": "Mar–Vie 9:30–18:30 | Sáb–Dom 10:00–17:30",
       "kidInfo": "Área temática con disfraces, cocina de juguete y arte. Para niños de 1–6 años. Talleres de estimulación.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/lacasitadebru/"
+      "instagram": "https://www.instagram.com/lacasitadebru/",
+      "lat": -33.600755,
+      "lng": -70.815494
     },
     {
       "id": 136,
@@ -5700,7 +5970,9 @@
       "schedule": "Lun–Vie 9:00–19:00 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Espacio de juego libre incluido. Talleres de estimulación temprana. Para guaguas y niños de 0–5 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/crazymom.cl/"
+      "instagram": "https://www.instagram.com/crazymom.cl/",
+      "lat": -33.589465,
+      "lng": -70.706622
     },
     {
       "id": 137,
@@ -5762,7 +6034,9 @@
       "schedule": "Lun–Vie 8:30–18:00 | Sáb 9:00–16:00",
       "kidInfo": "Ambiente familiar, sillas altas, jugos naturales y sándwiches para niños.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/amfercafeteria/"
+      "instagram": "https://www.instagram.com/amfercafeteria/",
+      "lat": -33.598123,
+      "lng": -70.709389
     },
     {
       "id": 138,
@@ -5824,7 +6098,9 @@
       "schedule": "Jue–Vie 15:00–20:00 | Sáb–Dom 10:30–20:00",
       "kidInfo": "Zona de juego con piscina de pelotas y toboganes. Entrada ~$4.500 niños. Para 1–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/yupi_kidsbuin/"
+      "instagram": "https://www.instagram.com/yupi_kidsbuin/",
+      "lat": -33.731575,
+      "lng": -70.772081
     },
     {
       "id": 139,
@@ -5886,7 +6162,9 @@
       "schedule": "Sáb–Dom 11:00–20:00",
       "kidInfo": "Temática de dulces y colores. Piscina de pelotas, toboganes y zona de disfraces. Para 1–8 años.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/candyparkbuin/"
+      "instagram": "https://www.instagram.com/candyparkbuin/",
+      "lat": -33.731046,
+      "lng": -70.746103
     },
     {
       "id": 140,
@@ -5948,7 +6226,9 @@
       "schedule": "Mar–Vie 9:00–20:00 | Sáb–Dom 10:00–18:00",
       "kidInfo": "Pastas frescas para niños a pedido, ambiente tranquilo, servicio atento con familias.",
       "petInfo": null,
-      "instagram": "https://www.instagram.com/cafesosta/"
+      "instagram": "https://www.instagram.com/cafesosta/",
+      "lat": -33.732356,
+      "lng": -70.743039
     },
     {
       "id": 141,
@@ -6010,7 +6290,9 @@
       "schedule": "Jue–Vie 12:00–18:00 | Sáb–Dom 11:00–19:00",
       "kidInfo": "Jardín amplio para que los niños corran. Cazuelas y empanadas caseras. El espacio al aire libre es el gran atractivo.",
       "petInfo": "Pet friendly en jardín exterior.",
-      "instagram": "https://www.instagram.com/tres.delicias.buin/"
+      "instagram": "https://www.instagram.com/tres.delicias.buin/",
+      "lat": -33.748091,
+      "lng": -70.675593
     },
     {
       "title": "Ciclo de charlas: Filmoarte",
@@ -6041,7 +6323,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 142
+      "id": 142,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "title": "Día del Patrimonio",
@@ -6070,7 +6354,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 143
+      "id": 143,
+      "lat": -33.416109,
+      "lng": -70.534062
     },
     {
       "title": "Chile y el mundo unidos por el cómic",
@@ -6098,7 +6384,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 144
+      "id": 144,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Filmoarte",
@@ -6127,7 +6415,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 145
+      "id": 145,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "title": "De una luz a otra",
@@ -6158,7 +6448,9 @@
       "pet": false,
       "kid": true,
       "tipo": "tetr",
-      "id": 146
+      "id": 146,
+      "lat": -33.416165,
+      "lng": -70.595657
     },
     {
       "title": "De una luz a otra - Ballet",
@@ -6188,7 +6480,9 @@
       "pet": false,
       "kid": true,
       "tipo": "tetr",
-      "id": 147
+      "id": 147,
+      "lat": -33.416165,
+      "lng": -70.595657
     },
     {
       "title": "The Jury Experience — Muerte en Babor",
@@ -6216,7 +6510,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 148
+      "id": 148,
+      "lat": -33.402073,
+      "lng": -70.578661
     },
     {
       "title": "Candlelight: Tributo a Adele",
@@ -6244,7 +6540,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 149
+      "id": 149,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Candlelight: Lo Mejor de Bridgerton en Cuerdas",
@@ -6272,7 +6570,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 150
+      "id": 150,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "The Jury Experience – Muerte en Babor",
@@ -6309,7 +6609,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 151
+      "id": 151,
+      "lat": -33.402073,
+      "lng": -70.578661
     },
     {
       "title": "El Prestamista",
@@ -6345,7 +6647,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 152
+      "id": 152,
+      "lat": -33.406187,
+      "lng": -70.562295
     },
     {
       "title": "Baile de la Rosa",
@@ -6374,7 +6678,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 153
+      "id": 153,
+      "lat": -33.418135,
+      "lng": -70.539533
     },
     {
       "title": "Ballet De Una Luz a Otra",
@@ -6404,7 +6710,9 @@
       "pet": false,
       "kid": true,
       "tipo": "tetr",
-      "id": 154
+      "id": 154,
+      "lat": -33.416165,
+      "lng": -70.595657
     },
     {
       "title": "Convergencias - Compañía de Danza UNIACC",
@@ -6432,7 +6740,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 155
+      "id": 155,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Cuentacuentos en la Biblioteca",
@@ -6464,7 +6774,9 @@
       "pet": false,
       "kid": true,
       "tipo": "charla",
-      "id": 156
+      "id": 156,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "IX Festival Música de Cámara",
@@ -6493,7 +6805,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 157
+      "id": 157,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Vallentina Cruz. De amor, humor y muerte",
@@ -6554,7 +6868,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 158
+      "id": 158,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Rescate - Teatro",
@@ -6592,7 +6908,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 159
+      "id": 159,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Glengarry Glen Ross - Teatro",
@@ -6630,7 +6948,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 160
+      "id": 160,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Plaza Entretenida",
@@ -6659,7 +6979,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 161
+      "id": 161,
+      "lat": -33.391015,
+      "lng": -70.512984
     },
     {
       "title": "Feria Holística de La Reina",
@@ -6688,7 +7010,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 162
+      "id": 162,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Fin de Semana de Cine y Entretención",
@@ -6718,7 +7042,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 163
+      "id": 163,
+      "lat": -33.374521,
+      "lng": -70.636983
     },
     {
       "title": "Dopamine Land",
@@ -6776,7 +7102,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 164
+      "id": 164,
+      "lat": -33.417994,
+      "lng": -70.60639
     },
     {
       "title": "Vacaciones de Invierno 2026",
@@ -6814,7 +7142,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 165
+      "id": 165,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Mercado Sustentable",
@@ -6843,7 +7173,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 166
+      "id": 166,
+      "lat": -33.396103,
+      "lng": -70.567574
     },
     {
       "title": "XVII Concurso Musical Busca Tu Banda",
@@ -6872,7 +7204,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 167
+      "id": 167,
+      "lat": -33.390302,
+      "lng": -70.572294
     },
     {
       "title": "Obra de teatro: La sexualidad secreta de los hombres",
@@ -6900,7 +7234,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 168
+      "id": 168,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Vacaciones de Invierno con Vitaniños",
@@ -6938,7 +7274,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 169
+      "id": 169,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Vacaciones de Invierno en la Biblioteca",
@@ -6974,7 +7312,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 170
+      "id": 170,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "Ceremonia conmemorativa 35 años de Vitacura",
@@ -7003,7 +7343,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 171
+      "id": 171,
+      "lat": -33.390302,
+      "lng": -70.572294
     },
     {
       "title": "Ciclo Armónica: música & performance",
@@ -7035,7 +7377,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 172
+      "id": 172,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Acercarte, visitas guiadas - Galería NAC",
@@ -7065,7 +7409,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 173
+      "id": 173,
+      "lat": -33.391713,
+      "lng": -70.595625
     },
     {
       "title": "Exposición Paisaje material de Magdalena Vial",
@@ -7120,7 +7466,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 174
+      "id": 174,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "The Jazz Room: Tributo a Frank Sinatra y Louis Armstrong",
@@ -7180,7 +7528,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 175
+      "id": 175,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "GameDev Planet Junio 2026",
@@ -7210,7 +7560,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 176
+      "id": 176,
+      "lat": -33.464987,
+      "lng": -70.594894
     },
     {
       "title": "Feria Holística de La Reina 2026",
@@ -7239,7 +7591,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 177
+      "id": 177,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Exposición Relatos Patrimoniales de La Reina",
@@ -7300,7 +7654,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 178
+      "id": 178,
+      "lat": -33.451038,
+      "lng": -70.54275
     },
     {
       "title": "Taller de microcuento con Francisca Solar",
@@ -7331,7 +7687,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 179
+      "id": 179,
+      "lat": -33.451038,
+      "lng": -70.54275
     },
     {
       "title": "Exposición Paisaje material",
@@ -7384,7 +7742,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 180
+      "id": 180,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición El umbral del tránsito",
@@ -7437,7 +7797,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 181
+      "id": 181,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Pirque Day",
@@ -7467,7 +7829,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 182
+      "id": 182,
+      "lat": -33.456084,
+      "lng": -70.593715
     },
     {
       "title": "Exposición temporal Biblioteca Pública La Reina",
@@ -7497,7 +7861,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 183
+      "id": 183,
+      "lat": -33.451038,
+      "lng": -70.54275
     },
     {
       "title": "Encuentro Cultural La Reina",
@@ -7527,7 +7893,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 184
+      "id": 184,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Harry Potter™: La Experiencia del Bosque Prohibido",
@@ -7582,7 +7950,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 185
+      "id": 185,
+      "lat": -33.441076,
+      "lng": -70.682782
     },
     {
       "title": "Light Cycles: Un paseo nocturno mágico",
@@ -7635,7 +8005,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 186
+      "id": 186,
+      "lat": -33.424425,
+      "lng": -70.633158
     },
     {
       "title": "Lanzamiento archivo y exhibición: Osvaldo Salas Veas",
@@ -7664,7 +8036,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 187
+      "id": 187,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Debajo de la espuma / Desviar horizontes",
@@ -7693,7 +8067,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 188
+      "id": 188,
+      "lat": -33.391713,
+      "lng": -70.595625
     },
     {
       "title": "Mercado Sustentable de Vitacura",
@@ -7722,7 +8098,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 189
+      "id": 189,
+      "lat": -33.396103,
+      "lng": -70.567574
     },
     {
       "title": "Festival Holístico de La Reina",
@@ -7751,7 +8129,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 190
+      "id": 190,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "The Jury Experience - Muerte en Babor",
@@ -7780,7 +8160,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 191
+      "id": 191,
+      "lat": -33.402073,
+      "lng": -70.578661
     },
     {
       "title": "Exposición \"Paisaje material\" de Magdalena Vial",
@@ -7835,7 +8217,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 192
+      "id": 192,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Acercarte, Galería NAC - \"Debajo de la espuma\" y \"Desviar horizontes\"",
@@ -7888,7 +8272,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 193
+      "id": 193,
+      "lat": -33.391713,
+      "lng": -70.595625
     },
     {
       "title": "Acercarte Galería NAC - Debajo de la espuma / Desviar horizontes",
@@ -7925,7 +8311,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 194
+      "id": 194,
+      "lat": -33.391713,
+      "lng": -70.595625
     },
     {
       "title": "Concierto Sound of the Forest - Instituto de Música UC",
@@ -7954,7 +8342,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 195
+      "id": 195,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "CGS SANTIAGO 2026 (6th Edition)",
@@ -7982,7 +8372,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 196
+      "id": 196,
+      "lat": -33.413413,
+      "lng": -70.603184
     },
     {
       "title": "LMBL - Exposición",
@@ -8024,7 +8416,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 197
+      "id": 197,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Tardes de Ópera: Andrea Chénier",
@@ -8053,7 +8447,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 198
+      "id": 198,
+      "lat": -33.391478,
+      "lng": -70.571783
     },
     {
       "title": "Exposición El Umbral del Tránsito de Eduardo Vilches",
@@ -8107,7 +8503,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 199
+      "id": 199,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Acercarte - Galería NAC: Debajo de la espuma / Desviar horizontes",
@@ -8160,7 +8558,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 200
+      "id": 200,
+      "lat": -33.391713,
+      "lng": -70.595625
     },
     {
       "title": "Día del Patrimonio 2026 en Ñuñoa",
@@ -8189,7 +8589,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 201
+      "id": 201,
+      "lat": -33.44919,
+      "lng": -70.595813
     },
     {
       "title": "Tardes de Ópera en Sala Vitacura: Andrea Chénier",
@@ -8217,7 +8619,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 202
+      "id": 202,
+      "lat": -33.391478,
+      "lng": -70.571783
     },
     {
       "title": "Exposición \"Paisaje material\", de Magdalena Vial",
@@ -8272,7 +8676,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 203
+      "id": 203,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición \"El Umbral del Tránsito\", de Eduardo Vilches",
@@ -8326,7 +8732,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 204
+      "id": 204,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Acercarte, Galería NAC - \"Debajo de la espuma\" / \"Desviar horizontes\"",
@@ -8354,7 +8762,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 205
+      "id": 205,
+      "lat": -33.391713,
+      "lng": -70.595625
     },
     {
       "title": "Van Gogh en Vivo, la experiencia REAL",
@@ -8433,7 +8843,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 206
+      "id": 206,
+      "lat": -33.510416,
+      "lng": -70.607053
     },
     {
       "title": "Lanzamiento archivo y exhibición: Osvaldo Salas Veas. Obra gráfica",
@@ -8463,7 +8875,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 207
+      "id": 207,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Exposición: Valentina Cruz. De amor, humor y muerte",
@@ -8494,7 +8908,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 208
+      "id": 208,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "LMBL ícono - Exposición",
@@ -8541,7 +8957,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 209
+      "id": 209,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Exposición: Paisaje material de Magdalena Vial",
@@ -8594,7 +9012,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 210
+      "id": 210,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición: El Umbral del Tránsito de Eduardo Vilches",
@@ -8646,7 +9066,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 211
+      "id": 211,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Pirque Day - Experiencia cultural rural",
@@ -8676,7 +9098,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 212
+      "id": 212,
+      "lat": -33.456084,
+      "lng": -70.593715
     },
     {
       "title": "Festival Vibrante de La Reina",
@@ -8706,7 +9130,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 213
+      "id": 213,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "The Jury Experience — Muerte por IA: ¿Quién Paga el precio?",
@@ -8770,7 +9196,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 214
+      "id": 214,
+      "lat": -33.402073,
+      "lng": -70.578661
     },
     {
       "title": "The Jazz Room: Un Viaje al Corazón de Nueva Orleans",
@@ -8818,7 +9246,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 215
+      "id": 215,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Antigüos Oficios de Chile",
@@ -8848,7 +9278,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 216
+      "id": 216,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "Lanzamiento archivo: Osvaldo Salas Veas. Obra gráfica (1930-1970)",
@@ -8877,7 +9309,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 217
+      "id": 217,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Exposición Paisaje material - Magdalena Vial",
@@ -8909,7 +9343,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 218
+      "id": 218,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Exposición El Umbral del Tránsito - Eduardo Vilches",
@@ -8941,7 +9377,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 219
+      "id": 219,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Ciclo de charlas Filmoarte",
@@ -8972,7 +9410,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 220
+      "id": 220,
+      "lat": -33.390387,
+      "lng": -70.554568
     },
     {
       "title": "Festival Late Ñuñoa 2026",
@@ -9004,7 +9444,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 221
+      "id": 221,
+      "lat": -33.454918,
+      "lng": -70.598292
     },
     {
       "title": "Titanic: Un viaje a través del tiempo en Cenco Costanera",
@@ -9038,7 +9480,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 222
+      "id": 222,
+      "lat": -33.417994,
+      "lng": -70.60639
     },
     {
       "title": "LMBL (Laboratorio Magdalena Vial y Bilches)",
@@ -9080,7 +9524,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 223
+      "id": 223,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Lanzamiento archivo: Osvaldo Salas Veas",
@@ -9110,7 +9556,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 224
+      "id": 224,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Talleres de Invierno - Lo Matta Cultural",
@@ -9151,7 +9599,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 225
+      "id": 225,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Talleres de Invierno - Biblioteca Vitacura",
@@ -9190,7 +9640,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 226
+      "id": 226,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "Vacaciones de Invierno 2026 - Talleres Creativos",
@@ -9232,7 +9684,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 227
+      "id": 227,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Vacaciones de Invierno Vitacura - Talleres en Lo Matta",
@@ -9273,7 +9727,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 228
+      "id": 228,
+      "lat": -33.387716,
+      "lng": -70.544578
     },
     {
       "title": "Vacaciones de Invierno Vitacura - Talleres en Biblioteca",
@@ -9312,7 +9768,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 229
+      "id": 229,
+      "lat": -33.381363,
+      "lng": -70.5781
     },
     {
       "title": "Concierto Jóvenes Sinfónicos OSIM-FOJI",
@@ -9342,7 +9800,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 230
+      "id": 230,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Concierto Danzas sin Fronteras OSEM-FOJI",
@@ -9372,7 +9832,9 @@
       "pet": false,
       "kid": true,
       "tipo": "conc",
-      "id": 231
+      "id": 231,
+      "lat": -33.44228,
+      "lng": -70.610889
     },
     {
       "title": "Comparsa de Muertos",
@@ -9403,7 +9865,9 @@
       "pet": false,
       "kid": false,
       "tipo": "tetr",
-      "id": 232
+      "id": 232,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "Presentación investigación: Acervo Francisco Copello",
@@ -9433,7 +9897,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 233
+      "id": 233,
+      "lat": -33.435271,
+      "lng": -70.643893
     },
     {
       "title": "Dopamine Land: experiencia multisensorial",
@@ -9485,7 +9951,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 234
+      "id": 234,
+      "lat": -33.417994,
+      "lng": -70.60639
     },
     {
       "title": "Exposición Centro Cultural Vicente Bianchi",
@@ -9515,7 +9983,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 235
+      "id": 235,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Cambiatón de láminas",
@@ -9544,7 +10014,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 236
+      "id": 236,
+      "lat": -33.403623,
+      "lng": -70.538985
     },
     {
       "title": "Visita guiada en Museo Ralli",
@@ -9573,7 +10045,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 237
+      "id": 237,
+      "lat": -33.396713,
+      "lng": -70.591971
     },
     {
       "title": "Presentación investigación y sitio web Acervo Francisco Copello",
@@ -9602,7 +10076,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 238
+      "id": 238,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Feria Bocas Moradas - Venta de Bodega",
@@ -9632,7 +10108,9 @@
       "pet": false,
       "kid": false,
       "tipo": "fest",
-      "id": 239
+      "id": 239,
+      "lat": -33.415024,
+      "lng": -70.540614
     },
     {
       "title": "Presentación Acervo Francisco Copello",
@@ -9661,7 +10139,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 240
+      "id": 240,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Visita guiada Museo Ralli",
@@ -9689,7 +10169,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 241
+      "id": 241,
+      "lat": -33.396713,
+      "lng": -70.591971
     },
     {
       "title": "MONSTA X WORLD TOUR THE X: NEXUS IN SANTIAGO",
@@ -9718,7 +10200,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 242
+      "id": 242,
+      "lat": -33.456225,
+      "lng": -70.649447
     },
     {
       "title": "Dios Salve a la Reina",
@@ -9746,7 +10230,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 243
+      "id": 243,
+      "lat": -33.456225,
+      "lng": -70.649447
     },
     {
       "title": "Ricardo Arjona - Lo que el Seco no dijo",
@@ -9783,7 +10269,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 244
+      "id": 244,
+      "lat": -33.462573,
+      "lng": -70.661695
     },
     {
       "title": "Colo-Colo vs. Cobresal - Liga Primera",
@@ -9812,7 +10300,9 @@
       "pet": false,
       "kid": true,
       "tipo": "dep",
-      "id": 245
+      "id": 245,
+      "lat": -33.506595,
+      "lng": -70.605977
     },
     {
       "title": "Festival Pirque Day",
@@ -9842,7 +10332,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 246
+      "id": 246,
+      "lat": -33.456084,
+      "lng": -70.593715
     },
     {
       "title": "Osvaldo Salas Veas. Obra gráfica 1930-1970",
@@ -9902,7 +10394,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 247
+      "id": 247,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "MONSTA X WORLD TOUR THE X : NEXUS IN SANTIAGO",
@@ -9931,7 +10425,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 248
+      "id": 248,
+      "lat": -33.462573,
+      "lng": -70.661695
     },
     {
       "title": "Colo-Colo vs. Cobresal - Liga de Primera Mercado Libre",
@@ -9960,7 +10456,9 @@
       "pet": false,
       "kid": false,
       "tipo": "dep",
-      "id": 249
+      "id": 249,
+      "lat": -33.506595,
+      "lng": -70.605977
     },
     {
       "title": "Ballet of Lights: La Bella Durmiente en un espectáculo deslumbrante",
@@ -10019,7 +10517,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 250
+      "id": 250,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Candlelight: Coldplay & Ed Sheeran",
@@ -10056,7 +10556,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 251
+      "id": 251,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Candlelight: Tributo a Hans Zimmer",
@@ -10086,7 +10588,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 252
+      "id": 252,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Antiguo oficios de Chile",
@@ -10143,7 +10647,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 253
+      "id": 253,
+      "lat": -33.43162,
+      "lng": -70.656254
     },
     {
       "title": "Vacaciones de Invierno en Centro Cultural Las Condes",
@@ -10184,7 +10690,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 254
+      "id": 254,
+      "lat": -33.406353,
+      "lng": -70.561999
     },
     {
       "title": "Exposición: Antiguos oficios de Chile",
@@ -10240,7 +10748,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 255
+      "id": 255,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "Exposición: En viaje a la infancia - juguetes patrimoniales chilenos",
@@ -10296,7 +10806,9 @@
       "pet": false,
       "kid": true,
       "tipo": "expo",
-      "id": 256
+      "id": 256,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "Presentación investigación Acervo Francisco Copello",
@@ -10326,7 +10838,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 257
+      "id": 257,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "Podas comunitarias en plaza Serani",
@@ -10356,7 +10870,9 @@
       "pet": false,
       "kid": true,
       "tipo": "dep",
-      "id": 258
+      "id": 258,
+      "lat": -33.377171,
+      "lng": -70.543736
     },
     {
       "title": "Charla sobre crianza: Volver a mirar",
@@ -10386,7 +10902,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 259
+      "id": 259,
+      "lat": -33.390302,
+      "lng": -70.572294
     },
     {
       "title": "Beatlemania en Concierto",
@@ -10416,7 +10934,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 260
+      "id": 260,
+      "lat": -33.422611,
+      "lng": -70.612971
     },
     {
       "title": "Noche De Broadway",
@@ -10503,7 +11023,9 @@
       "pet": false,
       "kid": false,
       "tipo": "conc",
-      "id": 263
+      "id": 263,
+      "lat": -33.422611,
+      "lng": -70.612971
     },
     {
       "title": "New Sensations Tributo a INXS + Frontier",
@@ -10561,7 +11083,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 265
+      "id": 265,
+      "lat": -33.390302,
+      "lng": -70.572294
     },
     {
       "title": "Exposición Osvaldo Salas Veas. Obra gráfica 1930-1970",
@@ -10611,7 +11135,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 266
+      "id": 266,
+      "lat": -33.435305,
+      "lng": -70.643536
     },
     {
       "title": "LMBL - Exposición de Artes Visuales y Mediales",
@@ -10653,7 +11179,9 @@
       "pet": false,
       "kid": false,
       "tipo": "expo",
-      "id": 267
+      "id": 267,
+      "lat": -33.439194,
+      "lng": -70.639845
     },
     {
       "title": "Encuentro con Familias y Comunidad: Charla sobre crianza con Felipe Lecannelier",
@@ -10683,7 +11211,9 @@
       "pet": false,
       "kid": false,
       "tipo": "charla",
-      "id": 268
+      "id": 268,
+      "lat": -33.384053,
+      "lng": -70.552802
     },
     {
       "title": "Family Fest By Hasbro",
@@ -10742,7 +11272,9 @@
       "pet": false,
       "kid": true,
       "tipo": "fest",
-      "id": 269
+      "id": 269,
+      "lat": -33.374521,
+      "lng": -70.636983
     },
     {
       "title": "MISTERIOS DE TU CEREBRO",
@@ -10769,7 +11301,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 270
+      "id": 270,
+      "lat": -33.374959,
+      "lng": -70.635295
     },
     {
       "title": "MARTES SE SALE! ? MARTES 23 JUNIO ? Club Subterraneo (+21)",
@@ -10796,7 +11330,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 271
+      "id": 271,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Misa Santiago @Domingo 21 Junio",
@@ -10823,7 +11359,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 272
+      "id": 272,
+      "lat": -33.430706,
+      "lng": -70.644925
     },
     {
       "title": "Asado de Dia del Padre",
@@ -10850,7 +11388,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 273
+      "id": 273,
+      "lat": -33.632671,
+      "lng": -70.535769
     },
     {
       "title": "Madres Jovenes",
@@ -10877,7 +11417,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 274
+      "id": 274,
+      "lat": -33.450527,
+      "lng": -70.543037
     },
     {
       "title": "DESCUBRIENDO EL UNIVERSO INVISIBLE",
@@ -10904,7 +11446,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 275
+      "id": 275,
+      "lat": -33.374959,
+      "lng": -70.635295
     },
     {
       "title": "Mawun (Lluvia)",
@@ -10931,7 +11475,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 276
+      "id": 276,
+      "lat": -33.435811,
+      "lng": -70.636854
     },
     {
       "title": "Villa Alemana Basquet vs Omega - Playoffs - Juego 3",
@@ -10958,7 +11504,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 277
+      "id": 277,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "INHOUSE: RAMIRO LOPEZ ? MIERCOLES 24 JUNIO ? Club Subterraneo (+21)",
@@ -10985,7 +11533,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 278
+      "id": 278,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "AGUJERO NEGRO: PRIMERA IMAGEN",
@@ -11012,7 +11562,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 279
+      "id": 279,
+      "lat": -33.374959,
+      "lng": -70.635295
     },
     {
       "title": "HOT CUE ? MIERCOLES 24 JUNIO ? Club Siete",
@@ -11039,7 +11591,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 280
+      "id": 280,
+      "lat": -33.413709,
+      "lng": -70.598615
     },
     {
       "title": "AMANTES GAY: Parejas Disparejas",
@@ -11066,7 +11620,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 281
+      "id": 281,
+      "lat": -33.43334,
+      "lng": -70.638259
     },
     {
       "title": "Mauro",
@@ -11093,7 +11649,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 282
+      "id": 282,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "LA DANZA DE LOS GIGANTES",
@@ -11120,7 +11678,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 283
+      "id": 283,
+      "lat": -33.374959,
+      "lng": -70.635295
     },
     {
       "title": "Cultura con orgullo",
@@ -11174,7 +11734,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 285
+      "id": 285,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Bar de Carnes y Master Class de Cornamusa",
@@ -11228,7 +11790,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 287
+      "id": 287,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Ciclo de teatro-Animas de dia claro-Domigo 21 de Junio 18 hrs",
@@ -11255,7 +11819,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 288
+      "id": 288,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Conversando con Paolo Bortolameolli",
@@ -11282,7 +11848,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 289
+      "id": 289,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "HISTORIA DE UN JABALI",
@@ -11309,7 +11877,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 290
+      "id": 290,
+      "lat": -33.358418,
+      "lng": -70.517503
     },
     {
       "title": "Manutara, Pajaro de la suerte",
@@ -11336,7 +11906,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 291
+      "id": 291,
+      "lat": -33.434315,
+      "lng": -70.61977
     },
     {
       "title": "BLUES SESSIONS ? JUEVES 25 JUNIO ? Club Subterraneo",
@@ -11363,7 +11935,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 292
+      "id": 292,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "CADAVER DE DIOS - REINACABALLO TEATRO",
@@ -11390,7 +11964,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 293
+      "id": 293,
+      "lat": -33.432893,
+      "lng": -70.63709
     },
     {
       "title": "RUMBA Full Ultrabailable ? JUEVES 25 JUNIO ? Club Subterraneo (+21M & +23H)",
@@ -11417,7 +11993,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 294
+      "id": 294,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "WINE AND THE SUNSET  ?  SANTIAGO",
@@ -11444,7 +12022,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 295
+      "id": 295,
+      "lat": -33.406648,
+      "lng": -70.576269
     },
     {
       "title": "La Sociedad - El Regreso - Arica",
@@ -11471,7 +12051,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 296
+      "id": 296,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Experiencias a traves del universo",
@@ -11498,7 +12080,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 297
+      "id": 297,
+      "lat": -33.443912,
+      "lng": -70.655644
     },
     {
       "title": "Sillas Musicales",
@@ -11525,7 +12109,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 298
+      "id": 298,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "Pedro y el lobo - Ballet Corporacion Cultural Municipal de Los Angeles",
@@ -11552,7 +12138,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 299
+      "id": 299,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "SHOW EXTRAORDINARIO - DON CARTER EN STONEY",
@@ -11579,7 +12167,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 300
+      "id": 300,
+      "lat": -33.43468,
+      "lng": -70.587885
     },
     {
       "title": "Ceremonia de Titulacion ? Facultad de Gobierno",
@@ -11606,7 +12196,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 301
+      "id": 301,
+      "lat": -33.438359,
+      "lng": -70.634685
     },
     {
       "title": "Luis Slimming / Villa Alemana / Pimenton Rojo / 25 de Junio / 21:00 hrs",
@@ -11633,7 +12225,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 302
+      "id": 302,
+      "lat": -33.408332,
+      "lng": -70.723709
     },
     {
       "title": "Grandes Invitados: Orquesta Sinfonica Universidad de La Serena",
@@ -11660,7 +12254,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 303
+      "id": 303,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Sergio Freire en Teatro Municipal de Buin",
@@ -11687,7 +12283,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 304
+      "id": 304,
+      "lat": -33.728146,
+      "lng": -70.736858
     },
     {
       "title": "Milonga Jueves 25 Junio 21hrs",
@@ -11714,7 +12312,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 305
+      "id": 305,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Aranas en los Laureles",
@@ -11741,7 +12341,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 306
+      "id": 306,
+      "lat": -33.432903,
+      "lng": -70.64139
     },
     {
       "title": "IMPROFLIX /Lospleimovil Impro Humor",
@@ -11768,7 +12370,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 307
+      "id": 307,
+      "lat": -33.43334,
+      "lng": -70.638259
     },
     {
       "title": "PREFIERO FERNANDEZ ? VIERNES 26 JUNIO ? Club Subterraneo",
@@ -11795,7 +12399,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 308
+      "id": 308,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Jorge Alis-MALON - Viernes 26 Junio 20 hrs",
@@ -11822,7 +12428,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 309
+      "id": 309,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "THE ROOF ALTOPORTALES - 26 de Junio",
@@ -11849,7 +12457,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 310
+      "id": 310,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "CLASES DE COCTELERIA + FIESTA ? VIERNES 26 JUNIO ? Club Siete",
@@ -11876,7 +12486,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 311
+      "id": 311,
+      "lat": -33.413709,
+      "lng": -70.598615
     },
     {
       "title": "El sonido de afuera es una guerra sangrienta",
@@ -11930,7 +12542,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 313
+      "id": 313,
+      "lat": -33.413709,
+      "lng": -70.598615
     },
     {
       "title": "PORTOFINO Full ultrabailable ? VIERNES 26 JUNIO ? Club Subterraneo (+23)",
@@ -11957,7 +12571,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 314
+      "id": 314,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Expo Teje Bio Bio",
@@ -12011,7 +12627,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 316
+      "id": 316,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Luis Slimming / La Dehesa / Tio Tomate / 26 de Junio / 22:00 hrs.",
@@ -12038,7 +12656,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 317
+      "id": 317,
+      "lat": -33.36289,
+      "lng": -70.512014
     },
     {
       "title": "Profugos Tributo a Soda Stereo en Terra Viva",
@@ -12119,7 +12739,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 320
+      "id": 320,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "ROCK FESTIVAL (TRIBUTOS) EN ENJOY VINA",
@@ -12146,7 +12768,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 321
+      "id": 321,
+      "lat": -33.501684,
+      "lng": -70.764115
     },
     {
       "title": "La Sociedad - El Regreso - Antofagasta",
@@ -12173,7 +12797,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 322
+      "id": 322,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Ciclo de Teatro-Club Social Cachafaz-Sabado 27 Junio 22:00 hrs",
@@ -12200,7 +12826,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 323
+      "id": 323,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "GIRA 45 ANOS ALTURA DE MACCHU PICCHU LOS JAIVAS 2026",
@@ -12227,7 +12855,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 324
+      "id": 324,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "REPLIK VOL XI VACACIONES DE INVIERNO ?? / CACHAGUA / MEDIALUNA",
@@ -12254,7 +12884,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 325
+      "id": 325,
+      "lat": -33.363047,
+      "lng": -70.724025
     },
     {
       "title": "Concierto Familiar ? Danzas Fantasticas",
@@ -12281,7 +12913,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 326
+      "id": 326,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "UNA HISTORIA DE AMOR - CICLO DE TITERES PARA LA FAMILIA 2026",
@@ -12308,7 +12942,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 327
+      "id": 327,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "Los Vikings 5 en Terra Viva",
@@ -12362,7 +12998,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 329
+      "id": 329,
+      "lat": -33.443772,
+      "lng": -70.559334
     },
     {
       "title": "Show Stand up- Chistes bajo cero-Viernes 26 Junio 22:15 hrs",
@@ -12389,7 +13027,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 330
+      "id": 330,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Pedro y Pablo",
@@ -12416,7 +13056,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 331
+      "id": 331,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "STRONG FST - PRIDE 2026 - SPOT FREEDOM - 27 DE JUNIO - 22:00",
@@ -12443,7 +13085,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 332
+      "id": 332,
+      "lat": -33.429177,
+      "lng": -70.646472
     },
     {
       "title": "SUBTE FULL HITS Ultrabailables ? SABADO 27 JUNIO ? Club Subterraneo (+23)",
@@ -12470,7 +13114,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 333
+      "id": 333,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "RUMORS PRIDE 2026 TEMUCO  - 27 DE JUNIO - 22:00",
@@ -12497,7 +13143,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 334
+      "id": 334,
+      "lat": -33.424818,
+      "lng": -70.666356
     },
     {
       "title": "DANIEL PARRANDA EN VIVO - SABADO 27 DE JUNIO - 2.0 CLUB - 23:00",
@@ -12524,7 +13172,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 335
+      "id": 335,
+      "lat": -33.444318,
+      "lng": -70.735506
     },
     {
       "title": "Show de Stand Up-Mal portadas-Sabado 27 Junio a las 19 hrs",
@@ -12551,7 +13201,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 336
+      "id": 336,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Workshop Broadway & Theater Jazz: Interpretacion Escenica",
@@ -12578,7 +13230,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 337
+      "id": 337,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "PERLA (PRE-FERIADO) ? DOMINGO 28 JUNIO ? Club Siete",
@@ -12605,7 +13259,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 338
+      "id": 338,
+      "lat": -33.413709,
+      "lng": -70.598615
     },
     {
       "title": "WEEKNDANCE Ultrabailable ? DOMINGO 28 JUNIO ? Club Subterraneo (+23)",
@@ -12632,7 +13288,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 339
+      "id": 339,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Misa Xperience Santiago @Domingo 28 Junio",
@@ -12659,7 +13317,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 340
+      "id": 340,
+      "lat": -33.430706,
+      "lng": -70.644925
     },
     {
       "title": "GIRA 45 ANOS ALTURA DE MACCHU PICCHU LOS JAIVAS 2026 - NUEVA FECHA",
@@ -12686,7 +13346,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 341
+      "id": 341,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Show de stand up-El Trio pal frio-Sabado 27 Junio 20:30hrs",
@@ -12713,7 +13375,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 342
+      "id": 342,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Ciclo de Teatro-Podcast en vivo-Sabado 27 Junio a las 17 hrs",
@@ -12740,7 +13404,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 343
+      "id": 343,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "FABRIZIO COPANO / PTE ALTO / RUTA 78 / 30 DE JUNIO / 21:30 HRS",
@@ -12767,7 +13433,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 344
+      "id": 344,
+      "lat": -33.600464,
+      "lng": -70.578842
     },
     {
       "title": "PALOMA SALAS / LA REINA / JARAQUEMADA GARDEN / 30 DE JUNIO / 19:30 HRS",
@@ -12794,7 +13462,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 345
+      "id": 345,
+      "lat": -33.454207,
+      "lng": -70.568558
     },
     {
       "title": "La Sociedad - El Regreso - Calama",
@@ -12821,7 +13491,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 346
+      "id": 346,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Luis Slimming / Distrito San Ignacio / 27 de Junio / 20:30 hrs",
@@ -12848,7 +13520,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 347
+      "id": 347,
+      "lat": -33.470947,
+      "lng": -70.65454
     },
     {
       "title": "Luis Slimming / Limache / Eastman Beach / 01 de Julio / 21:00 hrs",
@@ -12875,7 +13549,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 348
+      "id": 348,
+      "lat": -33.469728,
+      "lng": -70.685851
     },
     {
       "title": "LUNATICA PRESENTA: GUIDO SARTORIS",
@@ -12902,7 +13578,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 349
+      "id": 349,
+      "lat": -33.401131,
+      "lng": -70.593534
     },
     {
       "title": "Luis Slimming / Huechuraba / Rustiko Restobar / 30 de Junio / 22:00 hrs",
@@ -12929,7 +13607,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 350
+      "id": 350,
+      "lat": -33.34609,
+      "lng": -70.669984
     },
     {
       "title": "Pedro y el Lobo. Cuentos Sinfonicos para Sonar",
@@ -12956,7 +13636,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 351
+      "id": 351,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Taller familiar de Teatro Ecologico | Galeria CA660 Santiago",
@@ -12983,7 +13665,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 352
+      "id": 352,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Thita, Tiempo y Muerte",
@@ -13010,7 +13694,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 353
+      "id": 353,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "NOCHE DE BOLEROS",
@@ -13037,7 +13723,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 354
+      "id": 354,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "FABRIZIO COPANO / PTO MONTT / 3 PLATOS / 1 DE JULIO / 19:30 HRS",
@@ -13064,7 +13752,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 355
+      "id": 355,
+      "lat": -33.393986,
+      "lng": -70.651209
     },
     {
       "title": "MARTES SE SALE! ? MARTES 30 JUNIO ? Club Subterraneo (+21)",
@@ -13091,7 +13781,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 356
+      "id": 356,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "FABRIZIO COPANO / PTO MONTT / 3 PLATOS / 1 DE JULIO / 22:00 HRS",
@@ -13118,7 +13810,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 357
+      "id": 357,
+      "lat": -33.393986,
+      "lng": -70.651209
     },
     {
       "title": "AMANTES LELAS, Parejas Disparejas",
@@ -13145,7 +13839,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 358
+      "id": 358,
+      "lat": -33.43334,
+      "lng": -70.638259
     },
     {
       "title": "PEPA EN EL CERRO DE LAS MARAVILLAS - XI FESTIVAL DE TEATRO FAMILIAR 2026",
@@ -13172,7 +13868,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 359
+      "id": 359,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "FABRIZIO COPANO / OSORNO / MATUREO BAR / 2 DE JULIO / 19:30 HRS",
@@ -13199,7 +13897,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 360
+      "id": 360,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "La araucana",
@@ -13226,7 +13926,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 361
+      "id": 361,
+      "lat": -33.45494,
+      "lng": -70.594217
     },
     {
       "title": "Ciclo de teatro-La noche del lobo-Domigo 28 de Junio 18 hrs",
@@ -13253,7 +13955,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 362
+      "id": 362,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "IX Ciclo de Piano - Concierto N?3 ? Variaciones",
@@ -13280,7 +13984,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 363
+      "id": 363,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Luis Slimming / Providencia / Palermo Teatro Bar / 02 de Julio / 19:30 hrs",
@@ -13307,7 +14013,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 364
+      "id": 364,
+      "lat": -33.444018,
+      "lng": -70.619658
     },
     {
       "title": "Programa Especial: Aniversario Orquesta",
@@ -13334,7 +14042,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 365
+      "id": 365,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "FABRIZIO COPANO / VALDIVIA / LA BOTA CERVECERA / 03 DE JULIO / 19:30 HRS",
@@ -13361,7 +14071,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 366
+      "id": 366,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Coronel Valverde / Concon / Chicago Bar / 02 de Julio / 22:00 hrs.",
@@ -13388,7 +14100,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 367
+      "id": 367,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "El Kanka - La Calma",
@@ -13415,7 +14129,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 368
+      "id": 368,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "FABRIZIO COPANO / OSORNO / MATUREO BAR / 2 DE JULIO / 22:00 HRS",
@@ -13442,7 +14158,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 369
+      "id": 369,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Las Cuatro Estaciones de la Comadreja | Galeria CA660 Santiago",
@@ -13469,7 +14187,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 370
+      "id": 370,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Los payasos de la esperanza",
@@ -13496,7 +14216,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 371
+      "id": 371,
+      "lat": -33.437194,
+      "lng": -70.642104
     },
     {
       "title": "Milonga: La noche de los personajes tangueros- Jueves 2 Julio 21hrs",
@@ -13523,7 +14245,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 372
+      "id": 372,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "UNA CASITA EN LA LUNA - XI FESTIVAL DE TEATRO FAMILIAR 2026",
@@ -13550,7 +14274,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 373
+      "id": 373,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "Luis Slimming / Providencia / Palermo Teatro Bar / 02 de Julio / 22:30 hrs",
@@ -13577,7 +14303,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 374
+      "id": 374,
+      "lat": -33.444018,
+      "lng": -70.619658
     },
     {
       "title": "Un cuento chileno",
@@ -13604,7 +14332,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 375
+      "id": 375,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Ciclo de teatro-Tartufo-Viernes 3 Julio 22:15 hrs",
@@ -13631,7 +14361,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 376
+      "id": 376,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Carlos Cabezas \"Lanzamiento Mil Cabezas en vivo\"",
@@ -13658,7 +14390,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 377
+      "id": 377,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "FABRIZIO COPANO / VALDIVIA / LA BOTA CERVECERA / 03 DE JULIO / 22:00 HRS",
@@ -13685,7 +14419,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 378
+      "id": 378,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "INTERFASE ? VIERNES 03 JULIO ? Club Subterraneo",
@@ -13712,7 +14448,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 379
+      "id": 379,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "A Tres Orillas - Flamenco al sur del mundo",
@@ -13739,7 +14477,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 380
+      "id": 380,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Golden Age",
@@ -13766,7 +14506,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 381
+      "id": 381,
+      "lat": -33.4482,
+      "lng": -70.6507
     },
     {
       "title": "GALATEA, MI AMIGA ESPACIAL- XI FESTIVAL DE TEATRO FAMILIAR 2026",
@@ -13793,7 +14535,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 382
+      "id": 382,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "JAVIER MUDZ ? SABADO 04 JULIO ? Club Subterraneo",
@@ -13820,7 +14564,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 383
+      "id": 383,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Ciclo de teatro-Zapatos de Cristal-Domigo 5 de Julio 18 hrs",
@@ -13847,7 +14593,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 384
+      "id": 384,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "????? - ?? ?? ??? ????? - SPOT FREEDOM - SABADO 4 DE JULIO",
@@ -13874,7 +14622,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 385
+      "id": 385,
+      "lat": -33.429177,
+      "lng": -70.646472
     },
     {
       "title": "Esteban Duch - Rancagua - 4 Julio",
@@ -13901,7 +14651,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 386
+      "id": 386,
+      "lat": -33.440118,
+      "lng": -70.615389
     },
     {
       "title": "VOLCANES DE CHILE: GRANDES ERUPCIONES QUE MARCARON LA HISTORIA",
@@ -13928,7 +14680,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 387
+      "id": 387,
+      "lat": -33.374959,
+      "lng": -70.635295
     },
     {
       "title": "Show de Stand Up-Mal portadas-Sabado 4 Julio a las 19 hrs",
@@ -13955,7 +14709,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 388
+      "id": 388,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "GLITCH ? DOMINGO 05 JULIO ? Club Siete",
@@ -13982,7 +14738,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 389
+      "id": 389,
+      "lat": -33.413709,
+      "lng": -70.598615
     },
     {
       "title": "FULLEVENT PRESENTA: ? LA MAQUINA DEL TIEMPO ?",
@@ -14009,7 +14767,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 390
+      "id": 390,
+      "lat": -33.46848,
+      "lng": -70.656616
     },
     {
       "title": "MARLENISSIMA, Dios los cria y el diablo los junta",
@@ -14063,7 +14823,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 392
+      "id": 392,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Noche de Piano | Camerata UNAB & Ludovico Troncanetti",
@@ -14090,7 +14852,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 393
+      "id": 393,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Esteban Duch - Punta Arenas - 8 Julio",
@@ -14117,7 +14881,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 394
+      "id": 394,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "CONJUNTO FOLCLORICO URPI-TAYA - DESDE MI TIERRA 2026",
@@ -14144,7 +14910,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 395
+      "id": 395,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "Show de stand up-Error 404-Sabado 4 Julio 20:30hrs",
@@ -14171,7 +14939,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 396
+      "id": 396,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "PEDRO RUMINOT en Enjoy Coquimbo",
@@ -14198,7 +14968,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 397
+      "id": 397,
+      "lat": -33.402,
+      "lng": -70.596978
     },
     {
       "title": "CAMPU Y JOACO ? JUEVES 09 JULIO ? Club Subterraneo",
@@ -14225,7 +14997,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 398
+      "id": 398,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "MORIR DE AMOR",
@@ -14252,7 +15026,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 399
+      "id": 399,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Luis Slimming / Gamberetto / Chillan / 09 de Julio / 19:30 hrs",
@@ -14279,7 +15055,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 400
+      "id": 400,
+      "lat": -33.608506,
+      "lng": -70.706365
     },
     {
       "title": "EL TRAJE DEL NOVIO",
@@ -14306,7 +15084,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 401
+      "id": 401,
+      "lat": -33.437194,
+      "lng": -70.642104
     },
     {
       "title": "El Carnaval de los Animales | La Llave Maestra | Teatro CA660 Santiago",
@@ -14333,7 +15113,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 402
+      "id": 402,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "?EL DESEO? | Comedia en Teatro CA660, Santiago",
@@ -14360,7 +15142,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 403
+      "id": 403,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "RODRIGO VILLEGAS \"ESTO ES PARA USTEDES\" TEATRO MUNICIPAL CHILLAN",
@@ -14387,7 +15171,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 404
+      "id": 404,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Noches de Gala - Viva Francia",
@@ -14414,7 +15200,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 405
+      "id": 405,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "La Sociedad - El Regreso - Copiapo",
@@ -14441,7 +15229,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 406
+      "id": 406,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "LA SOCIEDAD - El Regreso -  en Enjoy Coquimbo",
@@ -14468,7 +15258,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 407
+      "id": 407,
+      "lat": -33.402,
+      "lng": -70.596978
     },
     {
       "title": "Antigona del pueblo Pez",
@@ -14495,7 +15287,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 408
+      "id": 408,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Luis Slimming / Gamberetto / Chillan / 09 de Julio / 22:00 hrs",
@@ -14522,7 +15316,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 409
+      "id": 409,
+      "lat": -33.608506,
+      "lng": -70.706365
     },
     {
       "title": "Ballet Folclorico de Coronel - Aniversario 20 anos",
@@ -14549,7 +15345,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 410
+      "id": 410,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "EL COCHINO CONTAMINADOR - CICLO DE TITERES PARA LA FAMILIA 2026",
@@ -14576,7 +15374,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 411
+      "id": 411,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "Especial britanico KEANE & COLDPLAY por ATLANTIC y JUEGOFRIO",
@@ -14630,7 +15430,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 413
+      "id": 413,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Concierto Acustico: Hollow Knight - Una Noche en Hallownest",
@@ -14657,7 +15459,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 414
+      "id": 414,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "De Papel | Teatro de Marionetas de Silencio Blanco",
@@ -14684,7 +15488,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 415
+      "id": 415,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Santos Dumont: Canciones Chilenas",
@@ -14711,7 +15517,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 416
+      "id": 416,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Concierto N? 10 ? Resonancias: Primer ano Gran Sala Sinfonica",
@@ -14738,7 +15546,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 417
+      "id": 417,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "EUFORICAS EMOCIONES",
@@ -14765,7 +15575,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 418
+      "id": 418,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "THE LADY'S SHOW",
@@ -14792,7 +15604,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 419
+      "id": 419,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "MI GITANA - Tu noche flamenca",
@@ -14819,7 +15633,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 420
+      "id": 420,
+      "lat": -33.4482,
+      "lng": -70.6507
     },
     {
       "title": "Orquesta USS presenta: Requiem Aeternam",
@@ -14846,7 +15662,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 421
+      "id": 421,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "LA SOCIEDAD -El Regreso- ENJOY VINA",
@@ -14873,7 +15691,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 422
+      "id": 422,
+      "lat": -33.501684,
+      "lng": -70.764115
     },
     {
       "title": "Ciclo de teatro-Tartufo-Viernes 10 Julio 22:15 hrs",
@@ -14900,7 +15720,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 423
+      "id": 423,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Antuco | Teatro de Marionetas de Silencio Blanco",
@@ -14927,7 +15749,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 424
+      "id": 424,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "La mala clase",
@@ -14954,7 +15778,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 425
+      "id": 425,
+      "lat": -33.45494,
+      "lng": -70.594217
     },
     {
       "title": "El dia que un colibri se poso en mi ventana",
@@ -14981,7 +15807,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 426
+      "id": 426,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "El Secreto de la Boveda",
@@ -15008,7 +15836,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 427
+      "id": 427,
+      "lat": -33.432997,
+      "lng": -70.634292
     },
     {
       "title": "Valija Diplomatica Celebrando 40 anos de Rock",
@@ -15062,7 +15892,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 429
+      "id": 429,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Noches de Cantina: Musica en vivo",
@@ -15089,7 +15921,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 430
+      "id": 430,
+      "lat": -33.434315,
+      "lng": -70.61977
     },
     {
       "title": "Azul de Prusia",
@@ -15116,7 +15950,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 431
+      "id": 431,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "RUME",
@@ -15170,7 +16006,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 433
+      "id": 433,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "EL EFECTO DE IR HACIA ATRAS",
@@ -15197,7 +16035,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 434
+      "id": 434,
+      "lat": -33.435811,
+      "lng": -70.636854
     },
     {
       "title": "Julius Popper - Gira 25 anos: Vamos y Volvemos",
@@ -15224,7 +16064,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 435
+      "id": 435,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "CONCIERTO CAMILA MORENO",
@@ -15251,7 +16093,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 436
+      "id": 436,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Pestilence y Riot - Powerofmetal Fest 2",
@@ -15278,7 +16122,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 437
+      "id": 437,
+      "lat": -33.4482,
+      "lng": -70.6507
     },
     {
       "title": "La Mutra",
@@ -15305,7 +16151,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 438
+      "id": 438,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "UN TALENTO ESPECIAL - CICLO DE TITERES PARA LA FAMILIA 2026",
@@ -15332,7 +16180,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 439
+      "id": 439,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "IVAN ARENAS en Enjoy Santiago",
@@ -15386,7 +16236,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 441
+      "id": 441,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Ciclo de teatro-Tartufo-Viernes 17 Julio 22:15 hrs",
@@ -15413,7 +16265,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 442
+      "id": 442,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "CHIQUI AGUAYO EN ENJOY VINA",
@@ -15440,7 +16294,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 443
+      "id": 443,
+      "lat": -33.501684,
+      "lng": -70.764115
     },
     {
       "title": "HISTORIA DEL VAMPIRO EN EL CINE Y LA CULTURA.",
@@ -15467,7 +16323,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 444
+      "id": 444,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "PALOMA SALAS / CONCEPCION / TEATRO UDEC / 19 DE JULIO / 19:00 HRS",
@@ -15494,7 +16352,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 445
+      "id": 445,
+      "lat": -33.502572,
+      "lng": -70.770864
     },
     {
       "title": "RENZO PIKETTE - NI cielo NI infierno* SHOW COMPLETO TEATRO CARIOLA",
@@ -15521,7 +16381,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 446
+      "id": 446,
+      "lat": -33.4482,
+      "lng": -70.6507
     },
     {
       "title": "EXPERIENCIA JAZZTGO + MASTERCLASS",
@@ -15548,7 +16410,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 447
+      "id": 447,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "\"Imaginacion\" Inti-Illimani Historico Acustico + Cuarteto Austral",
@@ -15575,7 +16439,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 448
+      "id": 448,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Expo CAV 2026",
@@ -15602,7 +16468,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 449
+      "id": 449,
+      "lat": -33.385227,
+      "lng": -70.622006
     },
     {
       "title": "Revival Originals Presenta Creedence Experience",
@@ -15656,7 +16524,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 451
+      "id": 451,
+      "lat": -33.431674,
+      "lng": -70.628717
     },
     {
       "title": "Sigrid Alegria y Los Claveles Cueca Urbana",
@@ -15710,7 +16580,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 453
+      "id": 453,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Pestilence y Riot en Concepcion",
@@ -15737,7 +16609,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 454
+      "id": 454,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "BODOQUE / TENGO OTRA IDEA - PENALOLEN",
@@ -15764,7 +16638,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 455
+      "id": 455,
+      "lat": -33.478801,
+      "lng": -70.544203
     },
     {
       "title": "Lucas Espinoza - Vina del Mar  - Barbones Comedy",
@@ -15791,7 +16667,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 456
+      "id": 456,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "EL ARTE DE LA TRANSCRIPCION PARA PIANO",
@@ -15818,7 +16696,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 457
+      "id": 457,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Yo Duelo",
@@ -15845,7 +16725,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 458
+      "id": 458,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Esteban Duch - Angol - 23 Julio",
@@ -15872,7 +16754,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 459
+      "id": 459,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Esteban Duch - Victoria - 22 Julio",
@@ -15899,7 +16783,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 460
+      "id": 460,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "II Ciclo de Musica de Camara - Concierto N?3",
@@ -15926,7 +16812,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 461
+      "id": 461,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Milonga Jueves 23 Julio 21hrs",
@@ -15953,7 +16841,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 462
+      "id": 462,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Johann Strauss: El Rey del Vals en el Tiempo",
@@ -15980,7 +16870,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 463
+      "id": 463,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Esteban Duch - Villarrica - 24 Julio",
@@ -16007,7 +16899,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 464
+      "id": 464,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Luis Slimming / La Bota Cervecera / Valdivia / 24 de Julio / 22:30 horas",
@@ -16034,7 +16928,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 465
+      "id": 465,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Isabel (Isabel, desterrada en Isabel)",
@@ -16061,7 +16957,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 466
+      "id": 466,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "PIAF Y VIOLETA",
@@ -16088,7 +16986,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 467
+      "id": 467,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "MI INUTIL NARVAL ? VIERNES 24 JULIO ? Club Subterraneo",
@@ -16115,7 +17015,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 468
+      "id": 468,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "QUE DIFICIL SER UN TITERE DE FAMILIA - CICLO DE TITERES PARA LA FAMILIA 2026",
@@ -16142,7 +17044,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 469
+      "id": 469,
+      "lat": -33.44126,
+      "lng": -70.666111
     },
     {
       "title": "Esteban Duch - Temuco - 25 Julio",
@@ -16169,7 +17073,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 470
+      "id": 470,
+      "lat": -33.501684,
+      "lng": -70.764115
     },
     {
       "title": "Ciclo de teatro-Tartufo-Viernes 24 Julio 22:15 hrs",
@@ -16196,7 +17102,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 471
+      "id": 471,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Concierto N?11 ? Tradiciones Sonoras",
@@ -16223,7 +17131,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 472
+      "id": 472,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Science & Cooking World Congress Chile",
@@ -16250,7 +17160,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 473
+      "id": 473,
+      "lat": -33.381413,
+      "lng": -70.540474
     },
     {
       "title": "PRIMERIZAS en Enjoy Coquimbo",
@@ -16277,7 +17189,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 474
+      "id": 474,
+      "lat": -33.402,
+      "lng": -70.596978
     },
     {
       "title": "FimcCo - Festival internacional de Musica de Camara de Concepcion",
@@ -16304,7 +17218,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 475
+      "id": 475,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Sinfonico 6: Misterios y Leyendas",
@@ -16331,7 +17247,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 476
+      "id": 476,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Luis Slimming / La Bota Cervecera / Valdivia / 25 de Julio / 19:30 horas",
@@ -16358,7 +17276,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 477
+      "id": 477,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Tributo a La Ley Por Vito Cuevas en Terra Viva",
@@ -16412,7 +17332,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 479
+      "id": 479,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Whitney Houston Sinfonico",
@@ -16439,7 +17361,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 480
+      "id": 480,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "PALOMA SALAS / VINA DEL MAR / ENJOY VINA / 31 DE JULIO / 21:00 HRS",
@@ -16466,7 +17390,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 481
+      "id": 481,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Killua97: Lanzamiento de EP",
@@ -16493,7 +17419,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 482
+      "id": 482,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "Gloria del Canto, Mucho mas que un musical",
@@ -16520,7 +17448,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 483
+      "id": 483,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "THE GLADIATORS ? SABADO 01 AGOSTO ? Club Subterraneo",
@@ -16547,7 +17477,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 484
+      "id": 484,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "FUNEXPO 2026",
@@ -16574,7 +17506,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 485
+      "id": 485,
+      "lat": -33.395133,
+      "lng": -70.49819
     },
     {
       "title": "Luis Slimming / Comadre Lola / Quilicura / 30 de Julio / 21:00 hrs",
@@ -16601,7 +17535,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 486
+      "id": 486,
+      "lat": -33.367427,
+      "lng": -70.715863
     },
     {
       "title": "Magic One Presenta Ver Para Creer Magia & Ilusion",
@@ -16655,7 +17591,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 488
+      "id": 488,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "IX Ciclo de Piano ? Concierto N?4 ? Baladas",
@@ -16682,7 +17620,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 489
+      "id": 489,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Zumbale Primo en Enjoy Santiago",
@@ -16736,7 +17676,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 491
+      "id": 491,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Ciclo de teatro-Tartufo-Viernes 31 Julio 22:15 hrs",
@@ -16763,7 +17705,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 492
+      "id": 492,
+      "lat": -33.449847,
+      "lng": -70.624179
     },
     {
       "title": "Concierto N?13 ? Primeros Acordes",
@@ -16790,7 +17734,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 493
+      "id": 493,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Luis Slimming / La Bota Cervecera / Valdivia / 25 de Julio / 22:30 horas",
@@ -16817,7 +17763,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 494
+      "id": 494,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Don Carter en Mistica Copiapo",
@@ -16844,7 +17792,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 495
+      "id": 495,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Cualmarcelo: Lanzamiento de disco ?Calendarios?",
@@ -16871,7 +17821,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 496
+      "id": 496,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "EBER LUDUENA EN CHILE / 7 DE AGOSTO VINA DEL MAR",
@@ -16898,7 +17850,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 497
+      "id": 497,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "ALMA CONCIERTOS: VIENTOS",
@@ -16925,7 +17879,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 498
+      "id": 498,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "ZUMBALE PRIMO EN ROCK AND SOCCER ANTOFAGASTA",
@@ -16952,7 +17908,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 499
+      "id": 499,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "David Greilsammer en Chile | Recital de piano",
@@ -16979,7 +17937,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 500
+      "id": 500,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Concierto N?12 ? Cuerdas en Flor",
@@ -17006,7 +17966,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 501
+      "id": 501,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Concierto Familiar / Abracadabra",
@@ -17033,7 +17995,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 502
+      "id": 502,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Joyboy & Casata presentan: Fonosida + Paracaidistas + Frucola Frappe + Aqui Brillamos",
@@ -17060,7 +18024,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 503
+      "id": 503,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "Se Puso Rara La Vida",
@@ -17087,7 +18053,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 504
+      "id": 504,
+      "lat": -33.437657,
+      "lng": -70.634283
     },
     {
       "title": "Chini.png presenta Via Lo Orozco",
@@ -17114,7 +18082,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 505
+      "id": 505,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "Diavol Strain",
@@ -17141,7 +18111,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 506
+      "id": 506,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "Hollywood Symphonic - KIDS",
@@ -17168,7 +18140,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 507
+      "id": 507,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "MANUEL PAEZ - ALMA FRAGMENTADA",
@@ -17195,7 +18169,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 508
+      "id": 508,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Concierto Fantasy Music | Santiago",
@@ -17222,7 +18198,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 509
+      "id": 509,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "EL PALACIO DEL PECADO | Juan Davila",
@@ -17249,7 +18227,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 510
+      "id": 510,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Pedro Ruminot en Enjoy Vina del Mar",
@@ -17276,7 +18256,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 511
+      "id": 511,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Sinfonico 7: Ritual Eterno",
@@ -17303,7 +18285,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 512
+      "id": 512,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Movimiento Original - Copiapo",
@@ -17330,7 +18314,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 513
+      "id": 513,
+      "lat": -33.486855,
+      "lng": -70.75654
     },
     {
       "title": "Gustavo Santaolalla en Santiago | Masterclass",
@@ -17357,7 +18343,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 514
+      "id": 514,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Concierto N?14 ? Impresiones Francesas",
@@ -17384,7 +18372,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 515
+      "id": 515,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "The Legend El Musical",
@@ -17438,7 +18428,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 517
+      "id": 517,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Gustavo Santaolalla - Concepcion",
@@ -17465,7 +18457,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 518
+      "id": 518,
+      "lat": -33.40863,
+      "lng": -70.701359
     },
     {
       "title": "La Brigida Orquesta y Ana Tijoux",
@@ -17492,7 +18486,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 519
+      "id": 519,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Gustavo Santaolalla - Santiago",
@@ -17519,7 +18515,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 520
+      "id": 520,
+      "lat": -33.440995,
+      "lng": -70.647516
     },
     {
       "title": "Caleuchistico en Teatro CA660",
@@ -17546,7 +18544,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 521
+      "id": 521,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Mercado Libre Experience 2026",
@@ -17573,7 +18573,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 522
+      "id": 522,
+      "lat": -33.385227,
+      "lng": -70.622006
     },
     {
       "title": "Programa Especial  Aniversario Coro Sinfonico Universidad de Concepcion",
@@ -17600,7 +18602,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 523
+      "id": 523,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "II Ciclo de Musica de Camara - Concierto N?4",
@@ -17627,7 +18631,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 524
+      "id": 524,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "PIARE - EN ENJOY VINA",
@@ -17654,7 +18660,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 525
+      "id": 525,
+      "lat": -33.501684,
+      "lng": -70.764115
     },
     {
       "title": "RATA BLANCA EN ROCK AND SOCCER ANTOFAGASTA",
@@ -17681,7 +18689,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 526
+      "id": 526,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Noches de Gala - Pasion Espanola",
@@ -17708,7 +18718,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 527
+      "id": 527,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "SERGEJ KRYLOV SVETLANA KOTOVA",
@@ -17735,7 +18747,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 528
+      "id": 528,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "ZUILL BAILEY",
@@ -17762,7 +18776,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 529
+      "id": 529,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Francisca Valenzuela - Maldita Tour - Teatro Biobio 28 de Agosto",
@@ -17789,7 +18805,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 530
+      "id": 530,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Astronauta Marinero del Universo",
@@ -17816,7 +18834,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 531
+      "id": 531,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Ciclo N?3 - Voces",
@@ -17843,7 +18863,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 532
+      "id": 532,
+      "lat": -33.437657,
+      "lng": -70.634283
     },
     {
       "title": "SERGEJ KRYLOV ?EL VIRTUOSO DE EUROPA VUELVE A CHILE!",
@@ -17870,7 +18892,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 533
+      "id": 533,
+      "lat": -33.404492,
+      "lng": -70.573182
     },
     {
       "title": "Francisca Valenzuela - Maldita Tour - Teatro Biobio 29 de Agosto",
@@ -17897,7 +18921,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 534
+      "id": 534,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "RODRIGO VILLEGAS \"ESTO ES PARA USTEDES\" ENJOY VINA",
@@ -17924,7 +18950,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 535
+      "id": 535,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Rata Blanca",
@@ -17951,7 +18979,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 536
+      "id": 536,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Concierto N?15 ? Appassionatto",
@@ -17978,7 +19008,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 537
+      "id": 537,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Manuel Garcia: FIN DE GIRA PANICO - Gran Sala Sinfonica Nacional",
@@ -18005,7 +19037,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 538
+      "id": 538,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "MARIA Y LOS TEMPLOS ? JUEVES 27 AGOSTO ? Club Subterraneo",
@@ -18032,7 +19066,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 539
+      "id": 539,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "CirKaos - Hecho en Biobio '26",
@@ -18059,7 +19095,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 540
+      "id": 540,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Rubio en M100",
@@ -18086,7 +19124,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 541
+      "id": 541,
+      "lat": -33.445069,
+      "lng": -70.679622
     },
     {
       "title": "Rubio: Presenta ?EPV1OJ?",
@@ -18113,7 +19153,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 542
+      "id": 542,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "PAUL GILBERT en Concepcion",
@@ -18140,7 +19182,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 543
+      "id": 543,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "DELTA ? VIERNES 28 AGOSTO ? Club Subterraneo",
@@ -18167,7 +19211,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 544
+      "id": 544,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "De Haydn a Mozart",
@@ -18194,7 +19240,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 545
+      "id": 545,
+      "lat": -33.403007,
+      "lng": -70.506805
     },
     {
       "title": "EL CUMBION DEL BLACK",
@@ -18221,7 +19269,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 546
+      "id": 546,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Desafio Cuerpo de Bomberos de Antofagasta 2026",
@@ -18248,7 +19298,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 547
+      "id": 547,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Concierto Sinfonico: La Subasta de Yorkshin- Requiem (Concierto tributo a Hunter X Hunter)",
@@ -18275,7 +19327,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 548
+      "id": 548,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Underground Session Chile Vol 1",
@@ -18302,7 +19356,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 549
+      "id": 549,
+      "lat": -33.497853,
+      "lng": -70.757651
     },
     {
       "title": "Alegria - La Fonda del Flon 2026 - Iquique",
@@ -18356,7 +19412,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 551
+      "id": 551,
+      "lat": -33.44108,
+      "lng": -70.641384
     },
     {
       "title": "CORRIDA BY HAPPY 2026",
@@ -18383,7 +19441,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 552
+      "id": 552,
+      "lat": -33.44186,
+      "lng": -70.534555
     },
     {
       "title": "El vicio absurdo",
@@ -18410,7 +19470,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 553
+      "id": 553,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "?? PEDRO PASTOR en CHILE - 10 locos anos descalzos ??",
@@ -18437,7 +19499,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 554
+      "id": 554,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "SEMANA INTERNACIONAL DE LA GUITARRA",
@@ -18464,7 +19528,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 555
+      "id": 555,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Left to die en Concepcion",
@@ -18491,7 +19557,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 556
+      "id": 556,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Concierto N? 16 ? Americana 250",
@@ -18518,7 +19586,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 557
+      "id": 557,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Sinfonico 8: Reflexiones misticas",
@@ -18545,7 +19615,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 558
+      "id": 558,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Copa davis Chile vs Espana (CONTENEDOR)",
@@ -18572,7 +19644,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 559
+      "id": 559,
+      "lat": -33.462947,
+      "lng": -70.612254
     },
     {
       "title": "Traversa: El duo de Chile",
@@ -18599,7 +19673,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 560
+      "id": 560,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "La Gran Fonda de Chile 2026",
@@ -18626,7 +19702,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 561
+      "id": 561,
+      "lat": -33.463379,
+      "lng": -70.660003
     },
     {
       "title": "Francisca Valenzuela - Maldita Tour - Teatro Sinfonico Universidad de Chile Santiago 27 de Septiembre",
@@ -18653,7 +19731,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 562
+      "id": 562,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Black Dog - ?The Led Zeppelin Experiencie",
@@ -18680,7 +19760,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 563
+      "id": 563,
+      "lat": -33.600464,
+      "lng": -70.578842
     },
     {
       "title": "Bandalos Chinos en Teatro Municipal de Vina del Mar",
@@ -18707,7 +19789,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 564
+      "id": 564,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Joshua Redman Quartet en Chile 2026",
@@ -18734,7 +19818,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 565
+      "id": 565,
+      "lat": -33.437657,
+      "lng": -70.634283
     },
     {
       "title": "Requiem de Faure",
@@ -18761,7 +19847,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 566
+      "id": 566,
+      "lat": -33.401813,
+      "lng": -70.50535
     },
     {
       "title": "Sinfonico 9: Un viaje a los inicios",
@@ -18788,7 +19876,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 567
+      "id": 567,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Bandalos Chinos en Teatro del Lago",
@@ -18815,7 +19905,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 568
+      "id": 568,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "IX Ciclo de Piano ? Concierto N?5 ? Fantasias",
@@ -18842,7 +19934,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 569
+      "id": 569,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Concierto N.? 17 ? Cuerdas Tempestuosas",
@@ -18869,7 +19963,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 570
+      "id": 570,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Sinfonico 10: Encuentro de culturas",
@@ -18896,7 +19992,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 571
+      "id": 571,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "El coro de las tragicas - Hecho en Biobio '26",
@@ -18923,7 +20021,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 572
+      "id": 572,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "ALMA CONCIERTOS: ENSAMBLES MIXTOS Y GRANDES",
@@ -18950,7 +20050,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 573
+      "id": 573,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Gloria In Excelsis - Hecho en Biobio '26",
@@ -18977,7 +20079,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 574
+      "id": 574,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Mentes Empoderan Mentes",
@@ -19004,7 +20108,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 575
+      "id": 575,
+      "lat": -33.411617,
+      "lng": -70.577876
     },
     {
       "title": "Concierto Familiar ? Carnaval musical",
@@ -19031,7 +20137,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 576
+      "id": 576,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "D-Camara IV: Bronces Triunfales",
@@ -19058,7 +20166,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 577
+      "id": 577,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "Concierto especial ? Canto para una semilla",
@@ -19085,7 +20195,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 578
+      "id": 578,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "AMBKOR - GIRA 2026 ? VIERNES 02 OCTUBRE ? Club Subterraneo",
@@ -19112,7 +20224,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 579
+      "id": 579,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "II Ciclo de Musica de Camara - Concierto N?5",
@@ -19139,7 +20253,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 580
+      "id": 580,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Concierto N?18 ? Resplandor melodico",
@@ -19166,7 +20282,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 581
+      "id": 581,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "ToyCon Chile 2026",
@@ -19193,7 +20311,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 582
+      "id": 582,
+      "lat": -33.43233,
+      "lng": -70.653858
     },
     {
       "title": "THE CROWN EXPERIENCE",
@@ -19220,7 +20340,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 583
+      "id": 583,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "THE HITZ ? VIERNES 13 NOVIEMBRE ? Club Subterraneo",
@@ -19247,7 +20369,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 584
+      "id": 584,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "FELIPE BALDOMIR ? JUEVES 19 NOVIEMBRE ? Club Subterraneo",
@@ -19274,7 +20398,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 585
+      "id": 585,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Inarbolece - Hecho en Biobio '26",
@@ -19301,7 +20427,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 586
+      "id": 586,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Top Marques 2026, by Cars & Coffee Chile",
@@ -19328,7 +20456,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 587
+      "id": 587,
+      "lat": -33.425773,
+      "lng": -70.80634
     },
     {
       "title": "Ciclo N?4 - Nueva creacion (Ballet con Orquesta)",
@@ -19355,7 +20485,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 588
+      "id": 588,
+      "lat": -33.437657,
+      "lng": -70.634283
     },
     {
       "title": "IX Ciclo de Piano ? Concierto N?6 ? Preludios",
@@ -19382,7 +20514,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 589
+      "id": 589,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Ill Nino + (hed) p.e + Primer 55 + Drift Mothership",
@@ -19409,7 +20543,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 590
+      "id": 590,
+      "lat": -33.4482,
+      "lng": -70.6507
     },
     {
       "title": "Las Cuatro Estaciones",
@@ -19436,7 +20572,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 591
+      "id": 591,
+      "lat": -33.403007,
+      "lng": -70.506805
     },
     {
       "title": "MAIDEN UNITED 1980 feat. DENNIS STRATTON ? SABADO 28 NOVIEMBRE ? Club Subterraneo",
@@ -19463,7 +20601,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 592
+      "id": 592,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "? OFF PAES FESTIVAL 2026 ?",
@@ -19490,7 +20630,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 593
+      "id": 593,
+      "lat": -33.4307,
+      "lng": -70.644965
     },
     {
       "title": "TOUR 2026 | CONNIE BALLARINI",
@@ -19517,7 +20659,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 594
+      "id": 594,
+      "lat": -33.437657,
+      "lng": -70.634283
     },
     {
       "title": "Concierto N?20 ? Poemas, Danzas y Gloria",
@@ -19544,7 +20688,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 595
+      "id": 595,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Funcion familiar - Cascanueces",
@@ -19571,7 +20717,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 596
+      "id": 596,
+      "lat": -33.437657,
+      "lng": -70.634283
     },
     {
       "title": "Concierto N?19 ? Lo sagrado y lo monumental",
@@ -19598,7 +20746,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 597
+      "id": 597,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Fernando Ubiergo - Enjoy Chiloe",
@@ -19625,7 +20775,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 598
+      "id": 598,
+      "lat": -33.46848,
+      "lng": -70.656616
     },
     {
       "title": "Silvio Rodriguez en la voz y guitarra de Manuel Garcia ?Al final de este viaje?...",
@@ -19652,7 +20804,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 599
+      "id": 599,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "II Ciclo de Musica de Camara - Concierto N?6",
@@ -19679,7 +20833,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 600
+      "id": 600,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Nektar Machine - Hecho en Biobio '26",
@@ -19706,7 +20862,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 601
+      "id": 601,
+      "lat": -33.473941,
+      "lng": -70.643749
     },
     {
       "title": "Silksong: En concierto",
@@ -19733,7 +20891,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 602
+      "id": 602,
+      "lat": -33.445185,
+      "lng": -70.650256
     },
     {
       "title": "Sinfonico 11: Hacia el nuevo horizonte",
@@ -19760,7 +20920,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 603
+      "id": 603,
+      "lat": -33.44889,
+      "lng": -70.669265
     },
     {
       "title": "The cat empire ? VIERNES 20 NOVIEMBRE ? Club Subterraneo",
@@ -19787,7 +20949,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 604
+      "id": 604,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "JAZE ? JUEVES 12 NOVIEMBRE ? Club Subterraneo",
@@ -19814,7 +20978,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 605
+      "id": 605,
+      "lat": -33.423405,
+      "lng": -70.611122
     },
     {
       "title": "Concierto 184? Aniversario Universidad de Chile",
@@ -19841,7 +21007,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 606
+      "id": 606,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Entropia Ritmica",
@@ -19868,7 +21036,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 607
+      "id": 607,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Concierto especial de fin de ano ? Gala Lirica",
@@ -19895,7 +21065,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 608
+      "id": 608,
+      "lat": -33.438329,
+      "lng": -70.634555
     },
     {
       "title": "Centenario José Venturelli. Humanismo y compromiso social",
@@ -19922,7 +21094,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 609
+      "id": 609,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Miradas cubistas: una experiencia picassiana",
@@ -19949,7 +21123,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 610
+      "id": 610,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Ilumina tu creatividad",
@@ -19976,7 +21152,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 611
+      "id": 611,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Títeres Salvajes para Criaturas Ingeniosas",
@@ -20003,7 +21181,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 612
+      "id": 612,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Explora y crea en invierno",
@@ -20030,7 +21210,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 613
+      "id": 613,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Sombras, cuentos y sueños",
@@ -20057,7 +21239,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 614
+      "id": 614,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Mapocho Incaico",
@@ -20084,7 +21268,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 615
+      "id": 615,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Escribir es un gesto del Cuerpo",
@@ -20111,7 +21297,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 616
+      "id": 616,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "La casita de libros de la Biblioteca Libre",
@@ -20138,7 +21326,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 617
+      "id": 617,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Cultura y economía",
@@ -20165,7 +21355,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 618
+      "id": 618,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Secretos de La AraucaníaArtesanía por excelencia",
@@ -20192,7 +21384,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 619
+      "id": 619,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Clausura FiCSor Chile 2025",
@@ -20219,7 +21413,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 620
+      "id": 620,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Hallazgos CUT",
@@ -20246,7 +21442,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 621
+      "id": 621,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "LILA, FERIA DEL LIBRO FEMINISTA",
@@ -20273,7 +21471,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 622
+      "id": 622,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "LIBROS PARA LOS NIÑOS DE HOY COREA Y CHILE EN DIÁLOGO",
@@ -20300,7 +21500,9 @@
       "pet": false,
       "kid": true,
       "tipo": "event",
-      "id": 623
+      "id": 623,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "FUNCIÓN ESPECIAL: DÍA NACIONAL DEL CINECLUBISMO",
@@ -20327,7 +21529,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 624
+      "id": 624,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "PANELES TEMÁTICOS",
@@ -20354,7 +21558,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 625
+      "id": 625,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "STGOFOTO",
@@ -20381,7 +21587,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 626
+      "id": 626,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Feria Malqueridas 2025",
@@ -20408,7 +21616,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 627
+      "id": 627,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Mosaico: un vistazo a los muros de la Basílica de la Natividad",
@@ -20435,7 +21645,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 628
+      "id": 628,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "SEMANA MARROQUÍ",
@@ -20462,7 +21674,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 629
+      "id": 629,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "POR LA LÍNEA CORRE EL TREN: LOS LAGOS",
@@ -20489,7 +21703,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 630
+      "id": 630,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Por la línea corre el tren: Biobío",
@@ -20516,7 +21732,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 631
+      "id": 631,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Por la línea corre el tren:Osorno / Puerto Montt",
@@ -20543,7 +21761,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 632
+      "id": 632,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Secretos de La AraucaníaArtesanía de excelencia",
@@ -20570,7 +21790,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 633
+      "id": 633,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Por la línea corre el tren: Temuco",
@@ -20597,7 +21819,9 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 634
+      "id": 634,
+      "lat": -33.44375,
+      "lng": -70.653807
     },
     {
       "title": "Revoir l’ambassade, Chili 1973",
@@ -20624,10 +21848,1125 @@
       "pet": false,
       "kid": false,
       "tipo": "event",
-      "id": 635
+      "id": 635,
+      "lat": -33.44375,
+      "lng": -70.653807
     }
   ],
-  "coords": {},
+  "coords": {
+    "Lo Matta Cultural, Av. Kennedy 9350, Vitacura, Santiago, Chile": {
+      "lat": -33.387716,
+      "lng": -70.544578
+    },
+    "Centro Gabriela Mistral (GAM), Alameda 227, Santiago Centro": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Centro Cultural Las Condes, Apoquindo 6570, Las Condes, Santiago, Chile": {
+      "lat": -33.406353,
+      "lng": -70.561999
+    },
+    "Estación Mapocho, Lastarria 100, Santiago Centro": {
+      "lat": -33.439072,
+      "lng": -70.641077
+    },
+    "Biblioteca de Vitacura, Av. San Josemaría Escrivá de Balaguer 6420, Vitacura, Santiago, Chile": {
+      "lat": -33.381363,
+      "lng": -70.5781
+    },
+    "Museo Nacional de Bellas Artes, José Miguel de la Barra 650, Santiago": {
+      "lat": -33.435305,
+      "lng": -70.643536
+    },
+    "Parque Bicentenario, Vitacura, Santiago, Chile": {
+      "lat": -33.398628,
+      "lng": -70.60248
+    },
+    "Vitaclub Cleveland, Cleveland 8038, Vitacura, Santiago, Chile": {
+      "lat": -33.390387,
+      "lng": -70.554568
+    },
+    "Vitacura, Vitacura, Santiago, Chile": {
+      "lat": -33.390302,
+      "lng": -70.572294
+    },
+    "Lo Matta Cultural, Avenida Kennedy 9350, Vitacura, Santiago, Chile": {
+      "lat": -33.387716,
+      "lng": -70.544578
+    },
+    "Salón José Miguel Blanco - Museo Nacional de Bellas Artes, José Miguel de la Barra 650, Santiago": {
+      "lat": -33.435305,
+      "lng": -70.643536
+    },
+    "Biblioteca de Vitacura, Avenida San Josemaría Escrivá de Balaguer 6420, Vitacura, Santiago, Chile": {
+      "lat": -33.381363,
+      "lng": -70.5781
+    },
+    "Ñuñoa, Ñuñoa, Santiago": {
+      "lat": -33.454918,
+      "lng": -70.598292
+    },
+    "Centro Cultural CEINA, Santiago": {
+      "lat": -33.445185,
+      "lng": -70.650256
+    },
+    "Estación Mapocho, Lastarria s/n, Santiago": {
+      "lat": -33.438271,
+      "lng": -70.641085
+    },
+    "Cenco Costanera, Costanera Norte, Santiago": {
+      "lat": -33.417994,
+      "lng": -70.60639
+    },
+    "Centro Cultural Carabineros de Chile, Providencia": {
+      "lat": -33.44228,
+      "lng": -70.610889
+    },
+    "Teatro Vicente Bianchi, Santa Rita 1153, La Reina, Santiago, Chile": {
+      "lat": -33.443772,
+      "lng": -70.559334
+    },
+    "Teatro Vicente Bianchi, La Reina, Santiago, Chile": {
+      "lat": -33.443772,
+      "lng": -70.559334
+    },
+    "Parque Bicentenario, Parque Bicentenario, Vitacura, Santiago, Chile": {
+      "lat": -33.398628,
+      "lng": -70.60248
+    },
+    "Plaza Ñuñoa, Plaza Ñuñoa, Ñuñoa, Santiago, Chile": {
+      "lat": -33.456084,
+      "lng": -70.593715
+    },
+    "Diversos lugares, Santiago": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Centro Cultural Carabineros de Chile, Providencia, Santiago": {
+      "lat": -33.44228,
+      "lng": -70.610889
+    },
+    "Cenco Costanera, Av. Costanera Norte, Santiago Centro": {
+      "lat": -33.417994,
+      "lng": -70.60639
+    },
+    "Centro Cultural Las Condes, Las Condes, Santiago, Chile": {
+      "lat": -33.406353,
+      "lng": -70.561999
+    },
+    "Centro Gabriela Mistral, Teatinos 350, Santiago": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Diversos lugares de Las Condes, Las Condes, Santiago, Chile": {
+      "lat": -33.416109,
+      "lng": -70.534062
+    },
+    "Estación Mapocho, Mapocho, Santiago Centro": {
+      "lat": -33.43233,
+      "lng": -70.653858
+    },
+    "Centro Cultural CEINA, Santiago Centro": {
+      "lat": -33.445185,
+      "lng": -70.650256
+    },
+    "Centro Gabriela Mistral (GAM), Lastarria, Santiago Centro": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Vitamayor Bicentenario, Vitacura, Santiago, Chile": {
+      "lat": -33.395323,
+      "lng": -70.600365
+    },
+    "Santuario Nacional de Maipú, Maipú, Santiago": {
+      "lat": -33.51083,
+      "lng": -70.766273
+    },
+    "Vitaclub, Cleveland 8038, Vitacura, Santiago, Chile": {
+      "lat": -33.390387,
+      "lng": -70.554568
+    },
+    "Galería NAC - Lo Matta Cultural, Av. Kennedy 9350, Vitacura, Santiago, Chile": {
+      "lat": -33.387716,
+      "lng": -70.544578
+    },
+    "Characata, Av. Providencia 1234, Providencia, Santiago, Chile": {
+      "lat": -33.428938,
+      "lng": -70.620839
+    },
+    "POM Restaurante, Providencia, Santiago": {
+      "lat": -33.44254,
+      "lng": -70.612748
+    },
+    "Choco Café Providencia, Providencia, Santiago": {
+      "lat": -33.438313,
+      "lng": -70.615118
+    },
+    "La Casa Juego, Providencia, Santiago": {
+      "lat": -33.42773,
+      "lng": -70.59374
+    },
+    "LeKe Park, La Reina, Santiago": {
+      "lat": -33.44186,
+      "lng": -70.534555
+    },
+    "Contigo me Divierto, Santiago Centro": {
+      "lat": -33.445222,
+      "lng": -70.657366
+    },
+    "Fun4Kids Maipú, Maipú, Santiago": {
+      "lat": -33.479692,
+      "lng": -70.744039
+    },
+    "Aquí Me Quedo Coffee, Aquí Me Quedo Coffee, Santiago": {
+      "lat": -33.535644,
+      "lng": -70.575262
+    },
+    "Cafetería Happy Monday, Cafetería Happy Monday, Santiago": {
+      "lat": -33.558861,
+      "lng": -70.789729
+    },
+    "Happy Good Coffee, Happy Good Coffee, Santiago": {
+      "lat": -33.533688,
+      "lng": -70.581898
+    },
+    "Casa Tateti, La Reina, Santiago": {
+      "lat": -33.444537,
+      "lng": -70.562117
+    },
+    "El Cafetín de Virgilio, Las Condes, Santiago": {
+      "lat": -33.41099,
+      "lng": -70.561112
+    },
+    "KBoing, Las Condes, Santiago": {
+      "lat": -33.414958,
+      "lng": -70.540609
+    },
+    "B Kids Chile, Las Condes, Santiago": {
+      "lat": -33.398902,
+      "lng": -70.507184
+    },
+    "Wippiboo, Las Condes, Santiago": {
+      "lat": -33.390221,
+      "lng": -70.500526
+    },
+    "Nido Café Play, Las Condes, Santiago": {
+      "lat": -33.402901,
+      "lng": -70.55632
+    },
+    "Cafetropa, Las Condes, Santiago": {
+      "lat": -33.416286,
+      "lng": -70.564413
+    },
+    "DeLucca Playroom, Ñuñoa, Santiago": {
+      "lat": -33.448398,
+      "lng": -70.592929
+    },
+    "Voy Contigo Café, Ñuñoa, Santiago": {
+      "lat": -33.450278,
+      "lng": -70.588254
+    },
+    "Livorno Kids, Ñuñoa, Santiago": {
+      "lat": -33.449183,
+      "lng": -70.590595
+    },
+    "Bambinelli Restaurante, Bambinelli Restaurante, Santiago": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Cafetería Together, Vitacura, Santiago": {
+      "lat": -33.392665,
+      "lng": -70.558064
+    },
+    "Nolia, Vitacura, Santiago": {
+      "lat": -33.385065,
+      "lng": -70.558707
+    },
+    "Helados Bosa, Vitacura, Santiago": {
+      "lat": -33.385995,
+      "lng": -70.552825
+    },
+    "Gluck Juegos y Café, Vitacura, Santiago": {
+      "lat": -33.396399,
+      "lng": -70.576285
+    },
+    "Café LaMatta, Vitacura, Santiago": {
+      "lat": -33.391205,
+      "lng": -70.553698
+    },
+    "Moon Cat Fiesta, Moon Cat Fiesta, Santiago": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Espacio Cocarte, Vitacura, Santiago": {
+      "lat": -33.3862,
+      "lng": -70.568267
+    },
+    "KidsTopía Café, KidsTopía Café, Santiago": {
+      "lat": -33.362368,
+      "lng": -70.51464
+    },
+    "Bee Play Coffee, Bee Play Coffee, Santiago": {
+      "lat": -33.434537,
+      "lng": -70.591786
+    },
+    "Monkey Kids, Monkey Kids, Santiago": {
+      "lat": -33.347324,
+      "lng": -70.741894
+    },
+    "Kidix Stay and Play, Kidix Stay and Play, Santiago": {
+      "lat": -33.352463,
+      "lng": -70.514755
+    },
+    "Coffee Station, Coffee Station, Santiago": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Jungla Mágica CDLV, Ciudad del Valle, Santiago": {
+      "lat": -33.444632,
+      "lng": -70.847793
+    },
+    "Espacio Cajú, Espacio Cajú, Santiago": {
+      "lat": -33.362375,
+      "lng": -70.67004
+    },
+    "Café Kids, Café Kids, Santiago": {
+      "lat": -33.504346,
+      "lng": -70.656033
+    },
+    "My Wonderland San Miguel, San Miguel, Santiago": {
+      "lat": -33.492597,
+      "lng": -70.650152
+    },
+    "Cafetería Valley Kids, Cafetería Valley Kids, Santiago": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Café La Casa del Sol, Café La Casa del Sol, Santiago": {
+      "lat": -33.485328,
+      "lng": -70.547879
+    },
+    "Alto Kids, Alto Kids, Santiago": {
+      "lat": -33.478841,
+      "lng": -70.544195
+    },
+    "MomBee Coffee, MomBee Coffee, Santiago": {
+      "lat": -33.286153,
+      "lng": -70.676687
+    },
+    "Porotines Party, Porotines Party, Santiago": {
+      "lat": -33.490536,
+      "lng": -70.542496
+    },
+    "Playbeats, Playbeats, Santiago": {
+      "lat": -33.284279,
+      "lng": -70.68376
+    },
+    "Happy Play Chicureo, Chicureo, Santiago": {
+      "lat": -33.289758,
+      "lng": -70.672922
+    },
+    "Casa Play, Casa Play, Santiago": {
+      "lat": -33.327609,
+      "lng": -70.746836
+    },
+    "Crazy Mom, Crazy Mom, Santiago": {
+      "lat": -33.589465,
+      "lng": -70.706622
+    },
+    "La Casita de Bru, La Casita de Bru, Santiago": {
+      "lat": -33.600755,
+      "lng": -70.815494
+    },
+    "Diversos lugares Las Condes, Las Condes, Santiago": {
+      "lat": -33.416109,
+      "lng": -70.534062
+    },
+    "Yupi Kids Buin, Buin, Santiago": {
+      "lat": -33.731575,
+      "lng": -70.772081
+    },
+    "Candy Park Buin, Buin, Santiago": {
+      "lat": -33.731046,
+      "lng": -70.746103
+    },
+    "AmFer Cafetería, AmFer Cafetería, Santiago": {
+      "lat": -33.598123,
+      "lng": -70.709389
+    },
+    "Café Sosta, Café Sosta, Santiago": {
+      "lat": -33.732356,
+      "lng": -70.743039
+    },
+    "Tres Delicias Buin, Buin, Santiago": {
+      "lat": -33.748091,
+      "lng": -70.675593
+    },
+    "Biblioteca de Vitacura, San Josemaría Escrivá de Balaguer 6420, Vitacura, Santiago, Chile": {
+      "lat": -33.381363,
+      "lng": -70.5781
+    },
+    "Lo Matta Cultural, Kennedy 9350, Vitacura, Santiago, Chile": {
+      "lat": -33.387716,
+      "lng": -70.544578
+    },
+    "Teatro Municipal de Las Condes, Las Condes, Santiago, Chile": {
+      "lat": -33.416165,
+      "lng": -70.595657
+    },
+    "Centro Gabriela Mistral (GAM), Lastarria 227, Santiago": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Teatro Municipal de Las Condes, Apoquindo 6570, Las Condes, Santiago, Chile": {
+      "lat": -33.416165,
+      "lng": -70.595657
+    },
+    "Teatro Mori Parque Arauco, Parque Arauco, Las Condes, Santiago, Chile": {
+      "lat": -33.402073,
+      "lng": -70.578661
+    },
+    "Cenco Costanera, Santiago": {
+      "lat": -33.417994,
+      "lng": -70.60639
+    },
+    "Huechuraba, Huechuraba, Santiago, Chile": {
+      "lat": -33.374521,
+      "lng": -70.636983
+    },
+    "Centro Cultural Las Condes, Las Condes, Santiago": {
+      "lat": -33.406353,
+      "lng": -70.561999
+    },
+    "Centro Cultural Vicente Bianchi, Santa Rita 1153, La Reina, Santiago, Chile": {
+      "lat": -33.443772,
+      "lng": -70.559334
+    },
+    "Teatro Centro Cultural, Las Condes, Santiago, Chile": {
+      "lat": -33.406187,
+      "lng": -70.562295
+    },
+    "Teatro Mori Parque Arauco, Parque Arauco, Santiago": {
+      "lat": -33.402073,
+      "lng": -70.578661
+    },
+    "Vitajoven, Vitacura, Santiago": {
+      "lat": -33.390302,
+      "lng": -70.572294
+    },
+    "Vitacura, Vitacura, Santiago": {
+      "lat": -33.390302,
+      "lng": -70.572294
+    },
+    "Casa Museo Santa Rosa de Apoquindo, Apoquindo, Las Condes, Santiago, Chile": {
+      "lat": -33.418135,
+      "lng": -70.539533
+    },
+    "Galería NAC, Vitacura, Santiago": {
+      "lat": -33.391713,
+      "lng": -70.595625
+    },
+    "Centro Gabriela Mistral (GAM), Lastarria 227, Providencia, Santiago, Chile": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Plaza Ñuñoa Sur, Ñuñoa, Santiago, Chile": {
+      "lat": -33.456084,
+      "lng": -70.593715
+    },
+    "Plaza del Corazón, Plaza del Corazón, Las Condes, Santiago, Chile": {
+      "lat": -33.391015,
+      "lng": -70.512984
+    },
+    "Acercarte, Galería NAC, Vitacura, Santiago": {
+      "lat": -33.391713,
+      "lng": -70.595625
+    },
+    "CEDOC MNBA - Museo Nacional de Bellas Artes, José Miguel de la Barra 650, Santiago": {
+      "lat": -33.435305,
+      "lng": -70.643536
+    },
+    "Parque Cuauhtémoc, Vitacura, Santiago": {
+      "lat": -33.396103,
+      "lng": -70.567574
+    },
+    "Parque Cuauhtémoc, Vitacura, Vitacura, Santiago": {
+      "lat": -33.396103,
+      "lng": -70.567574
+    },
+    "Acercarte Galería NAC, Vitacura, Santiago": {
+      "lat": -33.391713,
+      "lng": -70.595625
+    },
+    "Club Subterraneo, Santiago": {
+      "lat": -33.423405,
+      "lng": -70.611122
+    },
+    "Plataforma Cultural Campus JGM, Universidad de Chile, Ñuñoa, Santiago": {
+      "lat": -33.464987,
+      "lng": -70.594894
+    },
+    "Parque Quinta Normal, Santiago": {
+      "lat": -33.441076,
+      "lng": -70.682782
+    },
+    "GAM - Centro Gabriela Mistral, Santiago Centro": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Parque Metropolitano de Santiago, Santiago": {
+      "lat": -33.424425,
+      "lng": -70.633158
+    },
+    "Biblioteca Pública de La Reina, Av. Alcalde Fernando Castillo Velasco 8580, La Reina, Santiago, Chile": {
+      "lat": -33.451038,
+      "lng": -70.54275
+    },
+    "GAM - Centro Gabriela Mistral, Centro, Santiago": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Teatro Mori Parque Arauco, Santiago, Santiago": {
+      "lat": -33.402073,
+      "lng": -70.578661
+    },
+    "Club Subterraneo, Santiago Centro, Santiago": {
+      "lat": -33.423405,
+      "lng": -70.611122
+    },
+    "Estación Mapocho, Centro, Santiago": {
+      "lat": -33.43233,
+      "lng": -70.653858
+    },
+    "Espacios públicos de Ñuñoa, Ñuñoa, Santiago": {
+      "lat": -33.454918,
+      "lng": -70.598292
+    },
+    "Cenco Costanera, Costanera Center, Santiago": {
+      "lat": -33.417994,
+      "lng": -70.60639
+    },
+    "Centro Gabriela Mistral (GAM), Lastarria, Santiago": {
+      "lat": -33.439194,
+      "lng": -70.639845
+    },
+    "Biblioteca Vitacura, San Josemaría Escrivá de Balaguer 6420, Vitacura, Santiago, Chile": {
+      "lat": -33.381363,
+      "lng": -70.5781
+    },
+    "InterContinental Santiago, Las Condes, Santiago": {
+      "lat": -33.413413,
+      "lng": -70.603184
+    },
+    "Sala Vitacura, Vitacura, Santiago": {
+      "lat": -33.391478,
+      "lng": -70.571783
+    },
+    "Diversos espacios de Ñuñoa, Ñuñoa, Santiago": {
+      "lat": -33.44919,
+      "lng": -70.595813
+    },
+    "Estación Mapocho, Centro Cultural Estación Mapocho, Santiago": {
+      "lat": -33.43233,
+      "lng": -70.653858
+    },
+    "Cenco Florida, Santiago Centro": {
+      "lat": -33.510416,
+      "lng": -70.607053
+    },
+    "Museo Ralli, Museo Ralli, Vitacura, Santiago, Chile": {
+      "lat": -33.396713,
+      "lng": -70.591971
+    },
+    "Mall Plaza Los Dominicos, Las Condes, Santiago, Chile": {
+      "lat": -33.415024,
+      "lng": -70.540614
+    },
+    "Salón José Miguel Blanco, José Miguel de la Barra 650, Santiago": {
+      "lat": -33.435271,
+      "lng": -70.643893
+    },
+    "Teatro Caupolicán, Santiago Centro": {
+      "lat": -33.456225,
+      "lng": -70.649447
+    },
+    "Museo Ralli, Vitacura, Santiago, Chile": {
+      "lat": -33.396713,
+      "lng": -70.591971
+    },
+    "Estadio Municipal Paul Harris, Estadio Municipal Paul Harris, Las Condes, Santiago, Chile": {
+      "lat": -33.403623,
+      "lng": -70.538985
+    },
+    "Movistar Arena, Santiago Centro": {
+      "lat": -33.462573,
+      "lng": -70.661695
+    },
+    "CEDOC MNBA, José Miguel de la Barra 650, Santiago Centro": {
+      "lat": -33.435305,
+      "lng": -70.643536
+    },
+    "Estadio Monumental, Macul, Santiago": {
+      "lat": -33.506595,
+      "lng": -70.605977
+    },
+    "Teatro Vicente Bianchi, La Reina, Santiago": {
+      "lat": -33.443772,
+      "lng": -70.559334
+    },
+    "Estación Mapocho, Santiago Centro": {
+      "lat": -33.43233,
+      "lng": -70.653858
+    },
+    "Centro Cultural Las Condes, Apoquindo, Las Condes, Santiago, Chile": {
+      "lat": -33.406353,
+      "lng": -70.561999
+    },
+    "Cenco Florida, Huechuraba, Santiago": {
+      "lat": -33.374521,
+      "lng": -70.636983
+    },
+    "Estación Mapocho, Centro de Santiago": {
+      "lat": -33.43162,
+      "lng": -70.656254
+    },
+    "Gran Sala Sinfónica Nacional, Santiago Centro": {
+      "lat": -33.438329,
+      "lng": -70.634555
+    },
+    "Plaza Serani, Vitacura, Santiago, Chile": {
+      "lat": -33.377171,
+      "lng": -70.543736
+    },
+    "Club Subterráneo, Paseo Orrego Luco,, Santiago, Chile": {
+      "lat": -33.423405,
+      "lng": -70.611122
+    },
+    "Teatro Oriente, Santiago": {
+      "lat": -33.422611,
+      "lng": -70.612971
+    },
+    "Centro Cultural Vitacura, Vitacura, Santiago, Chile": {
+      "lat": -33.384053,
+      "lng": -70.552802
+    },
+    "Fortin Prat, Rawson,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Planetario Huechuraba, Premio Nobel,, Santiago, Chile": {
+      "lat": -33.374959,
+      "lng": -70.635295
+    },
+    "Asuncion #426 esquina Patronato, Asunción, 426, Santiago, Chile": {
+      "lat": -33.430706,
+      "lng": -70.644925
+    },
+    "Hotel Las Majadas, ,, Santiago, Chile": {
+      "lat": -33.632671,
+      "lng": -70.535769
+    },
+    "Sala Nemesio, Avenida Alcalde Fernando Castillo Velasco,, Santiago, Chile": {
+      "lat": -33.450527,
+      "lng": -70.543037
+    },
+    "Teatro Lospleimovil, Dardignac, 91, Santiago, Chile": {
+      "lat": -33.43334,
+      "lng": -70.638259
+    },
+    "TEATRO DEL PUENTE, Río Mapocho, entre puentes Pío Nono y Purísima,, Santiago, Chile": {
+      "lat": -33.435811,
+      "lng": -70.636854
+    },
+    "Hotel W Stgo, Isidora Goyenechea,, Santiago, Chile": {
+      "lat": -33.413709,
+      "lng": -70.598615
+    },
+    "Teatro Municipal de Antofagasta, Sucre,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "MATUCANA 100 / TEATRO PRINCIPAL, Matucana, 100, Santiago, Chile": {
+      "lat": -33.445069,
+      "lng": -70.679622
+    },
+    "Sala Principal, Teatro Biobío, ,, Santiago, Chile": {
+      "lat": -33.473941,
+      "lng": -70.643749
+    },
+    "Hotel del Valle de Azapa, Avenida Senador Humberto Palza Corvacho,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Centro Cultural CA660 de la Fundación CorpArtes, Rosario Norte, 660, Santiago, Chile": {
+      "lat": -33.404492,
+      "lng": -70.573182
+    },
+    "TEATRO CACHAFAZ, Avenida Italia,, Santiago, Chile": {
+      "lat": -33.449847,
+      "lng": -70.624179
+    },
+    "Teatro Zoco, Avenida La Dehesa,, Santiago, Chile": {
+      "lat": -33.358418,
+      "lng": -70.517503
+    },
+    "MATUCANA CIEN / ESPACIO PATRICIO BUNSTER, Matucana, 100, Santiago, Chile": {
+      "lat": -33.445069,
+      "lng": -70.679622
+    },
+    "Sala Master Radio Universidad de Chile, Miguel Claro,": {
+      "lat": -33.434315,
+      "lng": -70.61977
+    },
+    "TEATRO SIDARTE, Ernesto Pinto Lagarrigue, 131, Santiago, Chile": {
+      "lat": -33.432893,
+      "lng": -70.63709
+    },
+    "Terraza Novotel Las Condes, Alonso de Córdova,, Santiago, Chile": {
+      "lat": -33.406648,
+      "lng": -70.576269
+    },
+    "Gran Sala Sinfónica Nacional, Avenida Vicuña Mackenna,, Santiago, Chile": {
+      "lat": -33.438329,
+      "lng": -70.634555
+    },
+    "Teatro Camilo Henriquez, Amunátegui, 31, Santiago, Chile": {
+      "lat": -33.443912,
+      "lng": -70.655644
+    },
+    "Club Subterraneo, Orrego Luco,, Santiago, Chile": {
+      "lat": -33.423405,
+      "lng": -70.611122
+    },
+    "ALTO PORTALES, Diego Portales, 854, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Stoney Bar, Francisco Bilbao,, Santiago, Chile": {
+      "lat": -33.43468,
+      "lng": -70.587885
+    },
+    "PIMENTÓN ROJO, Progreso,, Santiago, Chile": {
+      "lat": -33.408332,
+      "lng": -70.723709
+    },
+    "Centro de Extensión Artística y Cultural Universidad de Chile, Complejo Universitario VM20, Avenida Vicuña Mackenna,": {
+      "lat": -33.438359,
+      "lng": -70.634685
+    },
+    "Teatro del Lago, Avenida Philippi,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Municipal de Buin, Carlos Condell,, Santiago, Chile": {
+      "lat": -33.728146,
+      "lng": -70.736858
+    },
+    "Teatro Municipal de Antofagasta, Antonio José de Sucre,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Sala Tessier, Dardignac,, Santiago, Chile": {
+      "lat": -33.432903,
+      "lng": -70.64139
+    },
+    "Nenazo, ,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Centro Cultural Vicente Bianchi, Santa Rita,, Santiago, Chile": {
+      "lat": -33.443772,
+      "lng": -70.559334
+    },
+    "MATUCANA 100, Matucana, 100, Santiago, Chile": {
+      "lat": -33.445069,
+      "lng": -70.679622
+    },
+    "TIO TOMATE, San Lucas,, Santiago, Chile": {
+      "lat": -33.36289,
+      "lng": -70.512014
+    },
+    "Salón Ballroom, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.501684,
+      "lng": -70.764115
+    },
+    "Medialuna, ,, Santiago, Chile": {
+      "lat": -33.363047,
+      "lng": -70.724025
+    },
+    "Teatro Azares - HUERFANOS 2146 SANTIAGO, Huérfanos, 2146": {
+      "lat": -33.44126,
+      "lng": -70.666111
+    },
+    "Freedom, Avenida Recoleta,, Santiago, Chile": {
+      "lat": -33.429177,
+      "lng": -70.646472
+    },
+    "RUMORS CLUB, Manuel Montt,, Santiago, Chile": {
+      "lat": -33.424818,
+      "lng": -70.666356
+    },
+    "2.0 CLUB, San Pablo,, Santiago, Chile": {
+      "lat": -33.444318,
+      "lng": -70.735506
+    },
+    "MATUCANA 100 / ESPACIO PATRICIO BUNSTER, Matucana, 100, Santiago, Chile": {
+      "lat": -33.445069,
+      "lng": -70.679622
+    },
+    "RUTA 78 PTE ALTO, Independencia,, Santiago, Chile": {
+      "lat": -33.600464,
+      "lng": -70.578842
+    },
+    "JARAQUEMADA DRINK GARDEN, Paula Jaraquemada,, Santiago, Chile": {
+      "lat": -33.454207,
+      "lng": -70.568558
+    },
+    "Colegio Alemán de La Serena, D-401,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Distrito San Ignacio, San Ignacio de Loyola,, Santiago, Chile": {
+      "lat": -33.470947,
+      "lng": -70.65454
+    },
+    "MATUREO, Conrado Amthauer,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "EASTMAN BEACH, ,, Santiago, Chile": {
+      "lat": -33.469728,
+      "lng": -70.685851
+    },
+    "Teatro C, Pedro de Villagra, 2260, Santiago, Chile": {
+      "lat": -33.401131,
+      "lng": -70.593534
+    },
+    "LA BOTA CERVECERA, Los Avellanos, 289, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "RUSTIKO HUECHURABA, Avenida Pedro Fontova,, Santiago, Chile": {
+      "lat": -33.34609,
+      "lng": -70.669984
+    },
+    "Teatro Universidad de Concepción, Libertador General Bernardo O'Higgins,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "3 PLATOS, Urmeneta,, Santiago, Chile": {
+      "lat": -33.393986,
+      "lng": -70.651209
+    },
+    "Centro Cultural CA660 de la Fundación CorpArtes, Rosario Norte,, Santiago, Chile": {
+      "lat": -33.404492,
+      "lng": -70.573182
+    },
+    "Teatro UC, Jorge Washington, 26, Santiago, Chile": {
+      "lat": -33.45494,
+      "lng": -70.594217
+    },
+    "PALERMO TEATRO BAR, José Manuel Infante,, Santiago, Chile": {
+      "lat": -33.444018,
+      "lng": -70.619658
+    },
+    "Teatro ICTUS, Merced, 349, Santiago, Chile": {
+      "lat": -33.437194,
+      "lng": -70.642104
+    },
+    "Ole Restobar, Plaza Benjamín Muñoz Gamero, 771, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Cariola, San Diego,, Santiago, Chile": {
+      "lat": -33.4482,
+      "lng": -70.6507
+    },
+    "Anfiteatro Lago Llanquihue - Teatro del Lago, Avenida Philippi,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Biobío - Sala Principal, Avenida Costanera,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Nuevo Bar Republicano, Manuel Montt,, Santiago, Chile": {
+      "lat": -33.440118,
+      "lng": -70.615389
+    },
+    "Salón Aysén - Hacienda Patagonia, Avenida Ernesto Pinto Lagarrigue,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Sala de Cámara, Teatro Biobío, ,, Santiago, Chile": {
+      "lat": -33.473941,
+      "lng": -70.643749
+    },
+    "SALÓN BALLROOM, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.501684,
+      "lng": -70.764115
+    },
+    "Centro Cultural Ceina, Arturo Prat,, Santiago, Chile": {
+      "lat": -33.445185,
+      "lng": -70.650256
+    },
+    "SALÓN BALLROOM, Peñuelas Norte,, Santiago, Chile": {
+      "lat": -33.402,
+      "lng": -70.596978
+    },
+    "MATUCANA 100 /  MICROSALA, Matucana, 100, Santiago, Chile": {
+      "lat": -33.445069,
+      "lng": -70.679622
+    },
+    "Centro de convenciones - Casino MDS, Variante Nahueltoro, 251, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Centro de Eventos Full Event (Ex FullRent), Ruta 5,, Santiago, Chile": {
+      "lat": -33.46848,
+      "lng": -70.656616
+    },
+    "GAMBERETTO, Dieciocho de Septiembre,, Santiago, Chile": {
+      "lat": -33.608506,
+      "lng": -70.706365
+    },
+    "MATUCANA 100 / CINE, Matucana, 100, Santiago, Chile": {
+      "lat": -33.445069,
+      "lng": -70.679622
+    },
+    "Gran Sala Sinfónica, Avenida Vicuña Mackenna,, Santiago, Chile": {
+      "lat": -33.438329,
+      "lng": -70.634555
+    },
+    "Teatro Cariola, San Diego, 246, Santiago, Chile": {
+      "lat": -33.4482,
+      "lng": -70.6507
+    },
+    "Teatro Bellavista, Dardignac,, Santiago, Chile": {
+      "lat": -33.432997,
+      "lng": -70.634292
+    },
+    "Bodeguita de Nicanor, Anibal Pinto,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "TEATRO CEINA, Arturo Prat,, Santiago, Chile": {
+      "lat": -33.445185,
+      "lng": -70.650256
+    },
+    "Campo Viejo, Ernesto Wagner,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro La Memoria, ,, Santiago, Chile": {
+      "lat": -33.431674,
+      "lng": -70.628717
+    },
+    "TEATRO UNIVERSIDAD DE CONCECPCIÓN, Libertador General Bernardo O'Higgins,, Santiago, Chile": {
+      "lat": -33.502572,
+      "lng": -70.770864
+    },
+    "Espacio Riesco, Avenida El Salto, 5000, Santiago, Chile": {
+      "lat": -33.385227,
+      "lng": -70.622006
+    },
+    "La Bota Cervecera, Los Avellanos, 289, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "sambolio restobar, Avenida Consistorial,, Santiago, Chile": {
+      "lat": -33.478801,
+      "lng": -70.544203
+    },
+    "Delirante Teatro Bar, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.501684,
+      "lng": -70.764115
+    },
+    "ENJOY VIÑA DEL MAR, ,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Barbones Comedy, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Centro de eventos Rancho Paraiso, Félix García,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Hotel Gavina, Avenida Arturo Prat Chacón,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Ceina, Arturo Prat,, Santiago, Chile": {
+      "lat": -33.445185,
+      "lng": -70.650256
+    },
+    "ROCK AND SOCCER, Quebrada la Negra, 2351, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Mistica Copiapo, Avenida Cancha Rayada, 10, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "INACAP Vitacura, Avenida Vitacura,, Santiago, Chile": {
+      "lat": -33.381413,
+      "lng": -70.540474
+    },
+    "COMADRE LOLA, Avenida Manuel Antonio Matta,, Santiago, Chile": {
+      "lat": -33.367427,
+      "lng": -70.715863
+    },
+    "Centro de Eventos Casa Piedra - San Carlos de Apoquindo, Camino Las Flores,, Santiago, Chile": {
+      "lat": -33.395133,
+      "lng": -70.49819
+    },
+    "Espacio Riesco, Avenida El Salto,, Santiago, Chile": {
+      "lat": -33.385227,
+      "lng": -70.622006
+    },
+    "Teatro Universidad de Chile, Avenida Providencia, 43": {
+      "lat": -33.437657,
+      "lng": -70.634283
+    },
+    "Enjoy Viña del Mar, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Municipal de Santiago, Agustinas,": {
+      "lat": -33.440995,
+      "lng": -70.647516
+    },
+    "Centro de Eventos Zonna, Avenida Argentina,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "AMMA CLUB, Juan Martínez,, Santiago, Chile": {
+      "lat": -33.486855,
+      "lng": -70.75654
+    },
+    "Teatro Bío Bío, Avda. Costanera Raúl Silva Henríquez,, Santiago, Chile": {
+      "lat": -33.40863,
+      "lng": -70.701359
+    },
+    "LA REINA (Por confirmar), ,, Santiago, Chile": {
+      "lat": -33.44186,
+      "lng": -70.534555
+    },
+    "ENJOY VIÑA DEL MAR, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Aula Magna Biblioteca, Universidad de los Andes, Monseñor Álvaro del Portillo, 12455, Santiago, Chile": {
+      "lat": -33.403007,
+      "lng": -70.506805
+    },
+    "Centro de Eventos Hanga Roa, Avenida Arturo Prat Chacón,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Gran Sala Sinfonica, Avenida Vicuña Mackenna,, Santiago, Chile": {
+      "lat": -33.438329,
+      "lng": -70.634555
+    },
+    "Bar Ruta 78, Independencia,, Santiago, Chile": {
+      "lat": -33.600464,
+      "lng": -70.578842
+    },
+    "Teatro Universidad de Chile, Avenida Providencia,": {
+      "lat": -33.437657,
+      "lng": -70.634283
+    },
+    "Estadio Regional Calvo y Bascuñan, Avenida Angamos,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Club Isla Maipú, Avenida Los Pajaritos,, Santiago, Chile": {
+      "lat": -33.497853,
+      "lng": -70.757651
+    },
+    "Centro de Extensión UC, Avenida Alameda Libertador Bernardo O'Higgins,, Santiago, Chile": {
+      "lat": -33.44108,
+      "lng": -70.641384
+    },
+    "Court Central Anita Lizana, ,, Santiago, Chile": {
+      "lat": -33.462947,
+      "lng": -70.612254
+    },
+    "Estación Mapocho, Avenida Presidente Balmaceda,, Santiago, Chile": {
+      "lat": -33.43233,
+      "lng": -70.653858
+    },
+    "Santiago de Chile, ,": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Parque O'Higgins, El Parque,, Santiago, Chile": {
+      "lat": -33.463379,
+      "lng": -70.660003
+    },
+    "Enjoy Chiloé, Ruta 5,, Santiago, Chile": {
+      "lat": -33.46848,
+      "lng": -70.656616
+    },
+    "Salón de Honor Álvaro del Portillo, San Carlos de Apoquindo,, Santiago, Chile": {
+      "lat": -33.401813,
+      "lng": -70.50535
+    },
+    "Sala omnium, Avenida Apoquindo, 4900, Santiago, Chile": {
+      "lat": -33.411617,
+      "lng": -70.577876
+    },
+    "Club de Golf Mapocho, Autopista Costanera Norte,, Santiago, Chile": {
+      "lat": -33.425773,
+      "lng": -70.80634
+    },
+    "Ex Fábrica, Seúl,, Santiago, Chile": {
+      "lat": -33.4307,
+      "lng": -70.644965
+    },
+    "Centro Cultural La Moneda, Plaza de la Ciudadanía 26, Santiago": {
+      "lat": -33.44375,
+      "lng": -70.653807
+    },
+    "Espacio de Otro Mundo, Espacio de Otro Mundo, Santiago": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Chicago Bar, Avenida Concón Reñaca, 4000, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Hotel Antay Copiapo, Los Carrera,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Municipal de Chillán, Dieciocho de Septiembre,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Espacio Arte Centro Cívico, Vitacura, Santiago, Chile": {
+      "lat": -33.416078,
+      "lng": -70.595876
+    },
+    "Casino Enjoy Viña Del Mar, Avenida San Martín,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Taberú Sushi Angol, Bernardo O'Higgins,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Municipal de Calama, Eleuterio Ramírez,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    },
+    "Teatro Municipal de Viña del Mar, Plaza Vergara,, Santiago, Chile": {
+      "lat": -33.44889,
+      "lng": -70.669265
+    }
+  },
   "meta": {
     "lastUpdated": "2026-06-21",
     "totalEvents": 635,

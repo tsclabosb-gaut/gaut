@@ -12,6 +12,8 @@
   gtag('js', new Date());
   gtag('config', 'G-4PZC0X3ZSK');
 </script>
+<!-- Google Maps JS API (mapa de eventos) -->
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxrpUvNLkD1jlfRjM18YQUslE8fQ1BMLk&loading=async"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -802,8 +804,12 @@ img { display: block; max-width: 100%; }
 
 <!-- FEED -->
 <div class="feed-section feed-pad">
-  <div class="section-label" id="feedLabel">Todos los eventos</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px">
+    <div class="section-label" id="feedLabel" style="margin:0">Todos los eventos</div>
+    <button id="mapToggleBtn" onclick="toggleMapView()" style="flex-shrink:0;padding:7px 14px;border-radius:var(--radius-full);border:1.5px solid var(--terracotta);background:white;color:var(--terracotta);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🗺️ Mapa</button>
+  </div>
   <div class="events-grid" id="eventsGrid"></div>
+  <div id="mapView" style="display:none;height:72vh;margin-top:8px"><div id="googleMap" style="width:100%;height:100%;border-radius:var(--radius-md)"></div></div>
   <footer class="legal-footer">
     <p><strong>DescubreTuCiudad</strong> es una plataforma informativa que recopila y difunde información de eventos y panoramas a partir de fuentes públicas de terceros. No organizamos, producimos ni vendemos entradas para estos eventos. La información (fechas, precios, lugares y disponibilidad) puede cambiar sin previo aviso o contener errores, por lo que recomendamos confirmar siempre con el organizador oficial antes de asistir o comprar. No nos hacemos responsables por cambios, cancelaciones ni por transacciones realizadas en sitios de terceros. Todas las marcas y contenidos pertenecen a sus respectivos dueños.</p>
     <p style="margin-top:10px">© 2026 DescubreTuCiudad · Santiago, Chile</p>
@@ -1517,6 +1523,57 @@ window.toggleFiltersDrawer = () => {
     document.body.style.overflow = open ? 'hidden' : '';
 };
 
+// ── Mapa de eventos (Google Maps) ──────────────────────────────
+let _map = null, _markers = [], _mapActive = false;
+const CAT_COLOR = { culture: '#8e44ad', music: '#2980b9', sport: '#27ae60', food: '#e67e22' };
+function catColor(ev) { return ev.tipo === 'rest' ? '#c0392b' : (CAT_COLOR[ev.cat] || '#777'); }
+function waitForGoogle() {
+    return new Promise(res => { (function chk() { (window.google && google.maps && google.maps.Map) ? res() : setTimeout(chk, 150); })(); });
+}
+async function ensureMap() {
+    if (_map) return;
+    await waitForGoogle();
+    _map = new google.maps.Map(gid('googleMap'), {
+        center: { lat: -33.447, lng: -70.645 }, zoom: 12,
+        mapTypeControl: false, streetViewControl: false, fullscreenControl: false, clickableIcons: false,
+    });
+}
+window._updateMapMarkers = (events) => {
+    if (!_map || !window.google) return;
+    _markers.forEach(m => m.setMap(null));
+    _markers = [];
+    const bounds = new google.maps.LatLngBounds();
+    let n = 0;
+    (events || []).forEach(ev => {
+        if (!ev.lat || !ev.lng) return;
+        const m = new google.maps.Marker({
+            position: { lat: ev.lat, lng: ev.lng }, map: _map, title: ev.title,
+            icon: { path: google.maps.SymbolPath.CIRCLE, scale: 7, fillColor: catColor(ev), fillOpacity: 1, strokeColor: '#fff', strokeWeight: 2 },
+        });
+        m.addListener('click', () => openEventPanel(normalizeId(ev.id)));
+        _markers.push(m); bounds.extend(m.getPosition()); n++;
+    });
+    if (n) _map.fitBounds(bounds, 48);
+};
+window.toggleMapView = async () => {
+    _mapActive = !_mapActive;
+    const mv = gid('mapView'), grid = gid('eventsGrid'), footer = document.querySelector('.legal-footer'), btn = gid('mapToggleBtn');
+    if (_mapActive) {
+        if (mv) mv.style.display = 'block';
+        if (grid) grid.style.display = 'none';
+        if (footer) footer.style.display = 'none';
+        if (btn) btn.innerHTML = '📋 Lista';
+        await ensureMap();
+        google.maps.event.trigger(_map, 'resize');
+        window._updateMapMarkers(filterLogic(allEvents));
+    } else {
+        if (mv) mv.style.display = 'none';
+        if (grid) grid.style.display = '';
+        if (footer) footer.style.display = '';
+        if (btn) btn.innerHTML = '🗺️ Mapa';
+    }
+};
+
 const shareSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food'}[cat] || 'cat-default'; }
 function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía'}[cat] || cat; }
@@ -1559,6 +1616,7 @@ async function renderEvents(events) {
         </div>`;
     }).join('');
     if (currentUser) refreshCardFavs(events);
+    if (_mapActive && window._updateMapMarkers) window._updateMapMarkers(events);
 }
 
 async function refreshCardFavs(events) {
