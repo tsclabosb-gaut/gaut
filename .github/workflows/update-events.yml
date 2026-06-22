@@ -38,6 +38,11 @@ jobs:
       - name: Agregar restaurantes
         run: node add-restaurants.js || true
 
+      - name: Fotos reales de restaurantes (Google Places)
+        env:
+          GEOCODE_KEY: ${{ secrets.GEOCODE_KEY }}
+        run: node scripts/restaurant-photos.js || true
+
       - name: Geocodificar eventos (lat/lng para el mapa)
         env:
           GEOCODE_KEY: ${{ secrets.GEOCODE_KEY }}
