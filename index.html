@@ -1288,15 +1288,20 @@ async function loadEvents() {
                         venue: s.venue || s.address || '',
                         address: s.address || '',
                         zone: s.zone || 'cen',
+                        commune: s.commune || '',
+                        dateMs: s.dateMs || null,
                         mapsQ: encodeURIComponent((s.venue||'') + ' ' + (s.address||'') + ' Santiago'),
                         price: s.price,
                         tickets: s.tickets || '',
                         instagram: s.instagram || '',
                         web: s.web || '',
                         img: s.img || '',
+                        lat: s.lat || null, lng: s.lng || null,
                         kid: !!s.kid, pet: !!s.pet, acc: !!s.acc,
                         tags: [],
                         src: 'Propuesto por usuario',
+                        userName: s.userName || '',
+                        createdAt: s.createdAt && s.createdAt.toDate ? s.createdAt.toDate().toISOString().slice(0,10) : '',
                         srcUrl: ''
                     });
                     existingTitles.add((s.title||'').toLowerCase());
@@ -2480,6 +2485,21 @@ window.adminRestoreEvent = async docId => {
 const escapeHtml = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Para argumentos de string dentro de un onclick="fn('...')" (contexto JS en atributo HTML)
 const jsStr = s => String(s == null ? '' : s).replace(/[\\'"<>&\n\r]/g, c => '\\x' + c.charCodeAt(0).toString(16).padStart(2, '0'));
+// Formatea un <input type="date"> ("YYYY-MM-DD") a texto legible ("Vie 4 de julio")
+const DOW_ES = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+const MONTHS_ES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+function isoToMs(iso) {
+    if (!iso) return null;
+    const [y, m, d] = iso.split('-').map(Number);
+    if (!y || !m || !d) return null;
+    return new Date(y, m - 1, d, 12, 0, 0).getTime();
+}
+function formatIsoDate(iso) {
+    const ms = isoToMs(iso);
+    if (!ms) return iso || '';
+    const dt = new Date(ms);
+    return `${DOW_ES[dt.getDay()]} ${dt.getDate()} de ${MONTHS_ES[dt.getMonth()]}`;
+}
 
 async function adminSectionMessages(el) {
     el.innerHTML = '<div style="font-size:14px;font-weight:700;margin-bottom:12px">💬 Mensajes recibidos</div><div class="empty-sm">Cargando...</div>';
@@ -3126,11 +3146,14 @@ _app.submitForm = window.submitForm = async () => {
                 if (tf) { tf.style.borderColor='#e74c3c'; tf.focus(); }
                 return; 
             }
-            let dateStr = '', scheduleStr = '';
+            let dateStr = '', scheduleStr = '', submitDateMs = null;
             if (currentDateType === 'range') {
                 const ds = gid('sf-dateStart') ? gid('sf-dateStart').value : '';
                 const de = gid('sf-dateEnd') ? gid('sf-dateEnd').value : '';
-                if (ds) dateStr = de && de !== ds ? ds + ' al ' + de : ds;
+                if (ds) {
+                    dateStr = de && de !== ds ? formatIsoDate(ds) + ' al ' + formatIsoDate(de) : formatIsoDate(ds);
+                    submitDateMs = isoToMs(ds);
+                }
                 const ts = gid('sf-timeStart') ? gid('sf-timeStart').value : '';
                 const te = gid('sf-timeEnd') ? gid('sf-timeEnd').value : '';
                 if (ts) scheduleStr = te ? ts + ' - ' + te : ts;
@@ -3154,7 +3177,7 @@ _app.submitForm = window.submitForm = async () => {
                 lat: window._submitLatLng ? window._submitLatLng.lat : null,
                 lng: window._submitLatLng ? window._submitLatLng.lng : null,
                 commune: gid('sf-commune') ? gid('sf-commune').value : '',
-                date: dateStr, schedule: scheduleStr,
+                date: dateStr, dateMs: submitDateMs, schedule: scheduleStr,
                 venue: (gid('sf-venue') ? gid('sf-venue').value : '') || (gid('sf-address') ? gid('sf-address').value.split(',')[0] : ''),
             address: gid('sf-address') ? gid('sf-address').value : '',
                 price: isPriceFree ? 0 : Number(gid('sf-price') ? gid('sf-price').value : 0) || null,
