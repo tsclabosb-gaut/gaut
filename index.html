@@ -1047,6 +1047,7 @@ function removeDay(btn, day) {
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, query, where, orderBy, addDoc, getDocs, serverTimestamp, updateDoc, runTransaction } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
 try {
 
@@ -1062,12 +1063,11 @@ const FIREBASE_CONFIG = {
     appId: "1:217066245568:web:a045fe236215a3b1d50c25"
 };
 const ADMIN_EMAIL = 'tsclabosb@gmail.com';
-const CLOUDINARY_CLOUD = 'TU_CLOUD_NAME';
-const CLOUDINARY_PRESET = 'TU_UPLOAD_PRESET';
 
 const fbApp = initializeApp(FIREBASE_CONFIG);
 const auth = getAuth(fbApp);
 const db = getFirestore(fbApp);
+const storage = getStorage(fbApp);
 const googleProvider = new GoogleAuthProvider();
 const gid = id => document.getElementById(id);
 
@@ -3087,25 +3087,18 @@ _app.selectAddress = window.selectAddress = item => {
 
 _app.handleFileUpload = window.handleFileUpload = async files => {
     const statusEl = document.getElementById('uploadStatus');
-    if (CLOUDINARY_CLOUD === 'TU_CLOUD_NAME') {
-        for (const file of files) {
-            const url = URL.createObjectURL(file);
-            uploadedImages.push({ url, public_id: null, isCover: uploadedImages.length === 0 });
-        }
-        if (statusEl) statusEl.textContent = uploadedImages.length + ' foto(s) lista(s) — configura Cloudinary para subida real';
-        renderUploadPreview();
-        return;
-    }
+    if (!currentUser) { showToast('Inicia sesión para subir fotos'); return; }
     if (statusEl) statusEl.textContent = 'Subiendo...';
     for (const file of files) {
-        const fd = new FormData();
-        fd.append('file', file);
-        fd.append('upload_preset', CLOUDINARY_PRESET);
+        if (!file.type.startsWith('image/')) continue;
+        if (file.size > 8 * 1024 * 1024) { showToast('Imagen muy pesada (máx 8MB): ' + file.name); continue; }
         try {
-            const r = await fetch('https://api.cloudinary.com/v1_1/' + CLOUDINARY_CLOUD + '/image/upload', { method:'POST', body:fd });
-            const data = await r.json();
-            uploadedImages.push({ url: data.secure_url, public_id: data.public_id, isCover: uploadedImages.length === 0 });
-        } catch(e) { showToast('Error subiendo imagen'); }
+            const path = 'submissions/' + currentUser.uid + '/' + Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+            const fileRef = storageRef(storage, path);
+            await uploadBytes(fileRef, file);
+            const url = await getDownloadURL(fileRef);
+            uploadedImages.push({ url, public_id: path, isCover: uploadedImages.length === 0 });
+        } catch (e) { showToast('Error subiendo imagen: ' + e.message); }
     }
     if (statusEl) statusEl.textContent = uploadedImages.length + ' foto(s) lista(s)';
     renderUploadPreview();
