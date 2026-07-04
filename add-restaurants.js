@@ -489,6 +489,7 @@ function createRestaurantEvent(r, id) {
     const today = new Date();
     return {
         title: r.name,
+        loadedAt: today.toISOString().slice(0, 10),
         cat: "food",
         emoji: "🍴",
         desc: r.desc || `Café/Restaurante kid-friendly. Instagram: @${r.instagram}`,

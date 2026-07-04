@@ -184,8 +184,14 @@ async function main() {
   // Merge: reemplazar solo los eventos de Ticketplus, conservar el resto
   let data = { events: [], coords: {}, meta: {} };
   if (fs.existsSync(EVENTS_PATH)) data = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));
+  const oldTicketplus = (data.events || []).filter(e => e.src === 'Ticketplus' || /ticketplus\.cl/.test(e.srcUrl || ''));
   const others = (data.events || []).filter(e => e.src !== 'Ticketplus' && !/ticketplus\.cl/.test(e.srcUrl || ''));
   const before = (data.events || []).length;
+
+  // Preservar loadedAt (fecha de primera carga) por srcUrl; nuevo evento -> hoy
+  const todayIso = new Date().toISOString().slice(0, 10);
+  const loadedAtByUrl = new Map(oldTicketplus.map(e => [e.srcUrl, e.loadedAt]).filter(([, v]) => v));
+  events.forEach(e => { e.loadedAt = loadedAtByUrl.get(e.srcUrl) || todayIso; });
 
   // Reasignar ids
   let nextId = 1;

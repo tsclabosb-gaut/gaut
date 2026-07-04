@@ -290,7 +290,7 @@ function mergeEvents(existing, incoming) {
     const urlKey = ev.srcUrl || ev.tickets || '';
     if (byTitle.has(key)) { dupes++; return; }
     if (urlKey && byUrl.has(urlKey)) { dupes++; return; }
-    merged.push({ ...ev, id: nextId++ });
+    merged.push({ ...ev, id: nextId++, loadedAt: ev.loadedAt || TODAY });
     byTitle.set(key, ev);
     if (urlKey) byUrl.set(urlKey, ev);
     added++;

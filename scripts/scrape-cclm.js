@@ -151,8 +151,15 @@ async function main() {
 
   let data = { events: [], coords: {}, meta: {} };
   if (fs.existsSync(EVENTS_PATH)) data = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));
+  const oldCclm = (data.events || []).filter(e => e.src === 'CCLM');
   const others = (data.events || []).filter(e => e.src !== 'CCLM');
   const before = (data.events || []).length;
+
+  // Preservar loadedAt (fecha de primera carga) por srcUrl; nuevo evento -> hoy
+  const todayIso = new Date().toISOString().slice(0, 10);
+  const loadedAtByUrl = new Map(oldCclm.map(e => [e.srcUrl, e.loadedAt]).filter(([, v]) => v));
+  events.forEach(e => { e.loadedAt = loadedAtByUrl.get(e.srcUrl) || todayIso; });
+
   let nextId = 1;
   const all = [...others, ...events].map(e => ({ ...e, id: nextId++ }));
 

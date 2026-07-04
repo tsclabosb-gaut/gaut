@@ -2319,6 +2319,8 @@ window.adminViewSubmission = async id => {
 };
 
 let _adminEvCat = '';
+const ZONE_LABEL = { cen: 'Santiago Centro', vit: 'Vitacura', lc: 'Las Condes', prov: 'Providencia', nun: 'Ñuñoa', lare: 'La Reina', lob: 'Lo Barnechea', ind: 'Independencia/Otras' };
+
 async function adminSectionEvents(el) {
     _adminEvCat = '';
     const cats = [['', 'Todos'], ['food', '🍽️ Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['sport', '⚽ Deporte'], ['rest', '🍴 Restaurantes']];
@@ -2329,7 +2331,7 @@ async function adminSectionEvents(el) {
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
         ${cats.map(([c, l]) => `<button class="aev-cat${c === '' ? ' active' : ''}" onclick="adminSetEvCat('${c}',this)" style="padding:5px 12px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:${c === '' ? 'var(--terracotta)' : 'white'};color:${c === '' ? 'white' : 'inherit'};font-size:12px;cursor:pointer;font-family:inherit">${l}</button>`).join('')}
     </div>
-    <div id="adminEventsList">${renderAdminEventList(allEvents)}</div>`;
+    <div style="overflow-x:auto"><div id="adminEventsList">${renderAdminEventList(allEvents)}</div></div>`;
 }
 window.adminSetEvCat = (c, btn) => {
     _adminEvCat = c;
@@ -2340,18 +2342,35 @@ window.adminSetEvCat = (c, btn) => {
 
 function renderAdminEventList(events) {
     if (!events.length) return '<div class="empty-sm">Sin resultados</div>';
-    return events.slice(0, 100).map(ev => `
-    <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--gray-light)">
-        <div style="font-size:18px;flex-shrink:0">${ev.emoji || '🎉'}</div>
-        <div style="flex:1;min-width:0">
-            <div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ev.title}</div>
-            <div style="font-size:11px;color:var(--gray)">${ev.date || ''} · ${ev.zone || ''} · ${ev.cat || ''}</div>
-        </div>
-        <button onclick="adminEditEventFull('${normalizeId(ev.id)}')"
-            style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;font-size:12px;cursor:pointer">✏️</button>
-        <button onclick="adminDeleteEvent('${normalizeId(ev.id)}')"
-            style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid #fcc;background:#fff0f3;font-size:12px;cursor:pointer;color:#e74c3c">🗑️</button>
-    </div>`).join('');
+    const th = (label) => `<th style="text-align:left;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);white-space:nowrap;border-bottom:1.5px solid var(--gray-light)">${label}</th>`;
+    const rows = events.slice(0, 150).map(ev => {
+        const comuna = ev.commune || ZONE_LABEL[ev.zone] || ev.zone || '—';
+        const tipo = ev.tipo === 'rest' ? 'Restaurante' : getCatLabel(ev.cat);
+        const cargadoPor = ev.src === 'Propuesto por usuario'
+            ? `👤 ${escapeHtml(ev.userName || 'Usuario')}`
+            : `🤖 ${escapeHtml(ev.src || 'Automático')}`;
+        const fechaCargado = ev.loadedAt || ev.createdAt || '—';
+        const fechaEvento = ev.date || (ev.tipo === 'rest' ? 'Permanente' : '—');
+        const filtros = [ev.kid && '👶', ev.pet && '🐕', ev.acc && '♿'].filter(Boolean).join(' ') || '—';
+        return `<tr style="border-bottom:1px solid var(--gray-light)">
+            <td style="padding:8px 10px;font-size:13px;font-weight:600;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ev.emoji || '🎉'} ${escapeHtml(ev.title)}</td>
+            <td style="padding:8px 10px;font-size:12px;color:var(--gray);white-space:nowrap">${fechaCargado}</td>
+            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(fechaEvento)}</td>
+            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(comuna)}</td>
+            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">Santiago</td>
+            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${cargadoPor}</td>
+            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(tipo)}</td>
+            <td style="padding:8px 10px;font-size:13px;white-space:nowrap">${filtros}</td>
+            <td style="padding:8px 10px"><button onclick="adminEditEventFull('${normalizeId(ev.id)}')"
+                style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;font-size:12px;cursor:pointer">✏️</button></td>
+            <td style="padding:8px 10px"><button onclick="adminDeleteEvent('${normalizeId(ev.id)}')"
+                style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid #fcc;background:#fff0f3;font-size:12px;cursor:pointer;color:#e74c3c">🗑️</button></td>
+        </tr>`;
+    }).join('');
+    return `<table style="border-collapse:collapse;width:100%;min-width:920px">
+        <thead><tr>${th('Nombre evento')}${th('Fecha cargado')}${th('Fecha evento')}${th('Comuna')}${th('Ciudad')}${th('Cargado por')}${th('Tipo')}${th('Filtros')}${th('')}${th('')}</tr></thead>
+        <tbody>${rows}</tbody>
+    </table>`;
 }
 
 window.adminFilterEvents = () => {
