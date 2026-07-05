@@ -29,6 +29,9 @@ jobs:
       - name: Scraper Centro Cultural La Moneda (CCLM)
         run: node scripts/scrape-cclm.js || true
 
+      - name: Scraper Corporación Cultural Las Condes (CCLC)
+        run: node scripts/scrape-cclc.js || true
+
       - name: Agregar imágenes placeholder
         run: node scripts/add-placeholder-images.js || true
       
