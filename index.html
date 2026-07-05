@@ -1323,7 +1323,7 @@ async function loadEvents() {
         if (d.getFullYear() < thisYear - 1) {
             // Old timestamp - try setting to this year
             d.setFullYear(thisYear);
-            if (d.getTime() < now) d.setFullYear(thisYear + 1);
+            if (d.getTime() < now - 86400000) d.setFullYear(thisYear + 1);
             ms = d.getTime();
         }
         const isPast = ms < now - 86400000; // past by more than 1 day
@@ -2323,8 +2323,23 @@ window.adminViewSubmission = async id => {
 let _adminEvCat = '';
 const ZONE_LABEL = { cen: 'Santiago Centro', vit: 'Vitacura', lc: 'Las Condes', prov: 'Providencia', nun: 'Ñuñoa', lare: 'La Reina', lob: 'Lo Barnechea', ind: 'Independencia/Otras' };
 
+const ADMIN_COLS = [
+    { key: 'title', label: 'Nombre evento', get: ev => ev.title || '' },
+    { key: 'loadedAt', label: 'Fecha cargado', get: ev => ev.loadedAt || ev.createdAt || '' },
+    { key: 'dateEvento', label: 'Fecha evento', get: ev => ev.date || (ev.tipo === 'rest' ? 'Permanente' : ''), sortVal: ev => ev.dateMs || 0 },
+    { key: 'comuna', label: 'Comuna', get: ev => ev.commune || ZONE_LABEL[ev.zone] || ev.zone || '' },
+    { key: 'ciudad', label: 'Ciudad', get: () => 'Santiago', filterable: false },
+    { key: 'cargadoPor', label: 'Cargado por', get: ev => ev.src === 'Propuesto por usuario' ? (ev.userName || 'Usuario') : (ev.src || 'Automático') },
+    { key: 'tipo', label: 'Tipo', get: ev => ev.tipo === 'rest' ? 'Restaurante' : getCatLabel(ev.cat) },
+    { key: 'filtros', label: 'Filtros', get: ev => [ev.kid && 'Niños', ev.pet && 'Mascotas', ev.acc && 'Accesible'].filter(Boolean).join(' '), filterable: false },
+];
+let _adminSort = { key: null, dir: 1 };
+let _adminColFilters = {};
+
 async function adminSectionEvents(el) {
     _adminEvCat = '';
+    _adminSort = { key: null, dir: 1 };
+    _adminColFilters = {};
     const cats = [['', 'Todos'], ['food', '🍽️ Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['sport', '⚽ Deporte'], ['rest', '🍴 Restaurantes']];
     el.innerHTML = `
     <div style="font-size:14px;font-weight:700;margin-bottom:12px">🗓 Todos los eventos (${allEvents.length})</div>
@@ -2333,57 +2348,85 @@ async function adminSectionEvents(el) {
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
         ${cats.map(([c, l]) => `<button class="aev-cat${c === '' ? ' active' : ''}" onclick="adminSetEvCat('${c}',this)" style="padding:5px 12px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:${c === '' ? 'var(--terracotta)' : 'white'};color:${c === '' ? 'white' : 'inherit'};font-size:12px;cursor:pointer;font-family:inherit">${l}</button>`).join('')}
     </div>
-    <div style="overflow-x:auto"><div id="adminEventsList">${renderAdminEventList(allEvents)}</div></div>`;
+    <div style="overflow-x:auto"><div id="adminEventsList">${renderAdminTableShell()}</div></div>`;
+    renderAdminTableBody();
 }
 window.adminSetEvCat = (c, btn) => {
     _adminEvCat = c;
     document.querySelectorAll('.aev-cat').forEach(b => { b.style.background = 'white'; b.style.color = 'inherit'; b.classList.remove('active'); });
     btn.classList.add('active'); btn.style.background = 'var(--terracotta)'; btn.style.color = 'white';
-    adminFilterEvents();
+    renderAdminTableBody();
 };
 
-function renderAdminEventList(events) {
-    if (!events.length) return '<div class="empty-sm">Sin resultados</div>';
-    const th = (label) => `<th style="text-align:left;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);white-space:nowrap;border-bottom:1.5px solid var(--gray-light)">${label}</th>`;
-    const rows = events.slice(0, 150).map(ev => {
-        const comuna = ev.commune || ZONE_LABEL[ev.zone] || ev.zone || '—';
-        const tipo = ev.tipo === 'rest' ? 'Restaurante' : getCatLabel(ev.cat);
-        const cargadoPor = ev.src === 'Propuesto por usuario'
-            ? `👤 ${escapeHtml(ev.userName || 'Usuario')}`
-            : `🤖 ${escapeHtml(ev.src || 'Automático')}`;
-        const fechaCargado = ev.loadedAt || ev.createdAt || '—';
-        const fechaEvento = ev.date || (ev.tipo === 'rest' ? 'Permanente' : '—');
-        const filtros = [ev.kid && '👶', ev.pet && '🐕', ev.acc && '♿'].filter(Boolean).join(' ') || '—';
-        return `<tr style="border-bottom:1px solid var(--gray-light)">
-            <td style="padding:8px 10px;font-size:13px;font-weight:600;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ev.emoji || '🎉'} ${escapeHtml(ev.title)}</td>
-            <td style="padding:8px 10px;font-size:12px;color:var(--gray);white-space:nowrap">${fechaCargado}</td>
-            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(fechaEvento)}</td>
-            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(comuna)}</td>
-            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">Santiago</td>
-            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${cargadoPor}</td>
-            <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(tipo)}</td>
-            <td style="padding:8px 10px;font-size:13px;white-space:nowrap">${filtros}</td>
-            <td style="padding:8px 10px"><button onclick="adminEditEventFull('${normalizeId(ev.id)}')"
-                style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;font-size:12px;cursor:pointer">✏️</button></td>
-            <td style="padding:8px 10px"><button onclick="adminDeleteEvent('${normalizeId(ev.id)}')"
-                style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid #fcc;background:#fff0f3;font-size:12px;cursor:pointer;color:#e74c3c">🗑️</button></td>
-        </tr>`;
-    }).join('');
-    return `<table style="border-collapse:collapse;width:100%;min-width:920px">
-        <thead><tr>${th('Nombre evento')}${th('Fecha cargado')}${th('Fecha evento')}${th('Comuna')}${th('Ciudad')}${th('Cargado por')}${th('Tipo')}${th('Filtros')}${th('')}${th('')}</tr></thead>
-        <tbody>${rows}</tbody>
+function renderAdminTableShell() {
+    const sortIcon = key => _adminSort.key === key ? (_adminSort.dir === 1 ? ' ▲' : ' ▼') : '';
+    const th = (col) => `<th style="text-align:left;padding:8px 10px;font-size:11px;border-bottom:1.5px solid var(--gray-light);vertical-align:top">
+        <div onclick="adminSortCol('${col.key}')" style="cursor:pointer;user-select:none;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);white-space:nowrap;margin-bottom:4px">${col.label}${sortIcon(col.key)}</div>
+        ${col.filterable === false ? '' : `<input type="text" placeholder="Buscar…" value="${escapeHtml(_adminColFilters[col.key] || '')}" oninput="adminColFilterInput('${col.key}', this.value)"
+            style="width:100%;padding:3px 6px;font-size:11px;border:1px solid var(--gray-light);border-radius:6px;font-family:inherit;font-weight:400;text-transform:none;letter-spacing:normal">`}
+    </th>`;
+    const thBlank = `<th style="padding:8px 10px;border-bottom:1.5px solid var(--gray-light)"></th>`;
+    return `<table style="border-collapse:collapse;width:100%;min-width:1080px">
+        <thead><tr>${ADMIN_COLS.map(th).join('')}${thBlank}${thBlank}</tr></thead>
+        <tbody id="adminEventsBody"></tbody>
     </table>`;
 }
 
-window.adminFilterEvents = () => {
+function getFilteredSortedAdminEvents() {
     const q = (document.getElementById('adminEventSearch')?.value || '').toLowerCase();
-    const list = document.getElementById('adminEventsList');
-    if (!list) return;
-    list.innerHTML = renderAdminEventList(allEvents.filter(e =>
+    let list = allEvents.filter(e =>
         (!q || (e.title || '').toLowerCase().includes(q)) &&
         (!_adminEvCat || (_adminEvCat === 'rest' ? e.tipo === 'rest' : e.cat === _adminEvCat))
-    ));
+    );
+    ADMIN_COLS.forEach(col => {
+        const fval = (_adminColFilters[col.key] || '').toLowerCase().trim();
+        if (fval) list = list.filter(ev => String(col.get(ev)).toLowerCase().includes(fval));
+    });
+    if (_adminSort.key) {
+        const col = ADMIN_COLS.find(c => c.key === _adminSort.key);
+        if (col) list = [...list].sort((a, b) => {
+            const av = col.sortVal ? col.sortVal(a) : String(col.get(a)).toLowerCase();
+            const bv = col.sortVal ? col.sortVal(b) : String(col.get(b)).toLowerCase();
+            return av < bv ? -_adminSort.dir : av > bv ? _adminSort.dir : 0;
+        });
+    }
+    return list;
+}
+
+function renderAdminTableBody() {
+    const body = gid('adminEventsBody');
+    if (!body) return;
+    const events = getFilteredSortedAdminEvents();
+    if (!events.length) { body.innerHTML = `<tr><td colspan="${ADMIN_COLS.length + 2}" style="padding:16px;text-align:center;color:var(--gray)">Sin resultados</td></tr>`; return; }
+    body.innerHTML = events.slice(0, 150).map(ev => `<tr style="border-bottom:1px solid var(--gray-light)">
+        <td style="padding:8px 10px;font-size:13px;font-weight:600;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ev.emoji || '🎉'} ${escapeHtml(ev.title)}</td>
+        <td style="padding:8px 10px;font-size:12px;color:var(--gray);white-space:nowrap">${escapeHtml(ADMIN_COLS[1].get(ev)) || '—'}</td>
+        <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(ADMIN_COLS[2].get(ev)) || '—'}</td>
+        <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(ADMIN_COLS[3].get(ev)) || '—'}</td>
+        <td style="padding:8px 10px;font-size:12px;white-space:nowrap">Santiago</td>
+        <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${ev.src === 'Propuesto por usuario' ? '👤' : '🤖'} ${escapeHtml(ADMIN_COLS[5].get(ev))}</td>
+        <td style="padding:8px 10px;font-size:12px;white-space:nowrap">${escapeHtml(ADMIN_COLS[6].get(ev))}</td>
+        <td style="padding:8px 10px;font-size:13px;white-space:nowrap">${[ev.kid && '👶', ev.pet && '🐕', ev.acc && '♿'].filter(Boolean).join(' ') || '—'}</td>
+        <td style="padding:8px 10px"><button onclick="adminEditEventFull('${normalizeId(ev.id)}')"
+            style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid var(--gray-light);background:white;font-size:12px;cursor:pointer">✏️</button></td>
+        <td style="padding:8px 10px"><button onclick="adminDeleteEvent('${normalizeId(ev.id)}')"
+            style="padding:4px 10px;border-radius:var(--radius-full);border:1.5px solid #fcc;background:#fff0f3;font-size:12px;cursor:pointer;color:#e74c3c">🗑️</button></td>
+    </tr>`).join('');
+}
+
+window.adminSortCol = (key) => {
+    const col = ADMIN_COLS.find(c => c.key === key);
+    if (!col) return;
+    _adminSort = _adminSort.key === key ? { key, dir: -_adminSort.dir } : { key, dir: 1 };
+    const list = gid('adminEventsList');
+    if (list) list.innerHTML = renderAdminTableShell();
+    renderAdminTableBody();
 };
+window.adminColFilterInput = (key, val) => {
+    _adminColFilters[key] = val;
+    renderAdminTableBody();
+};
+window.adminFilterEvents = () => renderAdminTableBody();
 
 window.adminEditEventFull = async id => {
     const ev = findEvent(id);

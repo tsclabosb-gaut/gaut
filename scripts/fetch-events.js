@@ -314,8 +314,8 @@ function mergeEvents(existing, incoming) {
     // Fallback: usar dateMs pero corregir el año si está en el pasado
     const d = new Date(e.dateMs);
     if (d.getFullYear() < thisYear) d.setFullYear(thisYear);
-    if (d.getTime() < cutoff) d.setFullYear(thisYear + 1);
-    return d.getTime() > cutoff;
+    if (d.getTime() < cutoff - 86400000) d.setFullYear(thisYear + 1);
+    return d.getTime() > cutoff - 86400000;
   });
   const expired = merged.length - valid.length;
 
