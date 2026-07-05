@@ -1048,6 +1048,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, query, where, orderBy, addDoc, getDocs, serverTimestamp, updateDoc, runTransaction } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js';
 
 try {
 
@@ -1068,6 +1069,7 @@ const fbApp = initializeApp(FIREBASE_CONFIG);
 const auth = getAuth(fbApp);
 const db = getFirestore(fbApp);
 const storage = getStorage(fbApp);
+const functions = getFunctions(fbApp, 'us-central1');
 const googleProvider = new GoogleAuthProvider();
 const gid = id => document.getElementById(id);
 
@@ -2943,7 +2945,7 @@ function renderSuggestForm() {
 }
 
 
-// ── AI URL FILLER ──
+// ── AI URL FILLER (vía Cloud Function segura) ──
 _app.fillFromUrl = window.fillFromUrl = async () => {
     const url = (gid('ai-url') && gid('ai-url').value.trim()) || '';
     const status = gid('ai-status');
@@ -2951,90 +2953,15 @@ _app.fillFromUrl = window.fillFromUrl = async () => {
         if (status) status.textContent = '⚠️ Ingresa una URL válida';
         return;
     }
+    if (!currentUser) { if (status) status.textContent = '⚠️ Inicia sesión para usar el relleno con IA'; return; }
     if (status) status.innerHTML = '⏳ Analizando con IA... <span style="font-size:11px">(puede tomar 10-20 seg)</span>';
 
-    // Helper: try to fetch page text via proxy with timeout
-    async function fetchPageText(targetUrl) {
-        const proxies = [
-            `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`,
-            `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`,
-            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
-        ];
-        for (const proxy of proxies) {
-            try {
-                const r = await fetch(proxy, { signal: AbortSignal.timeout(10000) });
-                if (!r.ok) continue;
-                // Handle both JSON (allorigins) and plain text (corsproxy, codetabs) responses
-                const ct = r.headers.get('content-type') || '';
-                let raw = '';
-                if (ct.includes('json')) {
-                    const data = await r.json();
-                    raw = data.contents || data.body || data.data || '';
-                } else {
-                    raw = await r.text();
-                }
-                if (raw.length > 300) {
-                    return raw
-                        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-                        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-                        .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-                        .replace(/<!--[\s\S]*?-->/g, '')
-                        .replace(/<[^>]+>/g, ' ')
-                        .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-                        .replace(/\s{2,}/g, ' ')
-                        .trim()
-                        .substring(0, 6000);
-                }
-            } catch(e) { /* try next proxy */ }
-        }
-        return '';
-    }
-
     try {
-        const pageText = await fetchPageText(url);
+        const extractEvent = httpsCallable(functions, 'extractEvent');
+        const res = await extractEvent({ url });
+        const ev = (res.data && res.data.event) || {};
+        const hasContent = !!(res.data && res.data.hasPageContent);
 
-        // Build the prompt — works with or without page content
-        const promptContent = pageText.length > 100
-            ? `Extrae la información de este evento en Santiago Chile. RESPONDE SOLO JSON VÁLIDO sin markdown.
-
-URL del evento: ${url}
-
-Texto de la página:
-${pageText}`
-            : `Basándote en esta URL de evento en Chile, infiere la información del evento. RESPONDE SOLO JSON VÁLIDO sin markdown.
-URL: ${url}
-Nota: no pude obtener el contenido de la página, infiere lo que puedas del URL.`;
-
-        if (status) status.textContent = '🤖 Extrayendo información con IA...';
-
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: 'claude-sonnet-4-20250514',
-                max_tokens: 800,
-                messages: [{
-                    role: 'user',
-                    content: promptContent + `
-
-Formato JSON requerido (todos los campos):
-{"title":"nombre del evento","desc":"descripción 1-2 oraciones","date":"fecha como aparece","schedule":"horario o vacío","venue":"nombre del lugar","address":"dirección o vacío","price":0,"isFree":true,"tickets":"${url}","instagram":"","web":"${url}","cat":"culture","pet":false,"kid":false,"acc":false}
-
-Reglas para cat: "sport"=deporte/carrera, "culture"=arte/expo/teatro, "music"=concierto, "food"=gastronomía
-pet=true si es evento con/para mascotas. kid=true si apto para niños.
-price=número entero en pesos chilenos, 0 si gratis.`
-                }]
-            })
-        });
-
-        if (!response.ok) throw new Error(`API error ${response.status}`);
-        const aiData = await response.json();
-        const text = aiData.content && aiData.content[0] ? aiData.content[0].text : '';
-        const jsonMatch = text.match(/\{[\s\S]+\}/);
-        if (!jsonMatch) throw new Error('La IA no devolvió JSON válido');
-        const ev = JSON.parse(jsonMatch[0]);
-
-        // Fill form fields
         const setVal = (id, val) => { const el = gid(id); if (el && val != null && val !== '') el.value = val; };
         setVal('sf-title', ev.title);
         setVal('sf-desc', ev.desc);
@@ -3062,11 +2989,11 @@ price=número entero en pesos chilenos, 0 si gratis.`
         setChk('sf-kid', ev.kid);
         setChk('sf-acc', ev.acc);
 
-        const source = pageText.length > 100 ? 'página web' : 'URL';
+        const source = hasContent ? 'página web' : 'URL';
         if (status) status.innerHTML = `<span style="color:#2e7d32">✅ Información extraída desde ${source}. Revisa y corrige antes de enviar.</span>`;
     } catch(e) {
         console.error('fillFromUrl error:', e);
-        if (status) status.innerHTML = '<span style="color:#e74c3c">⚠️ ' + e.message + '</span>';
+        if (status) status.innerHTML = '<span style="color:#e74c3c">⚠️ ' + (e.message || 'No se pudo extraer') + '</span>';
     }
 };
 // ── Date type & price toggles ──

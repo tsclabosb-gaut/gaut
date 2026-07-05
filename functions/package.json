@@ -1,0 +1,13 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions de descubretuciudad.com",
+  "type": "module",
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "firebase-functions": "^6.0.0"
+  }
+}
