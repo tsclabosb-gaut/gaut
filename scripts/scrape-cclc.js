@@ -184,6 +184,123 @@ function toEvent(card, functions) {
   };
 }
 
+// --- Talleres / Cursos / Seminarios (categoría 'workshop') ---
+// El portal no lista estos IDs (están tras menús JS), así que van fijos.
+const COURSE_LISTS = [
+  'CursosPorCategoria?pccId=20101', 'CursosPorCategoria?pccId=20102',
+  'CursosPorCategoria?pccId=20103', 'CursosPorCategoria?pccId=20105',
+  'CursosPorCategoria?pccId=20106', 'CursosPorCategoria?pccId=20204',
+  'ProductosPorSubtipo?pstId=202',
+];
+
+function parseCourseCards(html) {
+  const cards = [];
+  const chunks = html.split(/<div class="row" style="border:1px solid #808080/i).slice(1);
+  for (const chunk of chunks) {
+    const link = chunk.match(/href="(\/cclc\/cclcFrontOffice\/Venta\/[^"]+)"/i);
+    const title = chunk.match(/<b>([^<]+)<\/b>/i);
+    if (!link || !title) continue;
+    const img = chunk.match(/GetImageContent\?gimId=(\d+)/i);
+    const grab = (re) => { const m = chunk.match(re); return m ? stripTags(m[1]) : ''; };
+    const descM = chunk.match(/<p style="color:#fff;">([\s\S]*?)<\/p>/i);
+    const desc = descM ? stripTags(descM[1]) : '';
+    cards.push({
+      url: BASE + link[1].replace(/&amp;/g, '&'),
+      title: stripTags(title[1]).replace(/^\.+/, '').trim(), // quita el "." inicial
+      img: img ? `${BASE}/cclc/cclcFrontOffice/Portal/GetImageContent?gimId=${img[1]}` : '',
+      profesor: grab(/Profesor:\s*([^<]+)/i),
+      duracion: grab(/Duraci[oó]n:\s*([^<]+)/i),
+      horario: grab(/Horario:\s*([^<]+)/i),
+      edad: grab(/Edad:\s*([^<]+)/i),
+      precio: grab(/Precio:\s*([^<]+)/i),
+      desc,
+    });
+  }
+  return cards;
+}
+
+// Día/mes explícito en texto español ("11 de julio", "inicio 6 de agosto"),
+// SIN empujar de año (eso lo decide toWorkshop según si ya pasó).
+function parseStartDayMonth(txt) {
+  const monthsRe = MONTHS.join('|');
+  const all = [...txt.matchAll(new RegExp(`(\\d{1,2})\\s+de\\s+(${monthsRe})`, 'gi'))];
+  if (!all.length) return null;
+  let m = all[0];
+  const inicioIdx = txt.toLowerCase().indexOf('inicio');
+  if (inicioIdx >= 0) { const after = all.find(x => x.index >= inicioIdx); if (after) m = after; }
+  const mo = MONTHS.indexOf(m[2].toLowerCase());
+  return mo < 0 ? null : { day: +m[1], mo };
+}
+
+// Próxima ocurrencia del día de la semana del horario ("Miércoles de 10 a 12")
+const WD = { domingo: 0, lunes: 1, martes: 2, 'miércoles': 3, miercoles: 3, jueves: 4, viernes: 5, 'sábado': 6, sabado: 6 };
+function nextWeekday(horario, hh, mi) {
+  const t = (horario || '').toLowerCase();
+  let wd = -1;
+  for (const k in WD) if (t.includes(k)) { wd = WD[k]; break; }
+  if (wd < 0) return null;
+  const now = new Date(); now.setHours(0, 0, 0, 0);
+  const d = new Date(now);
+  d.setDate(now.getDate() + ((wd - now.getDay() + 7) % 7));
+  d.setHours(hh, mi, 0, 0);
+  return d;
+}
+
+// Fecha de la próxima sesión de un curso/taller.
+function nextSessionDate(card) {
+  const hm = (card.horario || '').match(/(\d{1,2}):(\d{2})/);
+  const hh = hm ? +hm[1] : 19, mi = hm ? +hm[2] : 0;
+  const now = new Date();
+  const todayMs = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  const single = /una sesi[oó]n|1 sesi[oó]n/i.test(card.duracion);
+  const dm = parseStartDayMonth(card.duracion);
+  if (dm) {
+    const cand = new Date(now.getFullYear(), dm.mo, dm.day, hh, mi, 0);
+    if (cand.getTime() >= todayMs) return cand;   // fecha futura explícita (inicio o sesión única)
+    if (single) return null;                       // sesión única ya pasó -> descartar
+  }
+  return nextWeekday(card.horario, hh, mi);         // curso en curso -> próxima clase semanal
+}
+
+function toWorkshop(card) {
+  const d = nextSessionDate(card);
+  if (!d) return null;
+  const day = d.getDate(), mo = d.getMonth();
+  const time = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  // "Lugar: X, comuna" dentro de la descripción
+  const lugar = card.desc.match(/Lugar:\s*(.+)$/i);
+  const address = lugar ? lugar[1].trim() : 'Las Condes';
+  const comuna = (address.split(/[-,]/).pop() || '').trim().toLowerCase();
+  const zone = ZONE_BY_COMUNA[comuna] || 'lc';
+  const venue = lugar ? (lugar[1].split(/,| ubicada/)[0] || '').trim() : 'Corporación Cultural Las Condes';
+  const descNoLugar = card.desc.replace(/\s*Lugar:.*$/i, '').trim();
+  const extra = [card.profesor ? `Profesor: ${card.profesor}.` : '', card.duracion ? `${card.duracion}.` : ''].filter(Boolean).join(' ');
+  return {
+    title: card.title,
+    cat: 'workshop',
+    emoji: '🎓',
+    desc: (extra + ' ' + descNoLugar).trim().slice(0, 400),
+    date: `${DOW[d.getDay()]} ${day} de ${MONTHS[mo]} ${time}`,
+    dateMs: d.getTime(),
+    month: mo,
+    days: [day],
+    venue: venue || 'Corporación Cultural Las Condes',
+    address,
+    zone,
+    mapsQ: encodeURIComponent(`${venue} Las Condes`).replace(/%20/g, '+'),
+    price: parsePrice(card.precio),
+    src: 'CCLC',
+    srcUrl: card.url,
+    tickets: card.url,
+    img: card.img,
+    tags: [],
+    acc: false,
+    pet: false,
+    kid: /(ni[ñn]o|ni[ñn]a|infantil|desde los [3-9] a)/.test((card.title + ' ' + card.edad).toLowerCase()),
+    tipo: 'event',
+  };
+}
+
 async function pool(items, worker, size) {
   let i = 0;
   await Promise.all(Array.from({ length: size }, async () => {
@@ -226,7 +343,28 @@ async function main() {
     ok++; events.push(ev);
   }, CONCURRENCY);
 
-  console.log(`\nPróximos: ${ok} | Pasados: ${past} | Sin fecha: ${nodate} | Muy a futuro: ${far}`);
+  console.log(`\nEventos -> Próximos: ${ok} | Pasados: ${past} | Sin fecha: ${nodate} | Muy a futuro: ${far}`);
+
+  // --- Talleres / cursos / seminarios ---
+  const seenProd = new Set();
+  const courseCards = [];
+  for (const listUrl of COURSE_LISTS) {
+    let html;
+    try { html = await fetchText(`${PORTAL}${listUrl}`); } catch { continue; }
+    for (const c of parseCourseCards(html)) {
+      const pid = (c.url.match(/prodId=(\d+)/) || [])[1];
+      if (pid && seenProd.has(pid)) continue;
+      if (pid) seenProd.add(pid);
+      courseCards.push(c);
+    }
+  }
+  let wOk = 0, wSkip = 0;
+  for (const c of courseCards) {
+    const ev = toWorkshop(c);
+    if (!ev || ev.dateMs > maxMs) { wSkip++; continue; }
+    wOk++; events.push(ev);
+  }
+  console.log(`Talleres -> Próximos: ${wOk} | Descartados: ${wSkip} (de ${courseCards.length} encontrados)`);
 
   let data = { events: [], coords: {}, meta: {} };
   if (fs.existsSync(EVENTS_PATH)) data = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));

@@ -238,6 +238,7 @@ img { display: block; max-width: 100%; }
 .badge-music { background: rgba(252,228,236,0.92); color: #c2185b; }
 .badge-sport { background: rgba(232,245,233,0.92); color: #2e7d32; }
 .badge-food { background: rgba(255,243,224,0.92); color: #e65100; }
+.badge-workshop { background: rgba(209,242,235,0.92); color: #0e6655; }
 .badge-default { background: rgba(255,255,255,0.9); color: var(--terracotta); }
 .card-fav-btn {
   position: absolute; top: 10px; right: 10px;
@@ -770,6 +771,7 @@ img { display: block; max-width: 100%; }
       <button class="filter-chip cat" onclick="setCategoryPill(this,'food')">🍽️ Gastronomía</button>
       <button class="filter-chip cat" onclick="setCategoryPill(this,'music')">🎵 Música</button>
       <button class="filter-chip cat" onclick="setCategoryPill(this,'culture')">🎨 Cultura</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'workshop')">🎓 Talleres</button>
       <button class="filter-chip cat" onclick="setCategoryPill(this,'sport')">⚽ Deporte</button>
     </div>
   </div>
@@ -1532,7 +1534,7 @@ window.toggleFiltersDrawer = () => {
 
 // ── Mapa de eventos (Google Maps) ──────────────────────────────
 let _map = null, _markers = [], _mapActive = false;
-const CAT_COLOR = { culture: '#8e44ad', music: '#2980b9', sport: '#27ae60', food: '#e67e22' };
+const CAT_COLOR = { culture: '#8e44ad', music: '#2980b9', sport: '#27ae60', food: '#e67e22', workshop: '#16a085' };
 function catColor(ev) { return ev.tipo === 'rest' ? '#c0392b' : (CAT_COLOR[ev.cat] || '#777'); }
 function waitForGoogle() {
     return new Promise(res => { (function chk() { (window.google && google.maps && google.maps.Map) ? res() : setTimeout(chk, 150); })(); });
@@ -1584,9 +1586,9 @@ window.toggleMapView = async () => {
 const shareSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 const ZONE_LABEL_SHORT = { cen: 'Santiago Centro', vit: 'Vitacura', lc: 'Las Condes', prov: 'Providencia', nun: 'Ñuñoa', lare: 'La Reina', lob: 'Lo Barnechea', ind: 'Independencia' };
 function communeLabel(ev) { return ev.commune || ZONE_LABEL_SHORT[ev.zone] || ''; }
-function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food'}[cat] || 'cat-default'; }
-function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía'}[cat] || cat; }
-function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food'}[cat] || 'badge-default'; }
+function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food',workshop:'cat-workshop'}[cat] || 'cat-default'; }
+function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía',workshop:'Talleres'}[cat] || cat; }
+function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food',workshop:'badge-workshop'}[cat] || 'badge-default'; }
 
 async function renderEvents(events) {
     const grid = gid('eventsGrid');
@@ -2342,7 +2344,7 @@ async function adminSectionEvents(el) {
     _adminEvCat = '';
     _adminSort = { key: null, dir: 1 };
     _adminColFilters = {};
-    const cats = [['', 'Todos'], ['food', '🍽️ Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['sport', '⚽ Deporte'], ['rest', '🍴 Restaurantes']];
+    const cats = [['', 'Todos'], ['food', '🍽️ Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['workshop', '🎓 Talleres'], ['sport', '⚽ Deporte'], ['rest', '🍴 Restaurantes']];
     el.innerHTML = `
     <div style="font-size:14px;font-weight:700;margin-bottom:12px">🗓 Todos los eventos (${allEvents.length})</div>
     <input type="text" placeholder="Buscar evento..." id="adminEventSearch" oninput="adminFilterEvents()"
@@ -2802,6 +2804,7 @@ function renderSubmitForm() {
         <div class="fg"><label>Categoría *</label><select id="sf-cat">
             <option value="culture">🎨 Cultura</option>
             <option value="music">🎵 Música</option>
+            <option value="workshop">🎓 Talleres</option>
             <option value="sport">⚽ Deporte</option>
             <option value="food">🍽️ Gastronomía</option>
         </select></div>
