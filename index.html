@@ -142,6 +142,20 @@ img { display: block; max-width: 100%; }
 }
 .filter-chip.zone.active { background: #2a9d8f; border-color: #2a9d8f; }
 .filter-chip.special.active { background: var(--amber); color: #7a3800; border-color: var(--amber); }
+.city-selector {
+  display: flex; gap: 8px; padding: 2px 16px 12px;
+  max-width: 1200px; margin: 0 auto; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.city-pill {
+  flex-shrink: 0; padding: 9px 20px;
+  border-radius: var(--radius-full); border: 1.5px solid var(--gray-light);
+  background: var(--surface); color: var(--gray);
+  font-size: 14px; font-weight: 600; transition: var(--transition);
+  white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+}
+.city-pill:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.city-pill.active { background: #1A1D20; color: #fff; border-color: #1A1D20; }
+.city-pill .city-count { font-size: 12px; opacity: .7; font-weight: 500; }
 
 /* ── SUB-FILTERS (zonas + especiales) ── */
 .sub-filters-bar {
@@ -758,6 +772,13 @@ img { display: block; max-width: 100%; }
   </div>
 </div>
 
+<!-- CITY SELECTOR -->
+<div class="city-selector" id="citySelector">
+  <button class="city-pill active" data-city="santiago" onclick="setCity('santiago')">📍 Santiago <span class="city-count" id="cityCount-santiago"></span></button>
+  <button class="city-pill" data-city="valparaiso" onclick="setCity('valparaiso')">📍 Valparaíso <span class="city-count" id="cityCount-valparaiso"></span></button>
+  <button class="city-pill" data-city="concepcion" onclick="setCity('concepcion')">📍 Concepción <span class="city-count" id="cityCount-concepcion"></span></button>
+</div>
+
 <!-- FILTROS: barras inline en desktop, menú lateral (☰) en móvil -->
 <button class="filters-trigger" onclick="toggleFiltersDrawer()"><span style="font-size:18px;line-height:1">☰</span> Filtros</button>
 <div id="filtersBackdrop" onclick="toggleFiltersDrawer()"></div>
@@ -777,13 +798,13 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="filter-group">
+    <div class="filter-group-label">Comuna</div>
+    <div class="sub-filters-bar hide-scroll" id="zoneChips"></div>
+  </div>
+
+  <div class="filter-group">
     <div class="filter-group-label">Filtros</div>
     <div class="sub-filters-bar hide-scroll">
-      <button class="sub-chip zone" onclick="toggleZonePill(this,'cen')">📍 Centro</button>
-      <button class="sub-chip zone" onclick="toggleZonePill(this,'vit')">📍 Vitacura</button>
-      <button class="sub-chip zone" onclick="toggleZonePill(this,'lc')">📍 Las Condes</button>
-      <button class="sub-chip zone" onclick="toggleZonePill(this,'nun')">📍 Ñuñoa</button>
-      <button class="sub-chip zone" onclick="toggleZonePill(this,'prov')">📍 Providencia</button>
       <button class="sub-chip special" onclick="toggleSpecialPill(this,'kid')">👶 Niños</button>
       <button class="sub-chip special" onclick="toggleSpecialPill(this,'pet')">🐕 Mascotas</button>
       <button class="sub-chip special" onclick="toggleSpecialPill(this,'acc')">♿ Accesible</button>
@@ -1078,6 +1099,7 @@ const gid = id => document.getElementById(id);
 let allEvents = [], currentEvent = null, currentUser = null;
 let activeCategories = new Set(); // multi-select categories
 let activeCat = 'todos', activeZones = new Set(), activeSpecials = new Set();
+let activeCity = 'santiago';
 let submitMode = 'new', uploadedImages = [], currentDateType = 'range', isPriceFree = false;
 
 function showToast(msg, dur=2500) {
@@ -1334,8 +1356,8 @@ async function loadEvents() {
         return { ...ev, dateMs: ms, isPast };
     }).filter(ev => !ev.isPast); // Remove past events entirely
 
-    const label = gid('feedLabel');
-    if (label) label.textContent = allEvents.length + ' eventos en Santiago';
+    renderZoneChips();
+    updateCityCounts();
     renderEvents(filterLogic(allEvents));
 }
 
@@ -1469,8 +1491,9 @@ function filterLogic(events) {
     const weekendEnd = weekendStart + 2 * 86400000;
 
     return events.filter(e => {
+        if (cityOf(e) !== activeCity) return false;
         if (activeCategories.size > 0 && !activeCategories.has(e.cat)) return false;
-        if (activeZones.size > 0 && !activeZones.has(e.zone)) return false;
+        if (activeZones.size > 0 && !activeZones.has(zoneOf(e))) return false;
         if (activeSpecials.has('kid') && !e.kid) return false;
         if (activeSpecials.has('pet') && !e.pet) return false;
         if (activeSpecials.has('acc') && !e.acc) return false;
@@ -1516,6 +1539,36 @@ _app.setCategoryPill = window.setCategoryPill = (el, cat) => {
 _app.toggleZonePill = window.toggleZonePill = (el, zone) => {
     activeZones.has(zone) ? (activeZones.delete(zone), el.classList.remove('active')) : (activeZones.add(zone), el.classList.add('active'));
     renderEvents(filterLogic(allEvents));
+};
+
+// Pinta los chips de comuna de la ciudad activa
+function renderZoneChips() {
+    const box = gid('zoneChips');
+    if (!box) return;
+    box.innerHTML = (CITIES[activeCity].zones || [])
+        .map(([code, label]) => `<button class="sub-chip zone${activeZones.has(code) ? ' active' : ''}" onclick="toggleZonePill(this,'${code}')">📍 ${label}</button>`)
+        .join('');
+}
+
+// Actualiza el contador de eventos por ciudad en el selector
+function updateCityCounts() {
+    const counts = { santiago: 0, valparaiso: 0, concepcion: 0 };
+    (allEvents || []).forEach(e => { const c = cityOf(e); if (counts[c] != null) counts[c]++; });
+    Object.keys(counts).forEach(c => { const el = gid('cityCount-' + c); if (el) el.textContent = counts[c] ? `(${counts[c]})` : ''; });
+    const label = gid('feedLabel');
+    if (label) label.textContent = `${counts[activeCity]} eventos en ${CITIES[activeCity].label}`;
+}
+
+_app.setCity = window.setCity = (city) => {
+    if (!CITIES[city] || city === activeCity) return;
+    activeCity = city;
+    activeZones.clear(); // las comunas cambian según la ciudad
+    document.querySelectorAll('.city-pill').forEach(p => p.classList.toggle('active', p.dataset.city === city));
+    renderZoneChips();
+    updateCityCounts();
+    if (_map && _mapActive) { _map.setCenter(CITIES[city].center); _map.setZoom(CITIES[city].zoom); }
+    renderEvents(filterLogic(allEvents));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 _app.toggleSpecialPill = window.toggleSpecialPill = (el, type) => {
@@ -1586,6 +1639,64 @@ window.toggleMapView = async () => {
 const shareSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" fill="currentColor"/><circle cx="6" cy="12" r="3" fill="currentColor"/><circle cx="18" cy="19" r="3" fill="currentColor"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 const ZONE_LABEL_SHORT = { cen: 'Santiago Centro', vit: 'Vitacura', lc: 'Las Condes', prov: 'Providencia', nun: 'Ñuñoa', lare: 'La Reina', lob: 'Lo Barnechea', ind: 'Independencia' };
 function communeLabel(ev) { return ev.commune || ZONE_LABEL_SHORT[ev.zone] || ''; }
+
+// ── Multi-ciudad ──────────────────────────────────────────────
+// Comunas de las ciudades regionales: [código, etiqueta, regex de detección].
+// El orden importa (la más específica primero). Es la ÚNICA fuente: de aquí
+// salen los chips de comuna, el filtro y la etiqueta del pin.
+const CITY_COMUNAS = {
+  valparaiso: [
+    ['vina', 'Viña del Mar', /vi[nñ]a del mar|re[nñ]aca/i],
+    ['concon', 'Concón', /conc[oó]n/i],
+    ['quilpue', 'Quilpué', /quilpu[eé]|villa alemana/i],
+    ['valpo', 'Valparaíso', /valpara[ií]so/i],
+  ],
+  concepcion: [
+    ['talca', 'Talcahuano', /talcahuano/i],
+    ['sanpedro', 'San Pedro de la Paz', /san pedro/i],
+    ['chigua', 'Chiguayante', /chiguayante/i],
+    ['conce', 'Concepción', /concepci[oó]n|hualp[eé]n|penco/i],
+  ],
+};
+const CITIES = {
+  santiago:   { label: 'Santiago',   region: 'RM',       center: { lat: -33.447, lng: -70.645 }, zoom: 11,
+                zones: [['cen', 'Centro'], ['prov', 'Providencia'], ['lc', 'Las Condes'], ['vit', 'Vitacura'], ['nun', 'Ñuñoa'], ['lare', 'La Reina'], ['lob', 'Lo Barnechea']] },
+  valparaiso: { label: 'Valparaíso', region: 'V Región', center: { lat: -33.02,  lng: -71.55 },  zoom: 11,
+                zones: CITY_COMUNAS.valparaiso.map(([c, l]) => [c, l]) },
+  concepcion: { label: 'Concepción', region: 'Biobío',   center: { lat: -36.82,  lng: -73.04 },  zoom: 11,
+                zones: CITY_COMUNAS.concepcion.map(([c, l]) => [c, l]) },
+};
+const CITY_PATTERNS = {
+  concepcion: /concepci[oó]n|talcahuano|san pedro de la paz|chiguayante|hualp[eé]n|biob[ií]o|coronel|penco|tom[eé]/i,
+  valparaiso: /valpara[ií]so|vi[nñ]a del mar|re[nñ]aca|conc[oó]n|quilpu[eé]|villa alemana|quintero|quinta regi[oó]n/i,
+};
+function cityOf(ev) {
+  if (ev.city && CITIES[ev.city]) return ev.city;
+  const t = ((ev.address || '') + ' ' + (ev.venue || '') + ' ' + (ev.title || '')).toLowerCase();
+  for (const c in CITY_PATTERNS) if (CITY_PATTERNS[c].test(t)) return c;
+  return 'santiago';
+}
+// Código de comuna/zona (para el filtro). Santiago usa ev.zone.
+function zoneOf(ev) {
+  const city = cityOf(ev);
+  if (city === 'santiago') return ev.zone;
+  const t = ((ev.address || '') + ' ' + (ev.venue || '') + ' ' + (ev.title || '')).toLowerCase();
+  for (const [code, , re] of (CITY_COMUNAS[city] || [])) if (re.test(t)) return code;
+  return null;
+}
+// "Comuna, Región" para el pin de la tarjeta
+function locationLabel(ev) {
+  const city = cityOf(ev);
+  const region = CITIES[city].region;
+  let comuna = '';
+  if (city === 'santiago') comuna = communeLabel(ev);
+  else {
+    const code = zoneOf(ev);
+    const found = (CITY_COMUNAS[city] || []).find(([c]) => c === code);
+    comuna = found ? found[1] : CITIES[city].label;
+  }
+  return comuna ? comuna + ', ' + region : region;
+}
 function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food',workshop:'cat-workshop'}[cat] || 'cat-default'; }
 function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía',workshop:'Talleres'}[cat] || cat; }
 function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food',workshop:'badge-workshop'}[cat] || 'badge-default'; }
@@ -1613,7 +1724,7 @@ async function renderEvents(events) {
             </div>
             <div class="card-body">
                 <div class="card-title">${ev.title}</div>
-                <div class="card-venue">📍 ${ev.venue}${communeLabel(ev) ? ', ' + escapeHtml(communeLabel(ev)) + ', RM' : ''}</div>
+                <div class="card-venue">📍 ${ev.venue}${locationLabel(ev) ? ', ' + escapeHtml(locationLabel(ev)) : ''}</div>
                 <div class="card-date">${ev.date}</div>
                 <div class="card-footer">
                     <div class="card-tags">
@@ -2331,8 +2442,13 @@ const ADMIN_COLS = [
     { key: 'title', label: 'Nombre evento', get: ev => ev.title || '' },
     { key: 'loadedAt', label: 'Fecha cargado', get: ev => ev.loadedAt || ev.createdAt || '' },
     { key: 'dateEvento', label: 'Fecha evento', get: ev => ev.date || (ev.tipo === 'rest' ? 'Permanente' : ''), sortVal: ev => ev.dateMs || 0 },
-    { key: 'comuna', label: 'Comuna', get: ev => ev.commune || ZONE_LABEL[ev.zone] || ev.zone || '' },
-    { key: 'ciudad', label: 'Ciudad', get: () => 'Santiago', filterable: false },
+    { key: 'comuna', label: 'Comuna', get: ev => {
+        const city = cityOf(ev);
+        if (city === 'santiago') return ev.commune || ZONE_LABEL[ev.zone] || ev.zone || '';
+        const found = (CITY_COMUNAS[city] || []).find(([c]) => c === zoneOf(ev));
+        return found ? found[1] : '';
+    } },
+    { key: 'ciudad', label: 'Ciudad', get: ev => CITIES[cityOf(ev)].label },
     { key: 'cargadoPor', label: 'Cargado por', get: ev => ev.src === 'Propuesto por usuario' ? (ev.userName || 'Usuario') : (ev.src || 'Automático') },
     { key: 'tipo', label: 'Tipo', get: ev => ev.tipo === 'rest' ? 'Restaurante' : getCatLabel(ev.cat) },
     { key: 'filtros', label: 'Filtros', get: ev => [ev.kid && 'Niños', ev.pet && 'Mascotas', ev.acc && 'Accesible'].filter(Boolean).join(' '), filterable: false },
