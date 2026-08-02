@@ -27,6 +27,14 @@ function query(e) {
   return /santiago|chile/i.test(base) ? base : base + ', Santiago, Chile';
 }
 
+const seenFailures = new Set();
+function logFailureOnce(status, errorMessage) {
+  const label = status + (errorMessage ? `: ${errorMessage}` : '');
+  if (seenFailures.has(label)) return;
+  seenFailures.add(label);
+  console.warn(`  status no-OK (primera vez, se resume al final): ${label}`);
+}
+
 async function geocode(q) {
   const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(q)
     + '&region=cl&bounds=-33.85,-71.05|-33.15,-70.35&key=' + KEY;
@@ -39,8 +47,13 @@ async function geocode(q) {
       return { lat: +loc.lat.toFixed(6), lng: +loc.lng.toFixed(6) };
     }
     if (d.status === 'OVER_QUERY_LIMIT') throw new Error('OVER_QUERY_LIMIT');
+    if (d.status !== 'ZERO_RESULTS') logFailureOnce(d.status, d.error_message);
     return null;
-  } catch (e) { if (e.message === 'OVER_QUERY_LIMIT') throw e; return null; }
+  } catch (e) {
+    if (e.message === 'OVER_QUERY_LIMIT') throw e;
+    logFailureOnce('fetch_error', e.message);
+    return null;
+  }
 }
 
 async function pool(items, worker, size) {
@@ -87,6 +100,7 @@ async function main() {
   const conCoords = events.filter(e => e.lat && e.lng).length;
   console.log(`\nGeocodificados OK: ${ok} | sin resultado: ${fail}`);
   console.log(`Eventos con coordenadas: ${conCoords}/${events.length} | caché: ${Object.keys(cache).length} lugares`);
+  if (seenFailures.size) console.log(`Motivos de falla vistos: ${[...seenFailures].join(' | ')}`);
 }
 
 main().catch(e => { console.error('Error:', e.message); process.exit(1); });

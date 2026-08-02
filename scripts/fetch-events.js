@@ -23,6 +23,7 @@ const SOURCES = [
   // Las Condes
   { name: 'Las Condes Cultural',               zone: 'lc',   url: 'https://agendacultural.culturallascondes.cl/' },
   { name: 'Las Condes - Panorama mensual',     zone: 'lc',   url: 'https://www2.lascondes.cl/vive-las-condes/panorama-mensual/' },
+  { name: 'MUT - Mercado Urbano Tobalaba',     zone: 'lc',   url: 'https://mut.cl/ver-y-hacer/' },
   // Santiago Centro
   { name: 'Santiago Cultura - Agenda',         zone: 'cen',  url: 'https://www.santiagocultura.cl/agenda-cultural/' },
   { name: 'GAM - Centro Gabriela Mistral',     zone: 'cen',  url: 'https://gam.cl/es/calendario/' },
@@ -194,7 +195,8 @@ async function scrape(source) {
     }
     return text.slice(0, CHARS_PER_SOURCE);
   } catch (err) {
-    console.warn(`  SKIP ${source.name}: ${err.message}`);
+    const cause = err.cause ? ` (${err.cause.code || err.cause.message || err.cause})` : '';
+    console.warn(`  SKIP ${source.name}: ${err.message}${cause}`);
     return null;
   }
 }
@@ -272,6 +274,15 @@ function normalize(str) {
   return str.toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
+// Las fuentes genericas (todo lo que no es Ticketplus/Ticketmaster con URL por
+// evento) no tienen una pagina propia por evento: Claude devuelve la URL de la
+// AGENDA/LISTADO como srcUrl porque es lo unico que hay. Si esa URL compartida
+// se usara para deduplicar, el primer evento que la reclama bloquearia a todos
+// los eventos futuros de esa misma fuente para siempre (asi quedaron atascadas
+// Vitacura, La Reina, GAM, etc.: casi todo lo "nuevo" se descartaba como
+// "duplicado" solo por compartir la URL de la pagina de origen).
+const GENERIC_SOURCE_URLS = new Set(SOURCES.map(s => s.url));
+
 function mergeEvents(existing, incoming) {
   const byTitle = new Map();
   (existing.events || []).forEach(e => byTitle.set(normalize(e.title), e));
@@ -281,13 +292,18 @@ function mergeEvents(existing, incoming) {
   let added = 0, dupes = 0;
   const merged = [...(existing.events || [])];
 
-  // Also index by URL to avoid URL-based duplicates
+  // Indice por URL para evitar duplicados reales (mismo evento, misma URL
+  // especifica) — ignora las URLs genericas de agenda/listado.
   const byUrl = new Map();
-  (existing.events || []).forEach(e => { if (e.srcUrl) byUrl.set(e.srcUrl, e); if (e.tickets) byUrl.set(e.tickets, e); });
+  (existing.events || []).forEach(e => {
+    if (e.srcUrl && !GENERIC_SOURCE_URLS.has(e.srcUrl)) byUrl.set(e.srcUrl, e);
+    if (e.tickets && !GENERIC_SOURCE_URLS.has(e.tickets)) byUrl.set(e.tickets, e);
+  });
 
   incoming.forEach(ev => {
     const key = normalize(ev.title);
-    const urlKey = ev.srcUrl || ev.tickets || '';
+    const rawUrlKey = ev.srcUrl || ev.tickets || '';
+    const urlKey = GENERIC_SOURCE_URLS.has(rawUrlKey) ? '' : rawUrlKey;
     if (byTitle.has(key)) { dupes++; return; }
     if (urlKey && byUrl.has(urlKey)) { dupes++; return; }
     merged.push({ ...ev, id: nextId++, loadedAt: ev.loadedAt || TODAY });
@@ -320,6 +336,7 @@ function mergeEvents(existing, incoming) {
   return {
     events: valid,
     coords: existing.coords || {},
+    venuePhotos: existing.venuePhotos || {},
     meta: { lastUpdated: TODAY, totalEvents: valid.length, generatedBy: 'github-actions + scraping + claude' }
   };
 }
