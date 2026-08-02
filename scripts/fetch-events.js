@@ -283,6 +283,23 @@ function normalize(str) {
 // "duplicado" solo por compartir la URL de la pagina de origen).
 const GENERIC_SOURCE_URLS = new Set(SOURCES.map(s => s.url));
 
+// Claude arma "dateMs" haciendo aritmetica de fecha a mano, y a veces le pone
+// un año equivocado (ej. el del año de su entrenamiento en vez de ${TODAY}).
+// Eso rompe la expiración: si el año queda mal, el evento nace ya "vencido" y
+// se borra en el mismo run en que se agrega. Por eso el año de dateMs se
+// corrige UNA SOLA VEZ acá, al momento de ingestar, con el reloj real del
+// servidor (nunca más adelante — reinterpretar el año de eventos ya
+// guardados es justo el bug de "revivir" eventos viejos que se corrigió antes).
+function correctIngestYear(ev) {
+  if (!ev.dateMs || ev.tipo === 'rest') return ev;
+  const now = Date.now();
+  const thisYear = new Date().getFullYear();
+  const d = new Date(ev.dateMs);
+  d.setFullYear(thisYear);
+  if (d.getTime() < now - 86400000) d.setFullYear(thisYear + 1);
+  return { ...ev, dateMs: d.getTime() };
+}
+
 function mergeEvents(existing, incoming) {
   const byTitle = new Map();
   (existing.events || []).forEach(e => byTitle.set(normalize(e.title), e));
@@ -306,7 +323,7 @@ function mergeEvents(existing, incoming) {
     const urlKey = GENERIC_SOURCE_URLS.has(rawUrlKey) ? '' : rawUrlKey;
     if (byTitle.has(key)) { dupes++; return; }
     if (urlKey && byUrl.has(urlKey)) { dupes++; return; }
-    merged.push({ ...ev, id: nextId++, loadedAt: ev.loadedAt || TODAY });
+    merged.push({ ...correctIngestYear(ev), id: nextId++, loadedAt: ev.loadedAt || TODAY });
     byTitle.set(key, ev);
     if (urlKey) byUrl.set(urlKey, ev);
     added++;
