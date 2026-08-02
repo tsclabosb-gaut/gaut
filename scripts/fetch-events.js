@@ -297,25 +297,21 @@ function mergeEvents(existing, incoming) {
   });
 
   const cutoff = Date.now();
-  const thisYear = new Date().getFullYear();
 
   const valid  = merged.filter(e => {
-    if (!e.dateMs) return true;
-    // Construir la fecha real usando month + days (ignorar el año del dateMs que puede ser incorrecto)
+    if (!e.dateMs || e.tipo === 'rest') return true; // sin fecha o restaurante = siempre vigente
+    // Usar el año con el que el evento fue scrapeado originalmente (viene en dateMs).
+    // NUNCA reinterpretarlo con el año actual/siguiente: eso "revive" eventos puntuales
+    // que ya pasaron, en vez de dejarlos expirar de verdad.
+    const scrapedYear = new Date(e.dateMs).getFullYear();
+    let lastDate;
     if (e.month !== undefined && e.days && e.days.length > 0) {
-      const lastDay  = Math.max(...e.days);
-      // Intentar este año primero, si ya pasó probar el siguiente
-      let lastDate = new Date(thisYear, e.month, lastDay, 23, 59, 59);
-      if (lastDate.getTime() < cutoff) {
-        lastDate = new Date(thisYear + 1, e.month, lastDay, 23, 59, 59);
-      }
-      return lastDate.getTime() > cutoff;
+      const lastDay = Math.max(...e.days);
+      lastDate = new Date(scrapedYear, e.month, lastDay, 23, 59, 59);
+    } else {
+      lastDate = new Date(e.dateMs);
     }
-    // Fallback: usar dateMs pero corregir el año si está en el pasado
-    const d = new Date(e.dateMs);
-    if (d.getFullYear() < thisYear) d.setFullYear(thisYear);
-    if (d.getTime() < cutoff - 86400000) d.setFullYear(thisYear + 1);
-    return d.getTime() > cutoff - 86400000;
+    return lastDate.getTime() > cutoff - 86400000; // vigente hasta 1 día después de su última fecha
   });
   const expired = merged.length - valid.length;
 

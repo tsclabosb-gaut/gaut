@@ -1338,22 +1338,14 @@ async function loadEvents() {
         }
     } catch(e) { console.warn('Could not load approved events:', e.message); }
 
-    // Mark past events and remove clearly expired ones
+    // Mark past events and remove clearly expired ones.
+    // No se "corrige" el año hacia adelante: un evento puntual que ya pasó debe
+    // quedar pasado, no reaparecer disfrazado de próximo año.
     const now = Date.now();
-    const thisYear = new Date().getFullYear();
     allEvents = allEvents.map(ev => {
         if (!ev.dateMs || ev.tipo === 'rest') return ev; // sin fecha o restaurante = siempre visible
-        // Correct year if dateMs is in the past by more than a year
-        let ms = ev.dateMs;
-        const d = new Date(ms);
-        if (d.getFullYear() < thisYear - 1) {
-            // Old timestamp - try setting to this year
-            d.setFullYear(thisYear);
-            if (d.getTime() < now - 86400000) d.setFullYear(thisYear + 1);
-            ms = d.getTime();
-        }
-        const isPast = ms < now - 86400000; // past by more than 1 day
-        return { ...ev, dateMs: ms, isPast };
+        const isPast = ev.dateMs < now - 86400000; // past by more than 1 day
+        return { ...ev, isPast };
     }).filter(ev => !ev.isPast); // Remove past events entirely
 
     renderZoneChips();
