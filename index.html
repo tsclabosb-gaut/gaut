@@ -118,6 +118,16 @@ img { display: block; max-width: 100%; }
   font-size: 15px; color: var(--carbon); outline: none;
 }
 .search-wrap input::placeholder { color: var(--gray); }
+.search-hero { display: flex; align-items: center; gap: 8px; }
+.geo-btn {
+  flex-shrink: 0; width: 44px; height: 44px;
+  border-radius: var(--radius-full); border: 1.5px solid var(--gray-light);
+  background: var(--surface); color: var(--terracotta);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; cursor: pointer; transition: var(--transition);
+}
+.geo-btn:hover { border-color: var(--terracotta); background: var(--amber-bg); }
+.geo-btn.loading { opacity: .5; pointer-events: none; }
 
 /* ── FILTERS ── */
 .filters-bar {
@@ -178,15 +188,28 @@ img { display: block; max-width: 100%; }
 .sub-chip.active.special { background: var(--amber); color: #7a3800; border-color: var(--amber); }
 .sub-chip.date-filter.active { background: #3949ab; color: white; border-color: #3949ab; font-weight: 600; }
 
-/* ── FILTROS: inline en desktop, menú lateral (drawer) en móvil ── */
+/* ── FILTROS: barra compacta en desktop, menú lateral (drawer) en móvil ── */
 .filter-group-label { display: none; }
 .filters-trigger { display: none; }
 .filters-close { display: none; }
+.desktop-toolbar { display: none; }
 #filtersBackdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2100; }
+.more-filters-badge {
+  background: var(--terracotta); color: #fff; font-size: 11px; font-weight: 700;
+  border-radius: var(--radius-full); width: 17px; height: 17px;
+  display: none; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.more-filters-badge.show { display: flex; }
+.map-toggle-btn {
+  flex-shrink: 0; padding: 7px 14px; border-radius: var(--radius-full);
+  border: 1.5px solid var(--terracotta); background: white; color: var(--terracotta);
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap;
+}
 @media (max-width: 1023px) {
+  .mobile-filter-row { display: flex; align-items: center; gap: 8px; margin: 4px 16px 0; }
   .filters-trigger {
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    margin: 4px 16px 0; padding: 11px 14px; width: calc(100% - 32px);
+    flex: 1; padding: 11px 14px;
     background: var(--surface); border: 1.5px solid var(--gray-light); border-radius: var(--radius-full);
     font-size: 14px; font-weight: 600; color: var(--carbon); cursor: pointer; font-family: inherit;
   }
@@ -205,7 +228,46 @@ img { display: block; max-width: 100%; }
   #filtersWrap .filters-bar::after, #filtersWrap .sub-filters-bar::after { display: none; }
 }
 
-
+@media (min-width: 1024px) {
+  .mobile-filter-row { display: none; }
+  .desktop-toolbar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 32px; max-width: 1200px; margin: 0 auto;
+  }
+  .desktop-toolbar .toolbar-divider { width: 1px; height: 26px; background: var(--gray-light); flex-shrink: 0; }
+  .desktop-toolbar .filters-bar {
+    padding: 0; border-bottom: none; overflow: visible; flex-shrink: 0; background: transparent;
+  }
+  .desktop-toolbar .filters-bar::after { display: none; }
+  .desktop-toolbar .filter-chip.cat-icon {
+    width: 36px; height: 36px; padding: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+  .toolbar-spacer { flex: 1; }
+  .filters-trigger-desktop {
+    display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+    padding: 9px 16px; border-radius: var(--radius-full); border: none;
+    background: var(--carbon); color: #fff; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit; white-space: nowrap;
+  }
+  .desktop-toolbar .map-toggle-btn { padding: 9px 16px; font-size: 14px; }
+  .cat-group-mobile-only { display: none; }
+  #filtersBackdrop.open { background: transparent; }
+  #filtersWrap {
+    position: fixed; top: 76px; right: max(32px, calc((100vw - 1200px) / 2 + 32px));
+    width: 380px; max-width: 90vw; max-height: calc(100vh - 110px);
+    background: white; z-index: 2200; box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-light); border-radius: var(--radius-md);
+    overflow-y: auto; padding: 20px 18px 24px;
+  }
+  #filtersWrap.open { display: block; }
+  #filtersWrap:not(.open) { display: none; }
+  .filters-close { display: block; position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.4rem; line-height: 1; cursor: pointer; color: var(--gray); }
+  .filter-group { margin-bottom: 20px; }
+  .filter-group-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--gray); margin: 0 0 10px 2px; }
+  #filtersWrap .filters-bar, #filtersWrap .sub-filters-bar { flex-wrap: wrap; overflow: visible; padding: 0; border-bottom: none; background: transparent; gap: 8px; }
+  #filtersWrap .filters-bar::after, #filtersWrap .sub-filters-bar::after { display: none; }
+}
 
 /* ── FEED ── */
 .feed-section { padding: 16px; }
@@ -764,36 +826,65 @@ img { display: block; max-width: 100%; }
   </div>
 </header>
 
-<!-- SEARCH -->
+<!-- SEARCH + GEOLOCALIZACIÓN -->
 <div class="search-hero">
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input type="text" id="searchInput" placeholder="Busca música, cultura, restaurantes, deporte...">
   </div>
+  <button class="geo-btn" onclick="useMyLocation()" title="Usar mi ubicación">📍</button>
 </div>
 
-<!-- CITY SELECTOR -->
-<div class="city-selector" id="citySelector">
-  <button class="city-pill active" data-city="santiago" onclick="setCity('santiago')">📍 Santiago <span class="city-count" id="cityCount-santiago"></span></button>
-  <button class="city-pill" data-city="valparaiso" onclick="setCity('valparaiso')">📍 Valparaíso <span class="city-count" id="cityCount-valparaiso"></span></button>
-  <button class="city-pill" data-city="concepcion" onclick="setCity('concepcion')">📍 Concepción <span class="city-count" id="cityCount-concepcion"></span></button>
+<!-- BARRA COMPACTA (desktop): categoría en íconos + Más filtros + Mapa -->
+<div class="desktop-toolbar">
+  <div class="toolbar-divider"></div>
+  <div class="filters-bar hide-scroll">
+    <button class="filter-chip active cat" onclick="setCategoryPill(this,'todos')">Todo</button>
+    <button class="filter-chip cat cat-icon" title="Gastronomía" onclick="setCategoryPill(this,'food')">🥘</button>
+    <button class="filter-chip cat cat-icon" title="Música" onclick="setCategoryPill(this,'music')">🎵</button>
+    <button class="filter-chip cat cat-icon" title="Cultura" onclick="setCategoryPill(this,'culture')">🎨</button>
+    <button class="filter-chip cat cat-icon" title="Talleres" onclick="setCategoryPill(this,'workshop')">🎓</button>
+    <button class="filter-chip cat cat-icon" title="Aire Libre" onclick="setCategoryPill(this,'sport')">🌳</button>
+  </div>
+  <div class="toolbar-spacer"></div>
+  <button class="filters-trigger-desktop" onclick="toggleFiltersDrawer()">
+    <span style="font-size:15px;line-height:1">☰</span> Más filtros
+    <span class="more-filters-badge" id="moreFiltersBadgeDesktop">0</span>
+  </button>
+  <button class="map-toggle-btn" onclick="toggleMapView()">🗺️ Mapa</button>
 </div>
 
-<!-- FILTROS: barras inline en desktop, menú lateral (☰) en móvil -->
-<button class="filters-trigger" onclick="toggleFiltersDrawer()"><span style="font-size:18px;line-height:1">☰</span> Filtros</button>
+<!-- FILTROS + MAPA (mobile) -->
+<div class="mobile-filter-row">
+  <button class="filters-trigger" onclick="toggleFiltersDrawer()">
+    <span style="font-size:18px;line-height:1">☰</span> Filtros
+    <span class="more-filters-badge" id="moreFiltersBadgeMobile">0</span>
+  </button>
+  <button class="map-toggle-btn" onclick="toggleMapView()">🗺️ Mapa</button>
+</div>
+
 <div id="filtersBackdrop" onclick="toggleFiltersDrawer()"></div>
 <div id="filtersWrap">
   <button class="filters-close" onclick="toggleFiltersDrawer()" title="Cerrar">✕</button>
 
   <div class="filter-group">
+    <div class="filter-group-label">Región</div>
+    <div class="sub-filters-bar hide-scroll" id="citySelector">
+      <button class="city-pill active" data-city="santiago" onclick="setCity('santiago')">📍 Santiago <span class="city-count" id="cityCount-santiago"></span></button>
+      <button class="city-pill" data-city="valparaiso" onclick="setCity('valparaiso')">📍 Valparaíso <span class="city-count" id="cityCount-valparaiso"></span></button>
+      <button class="city-pill" data-city="concepcion" onclick="setCity('concepcion')">📍 Concepción <span class="city-count" id="cityCount-concepcion"></span></button>
+    </div>
+  </div>
+
+  <div class="filter-group cat-group-mobile-only">
     <div class="filter-group-label">Categoría</div>
     <div class="filters-bar hide-scroll" id="catFilters">
       <button class="filter-chip active cat" onclick="setCategoryPill(this,'todos')">Todo</button>
-      <button class="filter-chip cat" onclick="setCategoryPill(this,'food')">🍽️ Gastronomía</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'food')">🥘 Gastronomía</button>
       <button class="filter-chip cat" onclick="setCategoryPill(this,'music')">🎵 Música</button>
       <button class="filter-chip cat" onclick="setCategoryPill(this,'culture')">🎨 Cultura</button>
       <button class="filter-chip cat" onclick="setCategoryPill(this,'workshop')">🎓 Talleres</button>
-      <button class="filter-chip cat" onclick="setCategoryPill(this,'sport')">⚽ Deporte</button>
+      <button class="filter-chip cat" onclick="setCategoryPill(this,'sport')">🌳 Aire Libre</button>
     </div>
   </div>
 
@@ -829,7 +920,6 @@ img { display: block; max-width: 100%; }
 <div class="feed-section feed-pad">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px">
     <div class="section-label" id="feedLabel" style="margin:0">Todos los eventos</div>
-    <button id="mapToggleBtn" onclick="toggleMapView()" style="flex-shrink:0;padding:7px 14px;border-radius:var(--radius-full);border:1.5px solid var(--terracotta);background:white;color:var(--terracotta);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🗺️ Mapa</button>
   </div>
   <div class="events-grid" id="eventsGrid"></div>
   <div id="mapView" style="display:none;height:72vh;margin-top:8px"><div id="googleMap" style="width:100%;height:100%;border-radius:var(--radius-md)"></div></div>
@@ -1025,6 +1115,7 @@ function toggleDateFilter(el, range) {
     if (!wasActive) { el.classList.add('active'); window._activeDateRange = range; }
     else { window._activeDateRange = null; }
     if (_app.applyFilters) _app.applyFilters();
+    if (window.updateMoreFiltersBadge) updateMoreFiltersBadge();
 }
 function quickFav(...a) { return _app.quickFav && _app.quickFav(...a); }
 function searchUsers(...a) { return _app.searchUsers && _app.searchUsers(...a); }
@@ -1350,6 +1441,7 @@ async function loadEvents() {
 
     renderZoneChips();
     updateCityCounts();
+    updateMoreFiltersBadge();
     renderEvents(filterLogic(allEvents));
 }
 
@@ -1531,7 +1623,17 @@ _app.setCategoryPill = window.setCategoryPill = (el, cat) => {
 _app.toggleZonePill = window.toggleZonePill = (el, zone) => {
     activeZones.has(zone) ? (activeZones.delete(zone), el.classList.remove('active')) : (activeZones.add(zone), el.classList.add('active'));
     renderEvents(filterLogic(allEvents));
+    updateMoreFiltersBadge();
 };
+
+// Cuenta filtros "extra" activos (comuna + especiales + fecha) para el badge de "Más filtros"
+function updateMoreFiltersBadge() {
+    const count = activeZones.size + activeSpecials.size + (window._activeDateRange ? 1 : 0);
+    document.querySelectorAll('.more-filters-badge').forEach(b => {
+        b.textContent = count;
+        b.classList.toggle('show', count > 0);
+    });
+}
 
 // Pinta los chips de comuna de la ciudad activa
 function renderZoneChips() {
@@ -1566,6 +1668,7 @@ _app.setCity = window.setCity = (city) => {
 _app.toggleSpecialPill = window.toggleSpecialPill = (el, type) => {
     activeSpecials.has(type) ? (activeSpecials.delete(type), el.classList.remove('active')) : (activeSpecials.add(type), el.classList.add('active'));
     renderEvents(filterLogic(allEvents));
+    updateMoreFiltersBadge();
 };
 
 window.toggleFiltersDrawer = () => {
@@ -1611,12 +1714,13 @@ window._updateMapMarkers = (events) => {
 };
 window.toggleMapView = async () => {
     _mapActive = !_mapActive;
-    const mv = gid('mapView'), grid = gid('eventsGrid'), footer = document.querySelector('.legal-footer'), btn = gid('mapToggleBtn');
+    const mv = gid('mapView'), grid = gid('eventsGrid'), footer = document.querySelector('.legal-footer');
+    const btns = document.querySelectorAll('.map-toggle-btn');
     if (_mapActive) {
         if (mv) mv.style.display = 'block';
         if (grid) grid.style.display = 'none';
         if (footer) footer.style.display = 'none';
-        if (btn) btn.innerHTML = '📋 Lista';
+        btns.forEach(btn => btn.innerHTML = '📋 Lista');
         await ensureMap();
         google.maps.event.trigger(_map, 'resize');
         window._updateMapMarkers(filterLogic(allEvents));
@@ -1624,7 +1728,7 @@ window.toggleMapView = async () => {
         if (mv) mv.style.display = 'none';
         if (grid) grid.style.display = '';
         if (footer) footer.style.display = '';
-        if (btn) btn.innerHTML = '🗺️ Mapa';
+        btns.forEach(btn => btn.innerHTML = '🗺️ Mapa');
     }
 };
 
@@ -1662,6 +1766,59 @@ const CITY_PATTERNS = {
   concepcion: /concepci[oó]n|talcahuano|san pedro de la paz|chiguayante|hualp[eé]n|biob[ií]o|coronel|penco|tom[eé]/i,
   valparaiso: /valpara[ií]so|vi[nñ]a del mar|re[nñ]aca|conc[oó]n|quilpu[eé]|villa alemana|quintero|quinta regi[oó]n/i,
 };
+
+// Centro aproximado de cada comuna de Santiago (para geolocalización → comuna más cercana)
+const ZONE_CENTERS = {
+  cen:  { lat: -33.4489, lng: -70.6693 },
+  prov: { lat: -33.4260, lng: -70.6100 },
+  lc:   { lat: -33.4100, lng: -70.5660 },
+  vit:  { lat: -33.3790, lng: -70.5730 },
+  nun:  { lat: -33.4560, lng: -70.5980 },
+  lare: { lat: -33.4410, lng: -70.5390 },
+  lob:  { lat: -33.3540, lng: -70.5140 },
+};
+function haversineKm(a, b) {
+  const R = 6371, toRad = d => d * Math.PI / 180;
+  const dLat = toRad(b.lat - a.lat), dLng = toRad(b.lng - a.lng);
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(s), Math.sqrt(1 - s));
+}
+window.useMyLocation = () => {
+  if (!navigator.geolocation) { showToast('Tu navegador no soporta geolocalización'); return; }
+  const btn = document.querySelector('.geo-btn');
+  if (btn) btn.classList.add('loading');
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      if (btn) btn.classList.remove('loading');
+      const here = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+
+      let bestCity = 'santiago', bestCityDist = Infinity;
+      for (const c in CITIES) {
+        const d = haversineKm(here, CITIES[c].center);
+        if (d < bestCityDist) { bestCityDist = d; bestCity = c; }
+      }
+      if (bestCity !== activeCity) setCity(bestCity);
+
+      if (bestCity === 'santiago') {
+        let bestZone = null, bestZoneDist = Infinity;
+        for (const code in ZONE_CENTERS) {
+          const d = haversineKm(here, ZONE_CENTERS[code]);
+          if (d < bestZoneDist) { bestZoneDist = d; bestZone = code; }
+        }
+        if (bestZone && bestZoneDist < 15) {
+          activeZones.clear();
+          activeZones.add(bestZone);
+          renderZoneChips();
+          renderEvents(filterLogic(allEvents));
+          updateMoreFiltersBadge();
+        }
+      }
+      showToast('📍 Ubicación detectada');
+    },
+    () => { if (btn) btn.classList.remove('loading'); showToast('No se pudo obtener tu ubicación'); },
+    { timeout: 8000, maximumAge: 300000 }
+  );
+};
 function cityOf(ev) {
   if (ev.city && CITIES[ev.city]) return ev.city;
   const t = ((ev.address || '') + ' ' + (ev.venue || '') + ' ' + (ev.title || '')).toLowerCase();
@@ -1690,7 +1847,7 @@ function locationLabel(ev) {
   return comuna ? comuna + ', ' + region : region;
 }
 function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',sport:'cat-sport',food:'cat-food',workshop:'cat-workshop'}[cat] || 'cat-default'; }
-function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Deporte',food:'Gastronomía',workshop:'Talleres'}[cat] || cat; }
+function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Aire Libre',food:'Gastronomía',workshop:'Talleres'}[cat] || cat; }
 function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food',workshop:'badge-workshop'}[cat] || 'badge-default'; }
 
 async function renderEvents(events) {
@@ -2452,7 +2609,7 @@ async function adminSectionEvents(el) {
     _adminEvCat = '';
     _adminSort = { key: null, dir: 1 };
     _adminColFilters = {};
-    const cats = [['', 'Todos'], ['food', '🍽️ Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['workshop', '🎓 Talleres'], ['sport', '⚽ Deporte'], ['rest', '🍴 Restaurantes']];
+    const cats = [['', 'Todos'], ['food', '🥘 Gastro'], ['music', '🎵 Música'], ['culture', '🎨 Cultura'], ['workshop', '🎓 Talleres'], ['sport', '🌳 Aire Libre'], ['rest', '🍴 Restaurantes']];
     el.innerHTML = `
     <div style="font-size:14px;font-weight:700;margin-bottom:12px">🗓 Todos los eventos (${allEvents.length})</div>
     <input type="text" placeholder="Buscar evento..." id="adminEventSearch" oninput="adminFilterEvents()"
@@ -2913,8 +3070,8 @@ function renderSubmitForm() {
             <option value="culture">🎨 Cultura</option>
             <option value="music">🎵 Música</option>
             <option value="workshop">🎓 Talleres</option>
-            <option value="sport">⚽ Deporte</option>
-            <option value="food">🍽️ Gastronomía</option>
+            <option value="sport">🌳 Aire Libre</option>
+            <option value="food">🥘 Gastronomía</option>
         </select></div>
         <div class="fg"><label>Precio</label>
             <div class="price-row">
