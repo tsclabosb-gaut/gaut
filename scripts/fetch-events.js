@@ -44,6 +44,8 @@ const SOURCES = [
   { name: 'Municipalidad La Reina - Eventos',  zone: 'lare', url: 'https://www.lareina.cl/eventos-y-actividades/' },
   // Huechuraba
   { name: 'Municipalidad Huechuraba - Cultura',zone: 'ind',  url: 'https://huechuraba.cl/sala-de-prensa/destacado/cultura' },
+  // Parquemet - Red de Parques Urbanos (Parque Metropolitano, Bicentenario de la Infancia, Jardin Japones, etc.)
+  { name: 'Parquemet - Eventos',               zone: 'prov', url: 'https://www.parquemet.cl/eventos/lista/' },
   // Agregadores (sin zona fija, Claude asigna segun evento)
   { name: 'Fever - Santiago',                  zone: 'cen',  url: 'https://feverup.com/es/santiago' },
   { name: 'Eventbrite - Santiago',             zone: 'cen',  url: 'https://www.eventbrite.cl/d/chile--santiago/eventos/' },

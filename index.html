@@ -205,8 +205,14 @@ img { display: block; max-width: 100%; }
   border: 1.5px solid var(--terracotta); background: white; color: var(--terracotta);
   font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap;
 }
+.date-chip-row { display: flex; align-items: center; gap: 8px; }
+.mobile-date-row { display: none; }
 @media (max-width: 1023px) {
   .mobile-filter-row { display: flex; align-items: center; gap: 8px; margin: 4px 16px 0; }
+  .mobile-date-row {
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    margin: 8px 16px 0;
+  }
   .filters-trigger {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     flex: 1; padding: 11px 14px;
@@ -243,6 +249,7 @@ img { display: block; max-width: 100%; }
     width: 36px; height: 36px; padding: 0;
     display: flex; align-items: center; justify-content: center; font-size: 16px;
   }
+  .desktop-toolbar .date-chip-row { flex-shrink: 0; }
   .toolbar-spacer { flex: 1; }
   .filters-trigger-desktop {
     display: flex; align-items: center; gap: 6px; flex-shrink: 0;
@@ -846,6 +853,13 @@ img { display: block; max-width: 100%; }
     <button class="filter-chip cat cat-icon" title="Talleres" onclick="setCategoryPill(this,'workshop')">🎓</button>
     <button class="filter-chip cat cat-icon" title="Aire Libre" onclick="setCategoryPill(this,'sport')">🌳</button>
   </div>
+  <div class="toolbar-divider"></div>
+  <div class="date-chip-row">
+    <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'today')">Hoy</button>
+    <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'week')">Semana</button>
+    <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'month')">Mes</button>
+    <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'weekend')">Finde</button>
+  </div>
   <div class="toolbar-spacer"></div>
   <button class="filters-trigger-desktop" onclick="toggleFiltersDrawer()">
     <span style="font-size:15px;line-height:1">☰</span> Más filtros
@@ -861,6 +875,12 @@ img { display: block; max-width: 100%; }
     <span class="more-filters-badge" id="moreFiltersBadgeMobile">0</span>
   </button>
   <button class="map-toggle-btn" onclick="toggleMapView()">🗺️ Mapa</button>
+</div>
+<div class="mobile-date-row hide-scroll">
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'today')">📅 Hoy</button>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'week')">📅 Esta semana</button>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'month')">📅 Este mes</button>
+  <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'weekend')">📅 Este fin de semana</button>
 </div>
 
 <div id="filtersBackdrop" onclick="toggleFiltersDrawer()"></div>
@@ -902,15 +922,6 @@ img { display: block; max-width: 100%; }
     </div>
   </div>
 
-  <div class="filter-group">
-    <div class="filter-group-label">Fechas</div>
-    <div class="sub-filters-bar hide-scroll">
-      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'today')">📅 Hoy</button>
-      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'week')">📅 Esta semana</button>
-      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'month')">📅 Este mes</button>
-      <button class="sub-chip date-filter" onclick="toggleDateFilter(this,'weekend')">📅 Este fin de semana</button>
-    </div>
-  </div>
 </div>
 
 <!-- PROPOSE BAR -->
@@ -1628,7 +1639,7 @@ _app.toggleZonePill = window.toggleZonePill = (el, zone) => {
 
 // Cuenta filtros "extra" activos (comuna + especiales + fecha) para el badge de "Más filtros"
 function updateMoreFiltersBadge() {
-    const count = activeZones.size + activeSpecials.size + (window._activeDateRange ? 1 : 0);
+    const count = activeZones.size + activeSpecials.size;
     document.querySelectorAll('.more-filters-badge').forEach(b => {
         b.textContent = count;
         b.classList.toggle('show', count > 0);
