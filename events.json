@@ -3541,7 +3541,7 @@
       "cat": "culture",
       "emoji": "🎲",
       "desc": "Actividad de juegos de mesa en la Biblioteca GAM. Sábado de 11:00 a 19:00.",
-      "date": "Sab 1 de agosto 11:00",
+      "date": "Dom 1 de agosto 11:00",
       "dateMs": 1817132400000,
       "month": 7,
       "days": [
@@ -4379,7 +4379,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Concierto de música clásica del Departamento de Música de la Universidad de Chile.",
-      "date": "Mar 4 de agosto 19:00",
+      "date": "Mié 4 de agosto 19:00",
       "dateMs": 1817395200000,
       "month": 7,
       "days": [
@@ -4587,7 +4587,7 @@
       "cat": "music",
       "emoji": "🎸",
       "desc": "Concierto candlelight tributo a Queen en el Santuario Nacional de Maipú.",
-      "date": "Vie 26 de septiembre 19:00",
+      "date": "Sáb 26 de septiembre 19:00",
       "dateMs": 1790423400000,
       "month": 8,
       "days": [
@@ -4781,7 +4781,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Actividades gratuitas: cuentacuentos, magia, música, circo, K-pop y talleres en celebración del Día del Niño.",
-      "date": "Sab 8 de agosto",
+      "date": "Dom 8 de agosto",
       "dateMs": 1817750400000,
       "month": 7,
       "days": [
@@ -4813,7 +4813,7 @@
       "cat": "food",
       "emoji": "🍷",
       "desc": "Degustación de vinos de Colchagua en MUT Mercado Urbano Tobalaba.",
-      "date": "Vie 8 de agosto 11:00",
+      "date": "Dom 8 de agosto 11:00",
       "dateMs": 1817692800000,
       "month": 7,
       "days": [
@@ -4846,7 +4846,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Celebración del Día del Niño con actividades gratuitas: cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sáb 8 de agosto 10:00",
+      "date": "Dom 8 de agosto 10:00",
       "dateMs": 1817716800000,
       "month": 7,
       "days": [
@@ -4960,7 +4960,7 @@
       "cat": "culture",
       "emoji": "☕",
       "desc": "Taller en Mercado Urbano Tobalaba.",
-      "date": "Mar 11 de agosto 15:30",
+      "date": "Mié 11 de agosto 15:30",
       "dateMs": 1817969400000,
       "month": 7,
       "days": [
@@ -5086,7 +5086,7 @@
       "cat": "culture",
       "emoji": "🎪",
       "desc": "Celebración con cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sab 8 de agosto 2026",
+      "date": "Dom 8 de agosto 2026",
       "dateMs": 1817596800000,
       "month": 7,
       "days": [
@@ -5302,7 +5302,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Actividades gratuitas en Ñuñoa: cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sáb 8 de agosto",
+      "date": "Dom 8 de agosto",
       "dateMs": 1817500800000,
       "month": 7,
       "days": [
@@ -5391,7 +5391,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Celebración del Día del Niño en Ñuñoa con actividades gratuitas: cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sab 8 de agosto",
+      "date": "Dom 8 de agosto",
       "dateMs": 1817654400000,
       "month": 7,
       "days": [
@@ -5423,7 +5423,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Concierto de Andrés Calamaro en Movistar Arena.",
-      "date": "Mar 25 de agosto 2026",
+      "date": "Mié 25 de agosto 2026",
       "dateMs": 1818961200000,
       "month": 7,
       "days": [
@@ -5455,7 +5455,7 @@
       "cat": "culture",
       "emoji": "🧩",
       "desc": "Actividad interactiva en MUT.",
-      "date": "Jue 22 de agosto 10:00",
+      "date": "Dom 22 de agosto 10:00",
       "dateMs": 1818933600000,
       "month": 7,
       "days": [
@@ -5487,8 +5487,8 @@
       "cat": "food",
       "emoji": "🍷",
       "desc": "Celebración del vino en MUT.",
-      "date": "Mié 5 al jue 6 de septiembre 12:00",
-      "dateMs": 1788508800000,
+      "date": "Sáb 5 al Dom 6 de septiembre 12:00",
+      "dateMs": 1788624000000,
       "month": 8,
       "days": [
         5,
@@ -5792,7 +5792,7 @@
       "cat": "culture",
       "emoji": "💃",
       "desc": "Presentación de ballet en MUT Mercado Urbano Tobalaba.",
-      "date": "Dom 9 de agosto 19:00",
+      "date": "Lun 9 de agosto 19:00",
       "dateMs": 1817882400000,
       "month": 7,
       "days": [
@@ -5823,7 +5823,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Celebración de cumpleaños de MUT Mercado Urbano Tobalaba.",
-      "date": "Dom 9 de agosto 12:00",
+      "date": "Lun 9 de agosto 12:00",
       "dateMs": 1817846400000,
       "month": 7,
       "days": [
@@ -5888,7 +5888,7 @@
       "cat": "culture",
       "emoji": "🎨",
       "desc": "Visita guiada a la exposición Valentina Cruz en el Museo Nacional de Bellas Artes.",
-      "date": "Jue 31 de julio 12:00",
+      "date": "Sáb 31 de julio 12:00",
       "dateMs": 1816988400000,
       "month": 6,
       "days": [
@@ -5919,7 +5919,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Celebración del Día del Niño con actividades gratuitas incluyendo cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sab 8 de agosto 10:00",
+      "date": "Dom 8 de agosto 10:00",
       "dateMs": 1817750400000,
       "month": 7,
       "days": [
@@ -5991,7 +5991,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Actividades gratuitas con cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sab 8 de agosto",
+      "date": "Dom 8 de agosto",
       "dateMs": 1817721600000,
       "month": 7,
       "days": [
@@ -6117,7 +6117,7 @@
       "cat": "culture",
       "emoji": "🎉",
       "desc": "Actividades gratuitas: cuentacuentos, magia, música, circo, K-pop y talleres.",
-      "date": "Sab 8 de agosto",
+      "date": "Dom 8 de agosto",
       "dateMs": 1817692800000,
       "month": 7,
       "days": [
@@ -6149,7 +6149,7 @@
       "cat": "culture",
       "emoji": "🇨🇱",
       "desc": "Fiesta familiar con música en vivo, folclore, gastronomía y tradiciones chilenas. Artistas como Los Jaivas, La Noche y Benjamín Walker.",
-      "date": "Sab 5 de septiembre 2026",
+      "date": "Sáb 5 de septiembre 2026",
       "dateMs": 1788432000000,
       "month": 8,
       "days": [
@@ -6246,7 +6246,7 @@
       "cat": "sport",
       "emoji": "⚽",
       "desc": "Partido de fútbol Liga de Primera Mercado Libre - Fecha 21.",
-      "date": "Dom 31 de agosto 2026",
+      "date": "Lun 31 de agosto 2026",
       "dateMs": 1788278400000,
       "month": 7,
       "days": [
@@ -6374,7 +6374,7 @@
       "cat": "culture",
       "emoji": "🎬",
       "desc": "Película sobre Helena Sofia Schjerfbeck (1862-1946), modernista conocida por autorretratos surrealistas, paisajes y naturalezas muertas.",
-      "date": "Mar 9 de septiembre",
+      "date": "Mié 9 de septiembre",
       "dateMs": 1788940800000,
       "month": 8,
       "days": [
@@ -6406,7 +6406,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Concierto de invierno en MUT Mercado Urbano Tobalaba.",
-      "date": "Jue 28 de agosto 17:30",
+      "date": "Sáb 28 de agosto 17:30",
       "dateMs": 1819611600000,
       "month": 7,
       "days": [
@@ -6471,7 +6471,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Concierto Candlelight tributo a Ed Sheeran y Coldplay en Teatro Centro de Extensión Oriente UC.",
-      "date": "Vie 4 de octubre 2026",
+      "date": "Dom 4 de octubre 2026",
       "dateMs": 1790995200000,
       "month": 9,
       "days": [
@@ -7637,7 +7637,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Aprende cueca en M100!, Matucana 100, Santiago, Estación Central, Santiago, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7757,7 +7757,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Órbita Sonora: Interstellar by Hans ZimmerPlanetario Huechuraba presenta una nueva edición de Órbita Sonora, su ciclo de experiencias inmersivas donde la música y el cosmos se encuentran bajo el domo.En esta ocasión, el viaje está guiado por una selección de tracks de la inolvidable banda sonora com",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7787,7 +7787,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "“LA FONDA DE LA ABUELITA CLEMENTINA”Cía. Sol y LunaCiclo de Títeres para la FamiliaPúblico Objetivo: FamiliaGénero: Teatro de Títeres Edad Recomendada: 2+Días: Sábado 5 de Septiembre 2026Horario: 12:00 horasDuración: 35 minutos Valores: Precio Único $ 5.000.- Entrada Solidaria $ 12.000.-Venta de Ent",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7817,7 +7817,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Discovery: Daft Punk bajo el domoPlanetario Huechuraba presenta una nueva edición de su ciclo Órbita Sonora, una experiencia inmersiva donde la música y el universo se encuentran bajo nuestro domo.En esta ocasión, el viaje está guiado por Discovery de Daft Punk, un álbum icónico de la música electró",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7847,7 +7847,7 @@
       "cat": "sport",
       "emoji": "⚽",
       "desc": "Desafío Cuerpo de Bomberos de Antofagasta 2026, Av. Angamos 800, Antofagasta, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7907,7 +7907,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Mik y Leti, los aventureros del Hipocampo Espacial, Avenida Vitacura 7401, Vitacura, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7937,7 +7937,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Concierto Sinfónico: La Subasta de Yorkshin- Réquiem (Concierto tributo a Hunter X Hunter), Arturo Prat 33, Santiago, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7967,7 +7967,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "PAUL GILBERT en Concepción, Anibal Pinto 1661, Concepción, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -7997,7 +7997,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Show en la Sala Principal.Disfruta un show de Jorge Alís en Santiago que combina stand-up comedy, actuación e interacción permanente con el público. Vive una experiencia de humor cercana, impredecible y liberadora en Teatro El Cachafaz, Ñuñoa, ubicado en el corazón de Barrio Italia.Jorge Alís en Tea",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8027,7 +8027,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Concierto Sinfónico: La Subasta de Yorkshin- Réquiem (Concierto tributo a Hunter X Hunter) // 15:00 hrs, Arturo Prat 33, Santiago, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8057,7 +8057,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "EL SOL: NUESTRA ESTRELLA VIVIENTE, Premio Nobel 5555, Huechuraba, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8087,7 +8087,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Show Stand up en la Sala Buenos AiresAmigos en Ruta es un Show de Stand Up comedy en el que tres comediantes te harán reír con su mirada sobre la vida, anécdotas y situaciones con las que si te sientes representado, puede ser que los estés haciendo bien… o quizás, no tanto.Tomi Silva, Diego Larenas ",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8147,7 +8147,7 @@
       "cat": "sport",
       "emoji": "⚽",
       "desc": "PLAY IN JUEGO 2",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8177,7 +8177,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Noche de Estrellas: Gala Aniversario Agrupación Juvenil The Queens of the Dance, Carmen 252, Ovalle, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8235,7 +8235,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Hip Hop Legends Vol 2, La Isla Club Restobar - Avenida Los Pajaritos, Maipú, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8265,7 +8265,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "Show de Stand up Sala Buenos Aires✨ SENSUALES... PELIGROSAMENTE PÍCAROS 😏🔥No prometemos cambiar tu vida... pero sí hacer que se te corra el maquillaje... ¡de tanto reír! 😈😂Una noche donde el doble sentido, las miradas cómplices y la comedia sin censura se suben al escenario para seducirte a punt",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8295,7 +8295,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "¡SEPTIEMBRE COMIENZA COMO CORRESPONDE! ❤️‍🔥❤️‍🔥Este SÁBADO 05 DE SEPTIEMBRE nos volvemos a encontrar en @theroof_cl 🫵 para vivir LA MEJOR FIESTA DE TEMUCO en el mejor spot de la ciudad. 🔥Una noche que promete dejar la ciudad encendida con un line up imperdible y toda la energía que caracteriza a",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8325,7 +8325,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Show en la Sala Principal.Teatro Cachafaz presenta una noche para reír, bailar y cantar. Disfruta de un meet &amp; greet con Jorge Alís y vive con él una entretenida clase de tango; también habrá música en vivo junto a diversos Artistas para cantar a todo pulmón en un gran cierre al estilo karaoke, ",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8355,7 +8355,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "LUNATICA PRESENTA: JULIAN ANTHONYEVENTO EXCLUSIVO PARA HOMBRES MAYORES DE 25 AÑOS Y MUJERES MAYORES DE 23 AÑOS.NOS RESERVAMOS EL DERECHO DE ADMISIÓN.* DEVOLUCIÓN DE ENTRADA CON PLAZO MÁXIMO 48HRS ANTES DEL INICIO DEL EVENTO *",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8385,7 +8385,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "La Fonda del Flon 2026 - Iquique, Centro De Eventos Ex Anakai - Avenida Arturo Prat Chacón, Iquique, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8443,7 +8443,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "👁️ Al comprar está entrada no garantiza tu ingreso a nuestra fiesta, para ingresar debes cumplir con el código de vestimenta.❌No buzo deportivo❌No spray en envase de vidrio, plástico y metalico❌ No cadenas y gargantillas llamativas❌ No polera o shorts de equipos deportivos❌No mochila, banano o bols",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8531,7 +8531,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "MUNDO ESPACIO presenta YA POH’ , Mundo Espacio - Belisario Montenegro, San Felipe, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8559,7 +8559,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "SÁBADO SATO😈 En Caserío fiesta Sábado 5 de Septiembre en La Jaula, Antonia López de Bello 49, Recoleta, Chile, 05/09/2026",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8589,7 +8589,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "SÁBADO DE FIESTA🚨THE BUNKERSÁBADO 22 / THE BUNKER / PUERTO MONTT UNIVERSIDADES INVITADAS:USS - INACAP - SANTO TOMÁS - DUOC - AIEP - UACHESTUDIANTES GRATIS CON CREDENCIAL UNIVERSITARIA HASTA LA 01CONSIGUE TUS TICKETS CON ANTICIPACIÓN.EVENTO PARA MAYORES DE 18 AÑOS.",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -8857,7 +8857,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "FERNANDO MILAGROS, Teatro Ictus - Merced 349, Santiago, Chile, 09/09/2026",
-      "date": "Mie 9 de septiembre",
+      "date": "Mié 9 de septiembre",
       "dateMs": 1788955200000,
       "month": 8,
       "days": [
@@ -8917,7 +8917,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "LLEVADOS POR EL DESEO Historias de Grindr…/Lospleimovil, Teatro Lospleimovil - Dardignac 91, Recoleta, Chile, 09/09/2026",
-      "date": "Mie 9 de septiembre",
+      "date": "Mié 9 de septiembre",
       "dateMs": 1788955200000,
       "month": 8,
       "days": [
@@ -8947,7 +8947,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "Armando Chistes es el show laboratorio de Luis Slimming, una oportunidad única para ver a Don Comedia en su estado más real.Luis se sube al escenario para probar material nuevo e ideas y construir chistes en vivo, sin filtros ni certezas, solo comedia en su forma más pura.Un show cercano y distinto ",
-      "date": "Mie 9 de septiembre",
+      "date": "Mié 9 de septiembre",
       "dateMs": 1788955200000,
       "month": 8,
       "days": [
@@ -9007,7 +9007,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "CLUB W / SABADO 05 DE SEPTIEMBREOPEN CLUB: DOS PISTAS DE BAILE 💃 The Mask WLINE UPFRAN CARDENASLocal Soport Boris VásquezPisco 2x $6.0005 Tequila x $10.000PREVIA DESDE LAS 19:00HRS📍 CLUB W – BALNEARIO PELLUCO PUERTO MONTT¡No te lo puedes perder!🎟ENTRADAS DISPONIBLES EN TICKETPLUS Códigos de ingre",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -9093,7 +9093,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "PALOMA SALAS & CHARO LOPEZ / CONCEPCIÓN / TEATRO UDEC / 9 DE SEPTIEMBRE / 20:00 HRS, Teatro Universidad de Concepción - Libertador General Bernardo O'Higgins, Concepción, Chile, 09/09/2026",
-      "date": "Mie 9 de septiembre",
+      "date": "Mié 9 de septiembre",
       "dateMs": 1788955200000,
       "month": 8,
       "days": [
@@ -9273,7 +9273,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este MIÉRCOLES 9 de septiembre ★ MIÉRCOLES SE BAILA★ Main Stage ultrabailable 🎧 FlandezLugar: Club SubterráneoFecha: Miércoles 9 de septiembreHorarios: Desde las 23:00 a 03:45hrsEdades: Mujeres +21 &amp; hombres +21Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope $3.00",
-      "date": "Mie 9 de septiembre",
+      "date": "Mié 9 de septiembre",
       "dateMs": 1788955200000,
       "month": 8,
       "days": [
@@ -9423,7 +9423,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "SEMANA DE LA CHILENIDAD 2026, Parque Padre Hurtado - Avenida Francisco Bilbao, 8105, La Reina, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9483,7 +9483,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "Descubre el Teatro Biobío a través de un recorrido guiado por uno de los espacios culturales más emblemáticos de Chile. Conoce su arquitectura, el escenario más grande del país, sus salas, camarines y rincones, mientras descubres la historia y el funcionamiento del teatro. Una experiencia gratuita p",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9603,7 +9603,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Viva Chile SinfónicoCelebra estas Fiestas Patrias con un espectáculo sin precedentes.Por primera vez en Chile, un concierto reúne en un mismo escenario a la Orquesta Filodramática de Chile, dirigida por el maestro Alexander Shitikov, junto a destacados cantantes chilenos y bailarines, para dar vida ",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9663,7 +9663,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "LA GRAN FERIA. A LUCA Y A MIL, Av. Philippi 1000, Frutillar, Región de los Lagos, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9723,7 +9723,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "Show de Stand up Sala Buenos AiresM&amp;M&amp;M vuelve a El Cachafaz con una noche de stand up entre amigos, historias, crisis de adultez, paternidad, política, trabajo, cerveza y opiniones que después de los 40 ya nadie se preocupa demasiado por suavizar.Mitch Gómez, Matías y Manhumorado reciben es",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9809,7 +9809,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Gran Fiesta 80s Junto a Rodolfo Roth y Tributo a Journey por Nico Cid en Terra Viva, Calle La Gruta 2681, Olmué, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9837,7 +9837,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "El Kabaret de la Última Esperanza, Eulogio Altamirano 7425, La Cisterna, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9865,7 +9865,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "RUMORS - QUEEN - GALA CALDIROLA - 12 DE SEPTIEMBRE - 22:00 - RUMORS, Manuel Montt 1031, Temuco, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9895,7 +9895,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "LUNATICA PRESENTA: VOIGTMANNEVENTO EXCLUSIVO PARA HOMBRES MAYORES DE 25 AÑOS Y MUJERES MAYORES DE 23 AÑOS.NOS RESERVAMOS EL DERECHO DE ADMISIÓN.* DEVOLUCIÓN DE ENTRADA CON PLAZO MÁXIMO 48HRS ANTES DEL INICIO DEL EVENTO *",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9925,7 +9925,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Sobeteo Guaracha 🍭 en Hangar Bellavita Sábado 12 de Septiembre , Santa Filomena 10, Providencia, Recoleta, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9955,7 +9955,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaConcierto Especial · Épica de Norte a SurSábado 12 de septiembre de 2026 / 19:30 horas.Orquesta Sinfónica Nacional de ChileAri Rasilainen (Finlandia), dir",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -9985,7 +9985,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Bodoque - Copiapo - Kaya Social Club, Atacama 10, Copiapó, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -10015,7 +10015,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este SÁBADO 5 de septiembre ♫ WEEKEND' DANCE Ultrabailable★ Main Stage 🎧 Patrick LeytonLugar: Club SubterráneoFecha: Sábado 5 de septiembreHorarios: Desde las 23:00 a 04:45hrsEdades: Mujeres +23 &amp; hombres +23Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope $3.000 p",
-      "date": "Sab 5 de septiembre",
+      "date": "Sáb 5 de septiembre",
       "dateMs": 1788609600000,
       "month": 8,
       "days": [
@@ -10045,7 +10045,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Show en la Sala Principal.Teatro Cachafaz presenta una noche para reír, bailar y cantar. Disfruta de un meet &amp; greet con Jorge Alís y vive con él una entretenida clase de tango; también habrá música en vivo junto a diversos Artistas para cantar a todo pulmón en un gran cierre al estilo karaoke, ",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -10133,7 +10133,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "🇨🇱 FONDA THE ROOF 🇨🇱La mejor fecha del año se aproxima y tu no te puedes perder este mega evento que tenemos preparado para ti 🫵La revelación de la cumbia argentina MAX CARRA por primera vez en la ciudad ❤️‍🔥❤️‍🔥 prepárate para una noche con los mejores hits 🇦🇷 🩵 y llena de activaciones y ",
-      "date": "Mie 16 de septiembre",
+      "date": "Mié 16 de septiembre",
       "dateMs": 1789560000000,
       "month": 8,
       "days": [
@@ -10163,7 +10163,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Orquesta de Cámara ciudadana de Concepción, presenta: Concierto de Fiestas Patrias, Teatro Biobío, Concepción, Chile, 16/09/2026",
-      "date": "Mie 16 de septiembre",
+      "date": "Mié 16 de septiembre",
       "dateMs": 1789560000000,
       "month": 8,
       "days": [
@@ -10193,7 +10193,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Sigrid y los Claveles, Teatro Ictus - Merced 349, Santiago, Chile, 16/09/2026",
-      "date": "Mie 16 de septiembre",
+      "date": "Mié 16 de septiembre",
       "dateMs": 1789560000000,
       "month": 8,
       "days": [
@@ -10253,7 +10253,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Bajo el Cielo del Limarí: Chingana Campesina de Ovalle, Carmen 252, Ovalle, Chile, 12/09/2026",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -10517,7 +10517,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Información importante:1. Evento para mayores de 18 años. 2. El valor de la entrada al casino está incluido en el valor del acceso al espectáculo. Podrás solicitarla en el acceso al casino desde las 19:00 hrs en el stand habilitado el día del evento.3. Solicitaremos cédula de identidad a todas y tod",
-      "date": "Sab 19 de septiembre",
+      "date": "Sáb 19 de septiembre",
       "dateMs": 1789819200000,
       "month": 8,
       "days": [
@@ -10605,7 +10605,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Nenazo ENDIECIOCHAO - 19 Septiembre, NENAZO ULTRABAILABLE - G-910, Navidad, Chile, 19/09/2026",
-      "date": "Sab 19 de septiembre",
+      "date": "Sáb 19 de septiembre",
       "dateMs": 1789819200000,
       "month": 8,
       "days": [
@@ -10635,7 +10635,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Copa davis Chile vs España (CONTENEDOR), 19/09/2026",
-      "date": "Sab 19 de septiembre",
+      "date": "Sáb 19 de septiembre",
       "dateMs": 1789819200000,
       "month": 8,
       "days": [
@@ -10665,7 +10665,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Fonda Tera Viva Junto a Chupe de Cueca y Pachanga, Calle La Gruta 2681, Olmué, Chile, 19/09/2026",
-      "date": "Sab 19 de septiembre",
+      "date": "Sáb 19 de septiembre",
       "dateMs": 1789819200000,
       "month": 8,
       "days": [
@@ -10693,7 +10693,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Paloma Salas en formato bar, cerquita y con risa contagiosa.Chistes de la vida real y conversaciones cotidianas.Un rutina directa y cómplice para pasarlo increíble.SELECCIÓN DE MESAS COMPARTIDAS POR ORDEN DE LLEGADA",
-      "date": "Mie 23 de septiembre",
+      "date": "Mié 23 de septiembre",
       "dateMs": 1790164800000,
       "month": 8,
       "days": [
@@ -10723,7 +10723,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "INTERESTELAR, Teatro La Memoria, Santiago, Providencia, Chile, 23/09/2026",
-      "date": "Mie 23 de septiembre",
+      "date": "Mié 23 de septiembre",
       "dateMs": 1790164800000,
       "month": 8,
       "days": [
@@ -10753,7 +10753,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "‼️ SÁBADO 19 DE SEPTIEMBRE ‼️ 🇨🇱🔥Estas FIESTAS PATRIAS se celebran con todo en Subte 🎉 Este 18 y 19 DE SEPTIEMBRE, prepárate para dos noches cargadas de música, fiesta y sorpresas que tenemos preparadas para ti. 🍻🎶👀 Atentos a nuestras redes, porque se vienen concursos, premios, y mucho más pa",
-      "date": "Sab 19 de septiembre",
+      "date": "Sáb 19 de septiembre",
       "dateMs": 1789819200000,
       "month": 8,
       "days": [
@@ -10783,7 +10783,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Marilyn, la vida de Norma Jeane, Matucana 100, Santiago, Estación Central, Santiago, Chile, 23/09/2026",
-      "date": "Mie 23 de septiembre",
+      "date": "Mié 23 de septiembre",
       "dateMs": 1790164800000,
       "month": 8,
       "days": [
@@ -10813,7 +10813,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Paloma Salas en formato bar, cerquita y con risa contagiosa.Chistes de la vida real y conversaciones cotidianas.Un rutina directa y cómplice para pasarlo increíble.SELECCIÓN DE MESAS COMPARTIDAS POR ORDEN DE LLEGADA",
-      "date": "Mie 23 de septiembre",
+      "date": "Mié 23 de septiembre",
       "dateMs": 1790164800000,
       "month": 8,
       "days": [
@@ -10843,7 +10843,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Show en la Sala Principal.Disfruta un show de Jorge Alís en Santiago que combina stand-up comedy, actuación e interacción permanente con el público. Vive una experiencia de humor cercana, impredecible y liberadora en Teatro El Cachafaz, Ñuñoa, ubicado en el corazón de Barrio Italia.Jorge Alís en Tea",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -10933,7 +10933,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este MIÉRCOLES 23 de septiembre ★ MIÉRCOLES SE BAILA★ Main Stage ultrabailable 🎧 PoirotLugar: Club SubterráneoFecha: Miércoles 23 de septiembreHorarios: Desde las 23:00 a 03:45hrsEdades: Mujeres +21 &amp; hombres +21Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope $3.0",
-      "date": "Mie 23 de septiembre",
+      "date": "Mié 23 de septiembre",
       "dateMs": 1790164800000,
       "month": 8,
       "days": [
@@ -11321,7 +11321,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "FFL HYBRID RACE EDITION 3, 26/09/2026",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11351,7 +11351,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este SÁBADO 12 de septiembre ♫ WEEKEND' DANCE Ultrabailable★ Main Stage 🎧 Manuel SagredoLugar: Club SubterráneoFecha: Sábado 12 de septiembreHorarios: Desde las 23:00 a 04:45hrsEdades: Mujeres +23 &amp; hombres +23Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope $3.000",
-      "date": "Sab 12 de septiembre",
+      "date": "Sáb 12 de septiembre",
       "dateMs": 1789214400000,
       "month": 8,
       "days": [
@@ -11381,7 +11381,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Festival Neutral 2026, Matucana 100, Santiago, Estación Central, Santiago, Chile, 26/09/2026",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11411,7 +11411,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "“UN DIECIOCHO CON MI PRIMO HILARIO”Cía. Clown Ve-Lie Ciclo de Títeres para la FamiliaPúblico Objetivo: FamiliaGénero: Teatro de Títeres Edad Recomendada: 3+Días: Sábado 26 de Septiembre 2026Horario: 12:00 horasDuración: 30 minutos Valores: Precio Único $ 5.000.- Entrada Solidaria $ 12.000.-Venta de ",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11441,7 +11441,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este MIÉRCOLES 16 de septiembre ★ MIÉRCOLES SE BAILA★ Main Stage ultrabailable 🎧 Patrick LeytonLugar: Club SubterráneoFecha: Miércoles 16 de septiembreHorarios: Desde las 23:00 a 03:45hrsEdades: Mujeres +21 &amp; hombres +21Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes t",
-      "date": "Mie 16 de septiembre",
+      "date": "Mié 16 de septiembre",
       "dateMs": 1789560000000,
       "month": 8,
       "days": [
@@ -11471,7 +11471,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "“LA REMOLIENDA”Cía. Los Zapatos AzulesTeatro AdultoPúblico Objetivo: Teatro Adulto y FamiliarGénero: Teatro clásico Chileno, Realismo ChilenoEdad Recomendada: 12 +Días: Sábado 26 de Septiembre 2026Horario: 20:00 horasDuración: 120 minutosValores: General $ 10.000.- Estudiantes, Tercera Edad y Person",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11501,7 +11501,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Jorge Alis, Autopista los Libertadores 53, Los Andes, Rinconada, Chile, 26/09/2026",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11529,7 +11529,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "Show de Stand up Sala Buenos Aires¡El Cachafaz presenta: SALA DE PROFES! 🎭😂¿Qué pasa cuando los profes dejan la sala de clases y se suben al escenario? ¡Se viene una reunión extraordinaria que nadie pidió… pero todos necesitábamos! 😂“Sala de Profes” es un show de comedia donde las anécdotas, el c",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11559,7 +11559,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "BLACK DOG – The Led Zeppelin Experience 🔥🤘Sábado 26 de septiembre 2026 | Bar Ruta 78, Puente Alto¡La MEJOR banda tributo a Led Zeppelin de Sudamérica! 🎸⚡Show épico con todos los hits: Stairway to Heaven 🌟, Kashmir 🕌, Whole Lotta Love 💥, Immigrant Song 🐺 y más riffs legendarios que te volarán ",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11589,7 +11589,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este SÁBADO 26 de septiembre ♫ WEEKEND' DANCE Ultrabailable★ Main Stage 🎧 Patrick Leyton B-DayLugar: Club SubterráneoFecha: Sábado 26 de septiembreHorarios: Desde las 23:00 a 04:45hrsEdades: Mujeres +23 &amp; hombres +23Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope ",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11619,7 +11619,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "LUNATICA PRESENTA: GABBSEVENTO EXCLUSIVO PARA HOMBRES MAYORES DE 25 AÑOS Y MUJERES MAYORES DE 23 AÑOS.NOS RESERVAMOS EL DERECHO DE ADMISIÓN.* DEVOLUCIÓN DE ENTRADA CON PLAZO MÁXIMO 48HRS ANTES DEL INICIO DEL EVENTO *",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11679,7 +11679,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Las voces de mi madre, Centro Cultural Teatro Del Puente - Río Mapocho, entre puentes Pío Nono y Purísima, Santiago, Chile, 26/09/2026",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11769,7 +11769,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "PALOMA SALAS / SAN FELIPE / BRAVA BAR / 26 DE SEPTIEMBRE / 22:00 HRS, Brava Bar - Traslaviña, San Felipe, Chile, 26/09/2026",
-      "date": "Sab 26 de septiembre",
+      "date": "Sáb 26 de septiembre",
       "dateMs": 1790424000000,
       "month": 8,
       "days": [
@@ -11859,7 +11859,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "La Camerata Uandes se une por segunda vez al Coro Magnificat para interpretar el Réquiem, Op. 48 de Gabriel Fauré, en una versión para orquesta de cuerdas y órgano, una de las obras más profundas y serenas del repertorio sacro. El programa incluye además el Intermezzo de la ópera Michael del composi",
-      "date": "Mie 30 de septiembre",
+      "date": "Mié 30 de septiembre",
       "dateMs": 1790769600000,
       "month": 8,
       "days": [
@@ -11979,7 +11979,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este MIÉRCOLES 30 de septiembre ★ MIÉRCOLES SE BAILA★ Main Stage ultrabailable 🎧 Cata FloresLugar: Club SubterráneoFecha: Miércoles 30 de septiembreHorarios: Desde las 23:00 a 03:45hrsEdades: Mujeres +21 &amp; hombres +21Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope",
-      "date": "Mie 30 de septiembre",
+      "date": "Mié 30 de septiembre",
       "dateMs": 1790769600000,
       "month": 8,
       "days": [
@@ -12363,7 +12363,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Laboratorio vocal-La lengua y tú voz, Av. Italia 1679, Ñuñoa, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12393,7 +12393,7 @@
       "cat": "sport",
       "emoji": "⚽",
       "desc": "Rap al estadio - Vol. II, Enrique Olivares 857, La Florida, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12423,7 +12423,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Cristóbal Avendaño & Silvia Moreno Ensamble en M100, Matucana 100, Santiago, Estación Central, Santiago, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12483,7 +12483,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "BRAIN DAMAGE en ENJOY SANTIAGO, Autop. los Libertadores 53, 2100000 Los Andes, Rinconada, Valparaíso, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12511,7 +12511,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Caserio x Gallery, Matucana 100, Santiago, Estación Central, Santiago, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12601,7 +12601,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaII Ciclo de Música de Cámara - Concierto N°5Miércoles 7 de octubre de 2026 / 19:30 horas.“Aires Chilenos”Música chilena para vientos y piano.ProgramaSexte",
-      "date": "Mie 7 de octubre",
+      "date": "Mié 7 de octubre",
       "dateMs": 1791374400000,
       "month": 9,
       "days": [
@@ -12631,7 +12631,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "ENGAÑANDO A MURPHY ★ SÁBADO 03 OCTUBRE ★ Club Subterráneo, Orrego Luco 46, Providencia, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12691,7 +12691,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "FERNANDO CABRERA en vivo, Centro Cultural Teatro Del Puente - Río Mapocho, entre puentes Pío Nono y Purísima, Santiago, Chile, 07/10/2026",
-      "date": "Mie 7 de octubre",
+      "date": "Mié 7 de octubre",
       "dateMs": 1791374400000,
       "month": 9,
       "days": [
@@ -12721,7 +12721,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Bandalos Chinos en Teatro Municipal de Viña del Mar, Teatro Municipal de Viña del Mar - Plaza Vergara, Viña del Mar, Chile, 07/10/2026",
-      "date": "Mie 7 de octubre",
+      "date": "Mié 7 de octubre",
       "dateMs": 1791374400000,
       "month": 9,
       "days": [
@@ -12781,7 +12781,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Oktoberfest Club Deportivo Manquehue 2026, Av Vitacura 5841, Vitacura, Santiago, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -12989,7 +12989,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "ALMA CONCIERTOS: CAMERATA, Av. Philippi 1000, Frutillar, Región de los Lagos, Chile, 03/10/2026",
-      "date": "Sab 3 de octubre",
+      "date": "Sáb 3 de octubre",
       "dateMs": 1791028800000,
       "month": 9,
       "days": [
@@ -13049,7 +13049,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Gravedad Zero Show, PUEBLITO PEÑUELAS - Avenida los Pescadores, Coquimbo, Chile, 10/10/2026",
-      "date": "Sab 10 de octubre",
+      "date": "Sáb 10 de octubre",
       "dateMs": 1791633600000,
       "month": 9,
       "days": [
@@ -13107,7 +13107,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "PATRICIA MALDONADO LA NUEVA VOCERA DE GOBIERNO - CURACAVÍ, Santa Emilia Restaurant y Centro de Eventos - Los Almácigos 1155, Curacaví, Chile, 10/10/2026",
-      "date": "Sab 10 de octubre",
+      "date": "Sáb 10 de octubre",
       "dateMs": 1791633600000,
       "month": 9,
       "days": [
@@ -13225,7 +13225,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Alex Anwandter en Teatro del Lago, Teatro del Lago - Avenida Philippi, Frutillar, Chile, 10/10/2026",
-      "date": "Sab 10 de octubre",
+      "date": "Sáb 10 de octubre",
       "dateMs": 1791633600000,
       "month": 9,
       "days": [
@@ -13315,7 +13315,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Razones para no morir, Morandé 25, Santiago, Chile, 14/10/2026",
-      "date": "Mie 14 de octubre",
+      "date": "Mié 14 de octubre",
       "dateMs": 1791979200000,
       "month": 9,
       "days": [
@@ -13405,7 +13405,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Ineino visita la capital: Lanzamiento de la Nueva Ola, Matucana 100, Santiago, Estación Central, Santiago, Chile, 10/10/2026",
-      "date": "Sab 10 de octubre",
+      "date": "Sáb 10 de octubre",
       "dateMs": 1791633600000,
       "month": 9,
       "days": [
@@ -13435,7 +13435,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Inarbolece - Hecho en Biobío '26, Teatro Biobío, Concepción, Chile, 17/10/2026",
-      "date": "Sab 17 de octubre",
+      "date": "Sáb 17 de octubre",
       "dateMs": 1792238400000,
       "month": 9,
       "days": [
@@ -13553,7 +13553,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaIX Ciclo de Piano • Arquitecturas musicales: De la sonata a la baladaConcierto N°6 • PreludiosMiércoles 14 de octubre de 2026 / 19:30 horas.Pianista: Edit",
-      "date": "Mie 14 de octubre",
+      "date": "Mié 14 de octubre",
       "dateMs": 1791979200000,
       "month": 9,
       "days": [
@@ -13611,7 +13611,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "MENTOREZ III, Hilaria - Avenida del Parque, Huechuraba, Chile, 24/10/2026",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13641,7 +13641,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Gloria In Excelsis - Hecho en Biobío '26, Teatro Biobío, Concepción, Chile, 24/10/2026",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13701,7 +13701,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "Armando Chistes es el show laboratorio de Luis Slimming, una oportunidad única para ver a Don Comedia en su estado más real.Luis se sube al escenario para probar material nuevo e ideas y construir chistes en vivo, sin filtros ni certezas, solo comedia en su forma más pura.Un show cercano y distinto ",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13731,7 +13731,7 @@
       "cat": "food",
       "emoji": "🍽️",
       "desc": "\"Totos Juntos\", Toto Acuña en vivo en Casa Olivo Restaurante, Casa Olivo Restaurante - Julio Lezaeta Silva, Olivar, Chile, 24/10/2026",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13759,7 +13759,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "En el mes de la celebración de sus 55 años de trayectoria, Illapu regresa a Antofagasta con su nueva Gira que recorrerá el país con un espectáculo cargado de emoción, memoria y reencuentro. “Historia Viva” no es solo un concierto; es un recorrido por las canciones que han acompañado generaciones, un",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13789,7 +13789,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaMiércoles 28 de octubre de 2026, 19:30 horas.Grandes invitados: Orquesta Clásica Universidad de Santiago de Chile Director: Nicolás RaussPrograma:Parte I:",
-      "date": "Mie 28 de octubre",
+      "date": "Mié 28 de octubre",
       "dateMs": 1793188800000,
       "month": 9,
       "days": [
@@ -13819,7 +13819,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "BORIS BILBRAUT ★ SÁBADO 24 OCTUBRE ★ Club Subterráneo, Orrego Luco 46, Providencia, Chile, 24/10/2026",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13849,7 +13849,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "ANIVERSARIO 10 AÑOS SELVA - LA MAGIA ES DE SELVA - 17 DE OCTUBRE - 22:00 SPOT FREEDOM, Avenida Recoleta 345, Recoleta, Chile, 17/10/2026",
-      "date": "Sab 17 de octubre",
+      "date": "Sáb 17 de octubre",
       "dateMs": 1792238400000,
       "month": 9,
       "days": [
@@ -13879,7 +13879,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "¡ANTOFAGASTA, PREPÁRATE PARA VIAJAR EN EL TIEMPO! 🚀💥¿Te acuerdas de la época en la que fuimos extremadamente felices? Cuando la música se sentía en el pecho y las noches eran eternas... ¡Porque recordar es volver a vivir, Locosxlos90s llega para demostrar por qué es la fiesta más increíble de todo",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13909,7 +13909,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "VVV [Trippin’ you] , Matucana 100, Santiago, Estación Central, Santiago, Chile, 28/10/2026",
-      "date": "Mie 28 de octubre",
+      "date": "Mié 28 de octubre",
       "dateMs": 1793188800000,
       "month": 9,
       "days": [
@@ -13939,7 +13939,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Dionne Warwick, Enjoy Santiago - Hotel del Valle - Autopista los Libertadores, Los Andes, Rinconada, Chile, 24/10/2026",
-      "date": "Sab 24 de octubre",
+      "date": "Sáb 24 de octubre",
       "dateMs": 1792843200000,
       "month": 9,
       "days": [
@@ -13967,7 +13967,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "ToyCon Chile 2026, Centro Cultural Estación Mapocho - Avenida Presidente Balmaceda, Santiago, Chile, 31/10/2026",
-      "date": "Sab 31 de octubre",
+      "date": "Sáb 31 de octubre",
       "dateMs": 1793448000000,
       "month": 9,
       "days": [
@@ -14027,7 +14027,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "🎭 STRAUSS 200: EL REY DEL VALS ✨🔥 ¡Por éxito total de ventas y a petición del público, vuelve el espectáculo más esperado del año!Una celebración extraordinaria de los 200 años de Johann Strauss, el compositor que transformó el vals en un símbolo universal de elegancia, romance y sofisticación.🎼 ",
-      "date": "Sab 31 de octubre",
+      "date": "Sáb 31 de octubre",
       "dateMs": 1793448000000,
       "month": 9,
       "days": [
@@ -14117,7 +14117,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Retrospectiva Tryo teatro banda (Pedro de Valdivia), Morandé 25, Santiago, Chile, 04/11/2026",
-      "date": "Mie 4 de noviembre",
+      "date": "Mié 4 de noviembre",
       "dateMs": 1793793600000,
       "month": 10,
       "days": [
@@ -14147,7 +14147,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Expo Vive Manualidades 2026, Avenida Pedro de Valdivia 164, Providencia, Chile, 07/11/2026",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14177,7 +14177,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Red Bull Los Andes, Nido de Cóndores, Lo Barnechea, Chile, 07/11/2026",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14207,7 +14207,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaII Ciclo de Música de Cámara - Concierto N°6Miércoles 4 de noviembre de 2026 / 19:30 horas. Música para dos pianos, bronces y percusiónUna poética desde e",
-      "date": "Mie 4 de noviembre",
+      "date": "Mié 4 de noviembre",
       "dateMs": 1793793600000,
       "month": 10,
       "days": [
@@ -14267,7 +14267,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "PRIMERIZAS EN ENJOY VIÑA, Casino de Viña del Mar - Avenida San Martín, Viña del Mar, Chile, 07/11/2026",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14355,7 +14355,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "THE WEEKEND TANGO CHILE 2026, Av. Las Condes 8361, Las Condes, Chile, 07/11/2026",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14385,7 +14385,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "La casa de Bernarda Alba , Morandé 25, Santiago, Chile, 28/10/2026",
-      "date": "Mie 28 de octubre",
+      "date": "Mié 28 de octubre",
       "dateMs": 1793188800000,
       "month": 9,
       "days": [
@@ -14415,7 +14415,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaConcierto especial: Orquesta Comunitaria Metropolitana de Chile - Orquesta Sinfónica Nacional de ChileSide by Side: OCOM - OSNCHSábado 7 de noviembre / 19",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14445,7 +14445,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "* Toda persona debe cancelar su ingreso(menores hasta 10 años entran gratis, acreditando edad con CI)** Acceso al recinto hasta a las 20:00 hrs",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14475,7 +14475,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Top Marques 2026, by Cars & Coffee Chile, Club De Golf Mapocho - Autopista Costanera Norte salida 32, el parque, Pudahuel, Chile, 07/11/2026",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14505,7 +14505,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Teatro Nacional chilenoFunciones de miércoles a sábado19.30 horasTeatro Nacional Chileno, sala Antonio Varas (Morandé #25, Santiago, Metro U. de Chile)$10.000 Entrada general|$5.000 Estudiantes y tercera edad|$3500 Estudiantes y funcionarios UChile (Presentando TUI)*|$4000 Personas con discapacidad ",
-      "date": "Mie 11 de noviembre",
+      "date": "Mié 11 de noviembre",
       "dateMs": 1794398400000,
       "month": 10,
       "days": [
@@ -14535,7 +14535,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Políticas de sala1. Las entradas adquiridas son de exclusiva responsabilidad de la persona que efectúa la compra. En caso de mal uso, se exime de total responsabilidad a Fundación Teatro del Lago.2. Las puertas de Teatro del Lago abrirán 45 minutos antes del inicio del espectáculo.3. Una vez iniciad",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14565,7 +14565,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Ill Niño + (hed) p.e + Primer 55 + Drift Mothership, San Diego 246, Santiago, Chile, 11/11/2026",
-      "date": "Mie 11 de noviembre",
+      "date": "Mié 11 de noviembre",
       "dateMs": 1794398400000,
       "month": 10,
       "days": [
@@ -14595,7 +14595,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Centro de Extensión Artística y Cultural Universidad de ChileGran Sala Sinfónica NacionalAv. Vicuña Mackenna 20, Providencia, Región MetropolitanaMiércoles 11 de noviembre 2026 / 19:30 horas.Grandes Invitados: Orquesta de Cámara de Valdivia / Filigrana de tiempos remotosDirector: Rodolfo FischerProg",
-      "date": "Mie 11 de noviembre",
+      "date": "Mié 11 de noviembre",
       "dateMs": 1794398400000,
       "month": 10,
       "days": [
@@ -14625,7 +14625,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "En este concierto, la Camerata Uandes presenta uno de los ciclos más emblemáticos de la historia de la música: Las cuatro estaciones de Antonio Vivaldi. Este conjunto de conciertos para violín y orquesta de cuerdas será interpretado por la destacada violinista chilena Nazaret Beroiza, integrante de ",
-      "date": "Mie 11 de noviembre",
+      "date": "Mié 11 de noviembre",
       "dateMs": 1794398400000,
       "month": 10,
       "days": [
@@ -14655,7 +14655,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Carlos Cabezas \"Lanzamiento Mil Cabezas en vivo\", Fundación CorpArtes - Rosario Norte 660, Las Condes, Chile, 07/11/2026",
-      "date": "Sab 7 de noviembre",
+      "date": "Sáb 7 de noviembre",
       "dateMs": 1794052800000,
       "month": 10,
       "days": [
@@ -14773,7 +14773,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Teatro Nacional chilenoFunciones de miércoles a sábado19.30 horasTeatro Nacional Chileno, sala Antonio Varas (Morandé #25, Santiago, Metro U. de Chile)$10.000 Entrada general|$5.000 Estudiantes y tercera edad|$3500 Estudiantes y funcionarios UChile (Presentando TUI)*|$4000 Personas con discapacidad ",
-      "date": "Mie 18 de noviembre",
+      "date": "Mié 18 de noviembre",
       "dateMs": 1795003200000,
       "month": 10,
       "days": [
@@ -14833,7 +14833,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Kenny Garrett Band \"Sounds From the Ancestors\", Fundación CorpArtes - Rosario Norte, Las Condes, Chile, 18/11/2026",
-      "date": "Mie 18 de noviembre",
+      "date": "Mié 18 de noviembre",
       "dateMs": 1795003200000,
       "month": 10,
       "days": [
@@ -15159,7 +15159,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Catalina y Las Bordonas de Oro: La alegría de los que lloran, Teatro Biobío, Concepción, Chile, 21/11/2026",
-      "date": "Sab 21 de noviembre",
+      "date": "Sáb 21 de noviembre",
       "dateMs": 1795262400000,
       "month": 10,
       "days": [
@@ -15219,7 +15219,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "🔥 OFF PAES FESTIVAL 2026 🔥, Seúl 426, Recoleta, Región Metropolitana, Chile, 02/12/2026",
-      "date": "Mie 2 de diciembre",
+      "date": "Mié 2 de diciembre",
       "dateMs": 1796212800000,
       "month": 11,
       "days": [
@@ -15249,7 +15249,7 @@
       "cat": "sport",
       "emoji": "⚽",
       "desc": "Coolbet SCL Fight Night II, Avenida Grecia 2001, Ñuñoa, Chile, 21/11/2026",
-      "date": "Sab 21 de noviembre",
+      "date": "Sáb 21 de noviembre",
       "dateMs": 1795262400000,
       "month": 10,
       "days": [
@@ -15309,7 +15309,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "La estrella del Festival Patagonia 2026 es una joven trompetista francesa, que ha tenido una ascensión estelar en los últimos años.En dúo con el acordeonista Félicien Brut, Lucienne Renaudin Vary compartirá un concierto de grandes hitos de la música clásica, del jazz y de la música francesa. Por pri",
-      "date": "Sab 14 de noviembre",
+      "date": "Sáb 14 de noviembre",
       "dateMs": 1794657600000,
       "month": 10,
       "days": [
@@ -15339,7 +15339,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "LUNATICA PRESENTA: TOMANEVENTO EXCLUSIVO PARA HOMBRES MAYORES DE 25 AÑOS Y MUJERES MAYORES DE 23 AÑOS.NOS RESERVAMOS EL DERECHO DE ADMISIÓN.* DEVOLUCIÓN DE ENTRADA CON PLAZO MÁXIMO 48HRS ANTES DEL INICIO DEL EVENTO *",
-      "date": "Sab 5 de diciembre",
+      "date": "Sáb 5 de diciembre",
       "dateMs": 1796472000000,
       "month": 11,
       "days": [
@@ -15369,7 +15369,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Francisca Valenzuela Iquique, Hotel Cavancha, Tarapacá, Iquique, Chile, 05/12/2026",
-      "date": "Sab 5 de diciembre",
+      "date": "Sáb 5 de diciembre",
       "dateMs": 1796472000000,
       "month": 11,
       "days": [
@@ -15427,7 +15427,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "EL CASCANUECESEl ballet clásico más querido del mundo llega al Teatro CA660 en una gran producción junto a Danza Italo Jorquera y la Orquesta Filodramática de Chile, que interpretará en vivo la inolvidable música de Piotr Ilich Tchaikovski.Acompaña a Clara en un viaje extraordinario donde los sueños",
-      "date": "Mie 16 de diciembre",
+      "date": "Mié 16 de diciembre",
       "dateMs": 1797422400000,
       "month": 11,
       "days": [
@@ -15487,7 +15487,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "CHIQUI AGUAYO EN ENJOY VIÑA, Hotel del Mar - Enjoy - Avenida San Martín, Viña del Mar, Chile, 16/01/2027",
-      "date": "Sab 16 de enero",
+      "date": "Sáb 16 de enero",
       "dateMs": 1800100800000,
       "month": 0,
       "days": [
@@ -15635,7 +15635,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Fernando Ubiergo - Enjoy Chiloé, Enjoy Chiloé. Hotel De La Isla - Ruta 5, Castro, Chile, 05/12/2026",
-      "date": "Sab 5 de diciembre",
+      "date": "Sáb 5 de diciembre",
       "dateMs": 1796472000000,
       "month": 11,
       "days": [
@@ -15665,7 +15665,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Nektar Machine - Hecho en Biobío '26, Teatro Biobío, Concepción, Chile, 14/11/2026",
-      "date": "Sab 14 de noviembre",
+      "date": "Sáb 14 de noviembre",
       "dateMs": 1794657600000,
       "month": 10,
       "days": [
@@ -15695,7 +15695,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Silksong: En concierto , Arturo Prat 33, Santiago, Chile, 30/01/2027",
-      "date": "Sab 30 de enero",
+      "date": "Sáb 30 de enero",
       "dateMs": 1801310400000,
       "month": 0,
       "days": [
@@ -15725,7 +15725,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Canción Nacional Vol. 1, Parque La Araucana - Walker Martínez, La Florida, Chile, 03/04/2027",
-      "date": "Sab 3 de abril",
+      "date": "Sáb 3 de abril",
       "dateMs": 1806753600000,
       "month": 3,
       "days": [
@@ -15785,7 +15785,7 @@
       "cat": "music",
       "emoji": "🎵",
       "desc": "Surfestival Pichilemu 2027, Pichilemu, Chile, 13/02/2027",
-      "date": "Sab 13 de febrero",
+      "date": "Sáb 13 de febrero",
       "dateMs": 1802520000000,
       "month": 1,
       "days": [
@@ -15813,7 +15813,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "La Fiesta de la Lana, Av. Libertador Bernardo O'Higgins 227, Santiago, Chile, 29/05/2027",
-      "date": "Sab 29 de mayo",
+      "date": "Sáb 29 de mayo",
       "dateMs": 1811592000000,
       "month": 4,
       "days": [
@@ -15843,7 +15843,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "PRIMERIZAS en Enjoy Coquimbo, Peñuelas Norte 56, Coquimbo, Chile, 23/01/2027",
-      "date": "Sab 23 de enero",
+      "date": "Sáb 23 de enero",
       "dateMs": 1800705600000,
       "month": 0,
       "days": [
@@ -15963,7 +15963,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Este SÁBADO 28 de noviembre ♫ Maiden United 1980 ft. Dennis StrattonLugar: Club SubterráneoFecha: Sábado 28 de noviembre Horarios: Apertura bar 18:00 hrs. / Apertura sala 19:00 hrs.Dirección: Paseo Orrego Luco 46, Providencia.🚘 CABIFY 40% OFFEn 2 viajes tope $3.000 para usuarios nuevos y recurrente",
-      "date": "Sab 28 de noviembre",
+      "date": "Sáb 28 de noviembre",
       "dateMs": 1795867200000,
       "month": 10,
       "days": [
@@ -16023,7 +16023,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "",
-      "date": "Sab 5 de septiembre 10:15",
+      "date": "Sáb 5 de septiembre 10:15",
       "dateMs": 1788603300000,
       "month": 8,
       "days": [
@@ -16053,7 +16053,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "",
-      "date": "Sab 5 de septiembre 13:00",
+      "date": "Sáb 5 de septiembre 13:00",
       "dateMs": 1788613200000,
       "month": 8,
       "days": [
@@ -16113,7 +16113,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "",
-      "date": "Mie 28 de octubre 08:30",
+      "date": "Mié 28 de octubre 08:30",
       "dateMs": 1793176200000,
       "month": 9,
       "days": [
@@ -16173,7 +16173,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "",
-      "date": "Mie 9 de septiembre 10:15",
+      "date": "Mié 9 de septiembre 10:15",
       "dateMs": 1788948900000,
       "month": 8,
       "days": [
@@ -16263,7 +16263,7 @@
       "cat": "culture",
       "emoji": "🎭",
       "desc": "Tras el éxito de público y el reconocimiento de la crítica, la destacada producción dirigida por Álvaro Viguera y protagonizada por Roberto Farías volverá a los escenarios durante septiembre y octubre. Un prestamista ha muerto. Tres sospechosos son citados a declarar: un panadero, un marqués, un financista. Tres hombres atrapados bajo el implacable interrogatorio de un inspector que no da tregua, ",
-      "date": "Sab 5 de septiembre 20:00",
+      "date": "Sáb 5 de septiembre 20:00",
       "dateMs": 1788638400000,
       "month": 8,
       "days": [
@@ -16473,7 +16473,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Paulina Bunster. Semestral, inicio 5 de agosto. Desarrollar en los alumnos habilidades técnicas para la elaboración de objetos cerámicos mediante el aprendizaje progresivo de técnicas de modelado y construcción, fomentando la creatividad, la observación y la exploración personal a lo largo de todo el proceso.",
-      "date": "Mie 9 de septiembre 10:00",
+      "date": "Mié 9 de septiembre 10:00",
       "dateMs": 1788948000000,
       "month": 8,
       "days": [
@@ -16533,7 +16533,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Felipe Gamboa. 12 sesiones, pago trimestral, inicio 5 de agosto. Este taller está dirigido a personas interesadas en la fotografía como medio de expresión visual, sin necesidad de experiencia previa. El enfoque es teórico-práctico, combinando conceptos técnicos con una muestra colectiva con los trabajos seleccionados por los/as estudiantes",
-      "date": "Mie 9 de septiembre 19:30",
+      "date": "Mié 9 de septiembre 19:30",
       "dateMs": 1788982200000,
       "month": 8,
       "days": [
@@ -16563,7 +16563,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Felipe Gamboa. 12 sesiones, pago trimestral, inicio 5 de agosto. Este taller de segundo nivel está dirigido a personas que ya dominan los fundamentos técnicos de la fotografía y desean profundizar en la mirada autoral, la estética visual, la edición digital y la construcción de un proyecto fotográfico personal.",
-      "date": "Mie 9 de septiembre 19:30",
+      "date": "Mié 9 de septiembre 19:30",
       "dateMs": 1788982200000,
       "month": 8,
       "days": [
@@ -16593,7 +16593,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Tu Kaledoscopio Talleres. 12 sesiones, pago trimestral, inicio 8 de agosto. Promover el desarrollo integral de la creatividad y la expresión personal a través de la ilustración y el dibujo, fortaleciendo la observación, la imaginación, la autonomía, el trabajo cooperativo y la relación entre la palabra y la imagen.",
-      "date": "Sab 5 de septiembre 11:00",
+      "date": "Sáb 5 de septiembre 11:00",
       "dateMs": 1788606000000,
       "month": 8,
       "days": [
@@ -16713,7 +16713,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Claudia Raineri Zaccarelli. 16 sesiones, pago semestral, inicio 5 de agosto. Este es un taller en el que las alumnas desarrollan diversos proyectos, aplicando pátinas en madera y en distintos soportes. Su lema es crear, recuperar y dar una nueva vida a los objetos, promoviendo la reutilización y la expresión creativa.",
-      "date": "Mie 9 de septiembre 15:30",
+      "date": "Mié 9 de septiembre 15:30",
       "dateMs": 1788967800000,
       "month": 8,
       "days": [
@@ -16743,7 +16743,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Francisca Illanes. 16 sesiones, pago semestral, inicio 5 de agosto. Este curso está destinado a personas con o sin conocimientos artísticos,para sensibilizar sus capacidades instintivas de percepción en cuanto a luz, forma y color, para enseñar a ver, mirar y a ser capaz de representar en la tela un bodegón o un paisaje. En este taller se trabaja a partir de la fotografía del paisaje. Ad",
-      "date": "Mie 9 de septiembre 18:00",
+      "date": "Mié 9 de septiembre 18:00",
       "dateMs": 1788976800000,
       "month": 8,
       "days": [
@@ -16863,7 +16863,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Carolina Campos. 2 sesiones,5 y 12 de septiembre. La Cueca es nuestro baile nacional y en época de Fiestas Patrias se hace indispensable saberla y poder bailarla, para disfrutar tanto en fondas o en celebraciones familiares. El valor es por persona, debe venir con pareja. Traer pañuelo.",
-      "date": "Sab 12 de septiembre 18:00",
+      "date": "Sáb 12 de septiembre 18:00",
       "dateMs": 1789236000000,
       "month": 8,
       "days": [
@@ -16893,7 +16893,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Carolina Campos. 5 y 12 septiembre, 2 sesiones. La Cueca es nuestro baile nacional y en época de Fiestas Patrias se hace indispensable saberla y poder bailarla, para disfrutar tanto en fondas o en celebraciones familiares.El valor es por persona (individual) , se debe venir en pareja. Traer pañuelo.",
-      "date": "Sab 5 de septiembre 15:30",
+      "date": "Sáb 5 de septiembre 15:30",
       "dateMs": 1788622200000,
       "month": 8,
       "days": [
@@ -16923,7 +16923,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Jorge Rojo. 3 sesiones, pago mensual, inicio 5 de septiembre. Aunque en apariencia se le considera como un arte de defensa personal, el Aikido puede ser la paz interior. Se trata de un conjunto de técnicas con connotaciones filosóficas, una práctica del cuerpo y del espíritu basada en las antiguas Artes Marciales japonesas.",
-      "date": "Sab 5 de septiembre 11:30",
+      "date": "Sáb 5 de septiembre 11:30",
       "dateMs": 1788607800000,
       "month": 8,
       "days": [
@@ -16953,7 +16953,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Jorge Rojo. 3 sesiones, pago mensual, inicio 5 de septiembre. Aunque en apariencia se le considera como un arte de defensa personal, el Aikido puede ser la paz interior. Se trata de un conjunto de técnicas con connotaciones filosóficas, una práctica del cuerpo y del espíritu basada en las antiguas Artes Marciales japonesas.",
-      "date": "Sab 5 de septiembre 10:15",
+      "date": "Sáb 5 de septiembre 10:15",
       "dateMs": 1788603300000,
       "month": 8,
       "days": [
@@ -17133,7 +17133,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Andrea Puig. 8 sesiones, pago mensual. Inicio: 1 de septiembre. Desarrollar la calidad danzante de las alumnas, suavidad en los movimientos, la plasticidad, la coordinación, el estudio de combinaciones fáciles de ejecutar y desarrollo de habilidades psicomotoras. OBSERVACIÓN PARA ESTUDIANTES NUEVAS, CONSULTAR, la disponibilidad de cupos, con apuigavalos@gmail.com .La página está habilita",
-      "date": "Mie 9 de septiembre 16:00",
+      "date": "Mié 9 de septiembre 16:00",
       "dateMs": 1788969600000,
       "month": 8,
       "days": [
@@ -17403,7 +17403,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: K- POP Chile Studio Dance. 4 sesiones, pago mensual, inicio 2 de septiembre. • Fundamentos de la danza desde el K-POP: técnica, estilo y expresión corporal. • Coreografías inspiradas en artistas y grupos actuales del género. • Coordinación, musicalidad y trabajo en equipo. • Presencia escénica y confianza al presentarse frente al público. • Herramientas para mejorar tu condición física y",
-      "date": "Mie 9 de septiembre 18:00",
+      "date": "Mié 9 de septiembre 18:00",
       "dateMs": 1788976800000,
       "month": 8,
       "days": [
@@ -17673,7 +17673,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Natalia Schonffeldt. 8 sesiones, pago mensual, inicio 2 de septiembre. Consiste en un sistema de ejercicios físicos tan elegantes como efectivos, que enfatizan el desarrollo equilibrado del cuerpo, basándose en la fuerza del centro y la flexibilidad, a través de movimientos eficientes y estéticos que requieren de una máxima concentración. Para su desarrollo se utilizan accesorios que anu",
-      "date": "Mie 9 de septiembre 12:00",
+      "date": "Mié 9 de septiembre 12:00",
       "dateMs": 1788955200000,
       "month": 8,
       "days": [
@@ -17733,7 +17733,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Andrea Puig. 4 sesiones, pago mensual, inicio 2 de septiembre. Desarrollar la calidad danzante de las alumnas, suavidad en los movimientos, la plasticidad, la coordinación, el estudio de combinaciones fáciles de ejecutar y desarrollo de habilidades psicomotoras. OBSERVACIÓN PARA ESTUDIANTES NUEVAS, CONSULTAR, la disponibilidad de cupos, con apuigavalos@gmail.com. La página está habilitad",
-      "date": "Mie 9 de septiembre 15:00",
+      "date": "Mié 9 de septiembre 15:00",
       "dateMs": 1788966000000,
       "month": 8,
       "days": [
@@ -17853,7 +17853,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Luis Mauro Díaz. 8 sesiones, pago mensual, inicio 2 de septiembre. A través de la práctica de Taekwondo, al realizar distintos tipos de ejercicios, en el aspecto físico su objetivo es mejorar fuerza, flexibilidad, equilibrio, coordinación motriz, y resistencia entre otros. En el aspecto desarrollo personal y social mejorar la confianza, autoestima, concentración, disciplina y principalme",
-      "date": "Mie 9 de septiembre 17:45",
+      "date": "Mié 9 de septiembre 17:45",
       "dateMs": 1788975900000,
       "month": 8,
       "days": [
@@ -18123,7 +18123,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Tu Kaleidoscopio Talleres. 12 sesiones, pago trimestral, inicio 8 de agosto. Iniciación a la electrónica básica, reconocimiento de componentes (resistencias, LEDs,sensores, motores). Introducción a la placa Arduino, comprendiendo su función como cerebro del sistema. Uso y programación de sensores de luz y otros sensores básicos, permitiendo que los estudiantes comprendan cómo los disposi",
-      "date": "Sab 5 de septiembre 11:00",
+      "date": "Sáb 5 de septiembre 11:00",
       "dateMs": 1788606000000,
       "month": 8,
       "days": [
@@ -18153,7 +18153,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Paula Salas. 5 de septiembre. El objetivo principal del taller es fomentar la creación de audiencias para las artes visuales. Para ello, se inicia con una visita guiada a una de las exposiciones presentes en el Centro Cultural, en la cual los participantes podrán observar las obras expuestas, interactuar con ellas, reflexionar sobre los diferentes lenguajes plásticos, estilos y técnicas ",
-      "date": "Sab 5 de septiembre 10:45",
+      "date": "Sáb 5 de septiembre 10:45",
       "dateMs": 1788605100000,
       "month": 8,
       "days": [
@@ -18213,7 +18213,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Rosaura Fernández. 12 sesiones, pago trimestral, inicio 5 de agosto. El evento astrológico más relevante del año2 026, ocurrido en el mes de febrero, corresponde a la unión de dos gigantes del cielo: Neptuno y Saturno. Esta conjunción marca un antes y un después a nivel planetario. La última vez que ocurrió un fenómeno similar coincidió, entre otros hechos, con la caída del Muro de Berlí",
-      "date": "Mie 9 de septiembre 19:30",
+      "date": "Mié 9 de septiembre 19:30",
       "dateMs": 1788982200000,
       "month": 8,
       "days": [
@@ -18243,7 +18243,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Constanza Aguirre. Inicio: 5 de agosto 15 sesiones. Entregar una visión general del juego, que les permitirá evaluar su interés en continuar con el aprendizaje de este maravilloso juego – ciencia. El taller se realizará en Santa Rosa de Apoquindo (Avenida Padre Hurtado Sur 1195, Las Condes).",
-      "date": "Mie 9 de septiembre 15:00",
+      "date": "Mié 9 de septiembre 15:00",
       "dateMs": 1788966000000,
       "month": 8,
       "days": [
@@ -18303,7 +18303,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: María Constanza Aguirre. 15 sesiones, pago semestral, inicio 5 de agosto. Entregar una visión general del juego, que les permitirá evaluar su interés en continuar con el aprendizaje de este maravilloso juego – ciencia. El taller se realizará en Santa Rosa de Apoquindo (Avenida Padre Hurtado Sur 1195, Las Condes).",
-      "date": "Mie 9 de septiembre 17:30",
+      "date": "Mié 9 de septiembre 17:30",
       "dateMs": 1788975000000,
       "month": 8,
       "days": [
@@ -18333,7 +18333,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Jane Crossley. 12 sesiones, inicio 5 de agosto. La vida puede entenderse como un regalo de gracia cuyo recorrido está atravesado por espontaneidad, esperanza, pena, fuerza, lucha, rendición, libertad, poder, alegría y amor. También incluye experiencias profundas, crudas y densas. Todo ello conforma el trayecto del alma.",
-      "date": "Mie 9 de septiembre 10:30",
+      "date": "Mié 9 de septiembre 10:30",
       "dateMs": 1788949800000,
       "month": 8,
       "days": [
@@ -18363,7 +18363,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Daniela Yáñez. 12 sesiones, pago trimestral, inicio 5 de agosto. El taller de inglés conversacional básico está dirigido a lograr que los participantes puedan mantener conversaciones sencillas con familiares, amigos y entorno, utilizando expresiones y vocabulario esencial sobre información personal, intereses, rutinas, comida, lugares, entre otros tópicos, en idioma inglés. Se utiliza un",
-      "date": "Mie 9 de septiembre 10:30",
+      "date": "Mié 9 de septiembre 10:30",
       "dateMs": 1788949800000,
       "month": 8,
       "days": [
@@ -18603,7 +18603,7 @@
       "cat": "workshop",
       "emoji": "🎓",
       "desc": "Profesor: Marcela Orrego. 12 sesiones, pago trimestral, inicio 8 de agosto. El Taller de Teatro para niños, niñas y jóvenes tiene como objetivo ofrecer un espacio de exploración artística, expresión emocional y creación colectiva a través del juego dramático. A partir de dinámicas lúdicas, ejercicios de imaginación, improvisación y montaje escénico, los participantes desarrollan habilidades comuni",
-      "date": "Sab 5 de septiembre 11:00",
+      "date": "Sáb 5 de septiembre 11:00",
       "dateMs": 1788606000000,
       "month": 8,
       "days": [

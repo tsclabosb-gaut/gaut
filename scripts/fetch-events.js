@@ -302,6 +302,36 @@ function correctIngestYear(ev) {
   return { ...ev, dateMs: d.getTime() };
 }
 
+// Claude tambien escribe a mano el nombre del dia de la semana dentro del
+// texto libre de "date" (ej. "Vie 29 de agosto"), y con frecuencia se
+// equivoca (29 de agosto 2026 es en realidad sabado). Solo se corrige el
+// caso de UN dia (days.length === 1 y un solo nombre de dia en el texto):
+// - dateMs no sirve para derivar el dia exacto — Claude tambien la calcula
+//   a mano y a veces queda desalineada del numero de dia que escribio en el
+//   texto (visto en produccion: texto "28 de agosto" con dateMs apuntando
+//   al 30). Por eso el dia/mes se toman de "days"/"month" (lo que de verdad
+//   dice el texto), y solo el AÑO se toma de dateMs (ese si es confiable,
+//   ya lo corrige correctIngestYear con el reloj real del servidor).
+// - Un rango ("8 de agosto a 13 de febrero") puede cruzar de mes y hasta de
+//   año, y "month" es un solo valor: no hay forma confiable de saber a que
+//   mes/año corresponde el segundo extremo, asi que los rangos con mas de
+//   un dia mencionado se dejan tal como los escribio Claude.
+const WEEKDAY_ABBR = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+// \b no sirve para el borde derecho: JS trata "é" como no-\w, así que "Mié"
+// (con tilde) nunca cierra un \b contra el espacio siguiente y el match se
+// pierde en silencio. Se usa lookbehind/lookahead explícitos en su lugar.
+const WEEKDAY_RE = /(?<![\p{L}])(Lun|Mar|Mi[ée]|Jue|Vie|S[áa]b|Dom)\.?(?=\s*\d)/giu;
+function fixWeekdayLabels(ev) {
+  if (ev.tipo === 'rest' || !ev.date || !ev.dateMs) return ev;
+  if (!Array.isArray(ev.days) || ev.days.length !== 1 || typeof ev.month !== 'number') return ev;
+  const matches = ev.date.match(WEEKDAY_RE);
+  if (!matches || matches.length !== 1) return ev;
+  const year = new Date(ev.dateMs).getFullYear();
+  const correctWd = WEEKDAY_ABBR[new Date(year, ev.month, ev.days[0]).getDay()];
+  const fixedDate = ev.date.replace(WEEKDAY_RE, correctWd);
+  return fixedDate === ev.date ? ev : { ...ev, date: fixedDate };
+}
+
 function mergeEvents(existing, incoming) {
   const byTitle = new Map();
   (existing.events || []).forEach(e => byTitle.set(normalize(e.title), e));
@@ -325,7 +355,7 @@ function mergeEvents(existing, incoming) {
     const urlKey = GENERIC_SOURCE_URLS.has(rawUrlKey) ? '' : rawUrlKey;
     if (byTitle.has(key)) { dupes++; return; }
     if (urlKey && byUrl.has(urlKey)) { dupes++; return; }
-    merged.push({ ...correctIngestYear(ev), id: nextId++, loadedAt: ev.loadedAt || TODAY });
+    merged.push({ ...fixWeekdayLabels(correctIngestYear(ev)), id: nextId++, loadedAt: ev.loadedAt || TODAY });
     byTitle.set(key, ev);
     if (urlKey) byUrl.set(urlKey, ev);
     added++;
