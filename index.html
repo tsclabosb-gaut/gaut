@@ -277,6 +277,29 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── FEED ── */
+/* ── ESPECIAL ESTACIONAL (banner + carrusel horizontal) ── */
+.special-section {
+  padding: 16px 16px 4px; --special-color: var(--terracotta);
+}
+.special-header {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 12px; padding-left: 2px;
+}
+.special-title {
+  font-size: 16px; font-weight: 800; letter-spacing: -0.2px; color: var(--special-color);
+  display: flex; align-items: center; gap: 8px;
+}
+.special-sub { font-size: 12.5px; color: var(--gray); }
+.special-strip {
+  display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px; scroll-snap-type: x proximity;
+}
+.special-strip .event-card { flex-shrink: 0; width: 220px; scroll-snap-align: start; }
+@media (min-width: 1024px) {
+  .special-section { max-width: 1200px; margin: 0 auto; padding: 20px 32px 4px; }
+  .special-strip .event-card { width: 250px; }
+}
+
 .feed-section { padding: 16px; }
 .section-label {
   font-size: 12px; font-weight: 700; text-transform: uppercase;
@@ -927,6 +950,17 @@ img { display: block; max-width: 100%; }
 <!-- PROPOSE BAR -->
 <!-- Floating propose button - bottom right -->
 
+<!-- ESPECIAL ESTACIONAL: cambia según la fecha (Fiestas Patrias, vacaciones de invierno, día
+     de la madre, navidad, etc. — ver SPECIALS en el script). Oculto si no hay ninguno activo
+     o si el especial activo no tiene eventos para la ciudad seleccionada. -->
+<div id="specialSection" class="special-section" style="display:none">
+  <div class="special-header">
+    <div class="special-title"><span id="specialEmoji"></span> <span id="specialLabel"></span></div>
+    <div class="special-sub" id="specialSub"></div>
+  </div>
+  <div class="special-strip hide-scroll" id="specialStrip"></div>
+</div>
+
 <!-- FEED -->
 <div class="feed-section feed-pad">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px">
@@ -1454,6 +1488,7 @@ async function loadEvents() {
     updateCityCounts();
     updateMoreFiltersBadge();
     renderEvents(filterLogic(allEvents));
+    renderSpecialSection();
 }
 
 async function isFav(eventId) {
@@ -1673,6 +1708,7 @@ _app.setCity = window.setCity = (city) => {
     updateCityCounts();
     if (_map && _mapActive) { _map.setCenter(CITIES[city].center); _map.setZoom(CITIES[city].zoom); }
     renderEvents(filterLogic(allEvents));
+    renderSpecialSection();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
@@ -1861,6 +1897,36 @@ function getCatClass(cat) { return {culture:'cat-culture',music:'cat-music',spor
 function getCatLabel(cat) { return {culture:'Cultura',music:'Música',sport:'Aire Libre',food:'Gastronomía',workshop:'Talleres'}[cat] || cat; }
 function getBadgeClass(cat) { return {culture:'badge-culture',music:'badge-music',sport:'badge-sport',food:'badge-food',workshop:'badge-workshop'}[cat] || 'badge-default'; }
 
+function eventCardHtml(ev) {
+    const eid = normalizeId(ev.id);
+    const price = ev.price === 0 ? 'GRATIS' : ev.price ? '$' + Number(ev.price).toLocaleString('es-CL') : 'Consultar';
+    const isFree = ev.price === 0;
+    const imgContent = ev.img
+        ? `<img src="${ev.img}" alt="${ev.title}" loading="lazy">`
+        : `<div class="card-img-placeholder">${ev.emoji || '🎉'}</div>`;
+    return `<div class="event-card" onclick="openEventPanel('${eid}')">
+        <div class="card-img-wrap">
+            ${imgContent}
+            <span class="card-badge ${getBadgeClass(ev.cat)}">${getCatLabel(ev.cat)}</span>
+            <button class="card-fav-btn" id="fav-card-${eid}" onclick="event.stopPropagation();quickFav('${eid}')">🤍</button>
+            <span class="card-price-tag${isFree ? ' free' : ''}">${price}</span>
+        </div>
+        <div class="card-body">
+            <div class="card-title">${ev.title}</div>
+            <div class="card-venue">📍 ${ev.venue}${locationLabel(ev) ? ', ' + escapeHtml(locationLabel(ev)) : ''}</div>
+            <div class="card-date">${ev.date}</div>
+            <div class="card-footer">
+                <div class="card-tags">
+                    ${ev.kid ? '<span class="card-tag">👶</span>' : ''}
+                    ${ev.pet ? '<span class="card-tag">🐕</span>' : ''}
+                    ${ev.acc ? '<span class="card-tag">♿</span>' : ''}
+                </div>
+                <button class="card-share-btn" onclick="event.stopPropagation();shareEventById('${eid}')">⤴️</button>
+            </div>
+        </div>
+    </div>`;
+}
+
 async function renderEvents(events) {
     const grid = gid('eventsGrid');
     if (!grid) return;
@@ -1868,37 +1934,71 @@ async function renderEvents(events) {
         grid.innerHTML = '<div class="empty-state"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No se encontraron eventos</p></div>';
         return;
     }
-    grid.innerHTML = events.map(ev => {
-        const eid = normalizeId(ev.id);
-        const price = ev.price === 0 ? 'GRATIS' : ev.price ? '$' + Number(ev.price).toLocaleString('es-CL') : 'Consultar';
-        const isFree = ev.price === 0;
-        const imgContent = ev.img
-            ? `<img src="${ev.img}" alt="${ev.title}" loading="lazy">`
-            : `<div class="card-img-placeholder">${ev.emoji || '🎉'}</div>`;
-        return `<div class="event-card" onclick="openEventPanel('${eid}')">
-            <div class="card-img-wrap">
-                ${imgContent}
-                <span class="card-badge ${getBadgeClass(ev.cat)}">${getCatLabel(ev.cat)}</span>
-                <button class="card-fav-btn" id="fav-card-${eid}" onclick="event.stopPropagation();quickFav('${eid}')">🤍</button>
-                <span class="card-price-tag${isFree ? ' free' : ''}">${price}</span>
-            </div>
-            <div class="card-body">
-                <div class="card-title">${ev.title}</div>
-                <div class="card-venue">📍 ${ev.venue}${locationLabel(ev) ? ', ' + escapeHtml(locationLabel(ev)) : ''}</div>
-                <div class="card-date">${ev.date}</div>
-                <div class="card-footer">
-                    <div class="card-tags">
-                        ${ev.kid ? '<span class="card-tag">👶</span>' : ''}
-                        ${ev.pet ? '<span class="card-tag">🐕</span>' : ''}
-                        ${ev.acc ? '<span class="card-tag">♿</span>' : ''}
-                    </div>
-                    <button class="card-share-btn" onclick="event.stopPropagation();shareEventById('${eid}')">⤴️</button>
-                </div>
-            </div>
-        </div>`;
-    }).join('');
+    grid.innerHTML = events.map(eventCardHtml).join('');
     if (currentUser) refreshCardFavs(events);
     if (_mapActive && window._updateMapMarkers) window._updateMapMarkers(events);
+}
+
+// ── Especiales estacionales (banner + carrusel arriba del feed) ──────────
+// Cada especial se activa solo por ventana de fecha (mes/día, sin año — se
+// evalúa contra el año actual cada vez, así que "vuelve" cada temporada sin
+// tocar código). Para agregar uno nuevo basta con sumar una entrada acá.
+const SPECIALS = [
+    {
+        id: 'chilenidad', emoji: '🇨🇱', label: 'Especial Chilenidad',
+        sub: 'Fondas, asados y todo lo relacionado a Fiestas Patrias', color: '#C8102E',
+        start: [9, 1], end: [9, 20],
+        keywords: ['fiestas patrias', 'dieciocho', 'fonda', 'ramada', 'chilenidad',
+            'empanada', 'anticucho', 'asado', 'cueca', 'dieciochera', 'dieciochero', 'chilenazo'],
+    },
+    {
+        id: 'invierno', emoji: '❄️', label: 'Especial Vacaciones de Invierno',
+        sub: 'Panoramas para niños durante las vacaciones', color: '#3949AB',
+        start: [7, 10], end: [7, 27],
+        keywords: ['vacaciones de invierno', 'vacaciones'],
+    },
+    {
+        id: 'madre', emoji: '💐', label: 'Especial Día de la Madre',
+        sub: 'Panoramas para celebrar a mamá', color: '#D81B60',
+        start: [5, 1], end: [5, 12],
+        keywords: ['día de la madre', 'dia de la madre', 'para mamá', 'para mama'],
+    },
+    {
+        id: 'navidad', emoji: '🎄', label: 'Especial Navidad',
+        sub: 'Ferias, mercados y panoramas navideños', color: '#2E7D32',
+        start: [12, 1], end: [12, 25],
+        keywords: ['navidad', 'papá noel', 'papa noel', 'árbol de navidad', 'feria navideña', 'mercado navideño'],
+    },
+];
+function getActiveSpecial(now = new Date()) {
+    const cur = (now.getMonth() + 1) * 100 + now.getDate();
+    return SPECIALS.find(s => cur >= s.start[0] * 100 + s.start[1] && cur <= s.end[0] * 100 + s.end[1]) || null;
+}
+// "asado" con un include() simple hace match adentro de "pasado"; se necesita
+// un limite real de palabra en los dos extremos de la frase. \b de JS no
+// sirve porque trata letras con tilde como no-\w (mismo problema que en
+// fixWeekdayLabels de fetch-events.js), asi que se usa lookbehind/lookahead
+// unicode-aware en su lugar.
+function hasKeyword(text, kw) {
+    const esc = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(?<![\\p{L}\\p{N}])${esc}(?![\\p{L}\\p{N}])`, 'iu').test(text);
+}
+function specialMatches(ev, special) {
+    const hay = (ev.title || '') + ' ' + (ev.desc || '') + ' ' + (ev.tags || []).join(' ') + ' ' + (ev.venue || '');
+    return special.keywords.some(k => hasKeyword(hay, k));
+}
+function renderSpecialSection() {
+    const wrap = gid('specialSection');
+    if (!wrap) return;
+    const special = getActiveSpecial();
+    const matches = special ? allEvents.filter(ev => cityOf(ev) === activeCity && specialMatches(ev, special)) : [];
+    if (!special || !matches.length) { wrap.style.display = 'none'; return; }
+    wrap.style.display = 'block';
+    wrap.style.setProperty('--special-color', special.color);
+    gid('specialEmoji').textContent = special.emoji;
+    gid('specialLabel').textContent = special.label;
+    gid('specialSub').textContent = special.sub;
+    gid('specialStrip').innerHTML = matches.slice(0, 20).map(eventCardHtml).join('');
 }
 
 async function refreshCardFavs(events) {
